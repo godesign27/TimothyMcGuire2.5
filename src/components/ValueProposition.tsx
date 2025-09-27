@@ -9,8 +9,7 @@ const ValueProposition: React.FC = () => {
             Big Ideas. One Designer. <span className="text-purple-700 dark:text-purple-400">Better Outcomes</span>.
           </h2>
           <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
-            Discover why partnering with a boutique digital studio gives you the agility, 
-            creativity, and focus that big firms can't deliver.
+            Work directly with a seasoned UX strategist who brings over 15 years of experience delivering clarity, creativity, and results that large teams often can't match.
           </p>
         </div>
 
