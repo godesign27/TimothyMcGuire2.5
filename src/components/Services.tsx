@@ -28,7 +28,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
               Designing Exceptional Experiences.
             </h1>
             <p className="text-xl text-gray-800 dark:text-gray-200 max-w-3xl">
-              At GO Design, we bring clarity and simplicity to complexity. Our suite of 
+              I bring clarity and simplicity to complexity. My suite of 
               Experience Design services combines deep expertise with human-centered 
               design principles to help businesses innovate, connect with users and grow 
               their audiences.
@@ -71,7 +71,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
               </div>
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Experience Research</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
-                Discover insights that matter. We combine heuristic evaluations, user personas, and 
+                Discover insights that matter. I combine heuristic evaluations, user personas, and 
                 competitive analysis to understand your audience and refine your product for peak 
                 usability.
               </p>
@@ -91,7 +91,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
               </div>
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Brand & Identity Design</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
-                Develop a strong, cohesive brand identity that resonates with your audience. We create 
+                Develop a strong, cohesive brand identity that resonates with your audience. I create 
                 comprehensive brand systems that stand out in today's digital landscape.
               </p>
               <ul className="space-y-2 text-gray-600 dark:text-gray-300">
@@ -170,28 +170,28 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
       {/* Process Section */}
       <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">Our Process</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">My Process</h2>
           <div className="space-y-12">
             {[
               {
                 step: "01",
                 title: "Discovery & Strategy",
-                description: "We start by understanding your business, goals, and target audience to create a strategic foundation for your project."
+                description: "I start by understanding your business, goals, and target audience to create a strategic foundation for your project."
               },
               {
                 step: "02",
                 title: "Design & Prototyping",
-                description: "Our designers create beautiful, functional layouts that align with your brand and optimize for your goals."
+                description: "I create beautiful, functional layouts that align with your brand and optimize for your goals."
               },
               {
                 step: "03",
                 title: "Development & Testing",
-                description: "We build your solution using modern technologies, ensuring it's fast, secure, and works flawlessly across all devices."
+                description: "I build your solution using modern technologies, ensuring it's fast, secure, and works flawlessly across all devices."
               },
               {
                 step: "04",
                 title: "Launch & Optimization",
-                description: "After launch, we monitor performance and make data-driven improvements to maximize results."
+                description: "After launch, I monitor performance and make data-driven improvements to maximize results."
               }
             ].map((phase, index) => (
               <div key={index} className="flex gap-8">
@@ -219,7 +219,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
             Ready to See the Solutions in Action?
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-            Explore how our services come to life through tailored solutions that solve real problems.
+            Explore how my services come to life through tailored solutions that solve real problems.
           </p>
           <button 
             onClick={handleSolutionsClick}
@@ -238,7 +238,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
             Let's create<br />something beautiful.
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            We'd love to learn more about how we can help your business.
+            I'd love to learn more about how I can help your business.
           </p>
           <button 
             onClick={handleContactClick}
