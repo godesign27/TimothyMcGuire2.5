@@ -12,8 +12,7 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center">
-              <span className="text-xl font-bold mr-1">GO</span>
-              <span className="text-xl">Design</span>
+              <span className="text-xl font-bold">Timothy McGuire</span>
             </div>
             <p className="mt-4 text-sm text-gray-600 dark:text-gray-300 max-w-xs">
               We specialize in <span className="font-medium">Experience Design</span> by applying responsible design practices that enhance usability, accessibility, and visual appeal. We bring human-centered thinking, creative problem-solving and technology together to create solutions for all types of digital challenges.
