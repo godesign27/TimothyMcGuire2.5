@@ -13,7 +13,7 @@ const About: React.FC = () => {
               Transforming Ideas into<br />Digital Experiences
             </h1>
             <p className="text-xl text-gray-700 dark:text-gray-300">
-              Welcome to GO Design, where creativity and strategy come together to transform ideas into seamless digital experiences.
+              Welcome, where creativity and strategy come together to transform ideas into seamless digital experiences.
             </p>
           </div>
         </div>
