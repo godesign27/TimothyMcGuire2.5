@@ -54,8 +54,8 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
             </h1>
             
             <p className="mt-6 text-lg text-gray-700 dark:text-white/90 max-w-4xl">
-              We specialize in <span className="font-medium">Experience Design</span> by applying responsible design practices that 
-              enhance usability, accessibility, and visual appeal. We bring human-centered thinking, 
+              I specialize in <span className="font-medium">Experience Design</span> by applying responsible design practices that 
+              enhance usability, accessibility, and visual appeal. I bring human-centered thinking, 
               creative problem-solving and technology together to create solutions for all types of challenges.
             </p>
             

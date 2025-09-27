@@ -29,7 +29,7 @@ const SpecializedExpertise: React.FC<SpecializedExpertiseProps> = ({ setCurrentP
             </div>
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Marketing Web Design</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
-              Create impactful web experiences that convert visitors into customers. Our marketing-focused design approach combines aesthetics with strategic user journeys.
+              Create impactful web experiences that convert visitors into customers. My marketing-focused design approach combines aesthetics with strategic user journeys.
             </p>
             <button 
               onClick={handleMarketingWebDesignClick}
@@ -46,7 +46,7 @@ const SpecializedExpertise: React.FC<SpecializedExpertiseProps> = ({ setCurrentP
             </div>
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">SaaS Product Design</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
-              Build powerful, scalable software solutions with our comprehensive SaaS design expertise. We focus on creating intuitive interfaces that drive user engagement and business growth.
+              Build powerful, scalable software solutions with my comprehensive SaaS design expertise. I focus on creating intuitive interfaces that drive user engagement and business growth.
             </p>
             <button 
               onClick={() => setCurrentPage('saas-product-design')}
@@ -63,7 +63,7 @@ const SpecializedExpertise: React.FC<SpecializedExpertiseProps> = ({ setCurrentP
             </div>
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Mobile App Design</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
-              Create exceptional mobile experiences that users love. Our mobile-first approach ensures your app is intuitive, engaging, and optimized for all devices.
+              Create exceptional mobile experiences that users love. My mobile-first approach ensures your app is intuitive, engaging, and optimized for all devices.
             </p>
             <button 
               onClick={handleMobileWebDesignClick}

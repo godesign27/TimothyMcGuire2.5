@@ -15,7 +15,7 @@ const CTA: React.FC<CTAProps> = ({ setCurrentPage }) => {
           Let's create something beautiful.
         </h2>
         <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-          We'd love to learn more about how we can help your business.
+          I'd love to learn more about how I can help your business.
         </p>
         <button 
           onClick={() => setCurrentPage('contact')}

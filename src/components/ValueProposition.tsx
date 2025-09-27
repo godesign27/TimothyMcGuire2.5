@@ -29,7 +29,7 @@ const ValueProposition: React.FC = () => {
               Personalized Attention
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Your success directly impacts us positive. We take time to deeply understand your business, customers, challenges, and vision, ensuring a tailored approach from start to finish.
+              Your success directly impacts me positive. I take time to deeply understand your business, customers, challenges, and vision, ensuring a tailored approach from start to finish.
             </p>
           </div>
 
@@ -48,7 +48,7 @@ const ValueProposition: React.FC = () => {
               Agility and Speed
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Our nimble team turns ideas into beautiful, working products quickly. Without layers of bureaucracy, we meet your goals more efficiently, and deliver results at a pace larger firms can't match.
+              My nimble approach turns ideas into beautiful, working products quickly. Without layers of bureaucracy, I meet your goals more efficiently, and deliver results at a pace larger firms can't match.
             </p>
           </div>
 
@@ -65,7 +65,7 @@ const ValueProposition: React.FC = () => {
               Direct Collaboration
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              You'll work with senior talent every step of the process. No layers of account managers or junior intermediaries. We maintain direct communication and true creative partnership.
+              You'll work with senior talent every step of the process. No layers of account managers or junior intermediaries. I maintain direct communication and true creative partnership.
             </p>
           </div>
 
@@ -80,7 +80,7 @@ const ValueProposition: React.FC = () => {
               Focused Expertise
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              We specialize in what we do best: creating exceptional digital experiences. Our focused approach means you get experts who are passionate about your project's success, not generalists.
+              I specialize in what I do best: creating exceptional digital experiences. My focused approach means you get an expert who is passionate about your project's success, not a generalist.
             </p>
           </div>
 
@@ -96,7 +96,7 @@ const ValueProposition: React.FC = () => {
               Cost-Effective Solutions
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Small doesn't mean less. In fact, we deliver more value. With lower overhead costs, 90% of your budget goes directly into the big creative minds working on your project—not corporate infrastructure.
+              Small doesn't mean less. In fact, I deliver more value. With lower overhead costs, 90% of your budget goes directly into the creative mind working on your project—not corporate infrastructure.
             </p>
           </div>
 
@@ -111,7 +111,7 @@ const ValueProposition: React.FC = () => {
               Creative Flexibility
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Innovation thrives here. We're free to think boldly, explore unexpected approaches, and adapt quickly to your needs with maximum flexibility for process and execution.
+              Innovation thrives here. I'm free to think boldly, explore unexpected approaches, and adapt quickly to your needs with maximum flexibility for process and execution.
             </p>
           </div>
         </div>
