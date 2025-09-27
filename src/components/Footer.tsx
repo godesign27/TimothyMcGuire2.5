@@ -15,7 +15,7 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
               <span className="text-xl font-bold">Timothy McGuire</span>
             </div>
             <p className="mt-4 text-sm text-gray-600 dark:text-gray-300 max-w-xs">
-              We specialize in <span className="font-medium">Experience Design</span> by applying responsible design practices that enhance usability, accessibility, and visual appeal. We bring human-centered thinking, creative problem-solving and technology together to create solutions for all types of digital challenges.
+              I specialize in <span className="font-medium">Experience Design</span> by applying responsible design practices that enhance usability, accessibility, and visual appeal. I bring human-centered thinking, creative problem-solving and technology together to create solutions for all types of digital challenges.
             </p>
           </div>
           
