@@ -60,12 +60,12 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
               <img 
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/tim-logo.png" 
                 alt="Timothy McGuire" 
-                className="h-6 w-auto mr-1 dark:hidden"
+                className="h-8 w-auto mr-1 dark:hidden"
               />
               <img 
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/tim-logo.png" 
                 alt="Timothy McGuire" 
-                className="h-6 w-auto mr-1 hidden dark:block"
+                className="h-8 w-auto mr-1 hidden dark:block"
               />
               <span className="text-xl dark:text-white">Design</span>
             </div>
