@@ -58,13 +58,13 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center cursor-pointer" onClick={() => setCurrentPage('home')}>
               <img 
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/logo%20assets/go-new25.png" 
-                alt="GO Design" 
+                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/tim-logo.png" 
+                alt="Timothy McGuire" 
                 className="h-6 w-auto mr-1 dark:hidden"
               />
               <img 
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/logo%20assets/go-logo-new25-white.png" 
-                alt="GO Design" 
+                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/tim-logo.png" 
+                alt="Timothy McGuire" 
                 className="h-6 w-auto mr-1 hidden dark:block"
               />
               <span className="text-xl dark:text-white">Design</span>
