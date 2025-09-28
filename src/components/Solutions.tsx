@@ -129,7 +129,7 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
               Our Solutions in Action.
             </h1>
             <p className="text-xl text-gray-700 dark:text-gray-200 max-w-2xl">
-              Explore our case studies to see how we've helped businesses across various 
+              Explore my case studies to see how I've helped businesses across various 
               industries transform their digital presence and achieve meaningful results.
             </p>
           </div>
@@ -405,7 +405,7 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
             Let's create<br />something beautiful.
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            We'd love to learn more about how we can help your business.
+            I'd love to learn more about how I can help your business.
           </p>
           <button 
             onClick={handleContactClick}
