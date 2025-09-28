@@ -67,7 +67,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
                 alt="Timothy McGuire" 
                 className="h-8 w-auto mr-1 hidden dark:block"
               />
-              <span className="text-xl dark:text-white">Design</span>
+              <span className="text-xl dark:text-white">Timothy McGuire</span>
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
