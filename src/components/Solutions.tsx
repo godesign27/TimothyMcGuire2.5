@@ -247,7 +247,7 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
               <div className="md:col-span-2 bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 flex flex-col justify-center">
                 <div className="text-xs text-gray-600 dark:text-gray-400 mb-2 uppercase tracking-wide">User Experience</div>
                 <div className="text-lg font-bold text-gray-900 dark:text-white mb-2">Intuitive User Centered Product Discovery</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">A responsive, user-friendly commerce site redesign that works seemlessly on desiktop and mobile. We transformed the experiece to focus on how users think in order to make the product finding and buying experience simple and easy rather than on how the business operates. </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">A responsive, user-friendly commerce site redesign that works seamlessly on desktop and mobile. I transformed the experience to focus on how users think in order to make the product finding and buying experience simple and easy rather than on how the business operates.</div>
               </div>
             </div>
           </div>
@@ -345,7 +345,7 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
                   Chrysler Redesign
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  We reimagined Chrylser's site with user-first design, reorganizing content to match user needs. Bold typography, dynamic photography, and rich storytelling highlighted services and aligned with brand strategy.
+                  I reimagined Chrysler's site with user-first design, reorganizing content to match user needs. Bold typography, dynamic photography, and rich storytelling highlighted services and aligned with brand strategy.
                 </p>
               </div>
             </div>
@@ -367,7 +367,7 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
                   Accenture - Leave of Absence
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  We redesigned Accenture's leave of absence experience with a responsive, user-centered solution, creating custom design patterns for a consistent and engaging experience on all devices.
+                  I redesigned Accenture's leave of absence experience with a responsive, user-centered solution, creating custom design patterns for a consistent and engaging experience on all devices.
                 </p>
               </div>
             </div>
