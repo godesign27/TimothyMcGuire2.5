@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import { Mail, MapPin, Clock } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 
+// EmailJS configuration from environment variables
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const RECIPIENT = import.meta.env.VITE_EMAILJS_TO_EMAIL;
+
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -45,28 +51,42 @@ const Contact: React.FC = () => {
     
     setIsSubmitting(true);
     
+    // Build templateParams to match EmailJS template exactly
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      reply_to: formData.email,
+      to_email: RECIPIENT,
+      subject: formData.project ? `${formData.project} - Contact Form` : 'Website Contact',
+      company: formData.company,
+      phone: formData.phone,
+      project: formData.project,
+      message: formData.message,
+    };
+
+    // Log the exact templateParams we're sending for debugging
+    console.log('EmailJS Configuration:');
+    console.log('SERVICE_ID:', SERVICE_ID);
+    console.log('TEMPLATE_ID:', TEMPLATE_ID);
+    console.log('PUBLIC_KEY:', PUBLIC_KEY ? 'Set' : 'Missing');
+    console.log('RECIPIENT:', RECIPIENT);
+    console.log('Template Parameters:', templateParams);
+
     try {
-      // Send email using EmailJS
-      await emailjs.send(
-        'service_dipyx93',
-        'template_xghqxxc',
-        {
-          to_email: 'godesigngo@gmail.com',
-          from_name: formData.name,
-          from_email: formData.email,
-          reply_to: formData.email,
-          company: formData.company,
-          phone: formData.phone,
-          project: formData.project,
-          message: formData.message,
-        },
-        'sKtTngMlamyZDZjUL'
+      const result = await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        templateParams,
+        PUBLIC_KEY
       );
+      
+      console.log('EmailJS Success:', result);
       
       setIsSubmitted(true);
     } catch (error) {
-      console.error('Error sending email:', error);
-      alert('There was an error sending your message. Please try again or contact us directly at godesigngo@gmail.com');
+      console.error('EmailJS Error Details:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      alert(`There was an error sending your message: ${errorMessage}. Please try again or contact us directly at godesigngo@gmail.com`);
     } finally {
       setIsSubmitting(false);
     }
