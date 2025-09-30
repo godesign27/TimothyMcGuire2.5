@@ -51,9 +51,9 @@ const Contact: React.FC = () => {
         'service_dipyx93',
         'template_xghqxxc',
         {
-          to_email: 'godesigngo@gmail.com',
           from_name: formData.name,
           from_email: formData.email,
+          reply_to: formData.email,
           company: formData.company,
           phone: formData.phone,
           project: formData.project,
