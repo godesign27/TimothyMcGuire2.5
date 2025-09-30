@@ -46,25 +46,21 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
     
     try {
-      // Initialize EmailJS (you'll need to add your service ID, template ID, and public key)
-      // For now, we'll simulate the email sending
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate API call
-      
-      // Here you would typically call:
-      // await emailjs.send(
-      //   'YOUR_SERVICE_ID',
-      //   'YOUR_TEMPLATE_ID',
-      //   {
-      //     to_email: 'godesigngo@gmail.com',
-      //     from_name: formData.name,
-      //     from_email: formData.email,
-      //     company: formData.company,
-      //     phone: formData.phone,
-      //     project: formData.project,
-      //     message: formData.message,
-      //   },
-      //   'YOUR_PUBLIC_KEY'
-      // );
+      // Send email using EmailJS
+      await emailjs.send(
+        'service_dipyx93',
+        'template_xghqxxc',
+        {
+          to_email: 'godesigngo@gmail.com',
+          from_name: formData.name,
+          from_email: formData.email,
+          company: formData.company,
+          phone: formData.phone,
+          project: formData.project,
+          message: formData.message,
+        },
+        'sKtTngMlamyZDZjUL'
+      );
       
       setIsSubmitted(true);
     } catch (error) {
