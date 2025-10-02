@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
             {/* Tally Form */}
             <div className="md:col-span-2 bg-gray-50 dark:bg-gray-800 p-8 rounded-lg">
               <iframe
-                src="https://tally.so/r/wzPxpq"
+                src="https://tally.so/embed/wzPxpq?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
                 width="100%"
                 height="600"
                 frameBorder="0"
