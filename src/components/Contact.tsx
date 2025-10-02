@@ -60,20 +60,28 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Tally Form */}
+            {/* Tally Form with proper embedding */}
             <div className="md:col-span-2 bg-gray-50 dark:bg-gray-800 p-8 rounded-lg">
               <iframe
-                src="https://tally.so/embed/wzPxpq?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                data-tally-src="https://tally.so/embed/wzPxpq?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                loading="lazy"
                 width="100%"
-                height="600"
+                height="580"
                 frameBorder="0"
                 marginHeight={0}
                 marginWidth={0}
-                title="Contact Form"
+                title="Contact form"
                 className="rounded-lg"
               >
                 Loading…
               </iframe>
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `
+                    var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+                  `
+                }}
+              />
             </div>
           </div>
         </div>
