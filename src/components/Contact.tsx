@@ -3,46 +3,29 @@ import { Mail, Clock } from 'lucide-react';
 
 const Contact: React.FC = () => {
   useEffect(() => {
-    // Load Tally embed script
-    const script = document.createElement('script');
-    script.src = 'https://tally.so/widgets/embed.js';
-    script.onload = () => {
-      // Initialize Tally embeds after script loads
-      if ((window as any).Tally) {
+    const loadTally = () => {
+      if (typeof (window as any).Tally !== 'undefined') {
         (window as any).Tally.loadEmbeds();
       } else {
-        // Fallback: set src attribute directly
         const iframes = document.querySelectorAll('iframe[data-tally-src]:not([src])');
         iframes.forEach((iframe: any) => {
           iframe.src = iframe.dataset.tallySrc;
         });
       }
     };
-    script.onerror = () => {
-      // Fallback: set src attribute directly
-      const iframes = document.querySelectorAll('iframe[data-tally-src]:not([src])');
-      iframes.forEach((iframe: any) => {
-        iframe.src = iframe.dataset.tallySrc;
-      });
-    };
 
-    // Only append script if it doesn't already exist
-    if (!document.querySelector('script[src="https://tally.so/widgets/embed.js"]')) {
+    const existingScript = document.querySelector('script[src="https://tally.so/widgets/embed.js"]');
+
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.src = 'https://tally.so/widgets/embed.js';
+      script.async = true;
+      script.onload = loadTally;
+      script.onerror = loadTally;
       document.body.appendChild(script);
     } else {
-      // Script already exists, just initialize
-      if ((window as any).Tally) {
-        (window as any).Tally.loadEmbeds();
-      }
+      loadTally();
     }
-
-    return () => {
-      // Cleanup: remove script when component unmounts
-      const existingScript = document.querySelector('script[src="https://tally.so/widgets/embed.js"]');
-      if (existingScript) {
-        document.body.removeChild(existingScript);
-      }
-    };
   }, []);
 
   return (
@@ -104,7 +87,7 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Tally Form with proper embedding */}
-            <div className="md:col-span-2 bg-gray-50 dark:bg-gray-800 p-8 rounded-lg">
+            <div className="md:col-span-2">
               <iframe
                 data-tally-src="https://tally.so/embed/wzPxpq?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
                 loading="lazy"
@@ -114,10 +97,8 @@ const Contact: React.FC = () => {
                 marginHeight={0}
                 marginWidth={0}
                 title="Contact form"
-                className="rounded-lg"
-              >
-                Loading…
-              </iframe>
+                style={{ border: 0 }}
+              ></iframe>
             </div>
           </div>
         </div>
