@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Clock } from 'lucide-react';
+import { Mail, Clock, Calendar } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -87,6 +87,21 @@ const Contact: React.FC = () => {
                   <h3 className="text-lg font-medium text-gray-900 dark:text-white">Business Hours</h3>
                   <p className="mt-1 text-gray-600 dark:text-gray-300">Monday - Friday, 9am - 5pm CST</p>
                 </div>
+              </div>
+
+              <div className="pt-6 border-t border-gray-200 dark:border-gray-700">
+                <a
+                  href="https://cal.com/timothy-mcguire-27"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center space-x-3 w-full bg-gradient-to-r from-teal-500 to-blue-600 text-white px-6 py-4 rounded-lg font-semibold hover:from-teal-600 hover:to-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+                >
+                  <Calendar className="w-5 h-5" />
+                  <span>Schedule a Meeting</span>
+                </a>
+                <p className="mt-3 text-sm text-gray-500 dark:text-gray-400 text-center">
+                  Prefer to talk? Book a free consultation call
+                </p>
               </div>
             </div>
 
