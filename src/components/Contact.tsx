@@ -1,32 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { Mail, Clock } from 'lucide-react';
 
 const Contact: React.FC = () => {
-  useEffect(() => {
-    const loadTally = () => {
-      if (typeof (window as any).Tally !== 'undefined') {
-        (window as any).Tally.loadEmbeds();
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormStatus('submitting');
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://formspree.io/f/myznjdnq', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        form.reset();
+        setTimeout(() => setFormStatus('idle'), 5000);
       } else {
-        const iframes = document.querySelectorAll('iframe[data-tally-src]:not([src])');
-        iframes.forEach((iframe: any) => {
-          iframe.src = iframe.dataset.tallySrc;
-        });
+        setFormStatus('error');
       }
-    };
-
-    const existingScript = document.querySelector('script[src="https://tally.so/widgets/embed.js"]');
-
-    if (!existingScript) {
-      const script = document.createElement('script');
-      script.src = 'https://tally.so/widgets/embed.js';
-      script.async = true;
-      script.onload = loadTally;
-      script.onerror = loadTally;
-      document.body.appendChild(script);
-    } else {
-      loadTally();
+    } catch (error) {
+      setFormStatus('error');
     }
-  }, []);
+  };
 
   return (
     <div>
@@ -86,19 +90,143 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Tally Form with proper embedding */}
+            {/* Contact Form */}
             <div className="md:col-span-2">
-              <iframe
-                data-tally-src="https://tally.so/embed/wzPxpq?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-                loading="lazy"
-                width="100%"
-                height="580"
-                frameBorder="0"
-                marginHeight={0}
-                marginWidth={0}
-                title="Contact form"
-                style={{ border: 0 }}
-              ></iframe>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+                      Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors"
+                      placeholder="Your name"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="company" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+                      Company
+                    </label>
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors"
+                      placeholder="Your company"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+                      Phone
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors"
+                      placeholder="(555) 123-4567"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="projectType" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+                    Project Type *
+                  </label>
+                  <select
+                    id="projectType"
+                    name="projectType"
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors"
+                  >
+                    <option value="">Select a project type</option>
+                    <option value="Marketing Website Design">Marketing Website Design</option>
+                    <option value="Mobile/Web App Design">Mobile/Web App Design</option>
+                    <option value="SaaS Product Design">SaaS Product Design</option>
+                    <option value="E-commerce Design">E-commerce Design</option>
+                    <option value="Brand Identity">Brand Identity</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="budget" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+                    Budget Range
+                  </label>
+                  <select
+                    id="budget"
+                    name="budget"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors"
+                  >
+                    <option value="">Select a budget range</option>
+                    <option value="Under $5,000">Under $5,000</option>
+                    <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                    <option value="$10,000 - $25,000">$10,000 - $25,000</option>
+                    <option value="$25,000 - $50,000">$25,000 - $50,000</option>
+                    <option value="$50,000+">$50,000+</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+                    Project Details *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows={6}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors resize-none"
+                    placeholder="Tell us about your project, timeline, and any specific requirements..."
+                  ></textarea>
+                </div>
+
+                {formStatus === 'success' && (
+                  <div className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+                    <p className="text-green-800 dark:text-green-200 font-medium">
+                      Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
+                    </p>
+                  </div>
+                )}
+
+                {formStatus === 'error' && (
+                  <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+                    <p className="text-red-800 dark:text-red-200 font-medium">
+                      Oops! Something went wrong. Please try again or email us directly at godesigngo@gmail.com
+                    </p>
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={formStatus === 'submitting'}
+                  className="w-full bg-gradient-to-r from-teal-500 to-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-teal-600 hover:to-blue-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+                >
+                  {formStatus === 'submitting' ? 'Sending...' : 'Send Message'}
+                </button>
+              </form>
             </div>
           </div>
         </div>
