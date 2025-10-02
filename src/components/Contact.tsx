@@ -1,32 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Mail, MapPin, Clock } from 'lucide-react';
 
 const Contact: React.FC = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = '//js.hsforms.net/forms/embed/v2.js';
-    script.charset = 'utf-8';
-    script.type = 'text/javascript';
-    document.body.appendChild(script);
-
-    script.addEventListener('load', () => {
-      // @ts-ignore
-      if (window.hbspt) {
-        // @ts-ignore
-        window.hbspt.forms.create({
-          portalId: "47877837",
-          formId: "976367d3-f3b8-4d47-80b0-2e40e8a02012",
-          region: "na1",
-          target: '#hubspotForm'
-        });
-      }
-    });
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <div>
       {/* Hero Section */}
@@ -85,9 +60,20 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* HubSpot Form */}
+            {/* Tally Form */}
             <div className="md:col-span-2 bg-gray-50 dark:bg-gray-800 p-8 rounded-lg">
-              <div id="hubspotForm"></div>
+              <iframe
+                src="https://tally.so/r/wzPxpq"
+                width="100%"
+                height="600"
+                frameBorder="0"
+                marginHeight={0}
+                marginWidth={0}
+                title="Contact Form"
+                className="rounded-lg"
+              >
+                Loading…
+              </iframe>
             </div>
           </div>
         </div>
