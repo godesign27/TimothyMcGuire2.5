@@ -1,7 +1,50 @@
-import React from 'react';
-import { Mail, MapPin, Clock } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Mail, Clock } from 'lucide-react';
 
 const Contact: React.FC = () => {
+  useEffect(() => {
+    // Load Tally embed script
+    const script = document.createElement('script');
+    script.src = 'https://tally.so/widgets/embed.js';
+    script.onload = () => {
+      // Initialize Tally embeds after script loads
+      if ((window as any).Tally) {
+        (window as any).Tally.loadEmbeds();
+      } else {
+        // Fallback: set src attribute directly
+        const iframes = document.querySelectorAll('iframe[data-tally-src]:not([src])');
+        iframes.forEach((iframe: any) => {
+          iframe.src = iframe.dataset.tallySrc;
+        });
+      }
+    };
+    script.onerror = () => {
+      // Fallback: set src attribute directly
+      const iframes = document.querySelectorAll('iframe[data-tally-src]:not([src])');
+      iframes.forEach((iframe: any) => {
+        iframe.src = iframe.dataset.tallySrc;
+      });
+    };
+
+    // Only append script if it doesn't already exist
+    if (!document.querySelector('script[src="https://tally.so/widgets/embed.js"]')) {
+      document.body.appendChild(script);
+    } else {
+      // Script already exists, just initialize
+      if ((window as any).Tally) {
+        (window as any).Tally.loadEmbeds();
+      }
+    }
+
+    return () => {
+      // Cleanup: remove script when component unmounts
+      const existingScript = document.querySelector('script[src="https://tally.so/widgets/embed.js"]');
+      if (existingScript) {
+        document.body.removeChild(existingScript);
+      }
+    };
+  }, []);
+
   return (
     <div>
       {/* Hero Section */}
@@ -75,13 +118,6 @@ const Contact: React.FC = () => {
               >
                 Loading…
               </iframe>
-              <script
-                dangerouslySetInnerHTML={{
-                  __html: `
-                    var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
-                  `
-                }}
-              />
             </div>
           </div>
         </div>
