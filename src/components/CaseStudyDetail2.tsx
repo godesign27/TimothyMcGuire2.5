@@ -344,6 +344,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
                 alt="Measure Detail Overview"
                 className="w-full rounded-lg"
               />
+               <img 
+                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/Countdown-Home-Redefine-1a.png"
+                alt="Measure Detail Overview"
+                className="w-full rounded-lg"
+              />
               <img 
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/Countdown-SSO.png"
                 alt="Measure Detail Card Practices"
