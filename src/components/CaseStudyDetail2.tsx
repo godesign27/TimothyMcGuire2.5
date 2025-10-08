@@ -335,7 +335,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
             <h2 className="text-2xl lg:text-4xl font-regular text-gray-900 mb-6">Page Designs</h2>
             <div className="space-y-6">
               <img 
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Dashboard%20-%20Summary.png"
+                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/Countdown-Home-29-left-get.png"
                 alt="Dashboard Summary"
                 className="w-full rounded-lg"
               />
