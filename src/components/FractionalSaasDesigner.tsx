@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
 interface FractionalSaasDesignerProps {
   setCurrentPage: (page: string) => void;
@@ -288,27 +288,33 @@ function DesignSystemMockup() {
 
 const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurrentPage }) => {
   return (
-    <div className="bg-white min-h-screen">
-      {/* Back nav */}
-      <div className="max-w-[1140px] mx-auto px-6 pt-28 pb-4">
-        <button
-          onClick={() => setCurrentPage('home')}
-          className="inline-flex items-center space-x-1.5 text-sm text-gray-400 hover:text-gray-700 transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Back</span>
-        </button>
-      </div>
+    <div className="min-h-screen bg-white dark:bg-gray-900">
+      {/* Hero Section with Breadcrumb */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-sky-100 to-blue-200 dark:from-slate-900 dark:via-sky-900 dark:to-blue-900"></div>
 
-      {/* Hero */}
-      <section className="pt-8 pb-20 md:pb-24">
-        <div className="max-w-[1140px] mx-auto px-6">
-          <div className="max-w-[720px]">
-            <p className="text-sm font-medium tracking-wide text-slate-400 uppercase mb-4">Fractional Product Design</p>
-            <h1 className="text-[36px] md:text-[44px] leading-[1.15] font-semibold text-gray-950 tracking-tight mb-6">
-              Helping SaaS teams modernize product UX without slowing down engineering.
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+          <nav className="flex py-4" aria-label="Breadcrumb">
+            <ol className="flex items-center space-x-2">
+              <li>
+                <button
+                  onClick={() => setCurrentPage('services')}
+                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                >
+                  Services
+                </button>
+              </li>
+              <ChevronRight className="w-4 h-4 text-gray-500" />
+              <li className="text-gray-900 dark:text-white font-medium">Fractional SaaS Designer</li>
+            </ol>
+          </nav>
+
+          <div className="py-16">
+            <h1 className="text-4xl md:text-7xl font-regular text-gray-900 dark:text-white mb-6">
+              Fractional SaaS Designer<br />
+              Embedded With Your Team
             </h1>
-            <p className="text-[17px] leading-[1.65] text-gray-500 max-w-[640px]">
+            <p className="text-xl text-gray-700 dark:text-gray-300 max-w-2xl">
               SaaS teams don't usually have a product problem — they have a UX and system evolution problem. Through a flexible, embedded model, I work directly with product and engineering teams to simplify workflows, improve usability, and evolve the product experience in a way that compounds over time.
             </p>
           </div>
