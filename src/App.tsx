@@ -40,8 +40,8 @@ function App() {
     }
   }, []);
 
-  // Reset selectedCaseStudy when changing pages
   React.useEffect(() => {
+    window.scrollTo(0, 0);
     if (currentPage !== 'solutions' && selectedCaseStudy) {
       setSelectedCaseStudy(null);
     }
