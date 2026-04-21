@@ -72,6 +72,14 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
                   SaaS Product Design
                 </a>
               </li>
+              <li>
+                <button
+                  onClick={() => { setCurrentPage('fractional-saas-designer'); window.scrollTo(0, 0); }}
+                  className="text-base text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                >
+                  Fractional SaaS Designer
+                </button>
+              </li>
             </ul>
           </div>
           

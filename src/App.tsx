@@ -19,6 +19,7 @@ import MarketingWebDesign from './components/MarketingWebDesign';
 import SpecializedExpertise from './components/SpecializedExpertise';
 import SaasProductDesign from './components/SaasProductDesign';
 import MobileWebDesign from './components/MobileWebDesign';
+import FractionalSaasDesigner from './components/FractionalSaasDesigner';
 
 function App() {
   const [currentPage, setCurrentPage] = React.useState('home');
@@ -72,6 +73,8 @@ function App() {
         return <SaasProductDesign setCurrentPage={setCurrentPage} />;
       case 'mobile-web-design':
         return <MobileWebDesign setCurrentPage={setCurrentPage} />;
+      case 'fractional-saas-designer':
+        return <FractionalSaasDesigner setCurrentPage={setCurrentPage} />;
       case 'solutions':
         if (selectedCaseStudy === 'CoreTechs SaaS Healthcare Product') {
           return <CaseStudyDetail setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
