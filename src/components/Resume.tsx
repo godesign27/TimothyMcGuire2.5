@@ -57,11 +57,13 @@ const Resume: React.FC = () => {
       title: 'Principal UX/UI Designer & Manager',
       period: 'Jun 2023 \u2013 Jun 2025',
       location: 'Remote',
+      projects: 'Atom Software SaaS Product Redesign, IGX SaaS Product Redesign',
       bullets: [
-        'Led end-to-end redesign of enterprise SaaS platforms supporting complex, multi-tenant B2B workflows.',
+        'Led end-to-end redesign of enterprise SaaS platforms supporting complex, multi-tenant B2B workflows, aligning design principles with product vision and strategy to improve task efficiency and user satisfaction.',
+        'Conducted comprehensive user and product research using quantitative data analysis and competitive analysis to identify key pain points and inform design decisions.',
+        'Drove the UX process from low-fidelity wireframes through high-fidelity visual design prototypes, iterating with user feedback and usability best practices at each stage.',
+        'Created a comprehensive component design system and accessibility guidelines, ensuring visual consistency across all interface elements and WCAG compliance.',
         'Partnered with product, engineering, and leadership to align UX strategy with AI-adjacent roadmap initiatives.',
-        'Redesigned Atom Software and IGX products, improving usability, navigation clarity, and system scalability.',
-        'Established scalable UX patterns and workflows using Figma, Figma Make, Bolt.new, Jira, and Slack.',
       ],
     },
     {
@@ -69,10 +71,12 @@ const Resume: React.FC = () => {
       title: 'Senior UX/UI Designer',
       period: 'Jan 2023 \u2013 Jun 2023',
       location: 'Chicago, IL',
+      projects: 'Auto Loans Mobile Responsive Web Integration',
       bullets: [
-        'Designed mobile-responsive Auto Loans experiences aligned with business, regulatory, and user needs.',
-        'Collaborated across product and engineering teams to streamline UX workflows and improve delivery speed.',
-        'Supported data-heavy financial interfaces with clear IA and interaction patterns.',
+        'Integrated Auto Loans mobile-responsive web pages into the existing platform, reviewing business requirements and incorporating stakeholder feedback at each stage to refine the design.',
+        'Conducted quantitative data analysis and competitive analysis to identify user pain points and inform design decisions for data-heavy financial interfaces.',
+        'Created wireframe solutions from low-fidelity to high-fidelity visual prototypes, enabling rapid validation of design concepts while ensuring alignment with regulatory and business goals.',
+        'Established design systems and guidelines ensuring coherence across all interface elements and adherence to accessibility standards.',
       ],
     },
     {
@@ -80,10 +84,13 @@ const Resume: React.FC = () => {
       title: 'Lead UX/UI Designer & Manager',
       period: 'Nov 2021 \u2013 Dec 2022',
       location: 'Remote',
+      projects: 'Simplicity SaaS Product, Marketing Responsive Website, Branding',
       bullets: [
-        'Redesigned SaaS product and marketing website with a focus on clarity, IA, and intuitive interactions.',
-        'Delivered consistent cross-platform design systems supporting desktop and responsive use cases.',
-        'Led stakeholder reviews and iterative refinement cycles.',
+        'Redesigned the marketing website and SaaS product end-to-end, defining design principles aligned to product vision and improving overall task efficiency and user satisfaction.',
+        'Conducted comprehensive user research using quantitative data analysis and competitive analysis to identify key pain points and inform design decisions.',
+        'Drove wireframe design solutions from low-fidelity explorations through high-fidelity visual prototypes, incorporating user feedback at each iteration.',
+        'Created a comprehensive component design system and guidelines for visual consistency and accessibility compliance across desktop and responsive use cases.',
+        'Led stakeholder reviews and iterative refinement cycles throughout the engagement.',
       ],
     },
     {
@@ -91,10 +98,13 @@ const Resume: React.FC = () => {
       title: 'Principal UX Designer',
       period: 'Sep 2015 \u2013 Sep 2022',
       location: 'Remote',
+      projects: 'CoreTechs SaaS Product Redesign',
       bullets: [
-        'Led redesign of the CoreTechs SaaS platform for enterprise and analytics-driven users.',
-        'Focused on B2B usability, decision-support workflows, and scalable IA.',
-        'Partnered long-term with product and engineering to evolve platform UX.',
+        'Led redesign of the CoreTechs SaaS platform for enterprise and analytics-driven users, aligning design principles with product vision to improve usability and user satisfaction.',
+        'Conducted comprehensive research using quantitative data analysis and competitive analysis to identify user pain points and inform design decisions.',
+        'Drove the UX process from low-fidelity wireframes through high-fidelity prototypes, iterating with user feedback to develop a robust, user-friendly solution.',
+        'Created a comprehensive component design system ensuring visual consistency, brand integrity, and accessibility compliance across the platform.',
+        'Partnered long-term with product and engineering to continuously evolve platform UX and decision-support workflows.',
       ],
     },
     {
@@ -102,9 +112,12 @@ const Resume: React.FC = () => {
       title: 'Senior UX/UI Designer',
       period: 'Oct 2016 \u2013 Oct 2018',
       location: 'Remote',
+      projects: 'Accenture Internal Product Suite Consolidation',
       bullets: [
-        'Redesigned and consolidated enterprise websites and internal product suites.',
-        'Contributed to the Accenture Internal Product Suite consolidation initiative.',
+        'Redesigned and consolidated enterprise websites and internal product suites, meeting with key stakeholders and incorporating feedback at each stage.',
+        'Conducted quantitative data analysis and competitive research to identify pain points and inform design decisions.',
+        'Created wireframe solutions from low-fidelity through high-fidelity visual prototypes, ensuring alignment with user needs and business goals.',
+        'Established design systems and guidelines for visual consistency and accessibility compliance across the consolidated product suite.',
       ],
     },
     {
@@ -112,9 +125,12 @@ const Resume: React.FC = () => {
       title: 'Lead UX Designer',
       period: 'May 2016 \u2013 Aug 2016',
       location: 'Remote',
+      projects: 'State Farm Mobile Application',
       bullets: [
-        'Designed MVP mobile application from concept to delivery.',
-        'Delivered State Farm Mobile Application designs with scalable IA.',
+        'Designed from scratch an MVP mobile app, defining design principles aligned to the product vision and strategy.',
+        'Conducted user and product research using quantitative data analysis and competitive analysis to identify key user needs.',
+        'Drove the UX design process from low-fidelity wireframes through high-fidelity visual prototypes, incorporating feedback at each iteration.',
+        'Established design system guidelines ensuring visual consistency and accessibility compliance.',
       ],
     },
     {
@@ -122,8 +138,11 @@ const Resume: React.FC = () => {
       title: 'Lead UX Designer',
       period: 'Jan 2016 \u2013 Jun 2016',
       location: 'Remote',
+      projects: 'Marketing Website Redesign',
       bullets: [
-        'Redesigned marketing website aligned to business and engagement goals.',
+        'Redesigned the marketing website by reviewing business requirements and incorporating stakeholder feedback to align design solutions with engagement goals.',
+        'Conducted user research and competitive analysis to inform design decisions and identify key opportunities.',
+        'Created wireframe solutions from low-fidelity through high-fidelity visual prototypes for rapid concept validation.',
       ],
     },
     {
@@ -131,9 +150,12 @@ const Resume: React.FC = () => {
       title: 'Lead UX Designer',
       period: 'Dec 2014 \u2013 Jan 2016',
       location: 'Remote',
+      projects: 'Jim Beam Product Site, Dremel.com Redesign, Blue Cross Blue Shield Mobile App',
       bullets: [
-        'Led redesign of mobile-responsive websites for major consumer brands.',
-        'Projects included Jim Beam, Dremel, and Blue Cross Blue Shield.',
+        'Led redesign of mobile-responsive websites for major consumer brands, aligning design principles with each brand\u2019s vision and strategy.',
+        'Conducted quantitative data analysis and competitive research to identify pain points and user needs across diverse audiences.',
+        'Drove wireframe design from low-fidelity explorations through high-fidelity visual prototypes, incorporating user feedback and usability best practices.',
+        'Established design systems and guidelines ensuring visual consistency and accessibility compliance across all projects.',
       ],
     },
     {
@@ -141,8 +163,12 @@ const Resume: React.FC = () => {
       title: 'Associate Creative Director / Principal UX Designer',
       period: 'Mar 2014 \u2013 Dec 2014',
       location: '',
+      projects: 'Aramark Marketing Site Responsive Redesign',
       bullets: [
-        'Executed responsive redesigns for enterprise and marketing sites including Aramark.',
+        'Executed responsive redesign of the Aramark marketing website, meeting with stakeholders and incorporating feedback to align with business objectives.',
+        'Conducted user research and competitive analysis to identify opportunities and inform design decisions.',
+        'Created wireframe solutions from low-fidelity through high-fidelity visual prototypes, ensuring alignment with user needs.',
+        'Established design guidelines for visual consistency and accessibility compliance.',
       ],
     },
     {
@@ -150,9 +176,12 @@ const Resume: React.FC = () => {
       title: 'Principal UX/UI Designer',
       period: 'Nov 2011 \u2013 Dec 2014',
       location: '',
+      projects: 'Marketing Site Redesign, Authenticated Credit Report Product',
       bullets: [
-        'Redesigned SaaS and marketing platforms supporting credit and reporting workflows.',
-        'Oversaw UX for authenticated credit reporting products.',
+        'Redesigned the marketing website and SaaS product, aligning design solutions with product strategy to improve task efficiency and user satisfaction.',
+        'Conducted comprehensive user research using quantitative data analysis and competitive analysis to inform design decisions.',
+        'Drove the UX process from low-fidelity wireframes through high-fidelity visual prototypes for both marketing and authenticated product experiences.',
+        'Established design systems and guidelines ensuring visual consistency and accessibility compliance across all platforms.',
       ],
     },
     {
@@ -160,8 +189,12 @@ const Resume: React.FC = () => {
       title: 'Lead UX/UI Designer',
       period: 'May 2012 \u2013 Mar 2014',
       location: '',
+      projects: 'Mopar.com, Chrysler.com, UConnect.com, Chicago Public Schools, National Heritage Academy',
       bullets: [
-        'Delivered responsive web solutions for enterprise and public-sector clients including Chrysler, Mopar, and CPS.',
+        'Delivered responsive web solutions for enterprise and public-sector clients, aligning design principles with each client\u2019s vision and strategy.',
+        'Conducted quantitative data analysis and competitive research to identify user needs and inform design decisions across diverse projects.',
+        'Created wireframe solutions from low-fidelity through high-fidelity visual prototypes, iterating with user feedback and usability best practices.',
+        'Established design systems and guidelines for visual consistency and accessibility compliance across all client projects.',
       ],
     },
   ];
@@ -350,6 +383,11 @@ const Resume: React.FC = () => {
                       <p className="mt-0.5 text-sm text-neutral-500 dark:text-neutral-500">
                         <time>{job.period}</time>{job.location ? ` \u00B7 ${job.location}` : ''}
                       </p>
+                      {job.projects && (
+                        <p className="mt-2 text-sm italic text-neutral-500 dark:text-neutral-400">
+                          {job.projects}
+                        </p>
+                      )}
                       <ul className="mt-3 space-y-2">
                         {job.bullets.map((b, bi) => (
                           <li key={bi} className="flex gap-2.5 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
