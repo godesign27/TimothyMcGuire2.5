@@ -21,8 +21,26 @@ import SaasProductDesign from './components/SaasProductDesign';
 import MobileWebDesign from './components/MobileWebDesign';
 import FractionalSaasDesigner from './components/FractionalSaasDesigner';
 
+const pageToPath: Record<string, string> = {
+  home: '/',
+  about: '/about',
+  contact: '/contact',
+  services: '/services',
+  solutions: '/solutions',
+  'marketing-web-design': '/services/marketing-web-design',
+  'saas-product-design': '/services/saas-product-design',
+  'mobile-web-design': '/services/mobile-web-design',
+  'fractional-saas-designer': '/services/fractional-saas-designer',
+};
+
+const getPageFromPath = (pathname: string): string => {
+  const normalizedPath = pathname.toLowerCase().replace(/\/+$/, '') || '/';
+  const entry = Object.entries(pageToPath).find(([, path]) => path === normalizedPath);
+  return entry?.[0] ?? 'home';
+};
+
 function App() {
-  const [currentPage, setCurrentPage] = React.useState('home');
+  const [currentPage, setCurrentPage] = React.useState(() => getPageFromPath(window.location.pathname));
   const [selectedCaseStudy, setSelectedCaseStudy] = React.useState<string | null>(null);
 
   React.useEffect(() => {
@@ -44,6 +62,24 @@ function App() {
     window.scrollTo(0, 0);
     if (currentPage !== 'solutions' && selectedCaseStudy) {
       setSelectedCaseStudy(null);
+    }
+  }, [currentPage]);
+
+  React.useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPage(getPageFromPath(window.location.pathname));
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  React.useEffect(() => {
+    const targetPath = pageToPath[currentPage] ?? '/';
+    const currentPath = window.location.pathname.toLowerCase().replace(/\/+$/, '') || '/';
+
+    if (targetPath !== currentPath) {
+      window.history.pushState({ page: currentPage }, '', targetPath);
     }
   }, [currentPage]);
 
