@@ -70,7 +70,7 @@ const Resume: React.FC = () => {
       company: 'Bank of America',
       title: 'Senior UX/UI Designer',
       period: 'Jan 2023 \u2013 Jun 2023',
-      location: 'Chicago, IL',
+      location: 'Remote',
       projects: 'Auto Loans Mobile Responsive Web Integration',
       bullets: [
         'Integrated Auto Loans mobile-responsive web pages into the existing platform, reviewing business requirements and incorporating stakeholder feedback at each stage to refine the design.',
