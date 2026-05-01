@@ -21,6 +21,8 @@ import SaasProductDesign from './components/SaasProductDesign';
 import MobileWebDesign from './components/MobileWebDesign';
 import FractionalSaasDesigner from './components/FractionalSaasDesigner';
 import Resume from './components/Resume';
+import Analytics from './components/Analytics';
+import { trackPageView } from './lib/analytics';
 
 interface PageMeta {
   title: string;
@@ -80,6 +82,11 @@ const pageSeo: Record<string, PageMeta> = {
     description: 'Explore real-world case studies showcasing UX/UI design solutions for SaaS products, enterprise platforms, and consumer brands.',
     path: '/solutions',
   },
+  analytics: {
+    title: 'Analytics | Timothy McGuire',
+    description: 'Site analytics dashboard for tracking page views, visitors, and engagement.',
+    path: '/analytics',
+  },
 };
 
 const pageToPath: Record<string, string> = {
@@ -93,6 +100,7 @@ const pageToPath: Record<string, string> = {
   'mobile-web-design': '/services/mobile-web-design',
   'fractional-saas-designer': '/services/fractional-saas-designer',
   resume: '/resume',
+  analytics: '/analytics',
 };
 
 const getPageFromPath = (pathname: string): string => {
@@ -138,6 +146,8 @@ function App() {
       document.head.appendChild(canonical);
     }
     canonical.href = `${baseUrl}${meta.path}`;
+
+    trackPageView(currentPage, meta.path);
   }, [currentPage]);
 
   React.useEffect(() => {
@@ -195,6 +205,8 @@ function App() {
         return <FractionalSaasDesigner setCurrentPage={setCurrentPage} />;
       case 'resume':
         return <Resume />;
+      case 'analytics':
+        return <Analytics />;
       case 'solutions':
         if (selectedCaseStudy === 'CoreTechs SaaS Healthcare Product') {
           return <CaseStudyDetail setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
