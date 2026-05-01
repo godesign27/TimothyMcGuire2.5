@@ -72,9 +72,12 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 <a 
-                  href="#services" 
+                  href="/services" 
                   className={getLinkClasses('services')}
-                  onClick={() => setCurrentPage('services')}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setCurrentPage('services');
+                  }}
                 >
                   Services
                 </a>
@@ -138,9 +141,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg dark:bg-neutral-950">
             <a 
-              href="#services" 
+              href="/services" 
               className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50 dark:text-neutral-300 dark:hover:text-white dark:hover:bg-neutral-800"
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault();
                 setCurrentPage('services');
                 setIsMenuOpen(false);
               }}
