@@ -95,7 +95,7 @@ const ValueProposition: React.FC = () => {
               Cost-Effective Solutions
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Small doesn't mean less. In fact, I deliver more value. With lower overhead costs, 90% of your budget goes directly into the creative mind working on your project—not corporate infrastructure.
+              Small doesn't mean less. In fact, I deliver more value. With lower overhead costs, 90% of your budget goes directly into the creative mind working on your project--not corporate infrastructure.
             </p>
           </div>
 

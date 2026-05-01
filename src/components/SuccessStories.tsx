@@ -31,7 +31,7 @@ const SuccessStories: React.FC<SuccessStoriesProps> = ({ setCurrentPage, setSele
           <div>
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">CoreTechs</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6">
-              Over the course of five years, I transformed CoreTechs from a developer-centric tool into a fully realized SaaS product supporting payors and providers through Gray Matter's analytics solutions. My work spanned the full UX/UI lifecycle—crafting a scalable design component library, building page templates, user flows, and site maps, and aligning user personas with business goals through testing and iteration. The result: a robust platform that empowers healthcare organizations to monitor and manage value-based care performance, improve equity, and drive medical cost savings across both commercial and government contracts.
+              Over the course of five years, I transformed CoreTechs from a developer-centric tool into a fully realized SaaS product supporting payors and providers through Gray Matter's analytics solutions. My work spanned the full UX/UI lifecycle--crafting a scalable design component library, building page templates, user flows, and site maps, and aligning user personas with business goals through testing and iteration. The result: a robust platform that empowers healthcare organizations to monitor and manage value-based care performance, improve equity, and drive medical cost savings across both commercial and government contracts.
             </p>
             <button 
               onClick={handleCaseStudyClick}

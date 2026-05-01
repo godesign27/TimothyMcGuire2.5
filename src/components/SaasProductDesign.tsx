@@ -301,7 +301,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
                   ZS SaaS Product
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  I spent eight years helping ZS transform their SaaS deployment platform—advocating for a modern design system and shaping user-focused experiences that aligned client needs with business goals.
+                  I spent eight years helping ZS transform their SaaS deployment platform--advocating for a modern design system and shaping user-focused experiences that aligned client needs with business goals.
                 </p>
               </div>
             </div>

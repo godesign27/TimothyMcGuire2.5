@@ -55,12 +55,12 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
                 accessible user experiences.
               </p>
               <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li>• User Flow</li>
-                <li>• Information Architecture</li>
-                <li>• UX/UI Design</li>
-                <li>• Wireframing</li>
-                <li>• Prototyping</li>
-                <li>• Design Systems</li>
+                <li>* User Flow</li>
+                <li>* Information Architecture</li>
+                <li>* UX/UI Design</li>
+                <li>* Wireframing</li>
+                <li>* Prototyping</li>
+                <li>* Design Systems</li>
               </ul>
             </div>
 
@@ -76,11 +76,11 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
                 usability.
               </p>
               <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li>• Heuristic Analysis</li>
-                <li>• Competitive Analysis</li>
-                <li>• User Testing</li>
-                <li>• User Personas</li>
-                <li>• Research Analysis</li>
+                <li>* Heuristic Analysis</li>
+                <li>* Competitive Analysis</li>
+                <li>* User Testing</li>
+                <li>* User Personas</li>
+                <li>* Research Analysis</li>
               </ul>
             </div>
 
@@ -95,12 +95,12 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
                 comprehensive brand systems that stand out in today's digital landscape.
               </p>
               <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li>• Logo Design</li>
-                <li>• Color Definition</li>
-                <li>• Typography</li>
-                <li>• Graphic Imagery</li>
-                <li>• Brand Guidelines</li>
-                <li>• Visual Systems</li>
+                <li>* Logo Design</li>
+                <li>* Color Definition</li>
+                <li>* Typography</li>
+                <li>* Graphic Imagery</li>
+                <li>* Brand Guidelines</li>
+                <li>* Visual Systems</li>
               </ul>
             </div>
           </div>
@@ -126,7 +126,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
                 onClick={() => setCurrentPage('marketing-web-design')}
                 className="text-brand-600 dark:text-brand-400 font-medium hover:text-brand-700 dark:hover:text-brand-300 rounded-full"
               >
-                Learn More →
+                Learn More {'->'}
               </button>
             </div>
 
@@ -143,7 +143,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
                 onClick={() => setCurrentPage('saas-product-design')}
                 className="text-brand-600 dark:text-brand-400 font-medium hover:text-brand-700 dark:hover:text-brand-300 rounded-full"
               >
-                Learn More →
+                Learn More {'->'}
               </button>
             </div>
 
@@ -160,7 +160,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
                 onClick={() => setCurrentPage('mobile-web-design')}
                 className="text-brand-600 dark:text-brand-400 font-medium hover:text-brand-700 dark:hover:text-brand-300 rounded-full"
               >
-                Learn More →
+                Learn More {'->'}
               </button>
             </div>
           </div>

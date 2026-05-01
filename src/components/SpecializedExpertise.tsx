@@ -35,7 +35,7 @@ const SpecializedExpertise: React.FC<SpecializedExpertiseProps> = ({ setCurrentP
               onClick={handleMarketingWebDesignClick}
               className="text-brand-600 dark:text-brand-400 font-medium hover:text-brand-700 dark:hover:text-brand-300 rounded-full"
             >
-              Learn More →
+              Learn More {'->'}
             </button>
           </div>
 
@@ -52,7 +52,7 @@ const SpecializedExpertise: React.FC<SpecializedExpertiseProps> = ({ setCurrentP
               onClick={() => setCurrentPage('saas-product-design')}
               className="text-brand-600 dark:text-brand-400 font-medium hover:text-brand-700 dark:hover:text-brand-300 rounded-full"
             >
-              Learn More →
+              Learn More {'->'}
             </button>
           </div>
 
@@ -69,7 +69,7 @@ const SpecializedExpertise: React.FC<SpecializedExpertiseProps> = ({ setCurrentP
               onClick={handleMobileWebDesignClick}
               className="text-brand-600 dark:text-brand-400 font-medium hover:text-brand-700 dark:hover:text-brand-300 rounded-full"
             >
-              Learn More →
+              Learn More {'->'}
             </button>
           </div>
         </div>
