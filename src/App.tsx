@@ -31,59 +31,61 @@ interface PageMeta {
   canonicalPath?: string;
 }
 
+const SITE_NAME = 'Timothy McGuire - Experience Designer';
+
 const pageSeo: Record<string, PageMeta> = {
   home: {
-    title: 'Timothy McGuire | Human-Centered Digital Design',
+    title: SITE_NAME,
     description: 'Timothy McGuire is a Senior UX Designer with 12+ years of experience creating intuitive SaaS products, responsive websites, and mobile app solutions.',
     path: '/',
   },
   about: {
-    title: 'About | Timothy McGuire',
+    title: `${SITE_NAME} | About`,
     description: 'Learn about Timothy McGuire, a Senior UX Designer with 12+ years of experience leading user-centered design initiatives for SaaS products, responsive websites, and mobile applications.',
     path: '/about',
   },
   contact: {
-    title: 'Contact | Timothy McGuire',
+    title: `${SITE_NAME} | Contact`,
     description: 'Get in touch with Timothy McGuire for UX/UI design services, SaaS product design, responsive web design, and fractional design partnerships.',
     path: '/contact',
   },
   services: {
-    title: 'Design Services | Timothy McGuire',
+    title: `${SITE_NAME} | Services`,
     description: 'Explore a full range of design services including SaaS product design, marketing web design, mobile app design, and fractional design leadership.',
     path: '/services',
   },
   'marketing-web-design': {
-    title: 'Marketing Web Design | Timothy McGuire',
+    title: `${SITE_NAME} | Marketing Web Design`,
     description: 'Expert marketing website design services focused on conversion, user engagement, and brand storytelling. Responsive, accessible, and results-driven.',
     path: '/services/marketing-web-design',
   },
   'saas-product-design': {
-    title: 'SaaS Product Design | Timothy McGuire',
+    title: `${SITE_NAME} | SaaS Product Design`,
     description: 'End-to-end SaaS product design services including user research, wireframing, prototyping, design systems, and accessibility compliance for enterprise platforms.',
     path: '/services/saas-product-design',
   },
   'mobile-web-design': {
-    title: 'Mobile & Web Design | Timothy McGuire',
+    title: `${SITE_NAME} | Mobile & Web Design`,
     description: 'Mobile-first and responsive web design services that deliver intuitive, accessible user experiences across all devices and screen sizes.',
     path: '/services/mobile-web-design',
   },
   'fractional-saas-designer': {
-    title: 'Fractional SaaS Designer | Timothy McGuire',
+    title: `${SITE_NAME} | Fractional SaaS Designer`,
     description: 'Hire a fractional SaaS designer for flexible, senior-level UX/UI design leadership. Scalable expertise for startups and growing SaaS teams without the full-time overhead.',
     path: '/services/fractional-saas-designer',
   },
   resume: {
-    title: 'Resume | Timothy McGuire',
+    title: `${SITE_NAME} | Resume`,
     description: 'View the professional resume of Timothy McGuire, a Senior UX Designer with 12+ years of experience at companies including Bank of America, Accenture, TransUnion, and more.',
     path: '/resume',
   },
   solutions: {
-    title: 'Case Studies & Solutions | Timothy McGuire',
+    title: `${SITE_NAME} | Case Studies`,
     description: 'Explore real-world case studies showcasing UX/UI design solutions for SaaS products, enterprise platforms, and consumer brands.',
     path: '/solutions',
   },
   analytics: {
-    title: 'Analytics | Timothy McGuire',
+    title: `${SITE_NAME} | Analytics`,
     description: 'Site analytics dashboard for tracking page views, visitors, and engagement.',
     path: '/analytics',
   },
