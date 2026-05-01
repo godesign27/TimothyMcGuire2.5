@@ -22,6 +22,66 @@ import MobileWebDesign from './components/MobileWebDesign';
 import FractionalSaasDesigner from './components/FractionalSaasDesigner';
 import Resume from './components/Resume';
 
+interface PageMeta {
+  title: string;
+  description: string;
+  path: string;
+  canonicalPath?: string;
+}
+
+const pageSeo: Record<string, PageMeta> = {
+  home: {
+    title: 'GO Design | Human-Centered Digital Design Agency',
+    description: 'GO Design is a human-centered digital design agency led by Timothy McGuire, a Senior UX Designer with 12+ years of experience in SaaS products, responsive websites, and mobile app solutions.',
+    path: '/',
+  },
+  about: {
+    title: 'About Timothy McGuire | GO Design',
+    description: 'Learn about Timothy McGuire, a Senior UX Designer with 12+ years of experience leading user-centered design initiatives for SaaS products, responsive websites, and mobile applications.',
+    path: '/about',
+  },
+  contact: {
+    title: 'Contact GO Design | Get in Touch',
+    description: 'Get in touch with GO Design for UX/UI design services, SaaS product design, responsive web design, and fractional design partnerships.',
+    path: '/contact',
+  },
+  services: {
+    title: 'Design Services | GO Design',
+    description: 'Explore GO Design\'s full range of services including SaaS product design, marketing web design, mobile app design, and fractional design leadership.',
+    path: '/services',
+  },
+  'marketing-web-design': {
+    title: 'Marketing Web Design Services | GO Design',
+    description: 'Expert marketing website design services focused on conversion, user engagement, and brand storytelling. Responsive, accessible, and results-driven.',
+    path: '/services/marketing-web-design',
+  },
+  'saas-product-design': {
+    title: 'SaaS Product Design Services | GO Design',
+    description: 'End-to-end SaaS product design services including user research, wireframing, prototyping, design systems, and accessibility compliance for enterprise platforms.',
+    path: '/services/saas-product-design',
+  },
+  'mobile-web-design': {
+    title: 'Mobile & Web Design Services | GO Design',
+    description: 'Mobile-first and responsive web design services that deliver intuitive, accessible user experiences across all devices and screen sizes.',
+    path: '/services/mobile-web-design',
+  },
+  'fractional-saas-designer': {
+    title: 'Fractional SaaS Designer | GO Design',
+    description: 'Hire a fractional SaaS designer for flexible, senior-level UX/UI design leadership. Scalable expertise for startups and growing SaaS teams without the full-time overhead.',
+    path: '/services/fractional-saas-designer',
+  },
+  resume: {
+    title: 'Resume - Timothy McGuire | Senior UX Designer',
+    description: 'View the professional resume of Timothy McGuire, a Senior UX Designer with 12+ years of experience at companies including Bank of America, Accenture, TransUnion, and more.',
+    path: '/resume',
+  },
+  solutions: {
+    title: 'Case Studies & Solutions | GO Design',
+    description: 'Explore real-world case studies showcasing GO Design\'s UX/UI design solutions for SaaS products, enterprise platforms, and consumer brands.',
+    path: '/solutions',
+  },
+};
+
 const pageToPath: Record<string, string> = {
   home: '/',
   about: '/about',
@@ -46,19 +106,39 @@ function App() {
   const [selectedCaseStudy, setSelectedCaseStudy] = React.useState<string | null>(null);
 
   React.useEffect(() => {
-    // Update document title
-    document.title = 'GO Design | Human-Centered Digital Design Agency';
-    
-    // Find the element with the data-default attribute and update favicon if it exists
-    const titleElement = document.querySelector('[data-default]');
-    if (titleElement) {
-      // Update favicon
-      const faviconLink = document.querySelector('link[rel="icon"]');
-      if (faviconLink) {
-        faviconLink.setAttribute('href', 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Apple_logo.svg');
+    const meta = pageSeo[currentPage] ?? pageSeo.home;
+    const baseUrl = 'https://godesigninc.com';
+
+    document.title = meta.title;
+
+    const setMeta = (attr: string, key: string, value: string) => {
+      let el = document.querySelector(`meta[${attr}="${key}"]`);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(attr, key);
+        document.head.appendChild(el);
       }
+      el.setAttribute('content', value);
+    };
+
+    setMeta('name', 'description', meta.description);
+    setMeta('name', 'citation_title', meta.title);
+
+    setMeta('property', 'og:title', meta.title);
+    setMeta('property', 'og:description', meta.description);
+    setMeta('property', 'og:url', `${baseUrl}${meta.path}`);
+
+    setMeta('name', 'twitter:title', meta.title);
+    setMeta('name', 'twitter:description', meta.description);
+
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
     }
-  }, []);
+    canonical.href = `${baseUrl}${meta.path}`;
+  }, [currentPage]);
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
