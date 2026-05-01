@@ -177,8 +177,8 @@ const Resume: React.FC = () => {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-extralight tracking-tight text-neutral-900 dark:text-white mb-4">
-              Timothy <span className="font-semibold">J. McGuire</span>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-light tracking-tight text-neutral-900 dark:text-white mb-4">
+              Timothy J. McGuire
             </h1>
 
             <p className="flex flex-wrap items-center justify-center gap-3 text-neutral-500 dark:text-neutral-400 text-sm tracking-widest uppercase mt-6 mb-8">
