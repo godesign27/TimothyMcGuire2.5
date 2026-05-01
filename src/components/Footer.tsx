@@ -97,7 +97,7 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
         </div>
         
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-gray-500 dark:text-gray-400">
-          © 2025 GO Design, Inc. All rights reserved.
+          © 2025 Timothy McGuire. All rights reserved.
         </div>
       </div>
     </footer>

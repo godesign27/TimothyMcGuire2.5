@@ -28,7 +28,7 @@ const About: React.FC = () => {
                 I'm Timothy McGuire, an Experience Designer with over 12 years of experience helping businesses solve complex challenges through thoughtful, user-centered design.
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-                At GO Design, I believe great design is about more than just aesthetics—it's about creating solutions that resonate with users, simplify workflows, and deliver measurable results. From redesigning SaaS platforms to crafting mobile-first experiences, I've worked with businesses of all sizes to turn their vision into reality.
+                I believe great design is about more than just aesthetics—it's about creating solutions that resonate with users, simplify workflows, and deliver measurable results. From redesigning SaaS platforms to crafting mobile-first experiences, I've worked with businesses of all sizes to turn their vision into reality.
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
                 What sets us apart is our process. I dive deep into understanding your unique goals, leveraging research, data-driven insights, and innovative design principles to create impactful solutions. Collaboration is at the heart of everything I do, ensuring every step aligns with your vision and needs.
@@ -53,7 +53,7 @@ const About: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">Core Values & Philosophy</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-12 max-w-3xl">
-            At GO Design, every project starts with a simple question: How can we make this better for the user? This guiding principle drives our approach to design, ensuring every solution we create is impactful, intuitive, and meaningful.
+            Every project starts with a simple question: How can we make this better for the user? This guiding principle drives our approach to design, ensuring every solution we create is impactful, intuitive, and meaningful.
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -100,7 +100,7 @@ const About: React.FC = () => {
 
           <div className="mt-16 text-center">
             <p className="text-xl italic text-gray-600 dark:text-gray-300">
-              "At GO Design, we're not just creating digital products; we're crafting experiences that connect, inspire, and endure."
+              "I'm not just creating digital products; I'm crafting experiences that connect, inspire, and endure."
             </p>
           </div>
         </div>
