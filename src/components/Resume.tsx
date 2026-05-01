@@ -380,8 +380,15 @@ const Resume: React.FC = () => {
                       <p className="mt-1 text-sm font-medium text-neutral-600 dark:text-neutral-400">
                         {job.title}
                       </p>
-                      <p className="mt-0.5 text-sm text-neutral-500 dark:text-neutral-500">
-                        <time>{job.period}</time>{job.location ? ` \u00B7 ${job.location}` : ''}
+                      <p className="mt-0.5 flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-500">
+                        <time>{job.period}</time>
+                        {job.location === 'Remote' ? (
+                          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/40">
+                            Remote
+                          </span>
+                        ) : job.location ? (
+                          <span>{`\u00B7 ${job.location}`}</span>
+                        ) : null}
                       </p>
                       {job.projects && (
                         <p className="mt-2 text-sm italic text-neutral-500 dark:text-neutral-400">
