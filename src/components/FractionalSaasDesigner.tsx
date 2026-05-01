@@ -376,12 +376,6 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
               { icon: BarChart3, title: 'Analyze workflows', body: 'Identify friction and inefficiencies in core user paths' },
               { icon: Layers, title: 'Simplify navigation', body: 'Reduce cognitive load through clearer task flows' },
               { icon: GitBranch, title: 'Refine architecture', body: 'Improve information clarity across the product' },
-              { icon: Component, title: 'Evolve design system', body: 'Standardize patterns and modernize components without a full rebuild' },
-              { icon: Workflow, title: 'Redesign key flows', body: 'Rethink high-friction workflows end-to-end for clarity and speed' },
-              { icon: ScanSearch, title: 'Audit UI consistency', body: 'Identify and resolve pattern drift across the product' },
-              { icon: Sparkles, title: 'Modernize visual layer', body: 'Update the look and feel to match current SaaS expectations' },
-              { icon: Combine, title: 'Align design + engineering', body: 'Bridge the gap between design intent and implementation' },
-              { icon: Network, title: 'Map information architecture', body: 'Restructure how content and features are organized across the product' },
             ].map(({ icon: Icon, title, body }) => (
               <div
                 key={title}
@@ -535,6 +529,46 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
                 This model works well for teams that need senior design support without committing to a full-time hire.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <div className="max-w-[1140px] mx-auto px-6">
+        <div className="border-t border-gray-100 dark:border-gray-800" />
+      </div>
+
+      {/* The Work */}
+      <section className="py-20 md:py-24">
+        <div className="max-w-[1140px] mx-auto px-6">
+          <div className="max-w-[720px] mb-12 md:mb-16">
+            <p className="text-xs font-medium tracking-wide text-slate-400 dark:text-slate-500 uppercase mb-3">The Work</p>
+            <h2 className="text-[22px] md:text-[24px] font-semibold text-gray-950 dark:text-white leading-snug mb-5">
+              The work takes different forms.
+            </h2>
+            <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-gray-400">
+              Depending on where the product is, I draw on these services to improve experience, consistency, and velocity—without disrupting what's already working.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { icon: Component, title: 'Evolve design system', body: 'Standardize patterns and modernize components without a full rebuild' },
+              { icon: Workflow, title: 'Redesign key flows', body: 'Rethink high-friction workflows end-to-end for clarity and speed' },
+              { icon: ScanSearch, title: 'Audit UI consistency', body: 'Identify and resolve pattern drift across the product' },
+              { icon: Sparkles, title: 'Modernize visual layer', body: 'Update the look and feel to match current SaaS expectations' },
+              { icon: Combine, title: 'Align design + engineering', body: 'Bridge the gap between design intent and implementation' },
+              { icon: Network, title: 'Map information architecture', body: 'Restructure how content and features are organized across the product' },
+            ].map(({ icon: Icon, title, body }) => (
+              <div
+                key={title}
+                className="group relative rounded-xl border border-gray-200/80 dark:border-gray-800 bg-white dark:bg-gray-900/40 p-6 transition-all duration-300 hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-[0_8px_24px_-12px_rgba(15,23,42,0.12)] dark:hover:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.4)] hover:-translate-y-0.5"
+              >
+                <Icon className="w-5 h-5 text-slate-400 dark:text-slate-500 mb-6" strokeWidth={1.5} />
+                <h3 className="text-[15px] font-semibold text-gray-950 dark:text-white mb-2">{title}</h3>
+                <p className="text-[14px] leading-[1.6] text-gray-500 dark:text-gray-400">{body}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
