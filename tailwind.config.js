@@ -22,7 +22,7 @@ export default {
         neutral: {
           DEFAULT: '#19181B',
           50: '#F7F7F8',
-          100: '#EFEEFO',
+          100: '#EFEEF0',
           200: '#DBD9DE',
           300: '#BAB8C1',
           400: '#94919F',
