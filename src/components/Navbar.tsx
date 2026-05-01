@@ -91,8 +91,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
                 >
                   Solutions
                 </a>
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   className={getLinkClasses('about')}
                   onClick={(e) => {
                     e.preventDefault();
@@ -100,6 +100,16 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
                   }}
                 >
                   About
+                </a>
+                <a
+                  href="/resume"
+                  className={getLinkClasses('resume')}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setCurrentPage('resume');
+                  }}
+                >
+                  Resume
                 </a>
               </div>
             </div>
@@ -162,8 +172,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
             >
               Solutions
             </a>
-            <a 
-              href="#" 
+            <a
+              href="#"
               className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50 dark:text-neutral-300 dark:hover:text-white dark:hover:bg-neutral-800"
               onClick={(e) => {
                 e.preventDefault();
@@ -172,6 +182,17 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
               }}
             >
               About
+            </a>
+            <a
+              href="/resume"
+              className="block px-3 py-2 rounded-md text-base font-medium text-neutral-700 hover:text-neutral-900 hover:bg-neutral-50 dark:text-neutral-300 dark:hover:text-white dark:hover:bg-neutral-800"
+              onClick={(e) => {
+                e.preventDefault();
+                setCurrentPage('resume');
+                setIsMenuOpen(false);
+              }}
+            >
+              Resume
             </a>
             <button 
               className={`mt-4 w-full ${buttonClasses}`}

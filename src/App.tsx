@@ -20,6 +20,7 @@ import SpecializedExpertise from './components/SpecializedExpertise';
 import SaasProductDesign from './components/SaasProductDesign';
 import MobileWebDesign from './components/MobileWebDesign';
 import FractionalSaasDesigner from './components/FractionalSaasDesigner';
+import Resume from './components/Resume';
 
 const pageToPath: Record<string, string> = {
   home: '/',
@@ -31,6 +32,7 @@ const pageToPath: Record<string, string> = {
   'saas-product-design': '/services/saas-product-design',
   'mobile-web-design': '/services/mobile-web-design',
   'fractional-saas-designer': '/services/fractional-saas-designer',
+  resume: '/resume',
 };
 
 const getPageFromPath = (pathname: string): string => {
@@ -111,6 +113,8 @@ function App() {
         return <MobileWebDesign setCurrentPage={setCurrentPage} />;
       case 'fractional-saas-designer':
         return <FractionalSaasDesigner setCurrentPage={setCurrentPage} />;
+      case 'resume':
+        return <Resume />;
       case 'solutions':
         if (selectedCaseStudy === 'CoreTechs SaaS Healthcare Product') {
           return <CaseStudyDetail setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
