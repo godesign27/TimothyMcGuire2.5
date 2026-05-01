@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, BarChart3, Layers, GitBranch, Component, Workflow, ScanSearch, Sparkles, Combine, Network } from 'lucide-react';
 
 interface FractionalSaasDesignerProps {
   setCurrentPage: (page: string) => void;
@@ -361,36 +361,42 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
       {/* The Approach */}
       <section className="py-20 md:py-24">
         <div className="max-w-[1140px] mx-auto px-6">
-          <div className="grid md:grid-cols-12 gap-12 md:gap-16">
-            <div className="md:col-span-4">
-              <p className="text-xs font-medium tracking-wide text-slate-400 dark:text-slate-500 uppercase mb-3">The Approach</p>
-              <h2 className="text-[22px] md:text-[24px] font-semibold text-gray-950 dark:text-white leading-snug">
-                Lightweight. Embedded. Incremental.
-              </h2>
-            </div>
-            <div className="md:col-span-8">
-              <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-gray-400 mb-8">
-                Instead of a full redesign or heavy process, I work in a lightweight, embedded model alongside product and engineering teams. The focus is on identifying high-impact improvements and implementing them incrementally:
-              </p>
-              <ul className="space-y-4">
-                {[
-                  'Analyze core workflows to identify friction and inefficiencies',
-                  'Simplify navigation and task flows to reduce cognitive load',
-                  'Refine information architecture to improve clarity',
-                  'Introduce modern UI patterns where they add value',
-                  'Collaborate directly with engineering to ensure fast implementation',
-                ].map((item) => (
-                  <li key={item} className="flex items-start space-x-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 flex-shrink-0" />
-                    <span className="text-[16px] leading-[1.65] text-gray-600 dark:text-gray-300">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-gray-400 mt-8">
-                This approach prioritizes progress over perfection — small improvements that compound into meaningful change.
-              </p>
-            </div>
+          <div className="max-w-[720px] mb-12 md:mb-16">
+            <p className="text-xs font-medium tracking-wide text-slate-400 dark:text-slate-500 uppercase mb-3">The Approach</p>
+            <h2 className="text-[22px] md:text-[24px] font-semibold text-gray-950 dark:text-white leading-snug mb-5">
+              Lightweight. Embedded. Incremental.
+            </h2>
+            <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-gray-400">
+              Instead of a full redesign or heavy process, I work in a lightweight, embedded model alongside product and engineering teams. The focus is on identifying high-impact improvements and implementing them incrementally.
+            </p>
           </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { icon: BarChart3, title: 'Analyze workflows', body: 'Identify friction and inefficiencies in core user paths' },
+              { icon: Layers, title: 'Simplify navigation', body: 'Reduce cognitive load through clearer task flows' },
+              { icon: GitBranch, title: 'Refine architecture', body: 'Improve information clarity across the product' },
+              { icon: Component, title: 'Evolve design system', body: 'Standardize patterns and modernize components without a full rebuild' },
+              { icon: Workflow, title: 'Redesign key flows', body: 'Rethink high-friction workflows end-to-end for clarity and speed' },
+              { icon: ScanSearch, title: 'Audit UI consistency', body: 'Identify and resolve pattern drift across the product' },
+              { icon: Sparkles, title: 'Modernize visual layer', body: 'Update the look and feel to match current SaaS expectations' },
+              { icon: Combine, title: 'Align design + engineering', body: 'Bridge the gap between design intent and implementation' },
+              { icon: Network, title: 'Map information architecture', body: 'Restructure how content and features are organized across the product' },
+            ].map(({ icon: Icon, title, body }) => (
+              <div
+                key={title}
+                className="group relative rounded-xl border border-gray-200/80 dark:border-gray-800 bg-white dark:bg-gray-900/40 p-6 transition-all duration-300 hover:border-gray-300 dark:hover:border-gray-700 hover:shadow-[0_8px_24px_-12px_rgba(15,23,42,0.12)] dark:hover:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.4)] hover:-translate-y-0.5"
+              >
+                <Icon className="w-5 h-5 text-slate-400 dark:text-slate-500 mb-6" strokeWidth={1.5} />
+                <h3 className="text-[15px] font-semibold text-gray-950 dark:text-white mb-2">{title}</h3>
+                <p className="text-[14px] leading-[1.6] text-gray-500 dark:text-gray-400">{body}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-gray-400 mt-12 max-w-[640px]">
+            This approach prioritizes progress over perfection — small improvements that compound into meaningful change.
+          </p>
         </div>
       </section>
 
