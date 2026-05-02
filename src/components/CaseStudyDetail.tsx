@@ -46,8 +46,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-8 lg:py-12">
             {/* Dashboard Image - 9 columns (75%) on desktop */}
-            <div className="lg:col-span-9 relative bg-white rounded-lg shadow-lg overflow-hidden">
-              <img 
+            <div className="lg:col-span-9 relative bg-white rounded-lg shadow-lg overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <img
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/core-hero.png"
                 alt="Healthcare Dashboard"
                 className="w-full h-full object-cover"
@@ -118,11 +118,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
             {/* First Card - full width on mobile, 6 columns on desktop */}
-            <div className="lg:col-span-6 bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden">
+            <div className="lg:col-span-6 bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
               <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
                 Before
               </span>
-              <img 
+              <img
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/before.png"
                 alt="Before"
                 className="w-full h-full object-cover"
@@ -145,11 +145,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
             </div>
 
             {/* Third Card - full width on mobile, 3 columns on desktop */}
-            <div className="lg:col-span-3 bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden">
+            <div className="lg:col-span-3 bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
               <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
                 Persona
               </span>
-              <img 
+              <img
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/healthcare-user.png"
                 alt="Healthcare Professional"
                 className="w-full h-full object-cover"
@@ -166,11 +166,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* First Card */}
-            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden">
+            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
               <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
                 UX Strategy
               </span>
-              <img 
+              <img
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/requirements.png"
                 alt="Requirements"
                 className="w-full h-full object-cover"
@@ -180,7 +180,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
             </div>
 
             {/* Second Card */}
-            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden">
+            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
               <div className="flex space-x-2 absolute top-6 lg:top-8 left-6 lg:left-8 z-10">
                 <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
                   UX Design
@@ -189,7 +189,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
                   Site Map
                 </span>
               </div>
-              <img 
+              <img
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/site-map.png"
                 alt="Site Map"
                 className="w-full h-full object-cover"
@@ -254,11 +254,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* First Card */}
-            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden">
+            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
               <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
                 UX Design
               </span>
-              <img 
+              <img
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/wireframe.png"
                 alt="Wireframe"
                 className="w-full h-full object-cover"
@@ -268,11 +268,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
             </div>
 
             {/* Second Card */}
-            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden">
+            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
               <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
                 UI Design
               </span>
-              <img 
+              <img
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/color-harmony%20(1).png"
                 alt="Color Harmony"
                 className="w-full h-full object-cover"

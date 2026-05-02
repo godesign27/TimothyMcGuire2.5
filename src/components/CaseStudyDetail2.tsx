@@ -45,8 +45,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-8 lg:py-12">
             {/* Dashboard Image - 9 columns (75%) on desktop */}
-            <div className="lg:col-span-9 relative bg-white rounded-lg shadow-lg overflow-hidden">
-              <img 
+            <div className="lg:col-span-9 relative bg-white rounded-lg shadow-lg overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <img
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/onboarding-accenture-hero.png"
                 alt="Employee Onboarding"
                 className="w-full h-full object-cover"
@@ -116,11 +116,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
             {/* First Card - full width on mobile, 6 columns on desktop */}
-            <div className="lg:col-span-6 bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden">
+            <div className="lg:col-span-6 bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
               <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
                 Before
               </span>
-              <img 
+              <img
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/before-acc.png"
                 alt="Before"
                 className="w-full h-full object-cover"
@@ -143,11 +143,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
             </div>
 
             {/* Third Card - full width on mobile, 3 columns on desktop */}
-            <div className="lg:col-span-3 bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden">
+            <div className="lg:col-span-3 bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
               <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
                 Persona
               </span>
-              <img 
+              <img
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/accenture-persona.png"
                 alt="Healthcare Professional"
                 className="w-full h-full object-cover"
@@ -164,11 +164,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* First Card */}
-            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden">
+            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
               <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
                 UX Strategy
               </span>
-              <img 
+              <img
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/empathy-map-acc.png"
                 alt="Empathy Map"
                 className="w-full h-full object-cover"
@@ -178,11 +178,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
             </div>
 
             {/* Second Card */}
-            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden">
+            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
               <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
                 UI Design
               </span>
-              <img 
+              <img
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/photography.png"
                 alt="Photography"
                 className="w-full h-full object-cover"
@@ -247,11 +247,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* First Card */}
-            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden">
+            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
               <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
                 UX Design
               </span>
-              <img 
+              <img
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/wireframe-site.png"
                 alt="Wireframe"
                 className="w-full h-full object-cover"
@@ -261,11 +261,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
             </div>
 
             {/* Second Card */}
-            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden">
+            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
               <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
                 UI Design
               </span>
-              <img 
+              <img
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/photography.png"
                 alt="Photography"
                 className="w-full h-full object-cover"

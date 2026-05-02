@@ -161,7 +161,7 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
           {/* Dremel Bento Grid */}
           <div className="mb-16">
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-8">Dremel.com Redesign</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 h-[1000px]">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:h-[1000px]">
               {/* Dremel.com Title Card */}
               <div className="bg-gradient-to-br from-blue-100 to-orange-100 dark:from-blue-900 dark:to-orange-900 rounded-2xl p-6 flex flex-col justify-center">
                 <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">DREMEL.COM</h4>
@@ -172,11 +172,11 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
               </div>
 
               {/* Main Hero Image (2x height) */}
-              <div className="md:col-span-2 md:row-span-2 bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-gray-700 dark:text-purple-400 dark:border-purple-400">
+              <div className="md:col-span-2 md:row-span-2 bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg relative aspect-[4/3] md:aspect-auto">
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-blue-100 text-blue-800 text-xs font-medium border border-blue-400 dark:bg-gray-700 dark:text-blue-400 dark:border-blue-400">
                   Responsive Design
                 </span>
-                <img 
+                <img
                   src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Dremel/dremel.png"
                   alt="Dremel Homepage"
                   className="w-full h-full object-contain"
@@ -184,17 +184,17 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
               </div>
 
               {/* Conversion Stat */}
-              <div className="bg-gray-900 dark:bg-gray-800 rounded-2xl p-6 flex flex-col justify-center items-center text-white">
+              <div className="bg-gray-900 dark:bg-gray-800 rounded-2xl p-6 flex flex-col justify-center items-center text-white min-h-[120px]">
                 <div className="text-3xl font-bold mb-2">177%</div>
                 <div className="text-sm text-gray-300">Desktop device increase</div>
               </div>
 
               {/* Dremel - before */}
-              <div className="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-gray-700 dark:text-purple-400 dark:border-purple-400">
+              <div className="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg relative aspect-[4/3] md:aspect-auto">
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-blue-100 text-blue-800 text-xs font-medium border border-blue-400 dark:bg-gray-700 dark:text-blue-400 dark:border-blue-400">
                   Before
                 </span>
-                <img 
+                <img
                   src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Dremel/dremel-before.png"
                   alt="Dremel Site Map"
                   className="w-full h-full object-cover"
@@ -202,11 +202,11 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
               </div>
 
               {/* Sketches */}
-              <div className="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-gray-700 dark:text-purple-400 dark:border-purple-400">
+              <div className="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg relative aspect-[4/3] md:aspect-auto">
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-blue-100 text-blue-800 text-xs font-medium border border-blue-400 dark:bg-gray-700 dark:text-blue-400 dark:border-blue-400">
                   Sketches
                 </span>
-                <img 
+                <img
                   src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Dremel/dremel-sketch.png"
                   alt="Dremel Sketches"
                   className="w-full h-full object-cover"
@@ -214,11 +214,11 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
               </div>
 
               {/* Site Map */}
-              <div className="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-gray-700 dark:text-purple-400 dark:border-purple-400">
+              <div className="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg relative aspect-[4/3] md:aspect-auto">
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-blue-100 text-blue-800 text-xs font-medium border border-blue-400 dark:bg-gray-700 dark:text-blue-400 dark:border-blue-400">
                   Sitemap
                 </span>
-                <img 
+                <img
                   src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Dremel/dremel-sitemap.png"
                   alt="Dremel Site Map"
                   className="w-full h-full object-cover object-top"
@@ -226,17 +226,17 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
               </div>
 
               {/* Performance Metric */}
-              <div className="bg-blue-100 dark:bg-blue-900 rounded-2xl p-6 flex flex-col justify-center items-center">
+              <div className="bg-blue-100 dark:bg-blue-900 rounded-2xl p-6 flex flex-col justify-center items-center min-h-[120px]">
                 <div className="text-3xl font-bold text-blue-800 dark:text-blue-200 mb-2">242%</div>
                 <div className="text-sm text-blue-700 dark:text-blue-300 text-center">Mobile device increase</div>
               </div>
 
               {/* Product Detail Page (2x height) */}
-              <div className="md:col-span-2 md:row-span-2 bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-gray-700 dark:text-purple-400 dark:border-purple-400">
+              <div className="md:col-span-2 md:row-span-2 bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg relative aspect-[4/3] md:aspect-auto">
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-blue-100 text-blue-800 text-xs font-medium border border-blue-400 dark:bg-gray-700 dark:text-blue-400 dark:border-blue-400">
                   Final Product Detail Design
                 </span>
-                <img 
+                <img
                   src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Dremel/dremel-product-detail.png"
                   alt="Dremel Product Detail"
                   className="w-full h-full object-cover"
