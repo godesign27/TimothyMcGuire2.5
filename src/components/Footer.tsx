@@ -53,24 +53,36 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider">Services</h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <a href="#" className="text-base text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-                  Website Design
-                </a>
+                <button
+                  onClick={() => setCurrentPage('marketing-web-design')}
+                  className="text-base text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                >
+                  Marketing Web Design
+                </button>
               </li>
               <li>
-                <a href="#" className="text-base text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-                  UX/UI Design
-                </a>
+                <button
+                  onClick={() => setCurrentPage('mobile-web-design')}
+                  className="text-base text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                >
+                  Mobile & Web Design
+                </button>
               </li>
               <li>
-                <a href="#" className="text-base text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
-                  Mobile App Design
-                </a>
+                <button
+                  onClick={() => setCurrentPage('agentic-experience')}
+                  className="text-base text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                >
+                  Agentic Experience
+                </button>
               </li>
               <li>
-                <a href="#" className="text-base text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+                <button
+                  onClick={() => setCurrentPage('saas-product-design')}
+                  className="text-base text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                >
                   SaaS Product Design
-                </a>
+                </button>
               </li>
               <li>
                 <button
@@ -97,7 +109,7 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
         </div>
         
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-gray-500 dark:text-gray-400">
-          © 2025 Timothy McGuire. All rights reserved.
+          © 2026 Timothy McGuire. All rights reserved.
         </div>
       </div>
     </footer>
