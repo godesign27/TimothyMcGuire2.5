@@ -8,11 +8,11 @@ interface NavbarProps {
 }
 
 const servicePages = [
-  { id: 'agentic-experience', label: 'Agentic Experience', description: 'AI-native product design and UX leadership.', icon: Bot, iconBg: 'bg-blue-50 dark:bg-blue-950', iconColor: 'text-blue-600 dark:text-blue-400' },
-  { id: 'marketing-web-design', label: 'Marketing Web Design', description: 'Conversion-focused websites that tell your story.', icon: Globe, iconBg: 'bg-emerald-50 dark:bg-emerald-950', iconColor: 'text-emerald-600 dark:text-emerald-400' },
-  { id: 'saas-product-design', label: 'SaaS Product Design', description: 'Scalable interfaces for software products.', icon: Box, iconBg: 'bg-sky-50 dark:bg-sky-950', iconColor: 'text-sky-600 dark:text-sky-400' },
-  { id: 'mobile-web-design', label: 'Mobile & Web Design', description: 'Responsive experiences that shine on every device.', icon: Smartphone, iconBg: 'bg-amber-50 dark:bg-amber-950', iconColor: 'text-amber-600 dark:text-amber-400' },
-  { id: 'fractional-saas-designer', label: 'Fractional SaaS Designer', description: 'Senior design leadership on a flexible cadence.', icon: Users, iconBg: 'bg-teal-50 dark:bg-teal-950', iconColor: 'text-teal-600 dark:text-teal-400' },
+  { id: 'agentic-experience', label: 'Agentic Experience', description: 'AI-native product design and UX leadership.', icon: Bot, iconBg: 'bg-blue-50 dark:bg-blue-500/10', iconColor: 'text-blue-600 dark:text-blue-400' },
+  { id: 'marketing-web-design', label: 'Marketing Web Design', description: 'Conversion-focused websites that tell your story.', icon: Globe, iconBg: 'bg-emerald-50 dark:bg-emerald-500/10', iconColor: 'text-emerald-600 dark:text-emerald-400' },
+  { id: 'saas-product-design', label: 'SaaS Product Design', description: 'Scalable interfaces for software products.', icon: Box, iconBg: 'bg-sky-50 dark:bg-sky-500/10', iconColor: 'text-sky-600 dark:text-sky-400' },
+  { id: 'mobile-web-design', label: 'Mobile & Web Design', description: 'Responsive experiences that shine on every device.', icon: Smartphone, iconBg: 'bg-amber-50 dark:bg-amber-500/10', iconColor: 'text-amber-600 dark:text-amber-400' },
+  { id: 'fractional-saas-designer', label: 'Fractional SaaS Designer', description: 'Senior design leadership on a flexible cadence.', icon: Users, iconBg: 'bg-teal-50 dark:bg-teal-500/10', iconColor: 'text-teal-600 dark:text-teal-400' },
 ];
 
 const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
@@ -120,7 +120,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
                   </button>
                   <div
-                    className={`absolute top-full left-0 mt-1 w-80 rounded-xl bg-white dark:bg-neutral-900 shadow-xl ring-1 ring-black/5 dark:ring-white/10 transition-all duration-200 origin-top ${
+                    className={`absolute top-full left-0 mt-1 w-80 rounded-xl bg-white dark:bg-neutral-950 dark:border dark:border-white/[0.06] shadow-xl ring-1 ring-black/5 dark:ring-white/10 transition-all duration-200 origin-top ${
                       isServicesOpen
                         ? 'opacity-100 scale-100 translate-y-0'
                         : 'opacity-0 scale-95 -translate-y-1 pointer-events-none'
@@ -150,8 +150,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
                             }}
                             className={`flex items-center gap-3 w-full text-left px-3 py-2.5 rounded-lg transition-colors ${
                               currentPage === service.id
-                                ? 'bg-neutral-100 dark:bg-neutral-800'
-                                : 'hover:bg-neutral-50 dark:hover:bg-neutral-800/60'
+                                ? 'bg-neutral-100 dark:bg-white/[0.06]'
+                                : 'hover:bg-neutral-50 dark:hover:bg-white/[0.04]'
                             }`}
                           >
                             <div className={`w-9 h-9 rounded-lg ${service.iconBg} flex items-center justify-center flex-shrink-0`}>
@@ -276,8 +276,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
                       key={service.id}
                       className={`flex items-center gap-3 w-full text-left px-4 py-2.5 rounded-lg transition-colors ${
                         currentPage === service.id
-                          ? 'bg-neutral-100 dark:bg-neutral-800'
-                          : 'hover:bg-neutral-50 dark:hover:bg-neutral-800/60'
+                          ? 'bg-neutral-100 dark:bg-white/[0.06]'
+                          : 'hover:bg-neutral-50 dark:hover:bg-white/[0.04]'
                       }`}
                       onClick={() => {
                         setCurrentPage(service.id);

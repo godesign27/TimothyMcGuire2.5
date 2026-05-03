@@ -2,7 +2,7 @@ import React from 'react';
 
 const Partners: React.FC = () => {
   return (
-    <section className="bg-white dark:bg-gray-900 py-16">
+    <section className="bg-white dark:bg-neutral-950 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
           {/* Partner logos */}
@@ -33,23 +33,23 @@ const Partners: React.FC = () => {
         </div>
 
         {/* Stats section */}
-        <div className="mt-32 bg-gray-50 dark:bg-gray-800 rounded-xl p-16">
+        <div className="mt-32 bg-gray-50 dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-xl p-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-16">
             <div className="text-center">
               <p className="text-4xl font-bold text-gray-900 dark:text-white">50%</p>
-              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">INCREASED CONVERSION</p>
+              <p className="mt-2 text-sm text-gray-600 dark:text-neutral-500">INCREASED CONVERSION</p>
             </div>
             <div className="text-center">
               <p className="text-4xl font-bold text-gray-900 dark:text-white">20%</p>
-              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">CONVERSION RATE INCREASE</p>
+              <p className="mt-2 text-sm text-gray-600 dark:text-neutral-500">CONVERSION RATE INCREASE</p>
             </div>
             <div className="text-center">
               <p className="text-4xl font-bold text-gray-900 dark:text-white">65%</p>
-              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">REDUCTION IN COSTS</p>
+              <p className="mt-2 text-sm text-gray-600 dark:text-neutral-500">REDUCTION IN COSTS</p>
             </div>
             <div className="text-center">
               <p className="text-4xl font-bold text-gray-900 dark:text-white">40%</p>
-              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">INCREASED ENGAGEMENT</p>
+              <p className="mt-2 text-sm text-gray-600 dark:text-neutral-500">INCREASED ENGAGEMENT</p>
             </div>
           </div>
         </div>

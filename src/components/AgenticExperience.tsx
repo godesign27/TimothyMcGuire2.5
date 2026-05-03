@@ -16,7 +16,7 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-white dark:bg-neutral-950">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50 to-sky-100 dark:from-slate-900 dark:via-blue-950 dark:to-sky-950"></div>
@@ -27,7 +27,7 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
               <li>
                 <button
                   onClick={() => setCurrentPage('services')}
-                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                  className="text-gray-600 dark:text-neutral-500 hover:text-gray-900 dark:hover:text-white"
                 >
                   Services
                 </button>
@@ -44,22 +44,22 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
             <h1 className="text-4xl md:text-7xl font-regular text-gray-900 dark:text-white tracking-tight mb-6 max-w-4xl">
               We help design how AI works—inside your team and inside your product.
             </h1>
-            <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mb-12">
+            <p className="text-xl text-gray-700 dark:text-neutral-400 max-w-3xl mb-12">
               From improving how teams use AI tools to designing AI-native product experiences,
               we help SaaS and enterprise companies turn AI into something usable, controlled,
               and built for the real world.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 sm:gap-12">
               <div>
-                <p className="text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-1">Experience</p>
+                <p className="text-xs uppercase tracking-widest text-gray-500 dark:text-neutral-500 mb-1">Experience</p>
                 <p className="text-base font-semibold text-gray-900 dark:text-white">10+ years product design</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-1">Level</p>
+                <p className="text-xs uppercase tracking-widest text-gray-500 dark:text-neutral-500 mb-1">Level</p>
                 <p className="text-base font-semibold text-gray-900 dark:text-white">Senior / Director</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-1">Engagement</p>
+                <p className="text-xs uppercase tracking-widest text-gray-500 dark:text-neutral-500 mb-1">Engagement</p>
                 <p className="text-base font-semibold text-gray-900 dark:text-white">Remote collaboration</p>
               </div>
             </div>
@@ -77,7 +77,7 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8">
               Why most AI products fail at the interface layer
             </h2>
-            <div className="space-y-6 text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+            <div className="space-y-6 text-gray-600 dark:text-neutral-400 text-lg leading-relaxed">
               <p>
                 The bottleneck in AI adoption isn't model performance — it's interface design. Teams
                 invest heavily in training sophisticated models, then wrap them in UX that either
@@ -100,7 +100,7 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
       </section>
 
       {/* The Four Layers of AI Trust */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+      <section className="py-20 bg-gray-50 dark:bg-white/[0.03] dark:border-y dark:border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-4">
             Framework
@@ -108,47 +108,47 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 max-w-2xl">
             The four layers of AI trust
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-12 max-w-3xl">
+          <p className="text-lg text-gray-600 dark:text-neutral-400 mb-12 max-w-3xl">
             Trust in AI systems isn't binary. It's built across four distinct layers, each
             requiring different design interventions.
           </p>
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            <div className="bg-white dark:bg-gray-700 rounded-2xl p-8 border border-gray-200 dark:border-gray-600">
-              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white dark:bg-white/[0.03] rounded-2xl p-8 border border-gray-200 dark:border-white/[0.06]">
+              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-500/10 rounded-full flex items-center justify-center mb-6">
                 <Eye className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Predictability</h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600 dark:text-neutral-400">
                 Can users anticipate what the AI will do? Clear interaction patterns — copilot
                 vs. agent vs. classifier — set expectations before outputs appear.
               </p>
             </div>
-            <div className="bg-white dark:bg-gray-700 rounded-2xl p-8 border border-gray-200 dark:border-gray-600">
-              <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white dark:bg-white/[0.03] rounded-2xl p-8 border border-gray-200 dark:border-white/[0.06]">
+              <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-500/10 rounded-full flex items-center justify-center mb-6">
                 <Shield className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Transparency</h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600 dark:text-neutral-400">
                 Can users see why the AI did what it did? Not full explainability — contextual
                 signals at decision points that build confidence without cognitive overload.
               </p>
             </div>
-            <div className="bg-white dark:bg-gray-700 rounded-2xl p-8 border border-gray-200 dark:border-gray-600">
-              <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900 rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white dark:bg-white/[0.03] rounded-2xl p-8 border border-gray-200 dark:border-white/[0.06]">
+              <div className="w-12 h-12 bg-amber-100 dark:bg-amber-500/10 rounded-full flex items-center justify-center mb-6">
                 <SlidersHorizontal className="w-6 h-6 text-amber-600 dark:text-amber-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Control</h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600 dark:text-neutral-400">
                 Can users redirect, refine, or reject AI outputs? Agency isn't about saying no
                 to everything — it's about keeping humans in the loop where judgment matters.
               </p>
             </div>
-            <div className="bg-white dark:bg-gray-700 rounded-2xl p-8 border border-gray-200 dark:border-gray-600">
-              <div className="w-12 h-12 bg-rose-100 dark:bg-rose-900 rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white dark:bg-white/[0.03] rounded-2xl p-8 border border-gray-200 dark:border-white/[0.06]">
+              <div className="w-12 h-12 bg-rose-100 dark:bg-rose-500/10 rounded-full flex items-center justify-center mb-6">
                 <AlertCircle className="w-6 h-6 text-rose-600 dark:text-rose-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Accountability</h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600 dark:text-neutral-400">
                 When things go wrong, is there a clear path to correction? Error states, feedback
                 loops, and escalation paths complete the trust loop.
               </p>
@@ -166,54 +166,54 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 max-w-2xl">
             Interaction patterns that match the model
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-12 max-w-3xl">
+          <p className="text-lg text-gray-600 dark:text-neutral-400 mb-12 max-w-3xl">
             Not all AI features need the same UX. The interaction model should match the task
             and the model's capabilities.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
-              <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-4">
+            <div className="bg-gray-50 dark:bg-white/[0.03] rounded-2xl p-6 border border-gray-200 dark:border-white/[0.06]">
+              <div className="w-10 h-10 bg-blue-100 dark:bg-blue-500/10 rounded-lg flex items-center justify-center mb-4">
                 <Users className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Copilot</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-sm text-gray-600 dark:text-neutral-500">
                 AI suggests, human decides. Best for creative or judgment-heavy work where users
                 want to stay in control.
               </p>
             </div>
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
-              <div className="w-10 h-10 bg-emerald-100 dark:bg-emerald-900 rounded-lg flex items-center justify-center mb-4">
+            <div className="bg-gray-50 dark:bg-white/[0.03] rounded-2xl p-6 border border-gray-200 dark:border-white/[0.06]">
+              <div className="w-10 h-10 bg-emerald-100 dark:bg-emerald-500/10 rounded-lg flex items-center justify-center mb-4">
                 <Bot className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Agent</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-sm text-gray-600 dark:text-neutral-500">
                 Users set goals, AI executes autonomously. Requires clear boundaries, progress
                 visibility, and interrupt affordances.
               </p>
             </div>
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
-              <div className="w-10 h-10 bg-amber-100 dark:bg-amber-900 rounded-lg flex items-center justify-center mb-4">
+            <div className="bg-gray-50 dark:bg-white/[0.03] rounded-2xl p-6 border border-gray-200 dark:border-white/[0.06]">
+              <div className="w-10 h-10 bg-amber-100 dark:bg-amber-500/10 rounded-lg flex items-center justify-center mb-4">
                 <Zap className="w-5 h-5 text-amber-600 dark:text-amber-400" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Classifier</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-sm text-gray-600 dark:text-neutral-500">
                 AI sorts, routes, and flags; human handles exceptions. Optimizes for speed while
                 maintaining oversight on edge cases.
               </p>
             </div>
-            <div className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
-              <div className="w-10 h-10 bg-sky-100 dark:bg-sky-900 rounded-lg flex items-center justify-center mb-4">
+            <div className="bg-gray-50 dark:bg-white/[0.03] rounded-2xl p-6 border border-gray-200 dark:border-white/[0.06]">
+              <div className="w-10 h-10 bg-sky-100 dark:bg-sky-500/10 rounded-lg flex items-center justify-center mb-4">
                 <BarChart3 className="w-5 h-5 text-sky-600 dark:text-sky-400" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Advisor</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-sm text-gray-600 dark:text-neutral-500">
                 AI surfaces insights, human synthesizes. Information-dense dashboards with
                 confidence indicators and decision support.
               </p>
             </div>
           </div>
           <div className="mt-12 max-w-3xl">
-            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-lg text-gray-600 dark:text-neutral-400 leading-relaxed">
               I help teams choose the right pattern for their use case, then design the full
               interaction model — including edge cases, errors, and feedback loops most teams
               skip in v1.
@@ -223,7 +223,7 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
       </section>
 
       {/* Mental Model Mapping */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+      <section className="py-20 bg-gray-50 dark:bg-white/[0.03] dark:border-y dark:border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-4">
@@ -232,7 +232,7 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8">
               Mental model mapping: the missing step
             </h2>
-            <div className="space-y-6 text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+            <div className="space-y-6 text-gray-600 dark:text-neutral-400 text-lg leading-relaxed">
               <p>
                 Most AI projects jump straight from "what should the model do" to "what should
                 the screen look like." They skip the critical middle step: <strong className="text-gray-900 dark:text-white">what should users
@@ -324,7 +324,7 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
             ].map((service) => (
               <div
                 key={service.number}
-                className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-8 hover:border-blue-400 dark:hover:border-blue-500 transition-colors"
+                className="bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] rounded-2xl p-8 hover:border-blue-400 dark:hover:border-blue-500 transition-colors"
               >
                 <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2">
                   {service.number}
@@ -332,25 +332,25 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-6">
+                <p className="text-gray-600 dark:text-neutral-400 mb-6">
                   {service.description}
                 </p>
-                <div className="border-t border-gray-200 dark:border-gray-700 pt-4 space-y-3">
+                <div className="border-t border-gray-200 dark:border-white/[0.06] pt-4 space-y-3">
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-500 dark:text-gray-400">Timeline</span>
+                    <span className="text-gray-500 dark:text-neutral-500">Timeline</span>
                     <span className="font-semibold text-gray-900 dark:text-white">{service.timeline}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-500 dark:text-gray-400">Format</span>
+                    <span className="text-gray-500 dark:text-neutral-500">Format</span>
                     <span className="font-semibold text-gray-900 dark:text-white">{service.format}</span>
                   </div>
                   <div className="mt-4">
-                    <p className="text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-3">
+                    <p className="text-xs uppercase tracking-widest text-gray-500 dark:text-neutral-500 mb-3">
                       Deliverables
                     </p>
                     <ul className="space-y-1.5">
                       {service.deliverables.map((item, i) => (
-                        <li key={i} className="text-sm text-gray-600 dark:text-gray-300 flex items-start gap-2">
+                        <li key={i} className="text-sm text-gray-600 dark:text-neutral-400 flex items-start gap-2">
                           <ArrowRight className="w-3.5 h-3.5 text-blue-500 dark:text-blue-400 mt-0.5 flex-shrink-0" />
                           <span>{item}</span>
                         </li>
@@ -365,7 +365,7 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
       </section>
 
       {/* Case Examples */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+      <section className="py-20 bg-gray-50 dark:bg-white/[0.03] dark:border-y dark:border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400 mb-4">
@@ -375,7 +375,7 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
               Case examples
             </h2>
           </div>
-          <div className="space-y-0 max-w-3xl divide-y divide-gray-200 dark:divide-gray-700">
+          <div className="space-y-0 max-w-3xl divide-y divide-gray-200 dark:divide-white/[0.06]">
             {[
               {
                 meta: 'Euphonic AI \u00B7 Startup \u00B7 SaaS 2024',
@@ -394,11 +394,11 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
               },
             ].map((caseItem, index) => (
               <div key={index} className="py-8 first:pt-0">
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">{caseItem.meta}</p>
+                <p className="text-sm text-gray-500 dark:text-neutral-500 mb-2">{caseItem.meta}</p>
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                   {caseItem.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-gray-600 dark:text-neutral-400 leading-relaxed">
                   {caseItem.description}
                 </p>
               </div>

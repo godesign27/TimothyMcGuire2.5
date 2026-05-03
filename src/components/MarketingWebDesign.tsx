@@ -21,7 +21,7 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-white dark:bg-neutral-950">
       {/* Hero Section with Breadcrumb */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-rose-100 dark:from-amber-900 dark:to-rose-900"></div>
@@ -33,7 +33,7 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
               <li>
                 <button
                   onClick={() => setCurrentPage('services')}
-                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                  className="text-gray-600 dark:text-neutral-500 hover:text-gray-900 dark:hover:text-white"
                 >
                   Services
                 </button>
@@ -48,7 +48,7 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
               Marketing Web Design<br />
               That Drives Results
             </h1>
-            <p className="text-xl text-gray-700 dark:text-gray-300 max-w-2xl">
+            <p className="text-xl text-gray-700 dark:text-neutral-400 max-w-2xl">
               We create beautiful, high-performing websites that help businesses grow. 
               Our designs are crafted to engage visitors, communicate value, and convert 
               leads into customers.
@@ -62,35 +62,35 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-500/10 rounded-full flex items-center justify-center mb-6">
                 <Globe className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 Conversion-Focused Design
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600 dark:text-neutral-500">
                 We design with your business goals in mind, creating user experiences that feel natural to your visitors.
               </p>
             </div>
             <div>
-              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-500/10 rounded-full flex items-center justify-center mb-6">
                 <Users className="w-6 h-6 text-purple-600 dark:text-purple-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 User-Centric Approach
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600 dark:text-neutral-500">
                 Every design decision is based on deep understanding of your users' needs, behaviors, and preferences.
               </p>
             </div>
             <div>
-              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-green-100 dark:bg-green-500/10 rounded-full flex items-center justify-center mb-6">
                 <Zap className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 Performance Optimized
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600 dark:text-neutral-500">
                 Fast-loading, responsive websites that provide excellent user experience across all devices and platforms.
               </p>
             </div>
@@ -99,7 +99,7 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
       </section>
 
       {/* What's Included */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+      <section className="py-20 bg-gray-50 dark:bg-white/[0.03] dark:border dark:border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">What's Included</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -110,7 +110,7 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Custom Design</h3>
-                  <p className="text-gray-600 dark:text-gray-400">Unique, branded design that sets you apart</p>
+                  <p className="text-gray-600 dark:text-neutral-500">Unique, branded design that sets you apart</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -119,7 +119,7 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Responsive Development</h3>
-                  <p className="text-gray-600 dark:text-gray-400">Perfect experience on all devices</p>
+                  <p className="text-gray-600 dark:text-neutral-500">Perfect experience on all devices</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -128,7 +128,7 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">SEO Optimization</h3>
-                  <p className="text-gray-600 dark:text-gray-400">Built to perform well in search results</p>
+                  <p className="text-gray-600 dark:text-neutral-500">Built to perform well in search results</p>
                 </div>
               </div>
             </div>
@@ -139,7 +139,7 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Content Strategy</h3>
-                  <p className="text-gray-600 dark:text-gray-400">Strategic content placement for maximum impact</p>
+                  <p className="text-gray-600 dark:text-neutral-500">Strategic content placement for maximum impact</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -148,7 +148,7 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Analytics Integration</h3>
-                  <p className="text-gray-600 dark:text-gray-400">Track and measure your success</p>
+                  <p className="text-gray-600 dark:text-neutral-500">Track and measure your success</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -157,7 +157,7 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Ongoing Support</h3>
-                  <p className="text-gray-600 dark:text-gray-400">Dedicated support after launch</p>
+                  <p className="text-gray-600 dark:text-neutral-500">Dedicated support after launch</p>
                 </div>
               </div>
             </div>
@@ -166,15 +166,15 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
       </section>
 
       {/* Design Solutions Grid */}
-      <section className="py-20 bg-gray-100 dark:bg-gray-900">
+      <section className="py-20 bg-gray-100 dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">A Sample of Design Solutions</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Mopar Redesign */}
-            <div className="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg">
-              <div className="aspect-[4/3] bg-white dark:bg-gray-600 relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-gray-700 dark:text-purple-400 dark:border-purple-400">
+            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-2xl overflow-hidden shadow-lg">
+              <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
                   Automotive
                 </span>
                 <img 
@@ -187,16 +187,16 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                   Mopar Redesign
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                <p className="text-gray-600 dark:text-neutral-400 text-sm">
                   A Redesigned the Mopar.com website using bold type and photography to energize this audience.
                 </p>
               </div>
             </div>
 
             {/* TransUnion.com Redesign */}
-            <div className="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg">
-              <div className="aspect-[4/3] bg-white dark:bg-gray-600 relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-gray-700 dark:text-purple-400 dark:border-purple-400">
+            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-2xl overflow-hidden shadow-lg">
+              <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
                   Enterprise
                 </span>
                 <img 
@@ -209,16 +209,16 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                   TransUnion Redesign
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                <p className="text-gray-600 dark:text-neutral-400 text-sm">
                   Designed a responsive, user-friendly site that works seamlessly on desktop and mobile. We transformed the experience to focus on what users need, rather than just how the business operates.
                 </p>
               </div>
             </div>
 
             {/* Aramark Redesign */}
-            <div className="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg">
-              <div className="aspect-[4/3] bg-white dark:bg-gray-600 relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-gray-700 dark:text-purple-400 dark:border-purple-400">
+            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-2xl overflow-hidden shadow-lg">
+              <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
                   Enterprise
                 </span>
                 <img 
@@ -231,16 +231,16 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                   Aramark Redesign
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                <p className="text-gray-600 dark:text-neutral-400 text-sm">
                   Focused on users, we redesigned Aramark's site with clear navigation, bold visuals, and storytelling that showcased their services while staying true to their brand pillars.
                 </p>
               </div>
             </div>
 
             {/* Chrysler Redesign */}
-            <div className="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg">
-              <div className="aspect-[4/3] bg-white dark:bg-gray-600 relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-gray-700 dark:text-purple-400 dark:border-purple-400">
+            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-2xl overflow-hidden shadow-lg">
+              <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
                   Automotive
                 </span>
                 <img 
@@ -253,16 +253,16 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                   Chrysler Redesign
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                <p className="text-gray-600 dark:text-neutral-400 text-sm">
                   We reimagined Chrylser's site with user-first design, reorganizing content to match user needs. Bold typography, dynamic photography, and rich storytelling highlighted services and aligned with brand strategy.
                 </p>
               </div>
             </div>
 
             {/* Accenture - Leave of Absence */}
-            <div className="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg">
-              <div className="aspect-[4/3] bg-white dark:bg-gray-600 relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-gray-700 dark:text-purple-400 dark:border-purple-400">
+            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-2xl overflow-hidden shadow-lg">
+              <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
                   HR Solutions
                 </span>
                 <img 
@@ -275,16 +275,16 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                   Accenture - Leave of Absence
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                <p className="text-gray-600 dark:text-neutral-400 text-sm">
                   We redesigned Accenture's leave of absence experience with a responsive, user-centered solution, creating custom design patterns for a consistent and engaging experience on all devices.
                 </p>
               </div>
             </div>
 
             {/* Atom Manager Web Redesign */}
-            <div className="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg">
-              <div className="aspect-[4/3] bg-white dark:bg-gray-600 relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-gray-700 dark:text-purple-400 dark:border-purple-400">
+            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-2xl overflow-hidden shadow-lg">
+              <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
                   FinTech
                 </span>
                 <img 
@@ -297,7 +297,7 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                   Atom Manager Redesign
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                <p className="text-gray-600 dark:text-neutral-400 text-sm">
                   I reimagined the Atom Manager marketing site, designing a new logo and a CRM form flow that integrates with the SaaS dashboard for lead generation. The responsive design ensured a seamless user experience across devices.
                 </p>
               </div>
@@ -307,7 +307,7 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+      <section className="py-20 bg-gray-50 dark:bg-white/[0.03] dark:border dark:border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">Our Process</h2>
           <div className="space-y-12">
@@ -341,7 +341,7 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                     {phase.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-600 dark:text-neutral-500">
                     {phase.description}
                   </p>
                 </div>
@@ -351,12 +351,12 @@ const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage 
         </div>
       </section>
 {/* Solutions CTA Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-20 bg-white dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Ready to See the Solutions in Action?
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-neutral-400 mb-8 max-w-2xl mx-auto">
             Explore how our services come to life through tailored solutions that solve real problems.
           </p>
           <button 

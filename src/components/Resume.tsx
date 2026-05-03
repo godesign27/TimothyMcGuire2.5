@@ -200,10 +200,10 @@ const Resume: React.FC = () => {
   ];
 
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-gray-900">
+    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
       {/* Hero Header */}
       <section aria-label="Resume header" className="relative pt-24 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-neutral-100 via-neutral-50 to-white dark:from-gray-950 dark:via-gray-900 dark:to-gray-950" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-br from-neutral-100 via-neutral-50 to-white dark:from-neutral-950 dark:via-neutral-950 dark:to-neutral-950" aria-hidden="true" />
         <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{
           backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
         }} aria-hidden="true" />
@@ -293,10 +293,10 @@ const Resume: React.FC = () => {
       <section aria-label="Resume details" className="relative -mt-8">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
           {/* Main Card */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl shadow-neutral-200/50 dark:shadow-none border border-neutral-200/60 dark:border-gray-700 overflow-hidden">
+          <div className="bg-white dark:bg-white/[0.03] rounded-2xl shadow-xl shadow-neutral-200/50 dark:shadow-none border border-neutral-200/60 dark:border-white/[0.06] overflow-hidden">
 
             {/* Summary */}
-            <div className="px-8 sm:px-12 pt-12 pb-10 border-b border-neutral-100 dark:border-gray-700">
+            <div className="px-8 sm:px-12 pt-12 pb-10 border-b border-neutral-100 dark:border-white/[0.06]">
               <p className="text-lg leading-relaxed text-neutral-600 dark:text-neutral-300 font-light">
                 Senior and Principal UX Designer with 15+ years of experience leading end-to-end product
                 design for enterprise SaaS, data-intensive platforms, and AI-driven systems. Deep expertise
@@ -309,7 +309,7 @@ const Resume: React.FC = () => {
             </div>
 
             {/* Core Competencies */}
-            <section aria-labelledby="competencies-heading" className="px-8 sm:px-12 py-10 border-b border-neutral-100 dark:border-gray-700">
+            <section aria-labelledby="competencies-heading" className="px-8 sm:px-12 py-10 border-b border-neutral-100 dark:border-white/[0.06]">
               <div className="flex items-center gap-3 mb-6">
                 <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-brand-50 dark:bg-brand-950/30" aria-hidden="true">
                   <Sparkles size={18} className="text-brand-600 dark:text-brand-400" />
@@ -322,7 +322,7 @@ const Resume: React.FC = () => {
                 {competencies.map((c) => (
                   <li
                     key={c}
-                    className="px-3.5 py-1.5 text-sm font-medium rounded-full bg-neutral-100 dark:bg-gray-700 text-neutral-700 dark:text-neutral-300 border border-neutral-200/60 dark:border-gray-600"
+                    className="px-3.5 py-1.5 text-sm font-medium rounded-full bg-neutral-100 dark:bg-white/[0.08] text-neutral-700 dark:text-neutral-300 border border-neutral-200/60 dark:border-white/[0.06]"
                   >
                     {c}
                   </li>
@@ -331,7 +331,7 @@ const Resume: React.FC = () => {
             </section>
 
             {/* Tools & Technologies */}
-            <section aria-labelledby="tools-heading" className="px-8 sm:px-12 py-10 border-b border-neutral-100 dark:border-gray-700">
+            <section aria-labelledby="tools-heading" className="px-8 sm:px-12 py-10 border-b border-neutral-100 dark:border-white/[0.06]">
               <div className="flex items-center gap-3 mb-6">
                 <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950/30" aria-hidden="true">
                   <Wrench size={18} className="text-emerald-600 dark:text-emerald-400" />
@@ -353,7 +353,7 @@ const Resume: React.FC = () => {
             </section>
 
             {/* Professional Experience */}
-            <section aria-labelledby="experience-heading" className="px-8 sm:px-12 py-10 border-b border-neutral-100 dark:border-gray-700">
+            <section aria-labelledby="experience-heading" className="px-8 sm:px-12 py-10 border-b border-neutral-100 dark:border-white/[0.06]">
               <div className="flex items-center gap-3 mb-10">
                 <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-sky-50 dark:bg-sky-950/30" aria-hidden="true">
                   <Briefcase size={18} className="text-sky-600 dark:text-sky-400" />
@@ -368,10 +368,10 @@ const Resume: React.FC = () => {
                   <article key={`${job.company}-${job.period}`} className={`relative pl-8 ${i < experience.length - 1 ? 'pb-10' : 'pb-0'}`}>
                     {/* Timeline line */}
                     {i < experience.length - 1 && (
-                      <div className="absolute left-[7px] top-3 bottom-0 w-px bg-neutral-200 dark:bg-gray-600" aria-hidden="true" />
+                      <div className="absolute left-[7px] top-3 bottom-0 w-px bg-neutral-200 dark:bg-white/[0.06]" aria-hidden="true" />
                     )}
                     {/* Timeline dot */}
-                    <div className="absolute left-0 top-[7px] w-[15px] h-[15px] rounded-full border-[3px] border-neutral-300 dark:border-gray-500 bg-white dark:bg-gray-800" aria-hidden="true" />
+                    <div className="absolute left-0 top-[7px] w-[15px] h-[15px] rounded-full border-[3px] border-neutral-300 dark:border-white/[0.06] bg-white dark:bg-white/[0.03]" aria-hidden="true" />
 
                     <div>
                       <h3 className="text-lg font-semibold text-neutral-900 dark:text-white leading-snug">
@@ -439,7 +439,7 @@ const Resume: React.FC = () => {
               <a
                 href="./Timothy_McGuire_AI_Agentic_UX_Designer_2026.pdf"
                 download
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-neutral-300 dark:border-gray-600 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-white dark:hover:bg-gray-800 hover:border-neutral-400 dark:hover:border-gray-500 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-neutral-300 dark:border-white/[0.06] text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-white dark:hover:bg-white/[0.03] hover:border-neutral-400 dark:hover:border-white/[0.12] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
               >
                 <FileText size={16} className="text-red-500" aria-hidden="true" />
                 Download PDF
@@ -447,7 +447,7 @@ const Resume: React.FC = () => {
               <a
                 href="./Timothy_McGuire_AI_Agentic_UX_Designer_2026.docx"
                 download
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-neutral-300 dark:border-gray-600 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-white dark:hover:bg-gray-800 hover:border-neutral-400 dark:hover:border-gray-500 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-neutral-300 dark:border-white/[0.06] text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-white dark:hover:bg-white/[0.03] hover:border-neutral-400 dark:hover:border-white/[0.12] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
               >
                 <FileText size={16} className="text-blue-500" aria-hidden="true" />
                 Download Word

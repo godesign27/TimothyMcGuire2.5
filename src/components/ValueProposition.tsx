@@ -2,21 +2,21 @@ import React from 'react';
 
 const ValueProposition: React.FC = () => {
   return (
-    <section className="bg-white dark:bg-brand-800 py-16">
+    <section className="bg-white dark:bg-neutral-950 py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Big Ideas. One Designer. <span className="text-purple-700 dark:text-purple-400">Better Outcomes</span>.
           </h2>
-          <p className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">
+          <p className="max-w-2xl mx-auto text-gray-600 dark:text-neutral-400">
             Work directly with a seasoned UX strategist who brings over 15 years of experience delivering clarity, creativity, and results that large teams often can't match.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {/* Card 1 */}
-          <div className="group bg-gray-50 dark:bg-brand-900 p-8 rounded-lg transition-all hover:shadow-md">
-            <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6 text-blue-600 dark:text-blue-400">
+          <div className="group bg-gray-50 dark:bg-white/[0.02] dark:border dark:border-white/[0.06] p-8 rounded-lg transition-all hover:shadow-md">
+            <div className="w-12 h-12 bg-blue-100 dark:bg-blue-500/10 rounded-full flex items-center justify-center mb-6 text-blue-600 dark:text-blue-400">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                 <circle cx="9" cy="7" r="4"></circle>
@@ -27,14 +27,14 @@ const ValueProposition: React.FC = () => {
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
               Personalized Attention
             </h3>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-gray-600 dark:text-neutral-400">
               Your success directly impacts me positive. I take time to deeply understand your business, customers, challenges, and vision, ensuring a tailored approach from start to finish.
             </p>
           </div>
 
           {/* Card 2 */}
-          <div className="group bg-gray-50 dark:bg-brand-900 p-8 rounded-lg transition-all hover:shadow-md">
-            <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center mb-6 text-indigo-600 dark:text-indigo-400">
+          <div className="group bg-gray-50 dark:bg-white/[0.02] dark:border dark:border-white/[0.06] p-8 rounded-lg transition-all hover:shadow-md">
+            <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-500/10 rounded-full flex items-center justify-center mb-6 text-indigo-600 dark:text-indigo-400">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="13 2 13 9 20 9"></polyline>
                 <path d="M13 14V9L8.5 4.5"></path>
@@ -46,14 +46,14 @@ const ValueProposition: React.FC = () => {
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
               Agility and Speed
             </h3>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-gray-600 dark:text-neutral-400">
               My nimble approach turns ideas into beautiful, working products quickly. Without layers of bureaucracy, I meet your goals more efficiently, and deliver results at a pace larger firms can't match.
             </p>
           </div>
 
           {/* Card 3 */}
-          <div className="group bg-gray-50 dark:bg-brand-900 p-8 rounded-lg transition-all hover:shadow-md">
-            <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mb-6 text-purple-600 dark:text-purple-400">
+          <div className="group bg-gray-50 dark:bg-white/[0.02] dark:border dark:border-white/[0.06] p-8 rounded-lg transition-all hover:shadow-md">
+            <div className="w-12 h-12 bg-purple-100 dark:bg-purple-500/10 rounded-full flex items-center justify-center mb-6 text-purple-600 dark:text-purple-400">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
                 <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
@@ -63,14 +63,14 @@ const ValueProposition: React.FC = () => {
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
               Direct Collaboration
             </h3>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-gray-600 dark:text-neutral-400">
               You'll work with senior talent every step of the process. No layers of account managers or junior intermediaries. I maintain direct communication and true creative partnership.
             </p>
           </div>
 
           {/* Card 4 */}
-          <div className="group bg-gray-50 dark:bg-brand-900 p-8 rounded-lg transition-all hover:shadow-md">
-            <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mb-6 text-green-600 dark:text-green-400">
+          <div className="group bg-gray-50 dark:bg-white/[0.02] dark:border dark:border-white/[0.06] p-8 rounded-lg transition-all hover:shadow-md">
+            <div className="w-12 h-12 bg-green-100 dark:bg-green-500/10 rounded-full flex items-center justify-center mb-6 text-green-600 dark:text-green-400">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
               </svg>
@@ -78,14 +78,14 @@ const ValueProposition: React.FC = () => {
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
               Focused Expertise
             </h3>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-gray-600 dark:text-neutral-400">
               I specialize in what I do best: creating exceptional digital experiences. My focused approach means you get an expert who is passionate about your project's success, not a generalist.
             </p>
           </div>
 
           {/* Card 5 */}
-          <div className="group bg-gray-50 dark:bg-brand-900 p-8 rounded-lg transition-all hover:shadow-md">
-            <div className="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mb-6 text-yellow-600 dark:text-yellow-400">
+          <div className="group bg-gray-50 dark:bg-white/[0.02] dark:border dark:border-white/[0.06] p-8 rounded-lg transition-all hover:shadow-md">
+            <div className="w-12 h-12 bg-yellow-100 dark:bg-yellow-500/10 rounded-full flex items-center justify-center mb-6 text-yellow-600 dark:text-yellow-400">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="12" y1="1" x2="12" y2="23"></line>
                 <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
@@ -94,14 +94,14 @@ const ValueProposition: React.FC = () => {
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
               Cost-Effective Solutions
             </h3>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-gray-600 dark:text-neutral-400">
               Small doesn't mean less. In fact, I deliver more value. With lower overhead costs, 90% of your budget goes directly into the creative mind working on your project--not corporate infrastructure.
             </p>
           </div>
 
           {/* Card 6 */}
-          <div className="group bg-gray-50 dark:bg-brand-900 p-8 rounded-lg transition-all hover:shadow-md">
-            <div className="w-12 h-12 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center mb-6 text-pink-600 dark:text-pink-400">
+          <div className="group bg-gray-50 dark:bg-white/[0.02] dark:border dark:border-white/[0.06] p-8 rounded-lg transition-all hover:shadow-md">
+            <div className="w-12 h-12 bg-pink-100 dark:bg-pink-500/10 rounded-full flex items-center justify-center mb-6 text-pink-600 dark:text-pink-400">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path>
               </svg>
@@ -109,7 +109,7 @@ const ValueProposition: React.FC = () => {
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
               Creative Flexibility
             </h3>
-            <p className="text-gray-600 dark:text-gray-300">
+            <p className="text-gray-600 dark:text-neutral-400">
               Innovation thrives here. I'm free to think boldly, explore unexpected approaches, and adapt quickly to your needs with maximum flexibility for process and execution.
             </p>
           </div>

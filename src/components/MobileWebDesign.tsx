@@ -16,7 +16,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-white dark:bg-neutral-950">
       {/* Hero Section with Breadcrumb */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-indigo-500 to-violet-600 dark:from-blue-900 dark:via-indigo-900 dark:to-violet-900"></div>
@@ -57,35 +57,35 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-500/10 rounded-full flex items-center justify-center mb-6">
                 <Smartphone className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 Native Experience
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600 dark:text-neutral-500">
                 We design apps that feel natural and intuitive on every platform, following platform-specific guidelines and best practices.
               </p>
             </div>
             <div>
-              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-500/10 rounded-full flex items-center justify-center mb-6">
                 <Users className="w-6 h-6 text-purple-600 dark:text-purple-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 User-First Design
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600 dark:text-neutral-500">
                 Every interaction is crafted with your users in mind, ensuring an engaging and seamless mobile experience.
               </p>
             </div>
             <div>
-              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-green-100 dark:bg-green-500/10 rounded-full flex items-center justify-center mb-6">
                 <Zap className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 Performance Optimized
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-600 dark:text-neutral-500">
                 Fast-loading, responsive apps that provide excellent user experience even in challenging network conditions.
               </p>
             </div>
@@ -94,7 +94,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
       </section>
 
       {/* Design Solutions */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+      <section className="py-20 bg-gray-50 dark:bg-white/[0.03] dark:border dark:border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">Design Solutions</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -115,7 +115,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
                 image: "https://images.pexels.com/photos/5053740/pexels-photo-5053740.jpeg"
               }
             ].map((project, index) => (
-              <div key={index} className="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-sm">
+              <div key={index} className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-lg overflow-hidden shadow-sm">
                 <img 
                   src={project.image} 
                   alt={project.title} 
@@ -125,7 +125,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-gray-600 dark:text-neutral-400">
                     {project.description}
                   </p>
                 </div>
@@ -170,7 +170,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                     {phase.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <p className="text-gray-600 dark:text-neutral-500">
                     {phase.description}
                   </p>
                 </div>
@@ -181,7 +181,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
       </section>
 
       {/* What's Included */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+      <section className="py-20 bg-gray-50 dark:bg-white/[0.03] dark:border dark:border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">What's Included</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -192,7 +192,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">User Research</h3>
-                  <p className="text-gray-600 dark:text-gray-400">Deep understanding of mobile user behavior</p>
+                  <p className="text-gray-600 dark:text-neutral-500">Deep understanding of mobile user behavior</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -201,7 +201,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">UX Architecture</h3>
-                  <p className="text-gray-600 dark:text-gray-400">Intuitive navigation and user flows</p>
+                  <p className="text-gray-600 dark:text-neutral-500">Intuitive navigation and user flows</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -210,7 +210,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Visual Design</h3>
-                  <p className="text-gray-600 dark:text-gray-400">Beautiful, platform-specific UI design</p>
+                  <p className="text-gray-600 dark:text-neutral-500">Beautiful, platform-specific UI design</p>
                 </div>
               </div>
             </div>
@@ -221,7 +221,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Prototyping</h3>
-                  <p className="text-gray-600 dark:text-gray-400">Interactive prototypes for testing</p>
+                  <p className="text-gray-600 dark:text-neutral-500">Interactive prototypes for testing</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -230,7 +230,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">User Testing</h3>
-                  <p className="text-gray-600 dark:text-gray-400">Comprehensive usability testing</p>
+                  <p className="text-gray-600 dark:text-neutral-500">Comprehensive usability testing</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -239,7 +239,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Design System</h3>
-                  <p className="text-gray-600 dark:text-gray-400">Complete mobile design system</p>
+                  <p className="text-gray-600 dark:text-neutral-500">Complete mobile design system</p>
                 </div>
               </div>
             </div>

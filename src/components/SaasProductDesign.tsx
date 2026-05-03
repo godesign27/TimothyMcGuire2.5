@@ -21,7 +21,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen bg-white dark:bg-neutral-950">
       {/* Hero Section with Breadcrumb */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-purple-400 to-pink-400 dark:from-blue-900 dark:via-purple-900 dark:to-pink-900"></div>
@@ -33,7 +33,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
               <li>
                 <button
                   onClick={() => setCurrentPage('services')}
-                  className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
+                  className="text-gray-600 dark:text-neutral-500 hover:text-gray-900 dark:hover:text-white"
                 >
                   Services
                 </button>
@@ -48,7 +48,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
               SaaS Product Design<br />
               That Drives Growth
             </h1>
-            <p className="text-xl text-gray-700 dark:text-gray-300 max-w-2xl">
+            <p className="text-xl text-gray-700 dark:text-neutral-400 max-w-2xl">
               We design intuitive, scalable SaaS products that users love. Our approach 
               combines deep user research, strategic thinking, and beautiful design to 
               create products that drive engagement and business growth.
@@ -62,35 +62,35 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-500/10 rounded-full flex items-center justify-center mb-6">
                 <Users className="w-6 h-6 text-purple-600 dark:text-purple-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 User-Centric Design
               </h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600 dark:text-neutral-400">
                 We create intuitive interfaces that make complex functionality feel simple and natural to your users.
               </p>
             </div>
             <div>
-              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-500/10 rounded-full flex items-center justify-center mb-6">
                 <LayoutGrid className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 Design Systems
               </h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600 dark:text-neutral-400">
                 Build scalable products with consistent, reusable components that grow with your business.
               </p>
             </div>
             <div>
-              <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-500/10 rounded-full flex items-center justify-center mb-6">
                 <Workflow className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 Workflow Optimization
               </h3>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600 dark:text-neutral-400">
                 Streamline user workflows to improve efficiency and reduce friction in key tasks.
               </p>
             </div>
@@ -99,7 +99,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
       </section>
 
       {/* What's Included */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+      <section className="py-20 bg-gray-50 dark:bg-white/[0.03] dark:border dark:border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">What's Included</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -110,7 +110,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">User Research</h3>
-                  <p className="text-gray-600 dark:text-gray-300">Deep understanding of user needs and behaviors</p>
+                  <p className="text-gray-600 dark:text-neutral-400">Deep understanding of user needs and behaviors</p>
                 </div>
               </div>
 
@@ -120,7 +120,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Information Architecture</h3>
-                  <p className="text-gray-600 dark:text-gray-300">Logical structure and navigation flow</p>
+                  <p className="text-gray-600 dark:text-neutral-400">Logical structure and navigation flow</p>
                 </div>
               </div>
 
@@ -130,7 +130,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Interaction Design</h3>
-                  <p className="text-gray-600 dark:text-gray-300">Intuitive and engaging user interactions</p>
+                  <p className="text-gray-600 dark:text-neutral-400">Intuitive and engaging user interactions</p>
                 </div>
               </div>
             </div>
@@ -142,7 +142,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Design Systems</h3>
-                  <p className="text-gray-600 dark:text-gray-300">Scalable component libraries and guidelines</p>
+                  <p className="text-gray-600 dark:text-neutral-400">Scalable component libraries and guidelines</p>
                 </div>
               </div>
 
@@ -152,7 +152,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Prototyping</h3>
-                  <p className="text-gray-600 dark:text-gray-300">Interactive prototypes for testing and validation</p>
+                  <p className="text-gray-600 dark:text-neutral-400">Interactive prototypes for testing and validation</p>
                 </div>
               </div>
 
@@ -162,7 +162,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Developer Handoff</h3>
-                  <p className="text-gray-600 dark:text-gray-300">Detailed specifications and assets for development</p>
+                  <p className="text-gray-600 dark:text-neutral-400">Detailed specifications and assets for development</p>
                 </div>
               </div>
             </div>
@@ -183,7 +183,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                   Research & Strategy
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-neutral-400">
                   We start by understanding your users, market, and business goals to create a strategic foundation for your product.
                 </p>
               </div>
@@ -197,7 +197,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                   UX Architecture
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-neutral-400">
                   Design the core structure and workflows of your product, ensuring a logical and efficient user experience.
                 </p>
               </div>
@@ -211,7 +211,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                   UI Design & Systems
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-neutral-400">
                   Create beautiful, consistent interfaces and establish a scalable design system for future growth.
                 </p>
               </div>
@@ -225,7 +225,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                   Testing & Iteration
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-600 dark:text-neutral-400">
                   Validate designs through user testing and iterate based on real feedback to ensure product success.
                 </p>
               </div>
@@ -236,15 +236,15 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
 
       {/* Solutions CTA Section */}
       {/* Design Solutions Grid */}
-      <section className="py-20 bg-gray-100 dark:bg-gray-900">
+      <section className="py-20 bg-gray-100 dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">A Sample of SaaS Design Solutions</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Mopar Redesign */}
-            <div className="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg">
-              <div className="aspect-[4/3] bg-white dark:bg-gray-600 relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-gray-700 dark:text-purple-400 dark:border-purple-400">
+            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-2xl overflow-hidden shadow-lg">
+              <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
                   Enterprise
                 </span>
                 <img 
@@ -257,16 +257,16 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                   UL SaaS Tool
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                <p className="text-gray-600 dark:text-neutral-400 text-sm">
                   An MVP Design for UL Clients to perform compliance analysis.
                 </p>
               </div>
             </div>
 
             {/* Atom Manager Redesign */}
-            <div className="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg">
-              <div className="aspect-[4/3] bg-white dark:bg-gray-600 relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-gray-700 dark:text-purple-400 dark:border-purple-400">
+            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-2xl overflow-hidden shadow-lg">
+              <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
                   Government
                 </span>
                 <img 
@@ -278,16 +278,16 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                   Atom Manager SaaS Application Tool
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                <p className="text-gray-600 dark:text-neutral-400 text-sm">
                   Redesign Designed a user-friendly SaaS tool. We improved the UX/UI design patterns being used to make the user tasks more intuitive, predictable and easy to use.
                 </p>
               </div>
             </div>
 
             {/* ZS SaaS product Redesign */}
-            <div className="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg">
-              <div className="aspect-[4/3] bg-white dark:bg-gray-600 relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-gray-700 dark:text-purple-400 dark:border-purple-400">
+            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-2xl overflow-hidden shadow-lg">
+              <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
                   Healthcare
                 </span>
                 <img 
@@ -300,7 +300,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                   ZS SaaS Product
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                <p className="text-gray-600 dark:text-neutral-400 text-sm">
                   I spent eight years helping ZS transform their SaaS deployment platform--advocating for a modern design system and shaping user-focused experiences that aligned client needs with business goals.
                 </p>
               </div>
@@ -310,12 +310,12 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
       </section>
 
       {/* Solutions CTA Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-20 bg-white dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Ready to See the Solutions in Action?
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-neutral-400 mb-8 max-w-2xl mx-auto">
             Explore how our services come to life through tailored solutions that solve real problems.
           </p>
           <button 

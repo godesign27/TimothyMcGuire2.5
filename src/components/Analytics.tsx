@@ -92,8 +92,8 @@ function BarChartSimple({ data, maxValue }: { data: { label: string; value: numb
     <div className="space-y-2">
       {data.map((item) => (
         <div key={item.label} className="flex items-center gap-3">
-          <span className="text-sm text-gray-600 dark:text-gray-400 w-32 truncate text-right">{item.label}</span>
-          <div className="flex-1 h-7 bg-gray-100 dark:bg-gray-700 rounded overflow-hidden">
+          <span className="text-sm text-gray-600 dark:text-neutral-500 w-32 truncate text-right">{item.label}</span>
+          <div className="flex-1 h-7 bg-gray-100 dark:bg-white/[0.03] rounded overflow-hidden">
             <div
               className="h-full bg-teal-500 dark:bg-teal-400 rounded transition-all duration-500"
               style={{ width: maxValue > 0 ? `${(item.value / maxValue) * 100}%` : '0%' }}
@@ -159,14 +159,14 @@ function TimelineChart({ views, range }: { views: PageView[]; range: DateRange }
     <div className="flex items-end gap-1 h-40">
       {buckets.map((bucket, i) => (
         <div key={i} className="flex-1 flex flex-col items-center gap-1 group relative">
-          <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
+          <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-gray-900 dark:bg-neutral-100 text-white dark:text-neutral-900 text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10">
             {bucket.count} views
           </div>
           <div
             className="w-full bg-teal-500 dark:bg-teal-400 rounded-t transition-all duration-500 min-h-[2px]"
             style={{ height: `${(bucket.count / maxCount) * 100}%` }}
           />
-          <span className="text-[10px] text-gray-400 dark:text-gray-500 truncate w-full text-center">
+          <span className="text-[10px] text-gray-400 dark:text-neutral-500 truncate w-full text-center">
             {i % Math.max(1, Math.floor(buckets.length / 8)) === 0 ? bucket.label : ''}
           </span>
         </div>
@@ -302,25 +302,25 @@ const Analytics: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pt-24 pb-16">
+    <div className="min-h-screen bg-gray-50 dark:bg-neutral-950 pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Site Analytics</h1>
-            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+            <p className="text-sm text-gray-500 dark:text-neutral-500 mt-1">
               Last updated {lastRefresh.toLocaleTimeString()}
             </p>
           </div>
           <div className="flex items-center gap-3">
             <button
               onClick={fetchData}
-              className="p-2 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              className="p-2 rounded-lg bg-white dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] hover:bg-gray-100 dark:hover:bg-white/[0.06] transition-colors"
               title="Refresh"
             >
-              <RefreshCw className={`w-4 h-4 text-gray-600 dark:text-gray-400 ${loading ? 'animate-spin' : ''}`} />
+              <RefreshCw className={`w-4 h-4 text-gray-600 dark:text-neutral-500 ${loading ? 'animate-spin' : ''}`} />
             </button>
-            <div className="flex rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
+            <div className="flex rounded-lg border border-gray-200 dark:border-white/[0.06] overflow-hidden">
               {(Object.keys(rangeLabels) as DateRange[]).map((r) => (
                 <button
                   key={r}
@@ -328,7 +328,7 @@ const Analytics: React.FC = () => {
                   className={`px-3 py-2 text-sm font-medium transition-colors ${
                     range === r
                       ? 'bg-teal-600 text-white'
-                      : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'
+                      : 'bg-white dark:bg-white/[0.03] text-gray-600 dark:text-neutral-500 hover:bg-gray-100 dark:hover:bg-white/[0.06]'
                   }`}
                 >
                   {r === 'all' ? 'All' : r}
@@ -346,36 +346,36 @@ const Analytics: React.FC = () => {
           <>
             {/* KPI Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+              <div className="bg-white dark:bg-white/[0.03] rounded-xl p-6 border border-gray-200 dark:border-white/[0.06] shadow-sm">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-gray-500 dark:text-gray-400">Total Page Views</span>
+                  <span className="text-sm text-gray-500 dark:text-neutral-500">Total Page Views</span>
                   <Eye className="w-5 h-5 text-teal-500" />
                 </div>
                 <div className="text-3xl font-bold text-gray-900 dark:text-white">{stats.totalViews.toLocaleString()}</div>
                 <ChangeIndicator current={stats.totalViews} previous={stats.prevTotalViews} />
               </div>
 
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+              <div className="bg-white dark:bg-white/[0.03] rounded-xl p-6 border border-gray-200 dark:border-white/[0.06] shadow-sm">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-gray-500 dark:text-gray-400">Unique Visitors</span>
+                  <span className="text-sm text-gray-500 dark:text-neutral-500">Unique Visitors</span>
                   <Users className="w-5 h-5 text-teal-500" />
                 </div>
                 <div className="text-3xl font-bold text-gray-900 dark:text-white">{stats.uniqueSessions.toLocaleString()}</div>
                 <ChangeIndicator current={stats.uniqueSessions} previous={stats.prevUniqueSessions} />
               </div>
 
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+              <div className="bg-white dark:bg-white/[0.03] rounded-xl p-6 border border-gray-200 dark:border-white/[0.06] shadow-sm">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-gray-500 dark:text-gray-400">Pages / Session</span>
+                  <span className="text-sm text-gray-500 dark:text-neutral-500">Pages / Session</span>
                   <BarChart3 className="w-5 h-5 text-teal-500" />
                 </div>
                 <div className="text-3xl font-bold text-gray-900 dark:text-white">{stats.avgPagesPerSession}</div>
                 <ChangeIndicator current={parseFloat(stats.avgPagesPerSession)} previous={parseFloat(stats.prevAvgPages)} />
               </div>
 
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+              <div className="bg-white dark:bg-white/[0.03] rounded-xl p-6 border border-gray-200 dark:border-white/[0.06] shadow-sm">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-gray-500 dark:text-gray-400">Top Page</span>
+                  <span className="text-sm text-gray-500 dark:text-neutral-500">Top Page</span>
                   <Clock className="w-5 h-5 text-teal-500" />
                 </div>
                 <div className="text-2xl font-bold text-gray-900 dark:text-white truncate">
@@ -386,7 +386,7 @@ const Analytics: React.FC = () => {
             </div>
 
             {/* Timeline Chart */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm mb-8">
+            <div className="bg-white dark:bg-white/[0.03] rounded-xl p-6 border border-gray-200 dark:border-white/[0.06] shadow-sm mb-8">
               <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Page Views Over Time</h2>
               <TimelineChart views={views} range={range} />
             </div>
@@ -394,7 +394,7 @@ const Analytics: React.FC = () => {
             {/* Two-column breakdown */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
               {/* Top Pages */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+              <div className="bg-white dark:bg-white/[0.03] rounded-xl p-6 border border-gray-200 dark:border-white/[0.06] shadow-sm">
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Pages</h2>
                 {stats.topPages.length > 0 ? (
                   <BarChartSimple data={stats.topPages} maxValue={stats.topPages[0]?.value || 1} />
@@ -404,7 +404,7 @@ const Analytics: React.FC = () => {
               </div>
 
               {/* Referrers */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+              <div className="bg-white dark:bg-white/[0.03] rounded-xl p-6 border border-gray-200 dark:border-white/[0.06] shadow-sm">
                 <div className="flex items-center gap-2 mb-4">
                   <Globe className="w-5 h-5 text-teal-500" />
                   <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Referrers</h2>
@@ -420,7 +420,7 @@ const Analytics: React.FC = () => {
             {/* Three-column breakdown */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               {/* Browsers */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+              <div className="bg-white dark:bg-white/[0.03] rounded-xl p-6 border border-gray-200 dark:border-white/[0.06] shadow-sm">
                 <div className="flex items-center gap-2 mb-4">
                   <Globe className="w-5 h-5 text-teal-500" />
                   <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Browsers</h2>
@@ -428,7 +428,7 @@ const Analytics: React.FC = () => {
                 <div className="space-y-3">
                   {stats.browsers.map((b) => (
                     <div key={b.label} className="flex items-center justify-between">
-                      <span className="text-sm text-gray-600 dark:text-gray-400">{b.label}</span>
+                      <span className="text-sm text-gray-600 dark:text-neutral-500">{b.label}</span>
                       <div className="flex items-center gap-2">
                         <span className="text-sm font-medium text-gray-900 dark:text-white">{b.value}</span>
                         <span className="text-xs text-gray-400">
@@ -442,7 +442,7 @@ const Analytics: React.FC = () => {
               </div>
 
               {/* Devices */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+              <div className="bg-white dark:bg-white/[0.03] rounded-xl p-6 border border-gray-200 dark:border-white/[0.06] shadow-sm">
                 <div className="flex items-center gap-2 mb-4">
                   <Monitor className="w-5 h-5 text-teal-500" />
                   <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Devices</h2>
@@ -450,7 +450,7 @@ const Analytics: React.FC = () => {
                 <div className="space-y-3">
                   {stats.devices.map((d) => (
                     <div key={d.label} className="flex items-center justify-between">
-                      <span className="text-sm text-gray-600 dark:text-gray-400">{d.label}</span>
+                      <span className="text-sm text-gray-600 dark:text-neutral-500">{d.label}</span>
                       <div className="flex items-center gap-2">
                         <span className="text-sm font-medium text-gray-900 dark:text-white">{d.value}</span>
                         <span className="text-xs text-gray-400">
@@ -464,7 +464,7 @@ const Analytics: React.FC = () => {
               </div>
 
               {/* Languages */}
-              <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+              <div className="bg-white dark:bg-white/[0.03] rounded-xl p-6 border border-gray-200 dark:border-white/[0.06] shadow-sm">
                 <div className="flex items-center gap-2 mb-4">
                   <Globe className="w-5 h-5 text-teal-500" />
                   <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Languages</h2>
@@ -472,7 +472,7 @@ const Analytics: React.FC = () => {
                 <div className="space-y-3">
                   {stats.languages.map((l) => (
                     <div key={l.label} className="flex items-center justify-between">
-                      <span className="text-sm text-gray-600 dark:text-gray-400">{l.label}</span>
+                      <span className="text-sm text-gray-600 dark:text-neutral-500">{l.label}</span>
                       <div className="flex items-center gap-2">
                         <span className="text-sm font-medium text-gray-900 dark:text-white">{l.value}</span>
                         <span className="text-xs text-gray-400">
@@ -487,29 +487,29 @@ const Analytics: React.FC = () => {
             </div>
 
             {/* Recent Views Table */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden">
-              <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+            <div className="bg-white dark:bg-white/[0.03] rounded-xl border border-gray-200 dark:border-white/[0.06] shadow-sm overflow-hidden">
+              <div className="p-6 border-b border-gray-200 dark:border-white/[0.06]">
                 <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Recent Page Views</h2>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
-                    <tr className="bg-gray-50 dark:bg-gray-700/50">
-                      <th className="text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase px-6 py-3">Page</th>
-                      <th className="text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase px-6 py-3">Referrer</th>
-                      <th className="text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase px-6 py-3">Browser</th>
-                      <th className="text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase px-6 py-3">Device</th>
-                      <th className="text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase px-6 py-3">Time</th>
+                    <tr className="bg-gray-50 dark:bg-white/[0.03]">
+                      <th className="text-left text-xs font-medium text-gray-500 dark:text-neutral-500 uppercase px-6 py-3">Page</th>
+                      <th className="text-left text-xs font-medium text-gray-500 dark:text-neutral-500 uppercase px-6 py-3">Referrer</th>
+                      <th className="text-left text-xs font-medium text-gray-500 dark:text-neutral-500 uppercase px-6 py-3">Browser</th>
+                      <th className="text-left text-xs font-medium text-gray-500 dark:text-neutral-500 uppercase px-6 py-3">Device</th>
+                      <th className="text-left text-xs font-medium text-gray-500 dark:text-neutral-500 uppercase px-6 py-3">Time</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+                  <tbody className="divide-y divide-gray-200 dark:divide-white/[0.06]">
                     {views.slice(0, 50).map((v) => (
-                      <tr key={v.id} className="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors">
+                      <tr key={v.id} className="hover:bg-gray-50 dark:hover:bg-white/[0.03] transition-colors">
                         <td className="px-6 py-3 text-sm text-gray-900 dark:text-white">{PAGE_LABELS[v.page] || v.page}</td>
-                        <td className="px-6 py-3 text-sm text-gray-500 dark:text-gray-400 truncate max-w-[200px]">{formatDomain(v.referrer)}</td>
-                        <td className="px-6 py-3 text-sm text-gray-500 dark:text-gray-400">{parseBrowser(v.user_agent)}</td>
-                        <td className="px-6 py-3 text-sm text-gray-500 dark:text-gray-400">{parseDevice(v.screen_width)}</td>
-                        <td className="px-6 py-3 text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
+                        <td className="px-6 py-3 text-sm text-gray-500 dark:text-neutral-500 truncate max-w-[200px]">{formatDomain(v.referrer)}</td>
+                        <td className="px-6 py-3 text-sm text-gray-500 dark:text-neutral-500">{parseBrowser(v.user_agent)}</td>
+                        <td className="px-6 py-3 text-sm text-gray-500 dark:text-neutral-500">{parseDevice(v.screen_width)}</td>
+                        <td className="px-6 py-3 text-sm text-gray-500 dark:text-neutral-500 whitespace-nowrap">
                           {new Date(v.created_at).toLocaleString()}
                         </td>
                       </tr>

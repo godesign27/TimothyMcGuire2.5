@@ -17,10 +17,10 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gray-50 dark:bg-neutral-950">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-blue-400 to-purple-400 dark:from-emerald-900 dark:via-blue-900 dark:to-purple-900"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-blue-400 to-purple-400 dark:from-emerald-500/10 dark:via-blue-500/10 dark:to-purple-500/10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="py-32">
             <h1 className="text-4xl md:text-7xl font-regular text-gray-900 dark:text-white tracking-tight mb-6">
@@ -45,16 +45,16 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
           <div className="grid md:grid-cols-3 gap-12">
             {/* UX/UI Design Consulting */}
             <div>
-              <div className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-gray-100 dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-lg flex items-center justify-center mb-6">
                 <ClipboardList className="w-6 h-6 text-gray-900 dark:text-white" />
               </div>
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">UX/UI Design Consulting</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
+              <p className="text-gray-600 dark:text-neutral-400 mb-6">
                 Transform your digital presence with user-focused solutions. From crafting intuitive user 
                 flows to building robust design systems, our consulting ensures seamless, engaging, and 
                 accessible user experiences.
               </p>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
+              <ul className="space-y-2 text-gray-600 dark:text-neutral-400">
                 <li>* User Flow</li>
                 <li>* Information Architecture</li>
                 <li>* UX/UI Design</li>
@@ -66,16 +66,16 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
 
             {/* AI + Agentic Experience */}
             <div>
-              <div className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-gray-100 dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-lg flex items-center justify-center mb-6">
                 <Sparkles className="w-6 h-6 text-gray-900 dark:text-white" />
               </div>
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">AI + Agentic Experience</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
+              <p className="text-gray-600 dark:text-neutral-400 mb-6">
                 Design AI-powered products people actually trust. I bridge the gap between powerful
                 models and interfaces users understand, control, and rely on through proven
                 trust-by-design frameworks.
               </p>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
+              <ul className="space-y-2 text-gray-600 dark:text-neutral-400">
                 <li>* Trust-by-Design Framework</li>
                 <li>* Mental Model Mapping</li>
                 <li>* AI Interaction Patterns</li>
@@ -86,15 +86,15 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
 
             {/* Brand & Identity Design */}
             <div>
-              <div className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-gray-100 dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-lg flex items-center justify-center mb-6">
                 <Briefcase className="w-6 h-6 text-gray-900 dark:text-white" />
               </div>
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Brand & Identity Design</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
+              <p className="text-gray-600 dark:text-neutral-400 mb-6">
                 Develop a strong, cohesive brand identity that resonates with your audience. I create 
                 comprehensive brand systems that stand out in today's digital landscape.
               </p>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
+              <ul className="space-y-2 text-gray-600 dark:text-neutral-400">
                 <li>* Logo Design</li>
                 <li>* Color Definition</li>
                 <li>* Typography</li>
@@ -108,18 +108,18 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
       </section>
 
       {/* Specialized Services Section */}
-      <section className="py-20 bg-white dark:bg-gray-800">
+      <section className="py-20 bg-white dark:bg-white/[0.03] dark:border-t dark:border-b dark:border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-16">Specialized Services</h2>
           
           <div className="grid md:grid-cols-3 gap-12">
             {/* Marketing Web Design */}
-            <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-sm">
-              <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900 rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] p-8 rounded-lg shadow-sm">
+              <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-500/10 rounded-full flex items-center justify-center mb-6">
                 <Globe className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Marketing Web Design</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
+              <p className="text-gray-600 dark:text-neutral-400 mb-6">
                 Create impactful web experiences that convert visitors into customers. Our marketing-focused design approach combines aesthetics with strategic user journeys.
               </p>
               <button 
@@ -131,12 +131,12 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
             </div>
 
             {/* SaaS Product Design */}
-            <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-sm">
-              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] p-8 rounded-lg shadow-sm">
+              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-500/10 rounded-full flex items-center justify-center mb-6">
                 <Box className="w-6 h-6 text-purple-600 dark:text-purple-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">SaaS Product Design</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
+              <p className="text-gray-600 dark:text-neutral-400 mb-6">
                 Build powerful, scalable software solutions with our comprehensive SaaS design expertise. We focus on creating intuitive interfaces that drive user engagement and business growth.
               </p>
               <button 
@@ -148,12 +148,12 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
             </div>
 
             {/* Agentic Experience */}
-            <div className="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-sm">
-              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] p-8 rounded-lg shadow-sm">
+              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-500/10 rounded-full flex items-center justify-center mb-6">
                 <Bot className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Agentic Experience</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
+              <p className="text-gray-600 dark:text-neutral-400 mb-6">
                 Design AI and agent-powered interfaces that earn user trust through transparency, control, and clear mental models. Strategy through launch.
               </p>
               <button
@@ -168,7 +168,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+      <section className="py-20 bg-gray-50 dark:bg-white/[0.03] dark:border-t dark:border-b dark:border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">My Process</h2>
           <div className="space-y-12">
@@ -202,7 +202,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                     {phase.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-gray-600 dark:text-neutral-400">
                     {phase.description}
                   </p>
                 </div>
@@ -213,12 +213,12 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
       </section>
 
       {/* Solutions CTA Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-20 bg-white dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Ready to See the Solutions in Action?
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-neutral-400 mb-8 max-w-2xl mx-auto">
             Explore how my services come to life through tailored solutions that solve real problems.
           </p>
           <button 
@@ -232,7 +232,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
 
       {/* CTA Section */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 dark:from-teal-900 dark:via-blue-900 dark:to-purple-900"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 dark:from-teal-500/10 dark:via-blue-500/10 dark:to-purple-500/10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Let's create<br />something beautiful.

@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  .dark {
+    --color-surface: 10 10 12;
+    --color-surface-raised: 18 18 21;
+  }
+}
+
+@layer utilities {
+  .dark .dark\:bg-surface {
+    background-color: rgb(var(--color-surface));
+  }
+  .dark .dark\:bg-surface-raised {
+    background-color: rgb(var(--color-surface-raised));
+  }
+}

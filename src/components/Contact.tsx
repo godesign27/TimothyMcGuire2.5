@@ -36,7 +36,7 @@ const Contact: React.FC = () => {
     <div>
       {/* Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 dark:from-teal-900 dark:via-blue-900 dark:to-purple-900"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 dark:from-teal-500/10 dark:via-blue-500/10 dark:to-purple-500/10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-left max-w-3xl pt-32 pb-20">
             <h1 className="text-5xl md:text-7xl text-white mb-6">
@@ -50,7 +50,7 @@ const Contact: React.FC = () => {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-16 bg-white dark:bg-gray-900">
+      <section className="py-16 bg-white dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-12">
             {/* Contact Information */}
@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-medium text-gray-900 dark:text-white">Email Us</h3>
-                  <p className="mt-1 text-gray-600 dark:text-gray-300">godesigngo@gmail.com</p>
+                  <p className="mt-1 text-gray-600 dark:text-neutral-400">godesigngo@gmail.com</p>
                 </div>
               </div>
 
@@ -75,7 +75,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-medium text-gray-900 dark:text-white">Phone</h3>
-                  <p className="mt-1 text-gray-600 dark:text-gray-300">(773)-724-0473</p>
+                  <p className="mt-1 text-gray-600 dark:text-neutral-400">(773)-724-0473</p>
                 </div>
               </div>
 
@@ -85,11 +85,11 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-medium text-gray-900 dark:text-white">Business Hours</h3>
-                  <p className="mt-1 text-gray-600 dark:text-gray-300">Monday - Friday, 9am - 5pm CST</p>
+                  <p className="mt-1 text-gray-600 dark:text-neutral-400">Monday - Friday, 9am - 5pm CST</p>
                 </div>
               </div>
 
-              <div className="pt-6 border-t border-gray-200 dark:border-gray-700">
+              <div className="pt-6 border-t border-gray-200 dark:border-white/[0.06]">
                 <a
                   href="https://cal.com/timothy-mcguire-27"
                   target="_blank"
@@ -99,7 +99,7 @@ const Contact: React.FC = () => {
                   <Calendar className="w-5 h-5" />
                   <span>Schedule a Meeting</span>
                 </a>
-                <p className="mt-3 text-sm text-gray-500 dark:text-gray-400 text-center">
+                <p className="mt-3 text-sm text-gray-500 dark:text-neutral-500 text-center">
                   Prefer to talk? Book a free consultation call
                 </p>
               </div>
@@ -118,7 +118,7 @@ const Contact: React.FC = () => {
                       id="name"
                       name="name"
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-white/[0.06] bg-white dark:bg-white/[0.03] text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors"
                       placeholder="Your name"
                     />
                   </div>
@@ -132,7 +132,7 @@ const Contact: React.FC = () => {
                       id="email"
                       name="email"
                       required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-white/[0.06] bg-white dark:bg-white/[0.03] text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -147,7 +147,7 @@ const Contact: React.FC = () => {
                       type="text"
                       id="company"
                       name="company"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-white/[0.06] bg-white dark:bg-white/[0.03] text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors"
                       placeholder="Your company"
                     />
                   </div>
@@ -160,7 +160,7 @@ const Contact: React.FC = () => {
                       type="tel"
                       id="phone"
                       name="phone"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-white/[0.06] bg-white dark:bg-white/[0.03] text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -174,7 +174,7 @@ const Contact: React.FC = () => {
                     id="projectType"
                     name="projectType"
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-white/[0.06] bg-white dark:bg-white/[0.03] text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors"
                   >
                     <option value="">Select a project type</option>
                     <option value="Marketing Website Design">Marketing Website Design</option>
@@ -193,7 +193,7 @@ const Contact: React.FC = () => {
                   <select
                     id="budget"
                     name="budget"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-white/[0.06] bg-white dark:bg-white/[0.03] text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors"
                   >
                     <option value="">Select a budget range</option>
                     <option value="Under $5,000">Under $5,000</option>
@@ -213,13 +213,13 @@ const Contact: React.FC = () => {
                     name="message"
                     required
                     rows={6}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-white/[0.06] bg-white dark:bg-white/[0.03] text-gray-900 dark:text-white focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-colors resize-none"
                     placeholder="Tell us about your project, timeline, and any specific requirements..."
                   ></textarea>
                 </div>
 
                 {formStatus === 'success' && (
-                  <div className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
+                  <div className="p-4 bg-green-50 dark:bg-green-500/10 border border-green-200 dark:border-green-500/30 rounded-lg">
                     <p className="text-green-800 dark:text-green-200 font-medium">
                       Thank you! Your message has been sent successfully. We'll get back to you within 24 hours.
                     </p>
@@ -227,7 +227,7 @@ const Contact: React.FC = () => {
                 )}
 
                 {formStatus === 'error' && (
-                  <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
+                  <div className="p-4 bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/30 rounded-lg">
                     <p className="text-red-800 dark:text-red-200 font-medium">
                       Oops! Something went wrong. Please try again or email us directly at godesigngo@gmail.com
                     </p>
