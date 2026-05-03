@@ -20,6 +20,7 @@ import SpecializedExpertise from './components/SpecializedExpertise';
 import SaasProductDesign from './components/SaasProductDesign';
 import MobileWebDesign from './components/MobileWebDesign';
 import FractionalSaasDesigner from './components/FractionalSaasDesigner';
+import AgenticExperience from './components/AgenticExperience';
 import Resume from './components/Resume';
 import Analytics from './components/Analytics';
 import { trackPageView } from './lib/analytics';
@@ -74,6 +75,11 @@ const pageSeo: Record<string, PageMeta> = {
     description: 'Hire a fractional SaaS designer for flexible, senior-level UX/UI design leadership. Scalable expertise for startups and growing SaaS teams without the full-time overhead.',
     path: '/services/fractional-saas-designer',
   },
+  'agentic-experience': {
+    title: `${SITE_NAME} | AI & Agentic Experience Design`,
+    description: 'AI and agent experience design services. Trust-by-design frameworks, mental model mapping, and interaction patterns for teams shipping AI-powered products.',
+    path: '/services/agentic-experience',
+  },
   resume: {
     title: `${SITE_NAME} | Resume`,
     description: 'View the professional resume of Timothy McGuire, a Senior UX Designer with 12+ years of experience at companies including Bank of America, Accenture, TransUnion, and more.',
@@ -101,6 +107,7 @@ const pageToPath: Record<string, string> = {
   'saas-product-design': '/services/saas-product-design',
   'mobile-web-design': '/services/mobile-web-design',
   'fractional-saas-designer': '/services/fractional-saas-designer',
+  'agentic-experience': '/services/agentic-experience',
   resume: '/resume',
   analytics: '/analytics',
 };
@@ -205,6 +212,8 @@ function App() {
         return <MobileWebDesign setCurrentPage={setCurrentPage} />;
       case 'fractional-saas-designer':
         return <FractionalSaasDesigner setCurrentPage={setCurrentPage} />;
+      case 'agentic-experience':
+        return <AgenticExperience setCurrentPage={setCurrentPage} />;
       case 'resume':
         return <Resume />;
       case 'analytics':
