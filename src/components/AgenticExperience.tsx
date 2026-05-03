@@ -268,7 +268,7 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
                 number: '01',
                 title: 'AI/AX Strategy & Assessment',
                 description: 'Comprehensive audit of your AI product or feature set. Evaluate trust layers, mental model gaps, and interaction pattern fit. Leave with a prioritized roadmap grounded in user research and UX heuristics.',
-                timeline: '2-3 weeks',
+                timeline: '4-6 weeks',
                 format: 'Remote (async + live sessions)',
                 deliverables: [
                   'Trust-by-Design audit across all four layers',
@@ -282,7 +282,7 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
                 number: '02',
                 title: 'AI Product Design Sprint',
                 description: 'Rapid, collaborative sprint to design a new AI feature from scratch. Define interaction model, design key flows with edge cases, and prototype before engineering commits to an architecture.',
-                timeline: '3-4 weeks',
+                timeline: '6-8 weeks',
                 format: 'Remote (embedded with team)',
                 deliverables: [
                   'AI interaction pattern definition + mental model specification',
@@ -296,7 +296,7 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
                 number: '03',
                 title: 'Fractional AI Design Leadership',
                 description: 'Embedded design leadership for a major AI initiative. Own the full UX strategy from product definition through launch, working directly with product and engineering.',
-                timeline: '3-6 months',
+                timeline: '6-12 months',
                 format: 'Remote (fractional Director role)',
                 deliverables: [
                   'End-to-end product strategy and interaction model definition',
@@ -311,7 +311,7 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
                 number: '04',
                 title: 'Responsible AI Workshop',
                 description: 'Structured workshop series to help your team navigate ethical, legal, and trust challenges. Design patterns for transparency, consent, and user control grounded in responsible AI principles.',
-                timeline: '2 weeks',
+                timeline: '4 weeks',
                 format: 'Remote (live workshops + async work)',
                 deliverables: [
                   'Responsible AI design framework tailored to your context',
