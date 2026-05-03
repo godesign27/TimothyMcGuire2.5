@@ -378,19 +378,19 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
           <div className="space-y-0 max-w-3xl divide-y divide-gray-200 dark:divide-gray-700">
             {[
               {
-                meta: 'Legal Tech  \u2014  B2B SaaS  \u2014  2024',
-                title: 'AI copilot for contract review',
-                description: 'Designed an AI-assisted contract analysis tool that reduced attorney review time by 40% without sacrificing accuracy. Key innovation: a \u201Cconfidence radar\u201D visualization that surfaces which clauses need human attention, paired with inline contextual explanations for flagged items. Users reported the system \u201Cfelt like a junior associate who knew when to escalate\u201D \u2014 exactly the mental model we designed for.',
+                meta: 'Euphonic AI \u00B7 Startup \u00B7 SaaS 2024',
+                title: 'Brand and interface design for an AI-led product',
+                description: 'Partnered with the Euphonic AI founding team to define the brand identity and design the end-to-end interface for their AI-led SaaS platform. Established a visual system that signaled trust and intelligence without leaning on tired AI tropes, then translated it into a product UI where the model\u2019s reasoning, confidence, and limits are surfaced naturally inside the workflow. The result was a launch-ready product with a coherent voice across marketing site, onboarding, and core experience \u2014 and a design system the team could keep extending as the product matured.',
               },
               {
-                meta: 'Content Platform  \u2014  Consumer  \u2014  2023',
-                title: 'Transparent recommendation system',
-                description: 'Redesigned recommendation UI to make the AI\u2019s logic visible without overwhelming users. Introduced lightweight \u201Cwhy this?\u201D explanations on each card and a user-controlled interest graph showing how the system\u2019s model of them evolves. Result: 22% increase in engagement, 35% reduction in \u201Cnot interested\u201D feedback. Transparency built trust, which increased usage.',
+                meta: 'ZS \u00B7 Agentic AI \u00B7 Strategy 2026',
+                title: 'Agentic AI experience strategy for an enterprise consultancy',
+                description: 'Led the experience strategy for ZS\u2019s agentic AI initiative, helping product and consulting leadership define how autonomous agents should fit into existing client workflows. Mapped the spectrum of human-in-the-loop, human-on-the-loop, and fully delegated patterns against real engagement scenarios, then specified the trust signals, escalation paths, and interruption affordances each pattern required. Delivered a strategy framework, prioritized opportunity map, and reference interaction models that gave the org a shared language for designing agentic features without compromising client trust or compliance posture.',
               },
               {
-                meta: 'Data Platform  \u2014  Enterprise  \u2014  2023',
-                title: 'Human-in-the-loop classification workflow',
-                description: 'Designed a hybrid AI/human workflow for sensitive data classification. High-confidence cases handled automatically; borderline cases routed to human review with full context and AI reasoning. System achieved 10\u00D7 throughput increase with zero accuracy drop. The AI knew its own limits and wasn\u2019t afraid to ask for help \u2014 a trust pattern we explicitly designed into the interaction model.',
+                meta: 'ZS \u00B7 Agentic AI \u00B7 Design System Evaluation 2026',
+                title: 'Design system evaluation for agentic AI surfaces',
+                description: 'Audited ZS\u2019s existing design system against the demands of agentic AI interfaces \u2014 streaming outputs, in-progress reasoning, tool use, confidence and provenance, and recoverable error states. Identified gaps where current components quietly broke down under agent behavior, then proposed a layered set of new primitives and patterns (agent status, intent capture, plan preview, action approvals, audit trails) that extend the system rather than fork it. The output gave their design and engineering teams a clear roadmap for evolving the system without losing the consistency they\u2019d already invested in.',
               },
             ].map((caseItem, index) => (
               <div key={index} className="py-8 first:pt-0">
@@ -408,23 +408,21 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-900 dark:bg-gray-950 rounded-2xl p-12 md:p-16 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Let's build AI that earns trust
-            </h2>
-            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-              If you're shipping AI products and want interfaces that feel transparent,
-              controllable, and genuinely helpful — not just technically impressive — let's talk.
-            </p>
-            <button
-              onClick={handleContactClick}
-              className="px-8 py-4 bg-white text-gray-900 font-medium rounded-full hover:bg-gray-100 transition-colors"
-            >
-              Start a Conversation
-            </button>
-          </div>
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 dark:from-blue-900 dark:via-purple-900 dark:to-pink-900"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Let's create<br />something beautiful.
+          </h2>
+          <p className="text-xl text-white/90 mb-8">
+            I'd love to learn more about how I can help your business.
+          </p>
+          <button
+            onClick={handleContactClick}
+            className="px-8 py-4 bg-white text-gray-900 rounded-full hover:bg-gray-50 transition-colors"
+          >
+            Make Contact
+          </button>
         </div>
       </section>
     </div>
