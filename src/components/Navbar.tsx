@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Moon, Sun, ChevronDown } from 'lucide-react';
+import { Menu, X, Moon, Sun, ChevronDown, Bot, Globe, Box, Smartphone, Users } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
 interface NavbarProps {
@@ -8,11 +8,11 @@ interface NavbarProps {
 }
 
 const servicePages = [
-  { id: 'marketing-web-design', label: 'Marketing Web Design' },
-  { id: 'saas-product-design', label: 'SaaS Product Design' },
-  { id: 'mobile-web-design', label: 'Mobile & Web Design' },
-  { id: 'agentic-experience', label: 'Agentic Experience' },
-  { id: 'fractional-saas-designer', label: 'Fractional SaaS Designer' },
+  { id: 'agentic-experience', label: 'Agentic Experience', description: 'AI-native product design and UX leadership.', icon: Bot, iconBg: 'bg-blue-50 dark:bg-blue-950', iconColor: 'text-blue-600 dark:text-blue-400' },
+  { id: 'marketing-web-design', label: 'Marketing Web Design', description: 'Conversion-focused websites that tell your story.', icon: Globe, iconBg: 'bg-emerald-50 dark:bg-emerald-950', iconColor: 'text-emerald-600 dark:text-emerald-400' },
+  { id: 'saas-product-design', label: 'SaaS Product Design', description: 'Scalable interfaces for software products.', icon: Box, iconBg: 'bg-sky-50 dark:bg-sky-950', iconColor: 'text-sky-600 dark:text-sky-400' },
+  { id: 'mobile-web-design', label: 'Mobile & Web Design', description: 'Responsive experiences that shine on every device.', icon: Smartphone, iconBg: 'bg-amber-50 dark:bg-amber-950', iconColor: 'text-amber-600 dark:text-amber-400' },
+  { id: 'fractional-saas-designer', label: 'Fractional SaaS Designer', description: 'Senior design leadership on a flexible cadence.', icon: Users, iconBg: 'bg-teal-50 dark:bg-teal-950', iconColor: 'text-teal-600 dark:text-teal-400' },
 ];
 
 const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
@@ -120,28 +120,59 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
                   </button>
                   <div
-                    className={`absolute top-full left-0 mt-1 w-56 rounded-lg bg-white dark:bg-neutral-900 shadow-lg ring-1 ring-black/5 dark:ring-white/10 py-2 transition-all duration-200 origin-top ${
+                    className={`absolute top-full left-0 mt-1 w-80 rounded-xl bg-white dark:bg-neutral-900 shadow-xl ring-1 ring-black/5 dark:ring-white/10 transition-all duration-200 origin-top ${
                       isServicesOpen
                         ? 'opacity-100 scale-100 translate-y-0'
                         : 'opacity-0 scale-95 -translate-y-1 pointer-events-none'
                     }`}
                   >
-                    {servicePages.map((service) => (
+                    <div className="flex items-center justify-between px-5 pt-4 pb-2">
+                      <span className="text-sm font-semibold text-neutral-900 dark:text-white">All Services</span>
                       <button
-                        key={service.id}
                         onClick={() => {
-                          setCurrentPage(service.id);
+                          setCurrentPage('services');
                           setIsServicesOpen(false);
                         }}
-                        className={`block w-full text-left px-4 py-2.5 text-sm transition-colors ${
-                          currentPage === service.id
-                            ? 'bg-neutral-50 dark:bg-neutral-800 text-neutral-950 dark:text-white font-medium'
-                            : 'text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 hover:text-neutral-900 dark:hover:text-white'
-                        }`}
+                        className="text-xs font-medium text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
                       >
-                        {service.label}
+                        Overview
                       </button>
-                    ))}
+                    </div>
+                    <div className="py-1 px-2 pb-3">
+                      {servicePages.map((service) => {
+                        const Icon = service.icon;
+                        return (
+                          <button
+                            key={service.id}
+                            onClick={() => {
+                              setCurrentPage(service.id);
+                              setIsServicesOpen(false);
+                            }}
+                            className={`flex items-center gap-3 w-full text-left px-3 py-2.5 rounded-lg transition-colors ${
+                              currentPage === service.id
+                                ? 'bg-neutral-100 dark:bg-neutral-800'
+                                : 'hover:bg-neutral-50 dark:hover:bg-neutral-800/60'
+                            }`}
+                          >
+                            <div className={`w-9 h-9 rounded-lg ${service.iconBg} flex items-center justify-center flex-shrink-0`}>
+                              <Icon className={`w-4.5 h-4.5 ${service.iconColor}`} />
+                            </div>
+                            <div>
+                              <div className={`text-sm font-medium ${
+                                currentPage === service.id
+                                  ? 'text-neutral-950 dark:text-white'
+                                  : 'text-neutral-800 dark:text-neutral-200'
+                              }`}>
+                                {service.label}
+                              </div>
+                              <div className="text-xs text-neutral-500 dark:text-neutral-400 leading-snug">
+                                {service.description}
+                              </div>
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
                 <a
@@ -223,34 +254,54 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
               </button>
               <div
                 className={`overflow-hidden transition-all duration-200 ${
-                  isMobileServicesOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
+                  isMobileServicesOpen ? 'max-h-[28rem] opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <button
-                  className="block w-full text-left pl-6 pr-3 py-2 rounded-md text-sm font-medium text-neutral-500 hover:text-neutral-900 hover:bg-neutral-50 dark:text-neutral-400 dark:hover:text-white dark:hover:bg-neutral-800"
-                  onClick={() => {
-                    setCurrentPage('services');
-                    setIsMenuOpen(false);
-                  }}
-                >
-                  All Services
-                </button>
-                {servicePages.map((service) => (
+                <div className="flex items-center justify-between pl-6 pr-3 py-2">
+                  <span className="text-xs font-semibold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider">All Services</span>
                   <button
-                    key={service.id}
-                    className={`block w-full text-left pl-6 pr-3 py-2 rounded-md text-sm transition-colors ${
-                      currentPage === service.id
-                        ? 'font-medium text-neutral-900 dark:text-white bg-neutral-50 dark:bg-neutral-800'
-                        : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 hover:bg-neutral-50 dark:hover:text-white dark:hover:bg-neutral-800'
-                    }`}
+                    className="text-xs font-medium text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white"
                     onClick={() => {
-                      setCurrentPage(service.id);
+                      setCurrentPage('services');
                       setIsMenuOpen(false);
                     }}
                   >
-                    {service.label}
+                    Overview
                   </button>
-                ))}
+                </div>
+                {servicePages.map((service) => {
+                  const Icon = service.icon;
+                  return (
+                    <button
+                      key={service.id}
+                      className={`flex items-center gap-3 w-full text-left px-4 py-2.5 rounded-lg transition-colors ${
+                        currentPage === service.id
+                          ? 'bg-neutral-100 dark:bg-neutral-800'
+                          : 'hover:bg-neutral-50 dark:hover:bg-neutral-800/60'
+                      }`}
+                      onClick={() => {
+                        setCurrentPage(service.id);
+                        setIsMenuOpen(false);
+                      }}
+                    >
+                      <div className={`w-8 h-8 rounded-lg ${service.iconBg} flex items-center justify-center flex-shrink-0`}>
+                        <Icon className={`w-4 h-4 ${service.iconColor}`} />
+                      </div>
+                      <div>
+                        <div className={`text-sm font-medium ${
+                          currentPage === service.id
+                            ? 'text-neutral-950 dark:text-white'
+                            : 'text-neutral-800 dark:text-neutral-200'
+                        }`}>
+                          {service.label}
+                        </div>
+                        <div className="text-xs text-neutral-500 dark:text-neutral-400 leading-snug">
+                          {service.description}
+                        </div>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
             </div>
             <a
