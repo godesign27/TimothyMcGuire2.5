@@ -193,8 +193,8 @@ function App() {
             <Partners />
             <ValueProposition />
             <SuccessStories setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />
-            <Testimonials />
             <SpecializedExpertise setCurrentPage={setCurrentPage} />
+            <Testimonials />
             <CTA setCurrentPage={setCurrentPage} />
           </>
         );
