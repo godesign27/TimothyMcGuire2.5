@@ -42,12 +42,12 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
               AI & Agent Experience Design
             </p>
             <h1 className="text-4xl md:text-7xl font-regular text-gray-900 dark:text-white tracking-tight mb-6 max-w-4xl">
-              Building AI products people actually trust
+              We help design how AI works—inside your team and inside your product.
             </h1>
             <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mb-12">
-              Director-level strategy and UX leadership for teams shipping AI-powered products.
-              I help you bridge the gap between powerful models and interfaces people understand,
-              control, and trust.
+              From improving how teams use AI tools to designing AI-native product experiences,
+              we help SaaS and enterprise companies turn AI into something usable, controlled,
+              and built for the real world.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 sm:gap-12">
               <div>
