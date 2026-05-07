@@ -1,31 +1,7 @@
 import React from 'react';
-import { FileText, FileDown, Briefcase, GraduationCap, Wrench, Sparkles, ExternalLink } from 'lucide-react';
+import { FileDown, Briefcase, GraduationCap, Wrench, Sparkles, ExternalLink } from 'lucide-react';
 
 const Resume: React.FC = () => {
-  const [downloadOpen, setDownloadOpen] = React.useState(false);
-  const dropdownRef = React.useRef<HTMLDivElement>(null);
-  const buttonRef = React.useRef<HTMLButtonElement>(null);
-
-  React.useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setDownloadOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  React.useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && downloadOpen) {
-        setDownloadOpen(false);
-        buttonRef.current?.focus();
-      }
-    };
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
-  }, [downloadOpen]);
 
   const competencies = [
     'AI-Native UX & Agentic Systems',
@@ -237,53 +213,15 @@ const Resume: React.FC = () => {
             </div>
 
             {/* Download Button */}
-            <div className="mt-10 flex justify-center" ref={dropdownRef}>
-              <div className="relative">
-                <button
-                  ref={buttonRef}
-                  onClick={() => setDownloadOpen(!downloadOpen)}
-                  aria-expanded={downloadOpen}
-                  aria-haspopup="true"
-                  className="group inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-medium text-sm hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-all shadow-lg shadow-neutral-400/30 dark:shadow-black/20 hover:shadow-xl hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
-                >
-                  <FileDown size={18} className="text-neutral-400 dark:text-neutral-600 group-hover:text-white dark:group-hover:text-neutral-900 transition-colors" aria-hidden="true" />
-                  Download Resume
-                  <svg className={`w-4 h-4 text-neutral-400 transition-transform ${downloadOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-                {downloadOpen && (
-                  <div role="menu" className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 bg-white dark:bg-neutral-800 rounded-xl shadow-2xl border border-neutral-200 dark:border-neutral-700 overflow-hidden">
-                    <a
-                      role="menuitem"
-                      href="/Timothy_McGuire_AI_Agentic_UX_Designer_2026.pdf"
-                      download
-                      className="flex items-center gap-3 px-5 py-3.5 text-sm text-neutral-700 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors focus-visible:outline-none focus-visible:bg-neutral-50 dark:focus-visible:bg-neutral-700"
-                      onClick={() => setDownloadOpen(false)}
-                    >
-                      <FileText size={18} className="text-red-500" aria-hidden="true" />
-                      <div>
-                        <div className="font-medium">PDF Format</div>
-                        <div className="text-xs text-neutral-500 dark:text-neutral-400">Best for viewing</div>
-                      </div>
-                    </a>
-                    <div className="border-t border-neutral-100 dark:border-neutral-700" aria-hidden="true" />
-                    <a
-                      role="menuitem"
-                      href="/Timothy_McGuire_AI_Agentic_UX_Designer_2026.docx"
-                      download
-                      className="flex items-center gap-3 px-5 py-3.5 text-sm text-neutral-700 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors focus-visible:outline-none focus-visible:bg-neutral-50 dark:focus-visible:bg-neutral-700"
-                      onClick={() => setDownloadOpen(false)}
-                    >
-                      <FileText size={18} className="text-blue-500" aria-hidden="true" />
-                      <div>
-                        <div className="font-medium">Word Document</div>
-                        <div className="text-xs text-neutral-500 dark:text-neutral-400">Best for editing</div>
-                      </div>
-                    </a>
-                  </div>
-                )}
-              </div>
+            <div className="mt-10 flex justify-center">
+              <a
+                href="/Timothy_McGuire_AI_Agentic_UX_Designer_2026.pdf"
+                download
+                className="group inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-medium text-sm hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-all shadow-lg shadow-neutral-400/30 dark:shadow-black/20 hover:shadow-xl hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+              >
+                <FileDown size={18} className="text-neutral-400 dark:text-neutral-600 group-hover:text-white dark:group-hover:text-neutral-900 transition-colors" aria-hidden="true" />
+                Download PDF
+              </a>
             </div>
           </div>
         </div>
@@ -435,24 +373,14 @@ const Resume: React.FC = () => {
             <p className="text-sm text-neutral-500 dark:text-neutral-500 mb-4">
               Want a copy for your records?
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a
-                href="/Timothy_McGuire_AI_Agentic_UX_Designer_2026.pdf"
-                download
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-neutral-300 dark:border-white/[0.06] text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-white dark:hover:bg-white/[0.03] hover:border-neutral-400 dark:hover:border-white/[0.12] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
-              >
-                <FileText size={16} className="text-red-500" aria-hidden="true" />
-                Download PDF
-              </a>
-              <a
-                href="/Timothy_McGuire_AI_Agentic_UX_Designer_2026.docx"
-                download
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-neutral-300 dark:border-white/[0.06] text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-white dark:hover:bg-white/[0.03] hover:border-neutral-400 dark:hover:border-white/[0.12] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
-              >
-                <FileText size={16} className="text-blue-500" aria-hidden="true" />
-                Download Word
-              </a>
-            </div>
+            <a
+              href="/Timothy_McGuire_AI_Agentic_UX_Designer_2026.pdf"
+              download
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-neutral-300 dark:border-white/[0.06] text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-white dark:hover:bg-white/[0.03] hover:border-neutral-400 dark:hover:border-white/[0.12] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+            >
+              <FileDown size={16} aria-hidden="true" />
+              Download PDF
+            </a>
           </nav>
         </div>
       </section>
