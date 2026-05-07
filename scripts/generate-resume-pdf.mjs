@@ -219,7 +219,7 @@ doc.font('Helvetica-Bold').fontSize(24).fillColor(C_DARK).text(name, { align: 'c
 doc.moveDown(0.25);
 doc.font('Helvetica').fontSize(9.5).fillColor(C_LIGHT).text(subtitle, { align: 'center', characterSpacing: 1 });
 doc.moveDown(0.4);
-doc.font('Helvetica').fontSize(9).fillColor(C_ACCENT).text(`${email}  |  ${linkedin}`, { align: 'center', link: `mailto:${email}` });
+doc.font('Helvetica').fontSize(9).fillColor(C_LIGHT).text(`Remote  \u2022  773-724-0473  \u2022  ${email}  \u2022  ${linkedin}`, { align: 'center' });
 doc.moveDown(0.7);
 drawSectionLine();
 doc.moveDown(0.3);
