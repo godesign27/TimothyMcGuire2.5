@@ -1,7 +1,7 @@
 import {
-  Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType,
-  TabStopPosition, TabStopType, BorderStyle, ShadingType,
-  convertInchesToTwip, ExternalHyperlink, Header,
+  Document, Packer, Paragraph, TextRun, AlignmentType,
+  TabStopPosition, TabStopType, BorderStyle,
+  convertInchesToTwip, ExternalHyperlink,
 } from 'docx';
 import { writeFileSync } from 'node:fs';
 

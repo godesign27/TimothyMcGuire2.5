@@ -256,7 +256,7 @@ const Resume: React.FC = () => {
                   <div role="menu" className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-56 bg-white dark:bg-neutral-800 rounded-xl shadow-2xl border border-neutral-200 dark:border-neutral-700 overflow-hidden">
                     <a
                       role="menuitem"
-                      href="./Timothy_McGuire_AI_Agentic_UX_Designer_2026.pdf"
+                      href="/Timothy_McGuire_AI_Agentic_UX_Designer_2026.pdf"
                       download
                       className="flex items-center gap-3 px-5 py-3.5 text-sm text-neutral-700 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors focus-visible:outline-none focus-visible:bg-neutral-50 dark:focus-visible:bg-neutral-700"
                       onClick={() => setDownloadOpen(false)}
@@ -270,7 +270,7 @@ const Resume: React.FC = () => {
                     <div className="border-t border-neutral-100 dark:border-neutral-700" aria-hidden="true" />
                     <a
                       role="menuitem"
-                      href="./Timothy_McGuire_AI_Agentic_UX_Designer_2026.docx"
+                      href="/Timothy_McGuire_AI_Agentic_UX_Designer_2026.docx"
                       download
                       className="flex items-center gap-3 px-5 py-3.5 text-sm text-neutral-700 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors focus-visible:outline-none focus-visible:bg-neutral-50 dark:focus-visible:bg-neutral-700"
                       onClick={() => setDownloadOpen(false)}
@@ -437,7 +437,7 @@ const Resume: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
-                href="./Timothy_McGuire_AI_Agentic_UX_Designer_2026.pdf"
+                href="/Timothy_McGuire_AI_Agentic_UX_Designer_2026.pdf"
                 download
                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-neutral-300 dark:border-white/[0.06] text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-white dark:hover:bg-white/[0.03] hover:border-neutral-400 dark:hover:border-white/[0.12] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
               >
@@ -445,7 +445,7 @@ const Resume: React.FC = () => {
                 Download PDF
               </a>
               <a
-                href="./Timothy_McGuire_AI_Agentic_UX_Designer_2026.docx"
+                href="/Timothy_McGuire_AI_Agentic_UX_Designer_2026.docx"
                 download
                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-neutral-300 dark:border-white/[0.06] text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-white dark:hover:bg-white/[0.03] hover:border-neutral-400 dark:hover:border-white/[0.12] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
               >
