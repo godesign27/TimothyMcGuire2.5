@@ -1,5 +1,5 @@
 import React from 'react';
-import { Brain, Users, Lightbulb, Sparkles, Heart } from 'lucide-react';
+import { Brain, Users, Lightbulb, Sparkles, Heart, Award, TrendingUp, MessageSquare } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
@@ -43,6 +43,45 @@ const About: React.FC = () => {
                 alt="Timothy McGuire" 
                 className="w-full rounded-lg shadow-xl"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership Section */}
+      <section className="py-16 bg-white dark:bg-neutral-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Design Leadership</h2>
+          <p className="text-lg text-gray-600 dark:text-neutral-400 mb-12 max-w-3xl">
+            Throughout my career I've led design functions, mentored junior designers, and built the processes that let cross-functional teams move faster without losing quality.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-6 bg-gray-50 dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-xl">
+              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-500/10 rounded-full flex items-center justify-center mb-4">
+                <Award className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Principal & Lead Experience</h3>
+              <p className="text-gray-600 dark:text-neutral-400 text-sm leading-relaxed">
+                Served as Principal UX Designer and Design Manager at multiple organizations, owning end-to-end design strategy from discovery through delivery across enterprise and SaaS products.
+              </p>
+            </div>
+            <div className="p-6 bg-gray-50 dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-xl">
+              <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-500/10 rounded-full flex items-center justify-center mb-4">
+                <TrendingUp className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Cross-Functional Alignment</h3>
+              <p className="text-gray-600 dark:text-neutral-400 text-sm leading-relaxed">
+                Experienced at aligning product, engineering, data science, and executive stakeholders on design direction — translating ambiguous problems into clear, actionable design strategies.
+              </p>
+            </div>
+            <div className="p-6 bg-gray-50 dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-xl">
+              <div className="w-12 h-12 bg-violet-100 dark:bg-violet-500/10 rounded-full flex items-center justify-center mb-4">
+                <MessageSquare className="w-6 h-6 text-violet-600 dark:text-violet-400" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Mentorship & Culture</h3>
+              <p className="text-gray-600 dark:text-neutral-400 text-sm leading-relaxed">
+                Committed to building design cultures where craft is celebrated and junior designers grow. I pair mentorship with honest feedback and clear process to help teams level up.
+              </p>
             </div>
           </div>
         </div>
