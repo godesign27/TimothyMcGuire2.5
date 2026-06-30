@@ -1,77 +1,48 @@
 import React from 'react';
-import { Globe, Box, Bot } from 'lucide-react';
+import { Globe, Box, Bot, ArrowRight } from 'lucide-react';
 
 interface SpecializedExpertiseProps {
   setCurrentPage: (page: string) => void;
 }
 
 const SpecializedExpertise: React.FC<SpecializedExpertiseProps> = ({ setCurrentPage }) => {
-  const handleMarketingWebDesignClick = () => {
+  const handleNav = (page: string) => {
     window.scrollTo(0, 0);
-    setCurrentPage('marketing-web-design');
+    setCurrentPage(page);
   };
 
-  const handleAgenticExperienceClick = () => {
-    window.scrollTo(0, 0);
-    setCurrentPage('agentic-experience');
-  };
+  const items = [
+    { id: 'agentic-experience', icon: Bot, label: 'Agentic Experience', description: 'Design AI and agent-powered interfaces that earn user trust through transparency, control, and clear mental models.' },
+    { id: 'marketing-web-design', icon: Globe, label: 'Marketing Web Design', description: 'Create impactful web experiences that convert visitors into customers with strategic user journeys.' },
+    { id: 'saas-product-design', icon: Box, label: 'SaaS Product Design', description: 'Build powerful, scalable software solutions with comprehensive SaaS design expertise.' },
+  ];
 
   return (
-    <section className="py-16 bg-gray-50 dark:bg-neutral-950">
+    <section className="py-24 bg-neutral-50 dark:bg-white/[0.02] border-t border-[#D9D9D9] dark:border-white/[0.1]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-16">Specialized Expertise</h2>
-        
-        <div className="grid md:grid-cols-3 gap-12">
-          {/* Agentic Experience */}
-          <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] p-8 rounded-lg shadow-sm">
-            <div className="w-12 h-12 bg-blue-100 dark:bg-blue-500/10 rounded-full flex items-center justify-center mb-6">
-              <Bot className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Agentic Experience</h3>
-            <p className="text-gray-600 dark:text-neutral-400 mb-6">
-              Design AI and agent-powered interfaces that earn user trust through transparency, control, and clear mental models. Strategy through launch.
-            </p>
-            <button
-              onClick={handleAgenticExperienceClick}
-              className="text-brand-600 dark:text-brand-400 font-medium hover:text-brand-700 dark:hover:text-brand-300 rounded-full"
-            >
-              Learn More {'->'}
-            </button>
-          </div>
+        <h2 className="text-2xl font-semibold text-black dark:text-white mb-12">Specialized Expertise</h2>
 
-          {/* Marketing Web Design */}
-          <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] p-8 rounded-lg shadow-sm">
-            <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-500/10 rounded-full flex items-center justify-center mb-6">
-              <Globe className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Marketing Web Design</h3>
-            <p className="text-gray-600 dark:text-neutral-400 mb-6">
-              Create impactful web experiences that convert visitors into customers. My marketing-focused design approach combines aesthetics with strategic user journeys.
-            </p>
-            <button
-              onClick={handleMarketingWebDesignClick}
-              className="text-brand-600 dark:text-brand-400 font-medium hover:text-brand-700 dark:hover:text-brand-300 rounded-full"
-            >
-              Learn More {'->'}
-            </button>
-          </div>
-
-          {/* SaaS Product Design */}
-          <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] p-8 rounded-lg shadow-sm">
-            <div className="w-12 h-12 bg-sky-100 dark:bg-sky-500/10 rounded-full flex items-center justify-center mb-6">
-              <Box className="w-6 h-6 text-sky-600 dark:text-sky-400" />
-            </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">SaaS Product Design</h3>
-            <p className="text-gray-600 dark:text-neutral-400 mb-6">
-              Build powerful, scalable software solutions with my comprehensive SaaS design expertise. I focus on creating intuitive interfaces that drive user engagement and business growth.
-            </p>
-            <button
-              onClick={() => setCurrentPage('saas-product-design')}
-              className="text-brand-600 dark:text-brand-400 font-medium hover:text-brand-700 dark:hover:text-brand-300 rounded-full"
-            >
-              Learn More {'->'}
-            </button>
-          </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {items.map((item) => {
+            const Icon = item.icon;
+            return (
+              <div key={item.id} className="p-8 bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
+                <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+                  <Icon className="w-5 h-5 text-muted dark:text-neutral-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-black dark:text-white mb-3">{item.label}</h3>
+                <p className="text-sm text-muted dark:text-neutral-400 mb-6 leading-relaxed">
+                  {item.description}
+                </p>
+                <button
+                  onClick={() => handleNav(item.id)}
+                  className="inline-flex items-center gap-1 text-sm font-medium text-black dark:text-white hover:underline"
+                >
+                  Learn more <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

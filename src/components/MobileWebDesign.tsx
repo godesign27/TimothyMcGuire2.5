@@ -18,34 +18,31 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-950">
       {/* Hero Section with Breadcrumb */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-400 via-indigo-500 to-violet-600 dark:from-blue-900 dark:via-indigo-900 dark:to-violet-900"></div>
-        
-        {/* Breadcrumb */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-          <nav className="flex py-4" aria-label="Breadcrumb">
+      <section className="relative overflow-hidden bg-white dark:bg-neutral-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <nav className="flex py-4 mb-8" aria-label="Breadcrumb">
             <ol className="flex items-center space-x-2">
               <li>
                 <button
                   onClick={() => setCurrentPage('services')}
-                  className="text-white/70 hover:text-white"
+                  className="text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white"
                 >
                   Services
                 </button>
               </li>
-              <ChevronRight className="w-4 h-4 text-white/50" />
-              <li className="text-white font-medium">Mobile App Design</li>
+              <ChevronRight className="w-4 h-4 text-muted dark:text-neutral-400" />
+              <li className="text-black dark:text-white font-medium">Mobile App Design</li>
             </ol>
           </nav>
 
-          <div className="py-16">
-            <h1 className="text-4xl md:text-7xl font-regular text-white mb-6">
+          <div>
+            <h1 className="text-4xl md:text-7xl font-regular text-black dark:text-white mb-6">
               Mobile App Design<br />
               That Drives Engagement
             </h1>
-            <p className="text-xl text-white/90 max-w-2xl">
-              We create beautiful, intuitive mobile experiences that users love. 
-              Our designs are crafted to engage users, simplify interactions, and 
+            <p className="text-xl text-muted dark:text-neutral-400 max-w-2xl">
+              We create beautiful, intuitive mobile experiences that users love.
+              Our designs are crafted to engage users, simplify interactions, and
               deliver exceptional value across all devices.
             </p>
           </div>
@@ -57,35 +54,35 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-500/10 rounded-full flex items-center justify-center mb-6">
-                <Smartphone className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center mb-6">
+                <Smartphone className="w-6 h-6 text-muted dark:text-neutral-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+              <h3 className="text-xl font-semibold text-black dark:text-white mb-4">
                 Native Experience
               </h3>
-              <p className="text-gray-600 dark:text-neutral-500">
+              <p className="text-muted dark:text-neutral-400">
                 We design apps that feel natural and intuitive on every platform, following platform-specific guidelines and best practices.
               </p>
             </div>
             <div>
-              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-500/10 rounded-full flex items-center justify-center mb-6">
-                <Users className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center mb-6">
+                <Users className="w-6 h-6 text-muted dark:text-neutral-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+              <h3 className="text-xl font-semibold text-black dark:text-white mb-4">
                 User-First Design
               </h3>
-              <p className="text-gray-600 dark:text-neutral-500">
+              <p className="text-muted dark:text-neutral-400">
                 Every interaction is crafted with your users in mind, ensuring an engaging and seamless mobile experience.
               </p>
             </div>
             <div>
-              <div className="w-12 h-12 bg-green-100 dark:bg-green-500/10 rounded-full flex items-center justify-center mb-6">
-                <Zap className="w-6 h-6 text-green-600 dark:text-green-400" />
+              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center mb-6">
+                <Zap className="w-6 h-6 text-muted dark:text-neutral-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+              <h3 className="text-xl font-semibold text-black dark:text-white mb-4">
                 Performance Optimized
               </h3>
-              <p className="text-gray-600 dark:text-neutral-500">
+              <p className="text-muted dark:text-neutral-400">
                 Fast-loading, responsive apps that provide excellent user experience even in challenging network conditions.
               </p>
             </div>
@@ -94,9 +91,9 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
       </section>
 
       {/* Design Solutions */}
-      <section className="py-20 bg-gray-50 dark:bg-white/[0.03] dark:border dark:border-white/[0.06]">
+      <section className="py-20 bg-white dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">Design Solutions</h2>
+          <h2 className="text-3xl font-bold text-black dark:text-white mb-12">Design Solutions</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
@@ -115,17 +112,17 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
                 image: "https://images.pexels.com/photos/5053740/pexels-photo-5053740.jpeg"
               }
             ].map((project, index) => (
-              <div key={index} className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-lg overflow-hidden shadow-sm">
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
+              <div key={index} className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-[10px] overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
                   className="w-full h-48 object-cover"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-xl font-semibold text-black dark:text-white mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-neutral-400">
+                  <p className="text-muted dark:text-neutral-400">
                     {project.description}
                   </p>
                 </div>
@@ -138,7 +135,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
       {/* Process Section */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">Our Process</h2>
+          <h2 className="text-3xl font-bold text-black dark:text-white mb-12">Our Process</h2>
           <div className="space-y-12">
             {[
               {
@@ -163,14 +160,14 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
               }
             ].map((phase, index) => (
               <div key={index} className="flex gap-8">
-                <div className="w-12 h-12 flex-shrink-0 bg-brand-100 dark:bg-brand-900 rounded-full flex items-center justify-center text-brand-600 dark:text-brand-400 font-semibold">
+                <div className="w-12 h-12 flex-shrink-0 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center text-black dark:text-white font-semibold">
                   {phase.step}
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-xl font-semibold text-black dark:text-white mb-2">
                     {phase.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-neutral-500">
+                  <p className="text-muted dark:text-neutral-400">
                     {phase.description}
                   </p>
                 </div>
@@ -181,65 +178,65 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
       </section>
 
       {/* What's Included */}
-      <section className="py-20 bg-gray-50 dark:bg-white/[0.03] dark:border dark:border-white/[0.06]">
+      <section className="py-20 bg-white dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">What's Included</h2>
+          <h2 className="text-3xl font-bold text-black dark:text-white mb-12">What's Included</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-900 flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-brand-600 dark:bg-brand-400" />
+                <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 rounded-full bg-black dark:bg-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-1">User Research</h3>
-                  <p className="text-gray-600 dark:text-neutral-500">Deep understanding of mobile user behavior</p>
+                  <h3 className="font-semibold text-black dark:text-white mb-1">User Research</h3>
+                  <p className="text-muted dark:text-neutral-400">Deep understanding of mobile user behavior</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-900 flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-brand-600 dark:bg-brand-400" />
+                <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 rounded-full bg-black dark:bg-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-1">UX Architecture</h3>
-                  <p className="text-gray-600 dark:text-neutral-500">Intuitive navigation and user flows</p>
+                  <h3 className="font-semibold text-black dark:text-white mb-1">UX Architecture</h3>
+                  <p className="text-muted dark:text-neutral-400">Intuitive navigation and user flows</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-900 flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-brand-600 dark:bg-brand-400" />
+                <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 rounded-full bg-black dark:bg-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Visual Design</h3>
-                  <p className="text-gray-600 dark:text-neutral-500">Beautiful, platform-specific UI design</p>
+                  <h3 className="font-semibold text-black dark:text-white mb-1">Visual Design</h3>
+                  <p className="text-muted dark:text-neutral-400">Beautiful, platform-specific UI design</p>
                 </div>
               </div>
             </div>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-900 flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-brand-600 dark:bg-brand-400" />
+                <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 rounded-full bg-black dark:bg-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Prototyping</h3>
-                  <p className="text-gray-600 dark:text-neutral-500">Interactive prototypes for testing</p>
+                  <h3 className="font-semibold text-black dark:text-white mb-1">Prototyping</h3>
+                  <p className="text-muted dark:text-neutral-400">Interactive prototypes for testing</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-900 flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-brand-600 dark:bg-brand-400" />
+                <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 rounded-full bg-black dark:bg-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-1">User Testing</h3>
-                  <p className="text-gray-600 dark:text-neutral-500">Comprehensive usability testing</p>
+                  <h3 className="font-semibold text-black dark:text-white mb-1">User Testing</h3>
+                  <p className="text-muted dark:text-neutral-400">Comprehensive usability testing</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-900 flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-brand-600 dark:bg-brand-400" />
+                <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 rounded-full bg-black dark:bg-white" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-white mb-1">Design System</h3>
-                  <p className="text-gray-600 dark:text-neutral-500">Complete mobile design system</p>
+                  <h3 className="font-semibold text-black dark:text-white mb-1">Design System</h3>
+                  <p className="text-muted dark:text-neutral-400">Complete mobile design system</p>
                 </div>
               </div>
             </div>
@@ -248,18 +245,17 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-indigo-500 to-violet-600 dark:from-blue-900 dark:via-indigo-900 dark:to-violet-900"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative py-20 overflow-hidden bg-black dark:bg-neutral-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Let's create<br />something beautiful.
           </h2>
           <p className="text-xl text-white/90 mb-8">
             We'd love to learn more about how we can help your business.
           </p>
-          <button 
+          <button
             onClick={handleContactClick}
-            className="px-8 py-4 bg-white text-gray-900 rounded-full hover:bg-gray-50 transition-colors"
+            className="px-8 py-4 bg-white text-black rounded-full hover:bg-gray-100 transition-colors"
           >
             Make Contact
           </button>

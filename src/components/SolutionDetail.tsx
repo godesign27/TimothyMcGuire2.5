@@ -146,37 +146,36 @@ const SolutionDetail: React.FC<SolutionDetailProps> = ({ page, setCurrentPage })
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-950">
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className={`absolute inset-0 bg-gradient-to-br ${config.gradient}`} />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+      <section className="bg-white dark:bg-neutral-950 py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex py-4" aria-label="Breadcrumb">
             <ol className="flex items-center space-x-2 text-sm">
               <li>
                 <button
                   onClick={() => setCurrentPage('solutions')}
-                  className="text-gray-500 dark:text-neutral-500 hover:text-gray-900 dark:hover:text-white transition-colors"
+                  className="text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors"
                 >
                   Solutions
                 </button>
               </li>
-              <ChevronRight className="w-4 h-4 text-gray-400" />
-              <li className="text-gray-900 dark:text-white font-medium">{config.label}</li>
+              <ChevronRight className="w-4 h-4 text-muted dark:text-neutral-400" />
+              <li className="text-black dark:text-white font-medium">{config.label}</li>
             </ol>
           </nav>
 
           <div className="py-16 max-w-3xl">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-white/60 dark:bg-white/5 flex items-center justify-center shadow-sm">
+              <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center">
                 <Icon className={`w-5 h-5 ${config.iconColor}`} />
               </div>
               <p className={`text-sm font-semibold uppercase tracking-widest ${config.accent}`}>
                 Solutions
               </p>
             </div>
-            <h1 className="text-4xl md:text-6xl font-light text-gray-900 dark:text-white tracking-tight mb-6">
+            <h1 className="text-4xl md:text-6xl font-light text-black dark:text-white tracking-tight mb-6">
               {config.label}
             </h1>
-            <p className="text-xl text-gray-600 dark:text-neutral-400">
+            <p className="text-xl text-muted dark:text-neutral-400">
               {config.subtitle}
             </p>
           </div>
@@ -189,10 +188,10 @@ const SolutionDetail: React.FC<SolutionDetailProps> = ({ page, setCurrentPage })
           <div className="max-w-3xl space-y-16">
             {config.sections.map((section, i) => (
               <div key={i} className="border-l-2 border-neutral-200 dark:border-white/[0.08] pl-8">
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+                <h2 className="text-2xl font-semibold text-black dark:text-white mb-4">
                   {section.heading}
                 </h2>
-                <p className="text-lg text-gray-600 dark:text-neutral-400 leading-relaxed">
+                <p className="text-lg text-muted dark:text-neutral-400 leading-relaxed">
                   {section.body}
                 </p>
               </div>
@@ -202,9 +201,9 @@ const SolutionDetail: React.FC<SolutionDetailProps> = ({ page, setCurrentPage })
       </section>
 
       {/* Related Pages */}
-      <section className="py-20 bg-gray-50 dark:bg-white/[0.02] dark:border-t dark:border-white/[0.06]">
+      <section className="py-20 bg-white dark:bg-neutral-950 border-t border-[#D9D9D9] dark:border-white/[0.1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-10">Related</h2>
+          <h2 className="text-2xl font-semibold text-black dark:text-white mb-10">Related</h2>
           <div className="grid sm:grid-cols-3 gap-6">
             {config.related.map((item) => (
               <button
@@ -213,12 +212,12 @@ const SolutionDetail: React.FC<SolutionDetailProps> = ({ page, setCurrentPage })
                   window.scrollTo(0, 0);
                   setCurrentPage(item.id);
                 }}
-                className="group text-left p-6 bg-white dark:bg-white/[0.03] border border-neutral-200 dark:border-white/[0.06] rounded-xl hover:border-neutral-300 dark:hover:border-white/[0.12] hover:shadow-md transition-all"
+                className="group text-left p-6 bg-white dark:bg-white/[0.03] border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px] hover:border-[#D9D9D9] dark:hover:border-white/[0.15] transition-all"
               >
-                <div className="font-semibold text-gray-900 dark:text-white mb-2 group-hover:underline">
+                <div className="font-semibold text-black dark:text-white mb-2 group-hover:underline">
                   {item.label}
                 </div>
-                <p className="text-sm text-gray-500 dark:text-neutral-500 mb-4">{item.description}</p>
+                <p className="text-sm text-muted dark:text-neutral-400 mb-4">{item.description}</p>
                 <span className="inline-flex items-center gap-1 text-xs font-medium text-brand-600 dark:text-brand-400">
                   Explore <ArrowRight className="w-3 h-3" />
                 </span>
@@ -229,12 +228,12 @@ const SolutionDetail: React.FC<SolutionDetailProps> = ({ page, setCurrentPage })
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-white dark:bg-neutral-950">
+      <section className="py-20 bg-black dark:bg-neutral-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl font-semibold text-white dark:text-white mb-4">
             Ready to get started?
           </h2>
-          <p className="text-lg text-gray-600 dark:text-neutral-400 mb-8 max-w-xl mx-auto">
+          <p className="text-lg text-neutral-300 dark:text-neutral-400 mb-8 max-w-xl mx-auto">
             Let's talk about your product challenges and how I can help.
           </p>
           <button
@@ -242,7 +241,7 @@ const SolutionDetail: React.FC<SolutionDetailProps> = ({ page, setCurrentPage })
               window.scrollTo(0, 0);
               setCurrentPage('contact');
             }}
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-brand-600 text-white hover:bg-brand-700 transition-colors font-medium"
+            className="btn-primary"
           >
             Get in touch
           </button>

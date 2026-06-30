@@ -6,246 +6,192 @@ interface ServicesProps {
 }
 
 const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
-  const handleContactClick = () => {
+  React.useEffect(() => {
     window.scrollTo(0, 0);
-    setCurrentPage('contact');
-  };
+  }, []);
 
-  const handleSolutionsClick = () => {
+  const handleNav = (page: string) => {
     window.scrollTo(0, 0);
-    setCurrentPage('solutions');
+    setCurrentPage(page);
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-neutral-950">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-blue-400 to-purple-400 dark:from-emerald-500/10 dark:via-blue-500/10 dark:to-purple-500/10"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="py-32">
-            <h1 className="text-4xl md:text-7xl font-regular text-gray-900 dark:text-white tracking-tight mb-6">
-              Solving Real Problems.<br />
-              Designing Exceptional Experiences.
+    <div className="min-h-screen bg-white dark:bg-neutral-950">
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-muted dark:text-neutral-500 mb-4">
+              Services
+            </p>
+            <h1 className="text-4xl md:text-6xl font-light text-black dark:text-white tracking-tight mb-6">
+              Solving Real Problems. Designing Exceptional Experiences.
             </h1>
-            <p className="text-xl text-gray-800 dark:text-gray-200 max-w-3xl">
-              I bring clarity and simplicity to complexity. My suite of 
-              Experience Design services combines deep expertise with human-centered 
-              design principles to help businesses innovate, connect with users and grow 
-              their audiences.
+            <p className="text-xl text-muted dark:text-neutral-400 max-w-3xl">
+              I bring clarity and simplicity to complexity. My suite of Experience Design services combines deep expertise with human-centered design principles.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Core Services Section */}
-      <section className="py-20">
+      <section className="py-24 border-t border-[#D9D9D9] dark:border-white/[0.1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-5xl font-regular text-gray-900 dark:text-white mb-16">Services</h2>
-          
-          <div className="grid md:grid-cols-3 gap-12">
-            {/* UX/UI Design Consulting */}
-            <div>
-              <div className="w-12 h-12 bg-gray-100 dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-lg flex items-center justify-center mb-6">
-                <ClipboardList className="w-6 h-6 text-gray-900 dark:text-white" />
+          <h2 className="text-2xl font-semibold text-black dark:text-white mb-16">Core Services</h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
+              <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+                <ClipboardList className="w-5 h-5 text-muted dark:text-neutral-400" />
               </div>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">UX/UI Design Consulting</h3>
-              <p className="text-gray-600 dark:text-neutral-400 mb-6">
-                Transform your digital presence with user-focused solutions. From crafting intuitive user 
-                flows to building robust design systems, our consulting ensures seamless, engaging, and 
-                accessible user experiences.
+              <h3 className="text-xl font-semibold text-black dark:text-white mb-4">UX/UI Design Consulting</h3>
+              <p className="text-muted dark:text-neutral-400 mb-6 leading-relaxed">
+                Transform your digital presence with user-focused solutions. From crafting intuitive user flows to building robust design systems.
               </p>
-              <ul className="space-y-2 text-gray-600 dark:text-neutral-400">
-                <li>* User Flow</li>
-                <li>* Information Architecture</li>
-                <li>* UX/UI Design</li>
-                <li>* Wireframing</li>
-                <li>* Prototyping</li>
-                <li>* Design Systems</li>
+              <ul className="space-y-2 text-sm text-muted dark:text-neutral-500">
+                <li>User Flow</li>
+                <li>Information Architecture</li>
+                <li>UX/UI Design</li>
+                <li>Wireframing</li>
+                <li>Prototyping</li>
+                <li>Design Systems</li>
               </ul>
             </div>
 
-            {/* AI + Agentic Experience */}
-            <div>
-              <div className="w-12 h-12 bg-gray-100 dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-lg flex items-center justify-center mb-6">
-                <Sparkles className="w-6 h-6 text-gray-900 dark:text-white" />
+            <div className="p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
+              <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+                <Sparkles className="w-5 h-5 text-muted dark:text-neutral-400" />
               </div>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">AI + Agentic Experience</h3>
-              <p className="text-gray-600 dark:text-neutral-400 mb-6">
-                Design AI-powered products people actually trust. I bridge the gap between powerful
-                models and interfaces users understand, control, and rely on through proven
-                trust-by-design frameworks.
+              <h3 className="text-xl font-semibold text-black dark:text-white mb-4">AI + Agentic Experience</h3>
+              <p className="text-muted dark:text-neutral-400 mb-6 leading-relaxed">
+                Design AI-powered products people actually trust. I bridge the gap between powerful models and interfaces users understand.
               </p>
-              <ul className="space-y-2 text-gray-600 dark:text-neutral-400">
-                <li>* Trust-by-Design Framework</li>
-                <li>* Mental Model Mapping</li>
-                <li>* AI Interaction Patterns</li>
-                <li>* Responsible AI Design</li>
-                <li>* Human-in-the-Loop Workflows</li>
+              <ul className="space-y-2 text-sm text-muted dark:text-neutral-500">
+                <li>Trust-by-Design Framework</li>
+                <li>Mental Model Mapping</li>
+                <li>AI Interaction Patterns</li>
+                <li>Responsible AI Design</li>
+                <li>Human-in-the-Loop Workflows</li>
               </ul>
             </div>
 
-            {/* Brand & Identity Design */}
-            <div>
-              <div className="w-12 h-12 bg-gray-100 dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-lg flex items-center justify-center mb-6">
-                <Briefcase className="w-6 h-6 text-gray-900 dark:text-white" />
+            <div className="p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
+              <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+                <Briefcase className="w-5 h-5 text-muted dark:text-neutral-400" />
               </div>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Brand & Identity Design</h3>
-              <p className="text-gray-600 dark:text-neutral-400 mb-6">
-                Develop a strong, cohesive brand identity that resonates with your audience. I create 
-                comprehensive brand systems that stand out in today's digital landscape.
+              <h3 className="text-xl font-semibold text-black dark:text-white mb-4">Brand & Identity Design</h3>
+              <p className="text-muted dark:text-neutral-400 mb-6 leading-relaxed">
+                Develop a strong, cohesive brand identity that resonates with your audience. Comprehensive brand systems that stand out.
               </p>
-              <ul className="space-y-2 text-gray-600 dark:text-neutral-400">
-                <li>* Logo Design</li>
-                <li>* Color Definition</li>
-                <li>* Typography</li>
-                <li>* Graphic Imagery</li>
-                <li>* Brand Guidelines</li>
-                <li>* Visual Systems</li>
+              <ul className="space-y-2 text-sm text-muted dark:text-neutral-500">
+                <li>Logo Design</li>
+                <li>Color Definition</li>
+                <li>Typography</li>
+                <li>Graphic Imagery</li>
+                <li>Brand Guidelines</li>
+                <li>Visual Systems</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Specialized Services Section */}
-      <section className="py-20 bg-white dark:bg-white/[0.03] dark:border-t dark:border-b dark:border-white/[0.06]">
+      <section className="py-24 bg-neutral-50 dark:bg-white/[0.02] border-t border-b border-[#D9D9D9] dark:border-white/[0.1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-16">Specialized Services</h2>
-          
-          <div className="grid md:grid-cols-3 gap-12">
-            {/* Marketing Web Design */}
-            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] p-8 rounded-lg shadow-sm">
-              <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-500/10 rounded-full flex items-center justify-center mb-6">
-                <Globe className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Marketing Web Design</h3>
-              <p className="text-gray-600 dark:text-neutral-400 mb-6">
-                Create impactful web experiences that convert visitors into customers. Our marketing-focused design approach combines aesthetics with strategic user journeys.
-              </p>
-              <button 
-                onClick={() => setCurrentPage('marketing-web-design')}
-                className="text-brand-600 dark:text-brand-400 font-medium hover:text-brand-700 dark:hover:text-brand-300 rounded-full"
-              >
-                Learn More {'->'}
-              </button>
-            </div>
+          <h2 className="text-2xl font-semibold text-black dark:text-white mb-16">Specialized Services</h2>
 
-            {/* SaaS Product Design */}
-            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] p-8 rounded-lg shadow-sm">
-              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-500/10 rounded-full flex items-center justify-center mb-6">
-                <Box className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-white dark:bg-transparent p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
+              <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+                <Globe className="w-5 h-5 text-muted dark:text-neutral-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">SaaS Product Design</h3>
-              <p className="text-gray-600 dark:text-neutral-400 mb-6">
-                Build powerful, scalable software solutions with our comprehensive SaaS design expertise. We focus on creating intuitive interfaces that drive user engagement and business growth.
-              </p>
-              <button 
-                onClick={() => setCurrentPage('saas-product-design')}
-                className="text-brand-600 dark:text-brand-400 font-medium hover:text-brand-700 dark:hover:text-brand-300 rounded-full"
-              >
-                Learn More {'->'}
-              </button>
-            </div>
-
-            {/* Agentic Experience */}
-            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.06] p-8 rounded-lg shadow-sm">
-              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-500/10 rounded-full flex items-center justify-center mb-6">
-                <Bot className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Agentic Experience</h3>
-              <p className="text-gray-600 dark:text-neutral-400 mb-6">
-                Design AI and agent-powered interfaces that earn user trust through transparency, control, and clear mental models. Strategy through launch.
+              <h3 className="text-lg font-semibold text-black dark:text-white mb-3">Marketing Web Design</h3>
+              <p className="text-sm text-muted dark:text-neutral-400 mb-6 leading-relaxed">
+                Create impactful web experiences that convert visitors into customers with strategic user journeys.
               </p>
               <button
-                onClick={() => setCurrentPage('agentic-experience')}
-                className="text-brand-600 dark:text-brand-400 font-medium hover:text-brand-700 dark:hover:text-brand-300 rounded-full"
+                onClick={() => handleNav('marketing-web-design')}
+                className="inline-flex items-center gap-1 text-sm font-medium text-black dark:text-white hover:underline"
               >
-                Learn More {'->'}
+                Learn more <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+            <div className="bg-white dark:bg-transparent p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
+              <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+                <Box className="w-5 h-5 text-muted dark:text-neutral-400" />
+              </div>
+              <h3 className="text-lg font-semibold text-black dark:text-white mb-3">SaaS Product Design</h3>
+              <p className="text-sm text-muted dark:text-neutral-400 mb-6 leading-relaxed">
+                Build powerful, scalable software solutions with comprehensive SaaS design expertise.
+              </p>
+              <button
+                onClick={() => handleNav('saas-product-design')}
+                className="inline-flex items-center gap-1 text-sm font-medium text-black dark:text-white hover:underline"
+              >
+                Learn more <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+
+            <div className="bg-white dark:bg-transparent p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
+              <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+                <Bot className="w-5 h-5 text-muted dark:text-neutral-400" />
+              </div>
+              <h3 className="text-lg font-semibold text-black dark:text-white mb-3">Agentic Experience</h3>
+              <p className="text-sm text-muted dark:text-neutral-400 mb-6 leading-relaxed">
+                Design AI and agent-powered interfaces that earn user trust through transparency and control.
+              </p>
+              <button
+                onClick={() => handleNav('agentic-experience')}
+                className="inline-flex items-center gap-1 text-sm font-medium text-black dark:text-white hover:underline"
+              >
+                Learn more <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-20 bg-gray-50 dark:bg-white/[0.03] dark:border-t dark:border-b dark:border-white/[0.06]">
+      <section className="py-24 border-t border-[#D9D9D9] dark:border-white/[0.1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12">My Process</h2>
-          <div className="space-y-12">
+          <h2 className="text-2xl font-semibold text-black dark:text-white mb-16">Process</h2>
+          <div className="grid md:grid-cols-4 gap-8">
             {[
-              {
-                step: "01",
-                title: "Discovery & Strategy",
-                description: "I start by understanding your business, goals, and target audience to create a strategic foundation for your project."
-              },
-              {
-                step: "02",
-                title: "Design & Prototyping",
-                description: "I create beautiful, functional layouts that align with your brand and optimize for your goals."
-              },
-              {
-                step: "03",
-                title: "Development & Testing",
-                description: "I build your solution using modern technologies, ensuring it's fast, secure, and works flawlessly across all devices."
-              },
-              {
-                step: "04",
-                title: "Launch & Optimization",
-                description: "After launch, I monitor performance and make data-driven improvements to maximize results."
-              }
-            ].map((phase, index) => (
-              <div key={index} className="flex gap-8">
-                <div className="w-12 h-12 flex-shrink-0 bg-brand-100 dark:bg-brand-900 rounded-full flex items-center justify-center text-brand-600 dark:text-brand-400 font-semibold">
-                  {phase.step}
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                    {phase.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-neutral-400">
-                    {phase.description}
-                  </p>
-                </div>
+              { step: "01", title: "Discovery & Strategy", description: "Understanding your business, goals, and target audience to create a strategic foundation." },
+              { step: "02", title: "Design & Prototyping", description: "Creating beautiful, functional layouts that align with your brand and optimize for your goals." },
+              { step: "03", title: "Development & Testing", description: "Building your solution using modern technologies, ensuring it works flawlessly." },
+              { step: "04", title: "Launch & Optimization", description: "Monitoring performance and making data-driven improvements to maximize results." }
+            ].map((phase) => (
+              <div key={phase.step}>
+                <p className="text-xs font-semibold text-muted dark:text-neutral-500 mb-4">{phase.step}</p>
+                <h3 className="text-lg font-semibold text-black dark:text-white mb-3">{phase.title}</h3>
+                <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">{phase.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Solutions CTA Section */}
-      <section className="py-20 bg-white dark:bg-neutral-950">
+      <section className="py-24 bg-neutral-50 dark:bg-white/[0.02] border-t border-[#D9D9D9] dark:border-white/[0.1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Ready to See the Solutions in Action?
+          <h2 className="text-3xl font-semibold text-black dark:text-white mb-4">
+            Ready to see solutions in action?
           </h2>
-          <p className="text-xl text-gray-600 dark:text-neutral-400 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-muted dark:text-neutral-400 mb-8 max-w-xl mx-auto">
             Explore how my services come to life through tailored solutions that solve real problems.
           </p>
-          <button 
-            onClick={handleSolutionsClick}
-            className="px-8 py-4 bg-brand-600 text-white font-medium rounded-full hover:bg-brand-700 transition-colors shadow-md hover:shadow-lg transform hover:-translate-y-1"
-          >
-            View Our Solutions
-          </button>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-400 via-blue-500 to-purple-600 dark:from-teal-500/10 dark:via-blue-500/10 dark:to-purple-500/10"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Let's create<br />something beautiful.
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            I'd love to learn more about how I can help your business.
-          </p>
-          <button 
-            onClick={handleContactClick}
-            className="px-8 py-4 bg-white text-gray-900 rounded-full hover:bg-gray-50 transition-colors"
-          >
-            Make Contact
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={() => handleNav('solutions')}
+              className="btn-primary"
+            >
+              View Solutions
+            </button>
+            <button
+              onClick={() => handleNav('contact')}
+              className="btn-secondary"
+            >
+              Get in Touch
+            </button>
+          </div>
         </div>
       </section>
     </div>

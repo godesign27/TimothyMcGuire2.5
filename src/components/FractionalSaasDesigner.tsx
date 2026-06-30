@@ -278,34 +278,36 @@ function DesignSystemMockup() {
 }
 
 const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurrentPage }) => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-950">
       {/* Hero Section with Breadcrumb */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-sky-100 to-blue-200 dark:from-slate-900 dark:via-sky-900 dark:to-blue-900"></div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-          <nav className="flex py-4" aria-label="Breadcrumb">
+      <section className="relative overflow-hidden bg-white dark:bg-neutral-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <nav className="flex py-4 mb-8" aria-label="Breadcrumb">
             <ol className="flex items-center space-x-2">
               <li>
                 <button
                   onClick={() => setCurrentPage('services')}
-                  className="text-gray-600 dark:text-neutral-500 hover:text-gray-900 dark:hover:text-white"
+                  className="text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white"
                 >
                   Services
                 </button>
               </li>
-              <ChevronRight className="w-4 h-4 text-gray-500" />
-              <li className="text-gray-900 dark:text-white font-medium">Fractional SaaS Designer</li>
+              <ChevronRight className="w-4 h-4 text-muted dark:text-neutral-400" />
+              <li className="text-black dark:text-white font-medium">Fractional SaaS Designer</li>
             </ol>
           </nav>
 
-          <div className="py-16">
-            <h1 className="text-4xl md:text-7xl font-regular text-gray-900 dark:text-white mb-6">
+          <div>
+            <h1 className="text-4xl md:text-7xl font-regular text-black dark:text-white mb-6">
               Fractional SaaS Designer<br />
               Embedded With Your Team
             </h1>
-            <p className="text-xl text-gray-700 dark:text-neutral-400 max-w-2xl">
+            <p className="text-xl text-muted dark:text-neutral-400 max-w-2xl">
               SaaS teams don't usually have a product problem — they have a UX and system evolution problem. Through a flexible, embedded model, I work directly with product and engineering teams to simplify workflows, improve usability, and evolve the product experience in a way that compounds over time.
             </p>
           </div>
@@ -322,13 +324,13 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
         <div className="max-w-[1140px] mx-auto px-6">
           <div className="grid md:grid-cols-12 gap-12 md:gap-16">
             <div className="md:col-span-4">
-              <p className="text-xs font-medium tracking-wide text-slate-400 dark:text-slate-500 uppercase mb-3">The Problem</p>
-              <h2 className="text-[22px] md:text-[24px] font-semibold text-gray-950 dark:text-white leading-snug">
+              <p className="text-xs font-medium tracking-wide text-muted dark:text-neutral-400 uppercase mb-3">The Problem</p>
+              <h2 className="text-[22px] md:text-[24px] font-semibold text-black dark:text-white leading-snug">
                 Products grow. UX often doesn't keep up.
               </h2>
             </div>
             <div className="md:col-span-8">
-              <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-neutral-500 mb-8">
+              <p className="text-[16px] leading-[1.7] text-muted dark:text-neutral-400 mb-8">
                 Many SaaS products reach a point where the product is strong — but the user experience starts to lag behind. As features are added over time, teams often run into the same challenges:
               </p>
               <ul className="space-y-4">
@@ -340,12 +342,12 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
                   'Design systems exist, but are not actively evolving',
                 ].map((item) => (
                   <li key={item} className="flex items-start space-x-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 flex-shrink-0" />
-                    <span className="text-[16px] leading-[1.65] text-gray-600 dark:text-neutral-400">{item}</span>
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-neutral-300 dark:bg-neutral-600 flex-shrink-0" />
+                    <span className="text-[16px] leading-[1.65] text-muted dark:text-neutral-400">{item}</span>
                   </li>
                 ))}
               </ul>
-              <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-neutral-500 mt-8">
+              <p className="text-[16px] leading-[1.7] text-muted dark:text-neutral-400 mt-8">
                 The product continues to grow — but usability, clarity, and consistency begin to erode.
               </p>
             </div>
@@ -362,11 +364,11 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
       <section className="py-20 md:py-24">
         <div className="max-w-[1140px] mx-auto px-6">
           <div className="max-w-[720px] mb-12 md:mb-16">
-            <p className="text-xs font-medium tracking-wide text-slate-400 dark:text-slate-500 uppercase mb-3">The Approach</p>
-            <h2 className="text-[22px] md:text-[24px] font-semibold text-gray-950 dark:text-white leading-snug mb-5">
+            <p className="text-xs font-medium tracking-wide text-muted dark:text-neutral-400 uppercase mb-3">The Approach</p>
+            <h2 className="text-[22px] md:text-[24px] font-semibold text-black dark:text-white leading-snug mb-5">
               Lightweight. Embedded. Incremental.
             </h2>
-            <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-neutral-500">
+            <p className="text-[16px] leading-[1.7] text-muted dark:text-neutral-400">
               Instead of a full redesign or heavy process, I work in a lightweight, embedded model alongside product and engineering teams. The focus is on identifying high-impact improvements and implementing them incrementally.
             </p>
           </div>
@@ -379,16 +381,16 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
             ].map(({ icon: Icon, title, body }) => (
               <div
                 key={title}
-                className="group relative rounded-xl border border-gray-200/80 dark:border-white/[0.06] bg-white dark:bg-white/[0.03] p-6 transition-all duration-300 hover:border-gray-300 dark:hover:border-white/[0.12] hover:shadow-[0_8px_24px_-12px_rgba(15,23,42,0.12)] dark:hover:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.4)] hover:-translate-y-0.5"
+                className="group relative rounded-[10px] border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-white/[0.03] p-6 transition-all duration-300"
               >
-                <Icon className="w-5 h-5 text-slate-400 dark:text-slate-500 mb-6" strokeWidth={1.5} />
-                <h3 className="text-[15px] font-semibold text-gray-950 dark:text-white mb-2">{title}</h3>
-                <p className="text-[14px] leading-[1.6] text-gray-500 dark:text-neutral-500">{body}</p>
+                <Icon className="w-5 h-5 text-muted dark:text-neutral-400 mb-6" strokeWidth={1.5} />
+                <h3 className="text-[15px] font-semibold text-black dark:text-white mb-2">{title}</h3>
+                <p className="text-[14px] leading-[1.6] text-muted dark:text-neutral-400">{body}</p>
               </div>
             ))}
           </div>
 
-          <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-neutral-500 mt-12 max-w-[640px]">
+          <p className="text-[16px] leading-[1.7] text-muted dark:text-neutral-400 mt-12 max-w-[640px]">
             This approach prioritizes progress over perfection — small improvements that compound into meaningful change.
           </p>
         </div>
@@ -402,14 +404,14 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
       </section>
 
       {/* Impact */}
-      <section className="py-20 md:py-24 bg-gray-50 dark:bg-white/[0.03] dark:border-y dark:border-white/[0.06]">
+      <section className="py-20 md:py-24 bg-white dark:bg-neutral-950">
         <div className="max-w-[1140px] mx-auto px-6">
           <div className="max-w-[720px] mb-12 md:mb-16">
-            <p className="text-xs font-medium tracking-wide text-slate-400 dark:text-slate-500 uppercase mb-3">Impact</p>
-            <h2 className="text-[22px] md:text-[24px] font-semibold text-gray-950 dark:text-white leading-snug mb-4">
+            <p className="text-xs font-medium tracking-wide text-muted dark:text-neutral-400 uppercase mb-3">Impact</p>
+            <h2 className="text-[22px] md:text-[24px] font-semibold text-black dark:text-white leading-snug mb-4">
               Measurable improvements across the product.
             </h2>
-            <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-neutral-500">
+            <p className="text-[16px] leading-[1.7] text-muted dark:text-neutral-400">
               Applied in partnership with Agate Software, a SaaS company building government-focused products including the IG5 platform. The product had strong functionality and domain depth, but the experience had become more complex and less cohesive over time.
             </p>
           </div>
@@ -420,15 +422,15 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
               { metric: 'Clearer', label: 'Navigation & flow' },
               { metric: 'Stronger', label: 'Design-to-business alignment' },
             ].map((item) => (
-              <div key={item.label} className="bg-white dark:bg-white/[0.03] rounded-lg border border-gray-200 dark:border-white/[0.06] p-6">
-                <div className="text-[28px] md:text-[32px] font-semibold text-gray-950 dark:text-white leading-none mb-2">
+              <div key={item.label} className="bg-white dark:bg-white/[0.03] rounded-[10px] border border-[#D9D9D9] dark:border-white/[0.1] p-6">
+                <div className="text-[28px] md:text-[32px] font-semibold text-black dark:text-white leading-none mb-2">
                   {item.metric}
                 </div>
-                <div className="text-sm text-gray-500 dark:text-neutral-500">{item.label}</div>
+                <div className="text-sm text-muted dark:text-neutral-400">{item.label}</div>
               </div>
             ))}
           </div>
-          <p className="text-[15px] leading-[1.7] text-gray-500 dark:text-neutral-500 mt-10 max-w-[640px]">
+          <p className="text-[15px] leading-[1.7] text-muted dark:text-neutral-400 mt-10 max-w-[640px]">
             Just as importantly, the product established a stronger foundation for continued evolution.
           </p>
         </div>
@@ -439,14 +441,14 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
         <div className="max-w-[1140px] mx-auto px-6">
           <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
             <div className="md:col-span-5">
-              <p className="text-xs font-medium tracking-wide text-slate-400 dark:text-slate-500 uppercase mb-3">Process</p>
-              <h2 className="text-[22px] md:text-[24px] font-semibold text-gray-950 dark:text-white leading-snug mb-6">
+              <p className="text-xs font-medium tracking-wide text-muted dark:text-neutral-400 uppercase mb-3">Process</p>
+              <h2 className="text-[22px] md:text-[24px] font-semibold text-black dark:text-white leading-snug mb-6">
                 Structured sprints. Clear deliverables.
               </h2>
-              <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-neutral-500 mb-6">
+              <p className="text-[16px] leading-[1.7] text-muted dark:text-neutral-400 mb-6">
                 Each improvement goes through a focused design sprint: audit existing patterns, map user flows, design refined interactions, validate with users, and hand off to engineering.
               </p>
-              <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-neutral-500">
+              <p className="text-[16px] leading-[1.7] text-muted dark:text-neutral-400">
                 This keeps the work scoped, measurable, and directly integrated with the team's delivery cadence.
               </p>
             </div>
@@ -465,11 +467,11 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
               <DesignSystemMockup />
             </div>
             <div className="md:col-span-5 order-1 md:order-2">
-              <p className="text-xs font-medium tracking-wide text-slate-400 dark:text-slate-500 uppercase mb-3">Design System</p>
-              <h2 className="text-[22px] md:text-[24px] font-semibold text-gray-950 dark:text-white leading-snug mb-6">
+              <p className="text-xs font-medium tracking-wide text-muted dark:text-neutral-400 uppercase mb-3">Design System</p>
+              <h2 className="text-[22px] md:text-[24px] font-semibold text-black dark:text-white leading-snug mb-6">
                 Evolve the system. Don't replace it.
               </h2>
-              <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-neutral-500 mb-6">
+              <p className="text-[16px] leading-[1.7] text-muted dark:text-neutral-400 mb-6">
                 A key part of this work is evolving the existing design system rather than replacing it.
               </p>
               <ul className="space-y-3">
@@ -480,12 +482,12 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
                   'Modernize the overall look and feel incrementally',
                 ].map((item) => (
                   <li key={item} className="flex items-start space-x-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 flex-shrink-0" />
-                    <span className="text-[15px] leading-[1.65] text-gray-600 dark:text-neutral-400">{item}</span>
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-neutral-300 dark:bg-neutral-600 flex-shrink-0" />
+                    <span className="text-[15px] leading-[1.65] text-muted dark:text-neutral-400">{item}</span>
                   </li>
                 ))}
               </ul>
-              <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-neutral-500 mt-6">
+              <p className="text-[16px] leading-[1.7] text-muted dark:text-neutral-400 mt-6">
                 This avoids the cost and disruption of a full system rebuild while still moving the product forward.
               </p>
             </div>
@@ -503,13 +505,13 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
         <div className="max-w-[1140px] mx-auto px-6">
           <div className="grid md:grid-cols-12 gap-12 md:gap-16">
             <div className="md:col-span-4">
-              <p className="text-xs font-medium tracking-wide text-slate-400 dark:text-slate-500 uppercase mb-3">Engagement</p>
-              <h2 className="text-[22px] md:text-[24px] font-semibold text-gray-950 dark:text-white leading-snug">
+              <p className="text-xs font-medium tracking-wide text-muted dark:text-neutral-400 uppercase mb-3">Engagement</p>
+              <h2 className="text-[22px] md:text-[24px] font-semibold text-black dark:text-white leading-snug">
                 How I work.
               </h2>
             </div>
             <div className="md:col-span-8">
-              <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-neutral-500 mb-8">
+              <p className="text-[16px] leading-[1.7] text-muted dark:text-neutral-400 mb-8">
                 I operate as a fractional, embedded product design partner.
               </p>
               <div className="grid sm:grid-cols-2 gap-6">
@@ -519,13 +521,13 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
                   { title: 'No heavy process', desc: 'No unnecessary overhead or disruption to existing workflows.' },
                   { title: 'High-impact focus', desc: 'Targeted improvements rather than broad redesigns.' },
                 ].map((item) => (
-                  <div key={item.title} className="border border-gray-200 dark:border-white/[0.06] rounded-lg p-5">
-                    <h3 className="text-[15px] font-semibold text-gray-950 dark:text-white mb-1.5">{item.title}</h3>
-                    <p className="text-sm leading-relaxed text-gray-500 dark:text-neutral-500">{item.desc}</p>
+                  <div key={item.title} className="border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px] p-5">
+                    <h3 className="text-[15px] font-semibold text-black dark:text-white mb-1.5">{item.title}</h3>
+                    <p className="text-sm leading-relaxed text-muted dark:text-neutral-400">{item.desc}</p>
                   </div>
                 ))}
               </div>
-              <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-neutral-500 mt-8">
+              <p className="text-[16px] leading-[1.7] text-muted dark:text-neutral-400 mt-8">
                 This model works well for teams that need senior design support without committing to a full-time hire.
               </p>
             </div>
@@ -542,11 +544,11 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
       <section className="py-20 md:py-24">
         <div className="max-w-[1140px] mx-auto px-6">
           <div className="max-w-[720px] mb-12 md:mb-16">
-            <p className="text-xs font-medium tracking-wide text-slate-400 dark:text-slate-500 uppercase mb-3">The Work</p>
-            <h2 className="text-[22px] md:text-[24px] font-semibold text-gray-950 dark:text-white leading-snug mb-5">
+            <p className="text-xs font-medium tracking-wide text-muted dark:text-neutral-400 uppercase mb-3">The Work</p>
+            <h2 className="text-[22px] md:text-[24px] font-semibold text-black dark:text-white leading-snug mb-5">
               The work takes different forms.
             </h2>
-            <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-neutral-500">
+            <p className="text-[16px] leading-[1.7] text-muted dark:text-neutral-400">
               Depending on where the product is, I draw on these services to improve experience, consistency, and velocity—without disrupting what's already working.
             </p>
           </div>
@@ -562,11 +564,11 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
             ].map(({ icon: Icon, title, body }) => (
               <div
                 key={title}
-                className="group relative rounded-xl border border-gray-200/80 dark:border-white/[0.06] bg-white dark:bg-white/[0.03] p-6 transition-all duration-300 hover:border-gray-300 dark:hover:border-white/[0.12] hover:shadow-[0_8px_24px_-12px_rgba(15,23,42,0.12)] dark:hover:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.4)] hover:-translate-y-0.5"
+                className="group relative rounded-[10px] border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-white/[0.03] p-6 transition-all duration-300"
               >
-                <Icon className="w-5 h-5 text-slate-400 dark:text-slate-500 mb-6" strokeWidth={1.5} />
-                <h3 className="text-[15px] font-semibold text-gray-950 dark:text-white mb-2">{title}</h3>
-                <p className="text-[14px] leading-[1.6] text-gray-500 dark:text-neutral-500">{body}</p>
+                <Icon className="w-5 h-5 text-muted dark:text-neutral-400 mb-6" strokeWidth={1.5} />
+                <h3 className="text-[15px] font-semibold text-black dark:text-white mb-2">{title}</h3>
+                <p className="text-[14px] leading-[1.6] text-muted dark:text-neutral-400">{body}</p>
               </div>
             ))}
           </div>
@@ -582,11 +584,11 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
       <section className="py-20 md:py-24">
         <div className="max-w-[1140px] mx-auto px-6">
           <div className="max-w-[720px]">
-            <p className="text-xs font-medium tracking-wide text-slate-400 dark:text-slate-500 uppercase mb-3">Looking Ahead</p>
-            <h2 className="text-[22px] md:text-[24px] font-semibold text-gray-950 dark:text-white leading-snug mb-6">
+            <p className="text-xs font-medium tracking-wide text-muted dark:text-neutral-400 uppercase mb-3">Looking Ahead</p>
+            <h2 className="text-[22px] md:text-[24px] font-semibold text-black dark:text-white leading-snug mb-6">
               Building a foundation for what's next.
             </h2>
-            <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-neutral-500 mb-6">
+            <p className="text-[16px] leading-[1.7] text-muted dark:text-neutral-400 mb-6">
               Beyond immediate improvements, the work positioned the product for what's next:
             </p>
             <ul className="space-y-4 mb-8">
@@ -596,12 +598,12 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
                 'A foundation that can support AI-assisted features where appropriate',
               ].map((item) => (
                 <li key={item} className="flex items-start space-x-3">
-                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 flex-shrink-0" />
-                  <span className="text-[16px] leading-[1.65] text-gray-600 dark:text-neutral-400">{item}</span>
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-neutral-300 dark:bg-neutral-600 flex-shrink-0" />
+                  <span className="text-[16px] leading-[1.65] text-muted dark:text-neutral-400">{item}</span>
                 </li>
               ))}
             </ul>
-            <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-neutral-500">
+            <p className="text-[16px] leading-[1.7] text-muted dark:text-neutral-400">
               The focus was on practical decisions that support long-term product growth.
             </p>
           </div>
@@ -609,19 +611,19 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
       </section>
 
       {/* Closing */}
-      <section className="py-20 md:py-24 bg-gray-50 dark:bg-white/[0.03] dark:border-y dark:border-white/[0.06]">
+      <section className="py-20 md:py-24 bg-white dark:bg-neutral-950">
         <div className="max-w-[1140px] mx-auto px-6">
           <div className="max-w-[720px] mx-auto text-center">
-            <h2 className="text-[24px] md:text-[28px] font-semibold text-gray-950 dark:text-white leading-snug mb-6">
+            <h2 className="text-[24px] md:text-[28px] font-semibold text-black dark:text-white leading-snug mb-6">
               Small, focused improvements — applied consistently — can significantly improve both user experience and product velocity.
             </h2>
-            <p className="text-[16px] leading-[1.7] text-gray-500 dark:text-neutral-500 mb-10">
+            <p className="text-[16px] leading-[1.7] text-muted dark:text-neutral-400 mb-10">
               For SaaS teams in a similar position — where the product is strong but UX and systems need to catch up — this type of embedded, incremental approach provides a clear path forward.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
                 onClick={() => setCurrentPage('contact')}
-                className="inline-flex items-center px-6 py-3 bg-gray-950 dark:bg-white text-white dark:text-gray-900 text-sm font-medium rounded-lg hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-black dark:bg-white text-white dark:text-black text-sm font-medium rounded-[10px] hover:bg-gray-900 dark:hover:bg-gray-100 transition-colors"
               >
                 Start a conversation
               </button>
@@ -629,7 +631,7 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
                 href="https://cal.com/timothy-mcguire-27"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-white dark:bg-white/[0.03] text-gray-700 dark:text-neutral-400 text-sm font-medium rounded-lg border border-gray-200 dark:border-white/[0.06] hover:border-gray-300 dark:hover:border-white/[0.12] hover:bg-gray-50 dark:hover:bg-white/[0.06] transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-white dark:bg-white/[0.03] text-black dark:text-neutral-400 text-sm font-medium rounded-[10px] border border-[#D9D9D9] dark:border-white/[0.1] hover:bg-gray-50 dark:hover:bg-white/[0.06] transition-colors"
               >
                 Schedule a call
               </a>

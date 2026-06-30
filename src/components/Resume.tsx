@@ -31,7 +31,7 @@ const Resume: React.FC = () => {
     {
       company: 'Agate Software',
       title: 'Principal UX/UI Designer & Manager',
-      period: 'Jun 2023 \u2013 Jun 2025',
+      period: 'Jun 2023 – Jun 2025',
       location: 'Remote',
       projects: 'Atom Software SaaS Product Redesign, IGX SaaS Product Redesign',
       bullets: [
@@ -45,7 +45,7 @@ const Resume: React.FC = () => {
     {
       company: 'Bank of America',
       title: 'Senior UX/UI Designer',
-      period: 'Jan 2023 \u2013 Jun 2023',
+      period: 'Jan 2023 – Jun 2023',
       location: 'Remote',
       projects: 'Auto Loans Mobile Responsive Web Integration',
       bullets: [
@@ -58,7 +58,7 @@ const Resume: React.FC = () => {
     {
       company: 'Millonex',
       title: 'Lead UX/UI Designer & Manager',
-      period: 'Nov 2021 \u2013 Dec 2022',
+      period: 'Nov 2021 – Dec 2022',
       location: 'Remote',
       projects: 'Simplicity SaaS Product, Marketing Responsive Website, Branding',
       bullets: [
@@ -72,7 +72,7 @@ const Resume: React.FC = () => {
     {
       company: 'Gray Matter Analytics',
       title: 'Principal UX Designer',
-      period: 'Sep 2015 \u2013 Sep 2022',
+      period: 'Sep 2015 – Sep 2022',
       location: 'Remote',
       projects: 'CoreTechs SaaS Product Redesign',
       bullets: [
@@ -86,7 +86,7 @@ const Resume: React.FC = () => {
     {
       company: 'Accenture',
       title: 'Senior UX/UI Designer',
-      period: 'Oct 2016 \u2013 Oct 2018',
+      period: 'Oct 2016 – Oct 2018',
       location: 'Remote',
       projects: 'Accenture Internal Product Suite Consolidation',
       bullets: [
@@ -99,7 +99,7 @@ const Resume: React.FC = () => {
     {
       company: 'UX Factory',
       title: 'Lead UX Designer',
-      period: 'May 2016 \u2013 Aug 2016',
+      period: 'May 2016 – Aug 2016',
       location: 'Remote',
       projects: 'State Farm Mobile Application',
       bullets: [
@@ -112,7 +112,7 @@ const Resume: React.FC = () => {
     {
       company: 'Frequency 540',
       title: 'Lead UX Designer',
-      period: 'Jan 2016 \u2013 Jun 2016',
+      period: 'Jan 2016 – Jun 2016',
       location: 'Remote',
       projects: 'Marketing Website Redesign',
       bullets: [
@@ -124,11 +124,11 @@ const Resume: React.FC = () => {
     {
       company: 'iCrossing',
       title: 'Lead UX Designer',
-      period: 'Dec 2014 \u2013 Jan 2016',
+      period: 'Dec 2014 – Jan 2016',
       location: 'Remote',
       projects: 'Jim Beam Product Site, Dremel.com Redesign, Blue Cross Blue Shield Mobile App',
       bullets: [
-        'Led redesign of mobile-responsive websites for major consumer brands, aligning design principles with each brand\u2019s vision and strategy.',
+        'Led redesign of mobile-responsive websites for major consumer brands, aligning design principles with each brand\'s vision and strategy.',
         'Conducted quantitative data analysis and competitive research to identify pain points and user needs across diverse audiences.',
         'Drove wireframe design from low-fidelity explorations through high-fidelity visual prototypes, incorporating user feedback and usability best practices.',
         'Established design systems and guidelines ensuring visual consistency and accessibility compliance across all projects.',
@@ -137,7 +137,7 @@ const Resume: React.FC = () => {
     {
       company: 'FCB Chicago',
       title: 'Associate Creative Director / Principal UX Designer',
-      period: 'Mar 2014 \u2013 Dec 2014',
+      period: 'Mar 2014 – Dec 2014',
       location: '',
       projects: 'Aramark Marketing Site Responsive Redesign',
       bullets: [
@@ -150,7 +150,7 @@ const Resume: React.FC = () => {
     {
       company: 'TransUnion',
       title: 'Principal UX/UI Designer',
-      period: 'Nov 2011 \u2013 Dec 2014',
+      period: 'Nov 2011 – Dec 2014',
       location: '',
       projects: 'Marketing Site Redesign, Authenticated Credit Report Product',
       bullets: [
@@ -163,11 +163,11 @@ const Resume: React.FC = () => {
     {
       company: 'Sapient Nitro',
       title: 'Lead UX/UI Designer',
-      period: 'May 2012 \u2013 Mar 2014',
+      period: 'May 2012 – Mar 2014',
       location: '',
       projects: 'Mopar.com, Chrysler.com, UConnect.com, Chicago Public Schools, National Heritage Academy',
       bullets: [
-        'Delivered responsive web solutions for enterprise and public-sector clients, aligning design principles with each client\u2019s vision and strategy.',
+        'Delivered responsive web solutions for enterprise and public-sector clients, aligning design principles with each client\'s vision and strategy.',
         'Conducted quantitative data analysis and competitive research to identify user needs and inform design decisions across diverse projects.',
         'Created wireframe solutions from low-fidelity through high-fidelity visual prototypes, iterating with user feedback and usability best practices.',
         'Established design systems and guidelines for visual consistency and accessibility compliance across all client projects.',
@@ -176,50 +176,42 @@ const Resume: React.FC = () => {
   ];
 
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950">
-      {/* Hero Header */}
-      <section aria-label="Resume header" className="relative pt-24 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-neutral-100 via-neutral-50 to-white dark:from-neutral-950 dark:via-neutral-950 dark:to-neutral-950" aria-hidden="true" />
-        <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.03]" style={{
-          backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23000000\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
-        }} aria-hidden="true" />
-
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-white dark:bg-neutral-950">
+      <section aria-label="Resume header" className="py-24">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-light tracking-tight text-neutral-900 dark:text-white mb-4">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-black dark:text-white mb-4">
               Timothy J. McGuire
             </h1>
 
-            <p className="flex flex-wrap items-center justify-center gap-3 text-neutral-500 dark:text-neutral-400 text-sm tracking-widest uppercase mt-6 mb-8">
+            <p className="flex flex-wrap items-center justify-center gap-3 text-muted dark:text-neutral-400 text-sm tracking-widest uppercase mt-6 mb-8">
               <span>Senior / Principal UX Designer</span>
-              <span className="w-1 h-1 rounded-full bg-brand-500" aria-hidden="true" />
+              <span className="w-1 h-1 rounded-full bg-black dark:bg-white" aria-hidden="true" />
               <span>AI & Agentic Systems</span>
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-neutral-600 dark:text-neutral-300">
-              <a href="mailto:godesigngo@gmail.com" className="hover:text-neutral-900 dark:hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 rounded">
+            <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted dark:text-neutral-400">
+              <a href="mailto:godesigngo@gmail.com" className="hover:text-black dark:hover:text-white transition-colors">
                 godesigngo@gmail.com
               </a>
-              <span className="text-neutral-300 dark:text-neutral-600" aria-hidden="true">|</span>
+              <span className="text-[#D9D9D9] dark:text-neutral-700" aria-hidden="true">|</span>
               <a
                 href="https://linkedin.com/in/timothymcguire27"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 hover:text-neutral-900 dark:hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 rounded"
+                className="inline-flex items-center gap-1 hover:text-black dark:hover:text-white transition-colors"
               >
                 LinkedIn <ExternalLink size={12} aria-hidden="true" />
-                <span className="sr-only">(opens in new tab)</span>
               </a>
             </div>
 
-            {/* Download Button */}
             <div className="mt-10 flex justify-center">
               <a
                 href="/Timothy_McGuire_AI_Agentic_UX_Designer_2026.pdf"
                 download
-                className="group inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 font-medium text-sm hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-all shadow-lg shadow-neutral-400/30 dark:shadow-black/20 hover:shadow-xl hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+                className="btn-primary"
               >
-                <FileDown size={18} className="text-neutral-400 dark:text-neutral-600 group-hover:text-white dark:group-hover:text-neutral-900 transition-colors" aria-hidden="true" />
+                <FileDown size={18} className="mr-2" />
                 Download PDF
               </a>
             </div>
@@ -227,32 +219,26 @@ const Resume: React.FC = () => {
         </div>
       </section>
 
-      {/* Resume Body */}
-      <section aria-label="Resume details" className="relative -mt-8">
+      <section aria-label="Resume details" className="border-t border-[#D9D9D9] dark:border-white/[0.1]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-          {/* Main Card */}
-          <div className="bg-white dark:bg-white/[0.03] rounded-2xl shadow-xl shadow-neutral-200/50 dark:shadow-none border border-neutral-200/60 dark:border-white/[0.06] overflow-hidden">
 
-            {/* Summary */}
-            <div className="px-8 sm:px-12 pt-12 pb-10 border-b border-neutral-100 dark:border-white/[0.06]">
-              <p className="text-lg leading-relaxed text-neutral-600 dark:text-neutral-300 font-light">
+          <div className="bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px] overflow-hidden">
+
+            <div className="px-8 sm:px-12 pt-12 pb-10 border-b border-[#D9D9D9] dark:border-white/[0.1]">
+              <p className="text-base leading-relaxed text-muted dark:text-neutral-400">
                 Senior and Principal UX Designer with 15+ years of experience leading end-to-end product
                 design for enterprise SaaS, data-intensive platforms, and AI-driven systems. Deep expertise
                 in AI-native UX, agentic workflows, human-in-the-loop systems, and LLM-integrated
-                decision support. Proven partner to product, engineering, data science, and executive
-                stakeholders with a track record of modernizing complex B2B platforms, improving
-                workflow efficiency, and scaling design systems while maintaining trust, transparency, and
-                usability.
+                decision support.
               </p>
             </div>
 
-            {/* Core Competencies */}
-            <section aria-labelledby="competencies-heading" className="px-8 sm:px-12 py-10 border-b border-neutral-100 dark:border-white/[0.06]">
+            <section aria-labelledby="competencies-heading" className="px-8 sm:px-12 py-10 border-b border-[#D9D9D9] dark:border-white/[0.1]">
               <div className="flex items-center gap-3 mb-6">
-                <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-brand-50 dark:bg-brand-950/30" aria-hidden="true">
-                  <Sparkles size={18} className="text-brand-600 dark:text-brand-400" />
+                <div className="flex items-center justify-center w-9 h-9 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08]" aria-hidden="true">
+                  <Sparkles size={18} className="text-muted dark:text-neutral-400" />
                 </div>
-                <h2 id="competencies-heading" className="text-xs font-bold tracking-[0.2em] uppercase text-neutral-900 dark:text-white">
+                <h2 id="competencies-heading" className="text-xs font-bold tracking-[0.2em] uppercase text-black dark:text-white">
                   Core Competencies
                 </h2>
               </div>
@@ -260,7 +246,7 @@ const Resume: React.FC = () => {
                 {competencies.map((c) => (
                   <li
                     key={c}
-                    className="px-3.5 py-1.5 text-sm font-medium rounded-full bg-neutral-100 dark:bg-white/[0.08] text-neutral-700 dark:text-neutral-300 border border-neutral-200/60 dark:border-white/[0.06]"
+                    className="px-3 py-1.5 text-sm rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] text-muted dark:text-neutral-300 border border-[#D9D9D9] dark:border-white/[0.1]"
                   >
                     {c}
                   </li>
@@ -268,13 +254,12 @@ const Resume: React.FC = () => {
               </ul>
             </section>
 
-            {/* Tools & Technologies */}
-            <section aria-labelledby="tools-heading" className="px-8 sm:px-12 py-10 border-b border-neutral-100 dark:border-white/[0.06]">
+            <section aria-labelledby="tools-heading" className="px-8 sm:px-12 py-10 border-b border-[#D9D9D9] dark:border-white/[0.1]">
               <div className="flex items-center gap-3 mb-6">
-                <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-emerald-50 dark:bg-emerald-950/30" aria-hidden="true">
-                  <Wrench size={18} className="text-emerald-600 dark:text-emerald-400" />
+                <div className="flex items-center justify-center w-9 h-9 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08]" aria-hidden="true">
+                  <Wrench size={18} className="text-muted dark:text-neutral-400" />
                 </div>
-                <h2 id="tools-heading" className="text-xs font-bold tracking-[0.2em] uppercase text-neutral-900 dark:text-white">
+                <h2 id="tools-heading" className="text-xs font-bold tracking-[0.2em] uppercase text-black dark:text-white">
                   Tools & Technologies
                 </h2>
               </div>
@@ -282,7 +267,7 @@ const Resume: React.FC = () => {
                 {tools.map((t) => (
                   <li
                     key={t}
-                    className="px-3.5 py-1.5 text-sm rounded-full bg-emerald-50 dark:bg-emerald-950/20 text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/40"
+                    className="px-3 py-1.5 text-sm rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] text-muted dark:text-neutral-300 border border-[#D9D9D9] dark:border-white/[0.1]"
                   >
                     {t}
                   </li>
@@ -290,13 +275,12 @@ const Resume: React.FC = () => {
               </ul>
             </section>
 
-            {/* Professional Experience */}
-            <section aria-labelledby="experience-heading" className="px-8 sm:px-12 py-10 border-b border-neutral-100 dark:border-white/[0.06]">
+            <section aria-labelledby="experience-heading" className="px-8 sm:px-12 py-10 border-b border-[#D9D9D9] dark:border-white/[0.1]">
               <div className="flex items-center gap-3 mb-10">
-                <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-sky-50 dark:bg-sky-950/30" aria-hidden="true">
-                  <Briefcase size={18} className="text-sky-600 dark:text-sky-400" />
+                <div className="flex items-center justify-center w-9 h-9 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08]" aria-hidden="true">
+                  <Briefcase size={18} className="text-muted dark:text-neutral-400" />
                 </div>
-                <h2 id="experience-heading" className="text-xs font-bold tracking-[0.2em] uppercase text-neutral-900 dark:text-white">
+                <h2 id="experience-heading" className="text-xs font-bold tracking-[0.2em] uppercase text-black dark:text-white">
                   Professional Experience
                 </h2>
               </div>
@@ -304,39 +288,37 @@ const Resume: React.FC = () => {
               <div>
                 {experience.map((job, i) => (
                   <article key={`${job.company}-${job.period}`} className={`relative pl-8 ${i < experience.length - 1 ? 'pb-10' : 'pb-0'}`}>
-                    {/* Timeline line */}
                     {i < experience.length - 1 && (
-                      <div className="absolute left-[7px] top-3 bottom-0 w-px bg-neutral-200 dark:bg-white/[0.06]" aria-hidden="true" />
+                      <div className="absolute left-[7px] top-3 bottom-0 w-px bg-[#D9D9D9] dark:bg-white/[0.1]" aria-hidden="true" />
                     )}
-                    {/* Timeline dot */}
-                    <div className="absolute left-0 top-[7px] w-[15px] h-[15px] rounded-full border-[3px] border-neutral-300 dark:border-white/[0.06] bg-white dark:bg-white/[0.03]" aria-hidden="true" />
+                    <div className="absolute left-0 top-[7px] w-[15px] h-[15px] rounded-full border-[3px] border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent" aria-hidden="true" />
 
                     <div>
-                      <h3 className="text-lg font-semibold text-neutral-900 dark:text-white leading-snug">
+                      <h3 className="text-lg font-semibold text-black dark:text-white leading-snug">
                         {job.company}
                       </h3>
-                      <p className="mt-1 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                      <p className="mt-1 text-sm font-medium text-muted dark:text-neutral-400">
                         {job.title}
                       </p>
-                      <p className="mt-0.5 flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-500">
+                      <p className="mt-0.5 flex items-center gap-2 text-sm text-muted dark:text-neutral-500">
                         <time>{job.period}</time>
                         {job.location === 'Remote' ? (
-                          <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200/60 dark:border-emerald-800/40">
+                          <span className="inline-flex items-center px-2 py-0.5 rounded-[10px] text-xs font-medium border border-[#D9D9D9] dark:border-white/[0.1] text-muted dark:text-neutral-400">
                             Remote
                           </span>
                         ) : job.location ? (
-                          <span>{`\u00B7 ${job.location}`}</span>
+                          <span>{` · ${job.location}`}</span>
                         ) : null}
                       </p>
                       {job.projects && (
-                        <p className="mt-2 text-sm italic text-neutral-500 dark:text-neutral-400">
+                        <p className="mt-2 text-sm italic text-muted dark:text-neutral-500">
                           {job.projects}
                         </p>
                       )}
                       <ul className="mt-3 space-y-2">
                         {job.bullets.map((b, bi) => (
-                          <li key={bi} className="flex gap-2.5 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
-                            <span className="mt-2 flex-shrink-0 w-1 h-1 rounded-full bg-neutral-400 dark:bg-neutral-500" aria-hidden="true" />
+                          <li key={bi} className="flex gap-2.5 text-sm leading-relaxed text-muted dark:text-neutral-400">
+                            <span className="mt-2 flex-shrink-0 w-1 h-1 rounded-full bg-muted dark:bg-neutral-500" aria-hidden="true" />
                             {b}
                           </li>
                         ))}
@@ -347,38 +329,36 @@ const Resume: React.FC = () => {
               </div>
             </section>
 
-            {/* Education */}
             <section aria-labelledby="education-heading" className="px-8 sm:px-12 py-10">
               <div className="flex items-center gap-3 mb-6">
-                <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-amber-50 dark:bg-amber-950/30" aria-hidden="true">
-                  <GraduationCap size={18} className="text-amber-600 dark:text-amber-400" />
+                <div className="flex items-center justify-center w-9 h-9 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08]" aria-hidden="true">
+                  <GraduationCap size={18} className="text-muted dark:text-neutral-400" />
                 </div>
-                <h2 id="education-heading" className="text-xs font-bold tracking-[0.2em] uppercase text-neutral-900 dark:text-white">
+                <h2 id="education-heading" className="text-xs font-bold tracking-[0.2em] uppercase text-black dark:text-white">
                   Education
                 </h2>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-neutral-900 dark:text-white">
-                  University of Wisconsin{'\u2013'}Madison
+                <h3 className="text-lg font-semibold text-black dark:text-white">
+                  University of Wisconsin–Madison
                 </h3>
-                <p className="mt-1 text-sm text-neutral-600 dark:text-neutral-400">
+                <p className="mt-1 text-sm text-muted dark:text-neutral-400">
                   Bachelor of Science, Graphic Design & Fine Art
                 </p>
               </div>
             </section>
           </div>
 
-          {/* Bottom Download CTA */}
           <nav aria-label="Download resume" className="mt-12 text-center">
-            <p className="text-sm text-neutral-500 dark:text-neutral-500 mb-4">
+            <p className="text-sm text-muted dark:text-neutral-500 mb-4">
               Want a copy for your records?
             </p>
             <a
               href="/Timothy_McGuire_AI_Agentic_UX_Designer_2026.pdf"
               download
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-neutral-300 dark:border-white/[0.06] text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:bg-white dark:hover:bg-white/[0.03] hover:border-neutral-400 dark:hover:border-white/[0.12] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
+              className="btn-secondary"
             >
-              <FileDown size={16} aria-hidden="true" />
+              <FileDown size={16} className="mr-2" />
               Download PDF
             </a>
           </nav>

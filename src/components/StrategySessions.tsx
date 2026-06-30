@@ -38,68 +38,61 @@ const StrategySessions: React.FC<StrategySessionsProps> = ({ setCurrentPage }) =
 
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-950">
-      {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-cyan-50 to-emerald-100 dark:from-teal-950 dark:via-cyan-950 dark:to-emerald-950" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-          <nav className="flex py-4" aria-label="Breadcrumb">
-            <ol className="flex items-center space-x-2 text-sm">
-              <li>
-                <button
-                  onClick={() => handleNav('services')}
-                  className="text-gray-500 dark:text-neutral-500 hover:text-gray-900 dark:hover:text-white transition-colors"
-                >
-                  Services
-                </button>
-              </li>
-              <ChevronRight className="w-4 h-4 text-gray-400" />
-              <li className="text-gray-900 dark:text-white font-medium">Strategy Sessions</li>
-            </ol>
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="flex items-center gap-2 text-sm mb-8">
+            <button
+              onClick={() => handleNav('services')}
+              className="text-muted dark:text-neutral-500 hover:text-black dark:hover:text-white transition-colors"
+            >
+              Services
+            </button>
+            <ChevronRight className="w-4 h-4 text-muted dark:text-neutral-500" />
+            <span className="text-black dark:text-white font-medium">Strategy Sessions</span>
           </nav>
 
-          <div className="py-16 max-w-4xl">
-            <p className="text-sm font-semibold uppercase tracking-widest text-teal-600 dark:text-teal-400 mb-4">
+          <div className="max-w-4xl">
+            <p className="text-sm font-semibold uppercase tracking-widest text-muted dark:text-neutral-500 mb-4">
               Strategy Sessions
             </p>
-            <h1 className="text-4xl md:text-7xl font-light text-gray-900 dark:text-white tracking-tight mb-6">
+            <h1 className="text-4xl md:text-6xl font-light text-black dark:text-white tracking-tight mb-6">
               Focused time with a senior design mind.
             </h1>
-            <p className="text-xl text-gray-600 dark:text-neutral-400 max-w-3xl mb-12">
+            <p className="text-xl text-muted dark:text-neutral-400 max-w-3xl mb-12">
               Placeholder copy. Short, structured engagements for product teams and founders who need a clear perspective on a design challenge without a full-scale engagement.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 sm:gap-12">
               <div>
-                <p className="text-xs uppercase tracking-widest text-gray-500 dark:text-neutral-500 mb-1">Format</p>
-                <p className="text-base font-semibold text-gray-900 dark:text-white">Remote video call</p>
+                <p className="text-xs uppercase tracking-widest text-muted dark:text-neutral-500 mb-1">Format</p>
+                <p className="text-base font-semibold text-black dark:text-white">Remote video call</p>
               </div>
               <div>
-                <p className="text-xs uppercase tracking-widest text-gray-500 dark:text-neutral-500 mb-1">Turnaround</p>
-                <p className="text-base font-semibold text-gray-900 dark:text-white">Same or next week</p>
+                <p className="text-xs uppercase tracking-widest text-muted dark:text-neutral-500 mb-1">Turnaround</p>
+                <p className="text-base font-semibold text-black dark:text-white">Same or next week</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Session Types */}
-      <section className="py-20 bg-white dark:bg-neutral-950">
+      <section className="py-24 border-t border-[#D9D9D9] dark:border-white/[0.1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-12">Session types</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <h2 className="text-2xl font-semibold text-black dark:text-white mb-12">Session types</h2>
+          <div className="grid md:grid-cols-3 gap-6">
             {sessionTypes.map((s) => {
               const Icon = s.icon;
               return (
-                <div key={s.label} className="p-8 bg-gray-50 dark:bg-white/[0.03] dark:border dark:border-white/[0.06] rounded-2xl">
+                <div key={s.label} className="p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-500/10 flex items-center justify-center">
-                      <Icon className="w-5 h-5 text-teal-600 dark:text-teal-400" />
+                    <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-muted dark:text-neutral-400" />
                     </div>
-                    <span className="text-xs font-medium text-gray-500 dark:text-neutral-500 border border-neutral-200 dark:border-white/[0.1] rounded-full px-2.5 py-0.5">
+                    <span className="text-xs font-medium text-muted dark:text-neutral-500 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px] px-2.5 py-1">
                       {s.duration}
                     </span>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">{s.label}</h3>
-                  <p className="text-gray-600 dark:text-neutral-400 text-sm leading-relaxed">{s.description}</p>
+                  <h3 className="text-lg font-semibold text-black dark:text-white mb-3">{s.label}</h3>
+                  <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">{s.description}</p>
                 </div>
               );
             })}
@@ -107,22 +100,20 @@ const StrategySessions: React.FC<StrategySessionsProps> = ({ setCurrentPage }) =
         </div>
       </section>
 
-      {/* What to expect */}
-      <section className="py-20 bg-gray-50 dark:bg-white/[0.02] dark:border-t dark:border-white/[0.06]">
+      <section className="py-24 bg-neutral-50 dark:bg-white/[0.02] border-t border-[#D9D9D9] dark:border-white/[0.1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-6">What to expect</h2>
-            <p className="text-lg text-gray-600 dark:text-neutral-400 leading-relaxed">
+            <h2 className="text-2xl font-semibold text-black dark:text-white mb-6">What to expect</h2>
+            <p className="text-muted dark:text-neutral-400 leading-relaxed">
               Placeholder copy. This section will walk through the session structure — prep materials, the session itself, and what's delivered afterward (notes, recommendations, follow-up).
             </p>
           </div>
         </div>
       </section>
 
-      {/* Related */}
-      <section className="py-20 bg-white dark:bg-neutral-950">
+      <section className="py-24 border-t border-[#D9D9D9] dark:border-white/[0.1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-10">Related</h2>
+          <h2 className="text-xl font-semibold text-black dark:text-white mb-10">Related</h2>
           <div className="grid sm:grid-cols-3 gap-6">
             {[
               { id: 'enterprise-ux-consulting', label: 'Enterprise UX Consulting', description: 'Longer-form consulting engagements.' },
@@ -132,11 +123,11 @@ const StrategySessions: React.FC<StrategySessionsProps> = ({ setCurrentPage }) =
               <button
                 key={item.id}
                 onClick={() => handleNav(item.id)}
-                className="group text-left p-6 bg-gray-50 dark:bg-white/[0.03] border border-neutral-200 dark:border-white/[0.06] rounded-xl hover:border-neutral-300 dark:hover:border-white/[0.12] hover:shadow-md transition-all"
+                className="group text-left p-6 bg-neutral-50 dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px] hover:border-neutral-400 dark:hover:border-white/[0.2] transition-colors"
               >
-                <div className="font-semibold text-gray-900 dark:text-white mb-2 group-hover:underline">{item.label}</div>
-                <p className="text-sm text-gray-500 dark:text-neutral-500 mb-4">{item.description}</p>
-                <span className="inline-flex items-center gap-1 text-xs font-medium text-brand-600 dark:text-brand-400">
+                <div className="font-semibold text-black dark:text-white mb-2 group-hover:underline">{item.label}</div>
+                <p className="text-sm text-muted dark:text-neutral-500 mb-4">{item.description}</p>
+                <span className="inline-flex items-center gap-1 text-xs font-medium text-black dark:text-white">
                   Learn more <ArrowRight className="w-3 h-3" />
                 </span>
               </button>
@@ -145,16 +136,15 @@ const StrategySessions: React.FC<StrategySessionsProps> = ({ setCurrentPage }) =
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-gray-50 dark:bg-white/[0.02] dark:border-t dark:border-white/[0.06]">
+      <section className="py-24 bg-neutral-50 dark:bg-white/[0.02] border-t border-[#D9D9D9] dark:border-white/[0.1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-4">Book a session</h2>
-          <p className="text-lg text-gray-600 dark:text-neutral-400 mb-8 max-w-xl mx-auto">
+          <h2 className="text-3xl font-semibold text-black dark:text-white mb-4">Book a session</h2>
+          <p className="text-lg text-muted dark:text-neutral-400 mb-8 max-w-xl mx-auto">
             Reach out with a brief description of your challenge and preferred session type.
           </p>
           <button
             onClick={() => handleNav('contact')}
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-brand-600 text-white hover:bg-brand-700 transition-colors font-medium"
+            className="btn-primary"
           >
             Get in touch
           </button>
