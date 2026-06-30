@@ -15,18 +15,18 @@ function DashboardMockup() {
   ];
 
   return (
-    <div className="rounded-xl border border-gray-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.03] overflow-hidden shadow-sm">
+    <div className="rounded-none border border-gray-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.03] overflow-hidden shadow-sm">
       <div className="flex">
         <div className="w-52 border-r border-gray-100 dark:border-white/[0.06] bg-gray-50/80 dark:bg-neutral-950/80 p-4 hidden md:block">
           <div className="flex items-center space-x-2 mb-8">
-            <div className="w-6 h-6 rounded-md bg-slate-800 dark:bg-slate-300" />
+            <div className="w-6 h-6 rounded-none bg-slate-800 dark:bg-slate-300" />
             <span className="text-sm font-semibold text-gray-900 dark:text-white">IG5 Platform</span>
           </div>
           <nav className="space-y-1">
             {['Dashboard', 'Projects', 'Components', 'Analytics', 'Settings'].map((item, i) => (
               <div
                 key={item}
-                className={`px-3 py-2 rounded-md text-sm ${
+                className={`px-3 py-2 rounded-none text-sm ${
                   i === 0
                     ? 'bg-white dark:bg-white/[0.03] text-gray-900 dark:text-white font-medium shadow-sm border border-gray-100 dark:border-white/[0.06]'
                     : 'text-gray-500 dark:text-neutral-500'
@@ -44,8 +44,8 @@ function DashboardMockup() {
               <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">5 initiatives tracked</p>
             </div>
             <div className="flex space-x-2">
-              <div className="px-3 py-1.5 text-xs font-medium bg-gray-100 dark:bg-white/[0.08] text-gray-600 dark:text-neutral-400 rounded-md">Filter</div>
-              <div className="px-3 py-1.5 text-xs font-medium bg-gray-100 dark:bg-white/[0.08] text-gray-600 dark:text-neutral-400 rounded-md">Sort</div>
+              <div className="px-3 py-1.5 text-xs font-medium bg-gray-100 dark:bg-white/[0.08] text-gray-600 dark:text-neutral-400 rounded-none">Filter</div>
+              <div className="px-3 py-1.5 text-xs font-medium bg-gray-100 dark:bg-white/[0.08] text-gray-600 dark:text-neutral-400 rounded-none">Sort</div>
             </div>
           </div>
           <div className="grid grid-cols-12 gap-3 text-xs text-gray-400 dark:text-gray-500 font-medium uppercase tracking-wider pb-3 border-b border-gray-100 dark:border-white/[0.06] px-1">
@@ -64,7 +64,7 @@ function DashboardMockup() {
               </div>
               <div className="col-span-2">
                 <span
-                  className={`inline-block px-2 py-0.5 text-xs rounded-full font-medium ${
+                  className={`inline-block px-2 py-0.5 text-xs rounded-none font-medium ${
                     row.status === 'Completed'
                       ? 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400'
                       : row.status === 'In Progress'
@@ -83,9 +83,9 @@ function DashboardMockup() {
                 </span>
               </div>
               <div className="col-span-3 flex items-center space-x-2">
-                <div className="flex-1 h-1.5 bg-gray-100 dark:bg-white/[0.08] rounded-full overflow-hidden">
+                <div className="flex-1 h-1.5 bg-gray-100 dark:bg-white/[0.08] rounded-none overflow-hidden">
                   <div
-                    className={`h-full rounded-full ${
+                    className={`h-full rounded-none ${
                       row.progress === 100 ? 'bg-emerald-500' : row.progress > 0 ? 'bg-blue-500' : 'bg-gray-200 dark:bg-white/[0.08]'
                     }`}
                     style={{ width: `${row.progress}%` }}
@@ -111,7 +111,7 @@ function WorkflowMockup() {
   ];
 
   return (
-    <div className="rounded-xl border border-gray-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.03] p-6 md:p-8 shadow-sm">
+    <div className="rounded-none border border-gray-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.03] p-6 md:p-8 shadow-sm">
       <div className="mb-6">
         <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Design Sprint Workflow</h3>
         <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Current iteration: Navigation Redesign</p>
@@ -121,12 +121,12 @@ function WorkflowMockup() {
           <React.Fragment key={step.label}>
             <div className="flex flex-col items-center">
               <div
-                className={`w-9 h-9 rounded-full flex items-center justify-center text-xs font-semibold ${
+                className={`w-9 h-9 rounded-none flex items-center justify-center text-xs font-semibold ${
                   step.done
-                    ? 'bg-emerald-500 text-white'
+                    ? 'bg-emerald-500 text-white rounded-none'
                     : step.active
-                    ? 'bg-slate-800 dark:bg-slate-200 text-white dark:text-gray-900 ring-4 ring-slate-100 dark:ring-slate-700'
-                    : 'bg-gray-100 dark:bg-white/[0.08] text-gray-400 dark:text-gray-500'
+                    ? 'bg-slate-800 dark:bg-slate-200 text-white dark:text-gray-900 ring-4 ring-slate-100 dark:ring-slate-700 rounded-none'
+                    : 'bg-gray-100 dark:bg-white/[0.08] text-gray-400 dark:text-gray-500 rounded-none'
                 }`}
               >
                 {step.done ? (
@@ -148,10 +148,10 @@ function WorkflowMockup() {
           </React.Fragment>
         ))}
       </div>
-      <div className="bg-gray-50 dark:bg-neutral-950/60 rounded-lg p-5 border border-gray-100 dark:border-white/[0.06]">
+      <div className="bg-gray-50 dark:bg-neutral-950/60 rounded-none p-5 border border-gray-100 dark:border-white/[0.06]">
         <div className="flex items-center justify-between mb-4">
           <div className="text-sm font-medium text-gray-900 dark:text-white">Design Phase</div>
-          <span className="text-xs bg-slate-800 dark:bg-slate-200 text-white dark:text-gray-900 px-2.5 py-1 rounded-full">Active</span>
+          <span className="text-xs bg-slate-800 dark:bg-slate-200 text-white dark:text-gray-900 px-2.5 py-1 rounded-none">Active</span>
         </div>
         <div className="space-y-3">
           {[
@@ -162,7 +162,7 @@ function WorkflowMockup() {
           ].map((task) => (
             <div key={task.task} className="flex items-center space-x-3">
               <div
-                className={`w-4 h-4 rounded border flex items-center justify-center ${
+                className={`w-4 h-4 rounded-none border flex items-center justify-center ${
                   task.done ? 'bg-emerald-500 border-emerald-500' : 'border-gray-300 dark:border-white/[0.06]'
                 }`}
               >
@@ -185,7 +185,7 @@ function WorkflowMockup() {
 
 function DesignSystemMockup() {
   return (
-    <div className="rounded-xl border border-gray-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.03] p-6 md:p-8 shadow-sm">
+    <div className="rounded-none border border-gray-200 dark:border-white/[0.06] bg-white dark:bg-white/[0.03] p-6 md:p-8 shadow-sm">
       <div className="mb-6">
         <h3 className="text-sm font-semibold text-gray-900 dark:text-white">Design System</h3>
         <p className="text-xs text-gray-400 dark:text-gray-500 mt-0.5">Standardized component library</p>
@@ -195,7 +195,7 @@ function DesignSystemMockup() {
           <div className="text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500 font-medium mb-2">Primary</div>
           <div className="space-y-1.5">
             {['bg-slate-900', 'bg-slate-700', 'bg-slate-500', 'bg-slate-300'].map((color) => (
-              <div key={color} className={`h-6 rounded ${color}`} />
+              <div key={color} className={`h-6 rounded-none ${color}`} />
             ))}
           </div>
         </div>
@@ -203,7 +203,7 @@ function DesignSystemMockup() {
           <div className="text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500 font-medium mb-2">Accent</div>
           <div className="space-y-1.5">
             {['bg-blue-600', 'bg-blue-500', 'bg-blue-400', 'bg-blue-200'].map((color) => (
-              <div key={color} className={`h-6 rounded ${color}`} />
+              <div key={color} className={`h-6 rounded-none ${color}`} />
             ))}
           </div>
         </div>
@@ -211,7 +211,7 @@ function DesignSystemMockup() {
           <div className="text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500 font-medium mb-2">Success</div>
           <div className="space-y-1.5">
             {['bg-emerald-600', 'bg-emerald-500', 'bg-emerald-400', 'bg-emerald-200'].map((color) => (
-              <div key={color} className={`h-6 rounded ${color}`} />
+              <div key={color} className={`h-6 rounded-none ${color}`} />
             ))}
           </div>
         </div>
@@ -219,7 +219,7 @@ function DesignSystemMockup() {
           <div className="text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500 font-medium mb-2">Neutral</div>
           <div className="space-y-1.5">
             {['bg-gray-700', 'bg-gray-400', 'bg-gray-200', 'bg-gray-100'].map((color) => (
-              <div key={color} className={`h-6 rounded ${color}`} />
+              <div key={color} className={`h-6 rounded-none ${color}`} />
             ))}
           </div>
         </div>
@@ -227,27 +227,27 @@ function DesignSystemMockup() {
       <div className="border-t border-gray-100 dark:border-white/[0.06] pt-5">
         <div className="text-[10px] uppercase tracking-wider text-gray-400 dark:text-gray-500 font-medium mb-3">Components</div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          <div className="bg-gray-50 dark:bg-neutral-950/60 rounded-lg p-4 border border-gray-100 dark:border-white/[0.06]">
+          <div className="bg-gray-50 dark:bg-neutral-950/60 rounded-none p-4 border border-gray-100 dark:border-white/[0.06]">
             <div className="text-[10px] text-gray-400 dark:text-gray-500 mb-2">Button</div>
             <div className="space-y-2">
-              <div className="bg-slate-800 dark:bg-slate-200 text-white dark:text-gray-900 text-xs font-medium px-3 py-1.5 rounded-md text-center">Primary</div>
-              <div className="bg-white dark:bg-white/[0.03] text-gray-700 dark:text-neutral-400 text-xs font-medium px-3 py-1.5 rounded-md text-center border border-gray-200 dark:border-white/[0.06]">Secondary</div>
+              <div className="bg-slate-800 dark:bg-slate-200 text-white dark:text-gray-900 text-xs font-medium px-3 py-1.5 rounded-none text-center">Primary</div>
+              <div className="bg-white dark:bg-white/[0.03] text-gray-700 dark:text-neutral-400 text-xs font-medium px-3 py-1.5 rounded-none text-center border border-gray-200 dark:border-white/[0.06]">Secondary</div>
             </div>
           </div>
-          <div className="bg-gray-50 dark:bg-neutral-950/60 rounded-lg p-4 border border-gray-100 dark:border-white/[0.06]">
+          <div className="bg-gray-50 dark:bg-neutral-950/60 rounded-none p-4 border border-gray-100 dark:border-white/[0.06]">
             <div className="text-[10px] text-gray-400 dark:text-gray-500 mb-2">Input</div>
             <div className="space-y-2">
-              <div className="bg-white dark:bg-white/[0.03] text-xs text-gray-400 dark:text-gray-500 px-3 py-1.5 rounded-md border border-gray-200 dark:border-white/[0.06]">Placeholder text</div>
-              <div className="bg-white dark:bg-white/[0.03] text-xs text-gray-800 dark:text-gray-200 px-3 py-1.5 rounded-md border-2 border-blue-500">Active state</div>
+              <div className="bg-white dark:bg-white/[0.03] text-xs text-gray-400 dark:text-gray-500 px-3 py-1.5 rounded-none border border-gray-200 dark:border-white/[0.06]">Placeholder text</div>
+              <div className="bg-white dark:bg-white/[0.03] text-xs text-gray-800 dark:text-gray-200 px-3 py-1.5 rounded-none border-2 border-blue-500">Active state</div>
             </div>
           </div>
-          <div className="bg-gray-50 dark:bg-neutral-950/60 rounded-lg p-4 border border-gray-100 dark:border-white/[0.06]">
+          <div className="bg-gray-50 dark:bg-neutral-950/60 rounded-none p-4 border border-gray-100 dark:border-white/[0.06]">
             <div className="text-[10px] text-gray-400 dark:text-gray-500 mb-2">Badge</div>
             <div className="flex flex-wrap gap-1.5">
-              <span className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400">Active</span>
-              <span className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400">Pending</span>
-              <span className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-gray-100 dark:bg-white/[0.08] text-gray-500 dark:text-neutral-500">Draft</span>
-              <span className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400">Error</span>
+              <span className="px-2 py-0.5 text-[10px] font-medium rounded-none bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400">Active</span>
+              <span className="px-2 py-0.5 text-[10px] font-medium rounded-none bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400">Pending</span>
+              <span className="px-2 py-0.5 text[10px] font-medium rounded-none bg-gray-100 dark:bg-white/[0.08] text-gray-500 dark:text-neutral-500">Draft</span>
+              <span className="px-2 py-0.5 text-[10px] font-medium rounded-none bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400">Error</span>
             </div>
           </div>
         </div>
@@ -342,7 +342,7 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
                   'Design systems exist, but are not actively evolving',
                 ].map((item) => (
                   <li key={item} className="flex items-start space-x-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-neutral-300 dark:bg-neutral-600 flex-shrink-0" />
+                    <span className="mt-2 w-1.5 h-1.5 rounded-none bg-neutral-300 dark:bg-neutral-600 flex-shrink-0" />
                     <span className="text-[16px] leading-[1.65] text-muted dark:text-neutral-400">{item}</span>
                   </li>
                 ))}
@@ -381,7 +381,7 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
             ].map(({ icon: Icon, title, body }) => (
               <div
                 key={title}
-                className="group relative rounded-[10px] border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-white/[0.03] p-6 transition-all duration-300"
+                className="group relative rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-white/[0.03] p-6 transition-all duration-300"
               >
                 <Icon className="w-5 h-5 text-muted dark:text-neutral-400 mb-6" strokeWidth={1.5} />
                 <h3 className="text-[15px] font-semibold text-black dark:text-white mb-2">{title}</h3>
@@ -422,7 +422,7 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
               { metric: 'Clearer', label: 'Navigation & flow' },
               { metric: 'Stronger', label: 'Design-to-business alignment' },
             ].map((item) => (
-              <div key={item.label} className="bg-white dark:bg-white/[0.03] rounded-[10px] border border-[#D9D9D9] dark:border-white/[0.1] p-6">
+              <div key={item.label} className="bg-white dark:bg-white/[0.03] rounded-none border border-[#D9D9D9] dark:border-white/[0.1] p-6">
                 <div className="text-[28px] md:text-[32px] font-semibold text-black dark:text-white leading-none mb-2">
                   {item.metric}
                 </div>
@@ -482,7 +482,7 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
                   'Modernize the overall look and feel incrementally',
                 ].map((item) => (
                   <li key={item} className="flex items-start space-x-3">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-neutral-300 dark:bg-neutral-600 flex-shrink-0" />
+                    <span className="mt-2 w-1.5 h-1.5 rounded-none bg-neutral-300 dark:bg-neutral-600 flex-shrink-0" />
                     <span className="text-[15px] leading-[1.65] text-muted dark:text-neutral-400">{item}</span>
                   </li>
                 ))}
@@ -521,7 +521,7 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
                   { title: 'No heavy process', desc: 'No unnecessary overhead or disruption to existing workflows.' },
                   { title: 'High-impact focus', desc: 'Targeted improvements rather than broad redesigns.' },
                 ].map((item) => (
-                  <div key={item.title} className="border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px] p-5">
+                  <div key={item.title} className="border border-[#D9D9D9] dark:border-white/[0.1] rounded-none p-5">
                     <h3 className="text-[15px] font-semibold text-black dark:text-white mb-1.5">{item.title}</h3>
                     <p className="text-sm leading-relaxed text-muted dark:text-neutral-400">{item.desc}</p>
                   </div>
@@ -564,7 +564,7 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
             ].map(({ icon: Icon, title, body }) => (
               <div
                 key={title}
-                className="group relative rounded-[10px] border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-white/[0.03] p-6 transition-all duration-300"
+                className="group relative rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-white/[0.03] p-6 transition-all duration-300"
               >
                 <Icon className="w-5 h-5 text-muted dark:text-neutral-400 mb-6" strokeWidth={1.5} />
                 <h3 className="text-[15px] font-semibold text-black dark:text-white mb-2">{title}</h3>
@@ -598,7 +598,7 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
                 'A foundation that can support AI-assisted features where appropriate',
               ].map((item) => (
                 <li key={item} className="flex items-start space-x-3">
-                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-neutral-300 dark:bg-neutral-600 flex-shrink-0" />
+                  <span className="mt-2 w-1.5 h-1.5 rounded-none bg-neutral-300 dark:bg-neutral-600 flex-shrink-0" />
                   <span className="text-[16px] leading-[1.65] text-muted dark:text-neutral-400">{item}</span>
                 </li>
               ))}
@@ -623,7 +623,7 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
                 onClick={() => setCurrentPage('contact')}
-                className="inline-flex items-center px-6 py-3 bg-black dark:bg-white text-white dark:text-black text-sm font-medium rounded-[10px] hover:bg-gray-900 dark:hover:bg-gray-100 transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-black dark:bg-white text-white dark:text-black text-sm font-medium rounded-none hover:bg-gray-900 dark:hover:bg-gray-100 transition-colors"
               >
                 Start a conversation
               </button>
@@ -631,7 +631,7 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
                 href="https://cal.com/timothy-mcguire-27"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-white dark:bg-white/[0.03] text-black dark:text-neutral-400 text-sm font-medium rounded-[10px] border border-[#D9D9D9] dark:border-white/[0.1] hover:bg-gray-50 dark:hover:bg-white/[0.06] transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-white dark:bg-white/[0.03] text-black dark:text-neutral-400 text-sm font-medium rounded-none border border-[#D9D9D9] dark:border-white/[0.1] hover:bg-gray-50 dark:hover:bg-white/[0.06] transition-colors"
               >
                 Schedule a call
               </a>

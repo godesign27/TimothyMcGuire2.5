@@ -16,7 +16,7 @@ interface SolutionsProps {
 
 const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ title, description, image, tags, onClick }) => (
   <div
-    className="group cursor-pointer bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px] overflow-hidden transition-all hover:border-neutral-400 dark:hover:border-white/[0.2]"
+    className="group cursor-pointer bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-none overflow-hidden transition-all hover:border-neutral-400 dark:hover:border-white/[0.2]"
     onClick={onClick}
   >
     <div className="p-6 space-y-4">
@@ -24,7 +24,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ title, description, image
         {tags.map((tag, index) => (
           <span
             key={index}
-            className="text-xs font-medium px-2.5 py-1 rounded-[10px] border border-[#D9D9D9] dark:border-white/[0.1] text-muted dark:text-neutral-500"
+            className="text-xs font-medium px-2.5 py-1 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] text-muted dark:text-neutral-500"
           >
             {tag}
           </span>
@@ -126,14 +126,14 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
               { title: 'Accenture - Leave of Absence', description: "Redesigned Accenture's leave of absence experience with a responsive, user-centered solution and custom design patterns.", image: 'https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/accenture-employeeleave.png', tags: ['HR Solutions', 'Web App'] },
               { title: 'Atom Manager Redesign', description: 'Reimagined the Atom Manager marketing site with a new logo and CRM form flow for lead generation.', image: 'https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Atom-Manager.png', tags: ['SaaS', 'Web Design'] },
             ].map((item, index) => (
-              <div key={index} className="bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px] overflow-hidden">
+              <div key={index} className="bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-none overflow-hidden">
                 <div className="aspect-[4/3] bg-neutral-100 dark:bg-white/[0.04] relative overflow-hidden border-b border-[#D9D9D9] dark:border-white/[0.1]">
                   <img src={item.image} alt={item.title} className="w-full h-full object-contain" />
                 </div>
                 <div className="p-6">
                   <div className="flex gap-2 mb-4">
                     {item.tags.map((tag, i) => (
-                      <span key={i} className="text-xs font-medium px-2.5 py-1 rounded-[10px] border border-[#D9D9D9] dark:border-white/[0.1] text-muted dark:text-neutral-500">{tag}</span>
+                      <span key={i} className="text-xs font-medium px-2.5 py-1 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] text-muted dark:text-neutral-500">{tag}</span>
                     ))}
                   </div>
                   <h3 className="text-lg font-semibold text-black dark:text-white mb-3">{item.title}</h3>

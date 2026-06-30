@@ -45,7 +45,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-8 lg:py-12">
             {/* Dashboard Image - 9 columns (75%) on desktop */}
-            <div className="lg:col-span-9 relative bg-white rounded-lg shadow-lg overflow-hidden aspect-[4/3] lg:aspect-auto">
+            <div className="lg:col-span-9 relative bg-white rounded-none shadow-lg overflow-hidden aspect-[4/3] lg:aspect-auto">
               <img
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/onboarding-accenture-hero.png"
                 alt="Employee Onboarding"
@@ -58,7 +58,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
             {/* Content - 3 columns (25%) on desktop */}
             <div className="lg:col-span-3 flex flex-col items-start">
               {/* Project Details Card */}
-              <div className="mt-4 lg:mt-6 bg-white/80 backdrop-blur-sm rounded-lg p-6 lg:p-8 shadow-sm">
+              <div className="mt-4 lg:mt-6 bg-white/80 backdrop-blur-sm rounded-none p-6 lg:p-8 shadow-sm">
                 <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Web site Redesign</h2>
                 <div className="space-y-4">
                   <div>
@@ -97,8 +97,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
       {/* Row 2 - Strategy Section */}
       <section className="py-4 lg:py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-50 rounded-2xl p-6 lg:p-12">
-            <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full mb-6 lg:mb-8">
+          <div className="bg-gray-50 rounded-none p-6 lg:p-12">
+            <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none mb-6 lg:mb-8">
               The Strategy
             </span>
             <h2 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-4 lg:mb-6">
@@ -116,8 +116,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
             {/* First Card - full width on mobile, 6 columns on desktop */}
-            <div className="lg:col-span-6 bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
-              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
+            <div className="lg:col-span-6 bg-gray-50 rounded-none border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none">
                 Before
               </span>
               <img
@@ -130,8 +130,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
             </div>
 
             {/* Second Card - full width on mobile, 3 columns on desktop */}
-            <div className="lg:col-span-3 bg-gray-50 rounded-2xl p-6 lg:p-8">
-              <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full mb-6 lg:mb-8">
+            <div className="lg:col-span-3 bg-gray-50 rounded-none p-6 lg:p-8">
+              <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none mb-6 lg:mb-8">
                 UX Design
               </span>
               <h3 className="text-lg lg:text-xl font-semibold text-gray-900 mb-4">
@@ -143,8 +143,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
             </div>
 
             {/* Third Card - full width on mobile, 3 columns on desktop */}
-            <div className="lg:col-span-3 bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
-              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
+            <div className="lg:col-span-3 bg-gray-50 rounded-none border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none">
                 Persona
               </span>
               <img
@@ -164,8 +164,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* First Card */}
-            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
-              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
+            <div className="bg-gray-50 rounded-none border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none">
                 UX Strategy
               </span>
               <img
@@ -178,8 +178,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
             </div>
 
             {/* Second Card */}
-            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
-              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
+            <div className="bg-gray-50 rounded-none border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none">
                 UI Design
               </span>
               <img
@@ -197,13 +197,13 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
       {/* Row 5 - Design Principles Section */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full mb-6">
+          <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none mb-6">
             Design Direction
           </span>
           <h2 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-12">Design Principles</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* Top Row */}
-            <div className="bg-purple-100 rounded-2xl p-6 lg:p-8">
+            <div className="bg-purple-100 rounded-none p-6 lg:p-8">
               <h3 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-6">Empowering</h3>
               <div className="flex flex-col lg:flex-row lg:justify-between space-y-4 lg:space-y-0">
                 <span className="text-base lg:text-xl text-gray-700">Insightful</span>
@@ -211,7 +211,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
                 <span className="text-base lg:text-xl text-gray-700">Useful</span>
               </div>
             </div>
-            <div className="bg-yellow-100 rounded-2xl p-6 lg:p-8">
+            <div className="bg-yellow-100 rounded-none p-6 lg:p-8">
               <h3 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-6">Harmonious</h3>
               <div className="flex flex-col lg:flex-row lg:justify-between space-y-4 lg:space-y-0">
                 <span className="text-base lg:text-xl text-gray-700">Intentional</span>
@@ -220,7 +220,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
               </div>
             </div>
             {/* Bottom Row */}
-            <div className="bg-blue-100 rounded-2xl p-6 lg:p-8">
+            <div className="bg-blue-100 rounded-none p-6 lg:p-8">
               <h3 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-6">Simple</h3>
               <div className="flex flex-col lg:flex-row lg:justify-between space-y-4 lg:space-y-0">
                 <span className="text-base lg:text-xl text-gray-700">Focused</span>
@@ -229,7 +229,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
                 <span className="text-base lg:text-xl text-gray-700">Progressive Disclosure</span>
               </div>
             </div>
-            <div className="bg-orange-100 rounded-2xl p-6 lg:p-8">
+            <div className="bg-orange-100 rounded-none p-6 lg:p-8">
               <h3 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-6">Learnable</h3>
               <div className="flex flex-col lg:flex-row lg:justify-between space-y-4 lg:space-y-0">
                 <span className="text-base lg:text-xl text-gray-700">Intuitive</span>
@@ -247,8 +247,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* First Card */}
-            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
-              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
+            <div className="bg-gray-50 rounded-none border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none">
                 UX Design
               </span>
               <img
@@ -261,8 +261,8 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
             </div>
 
             {/* Second Card */}
-            <div className="bg-gray-50 rounded-2xl border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
-              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
+            <div className="bg-gray-50 rounded-none border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none">
                 UI Design
               </span>
               <img
@@ -280,15 +280,15 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
       {/* Row 7 - Color Palette Card */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-100 rounded-2xl border border-gray-300 relative overflow-hidden p-6 lg:p-8">
-            <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full mb-4">
+          <div className="bg-gray-100 rounded-none border border-gray-300 relative overflow-hidden p-6 lg:p-8">
+            <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none mb-4">
               UI Design
             </span>
             <h2 className="text-2xl lg:text-4xl font-regular text-gray-900 mb-6">Color Palette</h2>
             <img 
               src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/color-palette.png"
               alt="Color Palette"
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover rounded-none"
               loading="lazy"
               decoding="async"
             />
@@ -299,12 +299,12 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
       {/* Row 8 - Task cards Component Card */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-100 rounded-2xl border border-gray-300 relative overflow-hidden p-6 lg:p-8">
+          <div className="bg-gray-100 rounded-none border border-gray-300 relative overflow-hidden p-6 lg:p-8">
             <div className="flex space-x-2 mb-4">
-              <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
+              <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none">
                 UI Design
               </span>
-              <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-regular rounded-full">
+              <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-regular rounded-none">
                 Component Definition
               </span>
             </div>
@@ -312,7 +312,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
             <img 
               src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/task-cards3.png"
               alt="Task Cards Component"
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover rounded-none"
               loading="lazy"
               decoding="async"
             />
@@ -323,12 +323,12 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
       {/* Row 9 - Page Designs Card */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-2xl border border-gray-300 relative overflow-hidden p-6 lg:p-8">
+          <div className="bg-white rounded-none border border-gray-300 relative overflow-hidden p-6 lg:p-8">
             <div className="flex space-x-2 mb-4">
-              <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-full">
+              <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none">
                 UI Design
               </span>
-              <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-regular rounded-full">
+              <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-regular rounded-none">
                 Final Designs
               </span>
             </div>
@@ -337,32 +337,32 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
               <img 
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/Countdown-Home-29-left-get.png"
                 alt="Dashboard Summary"
-                className="w-full rounded-lg"
+                className="w-full rounded-none"
               />
               <img 
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/Countdown-Home-Redefine-1f.png"
                 alt="Measure Detail Overview"
-                className="w-full rounded-lg"
+                className="w-full rounded-none"
               />
                <img 
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/Countdown-Home-Redefine-1a.png"
                 alt="Measure Detail Overview"
-                className="w-full rounded-lg"
+                className="w-full rounded-none"
               />
               <img 
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/Countdown-SSO.png"
                 alt="Measure Detail Card Practices"
-                className="w-full rounded-lg"
+                className="w-full rounded-none"
               />
               <img 
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/Countdown-Task%20list-inprogress-toast.png"
                 alt="Members Detail"
-                className="w-full rounded-lg"
+                className="w-full rounded-none"
               />
               <img 
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/onboarding-accenture-hero.png"
                 alt="Population Builder Landing Page"
-                className="w-full rounded-lg"
+                className="w-full rounded-none"
               />
             </div>
           </div>

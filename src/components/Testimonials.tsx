@@ -34,9 +34,9 @@ const Testimonials: React.FC = () => {
 
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((t) => (
-            <div key={t.name} className="p-8 bg-neutral-50 dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
+            <div key={t.name} className="p-8 bg-neutral-50 dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-none">
               <div className="flex items-center mb-6">
-                <div className="h-10 w-10 flex items-center justify-center bg-neutral-100 dark:bg-white/[0.08] text-black dark:text-white rounded-[10px] font-semibold text-sm">
+                <div className="h-10 w-10 flex items-center justify-center bg-neutral-100 dark:bg-white/[0.08] text-black dark:text-white rounded-none font-semibold text-sm">
                   {t.initials}
                 </div>
                 <div className="ml-4">

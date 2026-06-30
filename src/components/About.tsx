@@ -54,7 +54,7 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
               <img
                 src="https://img1.wsimg.com/isteam/ip/8750adee-7fef-47ca-9c3a-3982c0b9d811/Timothy-McGuire.png/:/rs=w:740,cg:true,m"
                 alt="Timothy McGuire"
-                className="w-full rounded-[10px] border border-[#D9D9D9] dark:border-white/[0.1]"
+                className="w-full rounded-none border border-[#D9D9D9] dark:border-white/[0.1]"
               />
             </div>
           </div>
@@ -68,8 +68,8 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
             Throughout my career I've led design functions, mentored junior designers, and built the processes that let cross-functional teams move faster without losing quality.
           </p>
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
-              <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+            <div className="p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-none">
+              <div className="w-10 h-10 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
                 <Award className="w-5 h-5 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-lg font-semibold text-black dark:text-white mb-3">Principal & Lead Experience</h3>
@@ -77,8 +77,8 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
                 Served as Principal UX Designer and Design Manager at multiple organizations, owning end-to-end design strategy from discovery through delivery.
               </p>
             </div>
-            <div className="p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
-              <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+            <div className="p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-none">
+              <div className="w-10 h-10 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
                 <TrendingUp className="w-5 h-5 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-lg font-semibold text-black dark:text-white mb-3">Cross-Functional Alignment</h3>
@@ -86,8 +86,8 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
                 Experienced at aligning product, engineering, data science, and executive stakeholders on design direction.
               </p>
             </div>
-            <div className="p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
-              <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+            <div className="p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-none">
+              <div className="w-10 h-10 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
                 <MessageSquare className="w-5 h-5 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-lg font-semibold text-black dark:text-white mb-3">Mentorship & Culture</h3>
@@ -116,8 +116,8 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
             ].map((item) => {
               const Icon = item.icon;
               return (
-                <div key={item.title} className="p-6 bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
-                  <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-4">
+                <div key={item.title} className="p-6 bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-none">
+                  <div className="w-10 h-10 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-muted dark:text-neutral-400" />
                   </div>
                   <h3 className="text-base font-semibold text-black dark:text-white mb-2">{item.title}</h3>

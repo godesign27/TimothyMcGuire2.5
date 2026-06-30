@@ -75,9 +75,9 @@ const Perspectives: React.FC<PerspectivesProps> = ({ setCurrentPage }) => {
                 <button
                   key={item.id}
                   onClick={() => handleNav(item.id)}
-                  className="group text-left p-8 bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px] hover:border-neutral-400 dark:hover:border-white/[0.2] transition-colors"
+                  className="group text-left p-8 bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-none hover:border-neutral-400 dark:hover:border-white/[0.2] transition-colors"
                 >
-                  <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+                  <div className="w-10 h-10 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
                     <Icon className="w-5 h-5 text-muted dark:text-neutral-400" />
                   </div>
                   <h2 className="text-lg font-semibold text-black dark:text-white mb-3 group-hover:underline">

@@ -165,7 +165,7 @@ const SolutionDetail: React.FC<SolutionDetailProps> = ({ page, setCurrentPage })
 
           <div className="py-16 max-w-3xl">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center">
+              <div className="w-10 h-10 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center">
                 <Icon className={`w-5 h-5 ${config.iconColor}`} />
               </div>
               <p className={`text-sm font-semibold uppercase tracking-widest ${config.accent}`}>
@@ -212,7 +212,7 @@ const SolutionDetail: React.FC<SolutionDetailProps> = ({ page, setCurrentPage })
                   window.scrollTo(0, 0);
                   setCurrentPage(item.id);
                 }}
-                className="group text-left p-6 bg-white dark:bg-white/[0.03] border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px] hover:border-[#D9D9D9] dark:hover:border-white/[0.15] transition-all"
+                className="group text-left p-6 bg-white dark:bg-white/[0.03] border border-[#D9D9D9] dark:border-white/[0.1] rounded-none hover:border-[#D9D9D9] dark:hover:border-white/[0.15] transition-all"
               >
                 <div className="font-semibold text-black dark:text-white mb-2 group-hover:underline">
                   {item.label}

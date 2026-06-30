@@ -38,7 +38,7 @@ export default {
         },
       },
       borderRadius: {
-        'card': '10px',
+        'card': '0px',
       },
       animation: {
         first: "moveVertical 30s ease infinite",

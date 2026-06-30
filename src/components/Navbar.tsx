@@ -105,7 +105,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
             : 'hover:bg-neutral-50 dark:hover:bg-white/[0.04]'
         }`}
       >
-        <div className="w-8 h-8 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+        <div className="w-8 h-8 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
           <Icon className="w-4 h-4 text-muted dark:text-neutral-400" />
         </div>
         <div>
@@ -127,7 +127,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
     items: { id: string; label: string; description: string; icon: React.ElementType }[],
   ) => (
     <div
-      className={`absolute top-full left-0 mt-2 w-80 bg-white dark:bg-neutral-950 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px] transition-all duration-200 origin-top ${
+      className={`absolute top-full left-0 mt-2 w-80 bg-white dark:bg-neutral-950 border border-[#D9D9D9] dark:border-white/[0.1] rounded-none transition-all duration-200 origin-top ${
         activeDropdown === key
           ? 'opacity-100 scale-100 translate-y-0'
           : 'opacity-0 scale-95 -translate-y-1 pointer-events-none'
@@ -242,7 +242,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
           <div className="hidden md:flex items-center gap-4">
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2 rounded-[10px] text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-white/[0.08] transition-colors"
+              className="p-2 rounded-none text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-white/[0.08] transition-colors"
             >
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
@@ -254,13 +254,13 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2 rounded-[10px] text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white"
+              className="p-2 rounded-none text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white"
             >
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-[10px] text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white"
+              className="p-2 rounded-none text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white"
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>

@@ -186,7 +186,7 @@ const Resume: React.FC = () => {
 
             <p className="flex flex-wrap items-center justify-center gap-3 text-muted dark:text-neutral-400 text-sm tracking-widest uppercase mt-6 mb-8">
               <span>Senior / Principal UX Designer</span>
-              <span className="w-1 h-1 rounded-full bg-black dark:bg-white" aria-hidden="true" />
+              <span className="w-1 h-1 rounded-none bg-black dark:bg-white" aria-hidden="true" />
               <span>AI & Agentic Systems</span>
             </p>
 
@@ -222,7 +222,7 @@ const Resume: React.FC = () => {
       <section aria-label="Resume details" className="border-t border-[#D9D9D9] dark:border-white/[0.1]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
 
-          <div className="bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px] overflow-hidden">
+          <div className="bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-none overflow-hidden">
 
             <div className="px-8 sm:px-12 pt-12 pb-10 border-b border-[#D9D9D9] dark:border-white/[0.1]">
               <p className="text-base leading-relaxed text-muted dark:text-neutral-400">
@@ -235,7 +235,7 @@ const Resume: React.FC = () => {
 
             <section aria-labelledby="competencies-heading" className="px-8 sm:px-12 py-10 border-b border-[#D9D9D9] dark:border-white/[0.1]">
               <div className="flex items-center gap-3 mb-6">
-                <div className="flex items-center justify-center w-9 h-9 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08]" aria-hidden="true">
+                <div className="flex items-center justify-center w-9 h-9 rounded-none bg-neutral-100 dark:bg-white/[0.08]" aria-hidden="true">
                   <Sparkles size={18} className="text-muted dark:text-neutral-400" />
                 </div>
                 <h2 id="competencies-heading" className="text-xs font-bold tracking-[0.2em] uppercase text-black dark:text-white">
@@ -246,7 +246,7 @@ const Resume: React.FC = () => {
                 {competencies.map((c) => (
                   <li
                     key={c}
-                    className="px-3 py-1.5 text-sm rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] text-muted dark:text-neutral-300 border border-[#D9D9D9] dark:border-white/[0.1]"
+                    className="px-3 py-1.5 text-sm rounded-none bg-neutral-100 dark:bg-white/[0.08] text-muted dark:text-neutral-300 border border-[#D9D9D9] dark:border-white/[0.1]"
                   >
                     {c}
                   </li>
@@ -256,7 +256,7 @@ const Resume: React.FC = () => {
 
             <section aria-labelledby="tools-heading" className="px-8 sm:px-12 py-10 border-b border-[#D9D9D9] dark:border-white/[0.1]">
               <div className="flex items-center gap-3 mb-6">
-                <div className="flex items-center justify-center w-9 h-9 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08]" aria-hidden="true">
+                <div className="flex items-center justify-center w-9 h-9 rounded-none bg-neutral-100 dark:bg-white/[0.08]" aria-hidden="true">
                   <Wrench size={18} className="text-muted dark:text-neutral-400" />
                 </div>
                 <h2 id="tools-heading" className="text-xs font-bold tracking-[0.2em] uppercase text-black dark:text-white">
@@ -267,7 +267,7 @@ const Resume: React.FC = () => {
                 {tools.map((t) => (
                   <li
                     key={t}
-                    className="px-3 py-1.5 text-sm rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] text-muted dark:text-neutral-300 border border-[#D9D9D9] dark:border-white/[0.1]"
+                    className="px-3 py-1.5 text-sm rounded-none bg-neutral-100 dark:bg-white/[0.08] text-muted dark:text-neutral-300 border border-[#D9D9D9] dark:border-white/[0.1]"
                   >
                     {t}
                   </li>
@@ -277,7 +277,7 @@ const Resume: React.FC = () => {
 
             <section aria-labelledby="experience-heading" className="px-8 sm:px-12 py-10 border-b border-[#D9D9D9] dark:border-white/[0.1]">
               <div className="flex items-center gap-3 mb-10">
-                <div className="flex items-center justify-center w-9 h-9 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08]" aria-hidden="true">
+                <div className="flex items-center justify-center w-9 h-9 rounded-none bg-neutral-100 dark:bg-white/[0.08]" aria-hidden="true">
                   <Briefcase size={18} className="text-muted dark:text-neutral-400" />
                 </div>
                 <h2 id="experience-heading" className="text-xs font-bold tracking-[0.2em] uppercase text-black dark:text-white">
@@ -291,7 +291,7 @@ const Resume: React.FC = () => {
                     {i < experience.length - 1 && (
                       <div className="absolute left-[7px] top-3 bottom-0 w-px bg-[#D9D9D9] dark:bg-white/[0.1]" aria-hidden="true" />
                     )}
-                    <div className="absolute left-0 top-[7px] w-[15px] h-[15px] rounded-full border-[3px] border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent" aria-hidden="true" />
+                    <div className="absolute left-0 top-[7px] w-[15px] h-[15px] rounded-none border-[3px] border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent" aria-hidden="true" />
 
                     <div>
                       <h3 className="text-lg font-semibold text-black dark:text-white leading-snug">
@@ -303,7 +303,7 @@ const Resume: React.FC = () => {
                       <p className="mt-0.5 flex items-center gap-2 text-sm text-muted dark:text-neutral-500">
                         <time>{job.period}</time>
                         {job.location === 'Remote' ? (
-                          <span className="inline-flex items-center px-2 py-0.5 rounded-[10px] text-xs font-medium border border-[#D9D9D9] dark:border-white/[0.1] text-muted dark:text-neutral-400">
+                          <span className="inline-flex items-center px-2 py-0.5 rounded-none text-xs font-medium border border-[#D9D9D9] dark:border-white/[0.1] text-muted dark:text-neutral-400">
                             Remote
                           </span>
                         ) : job.location ? (
@@ -318,7 +318,7 @@ const Resume: React.FC = () => {
                       <ul className="mt-3 space-y-2">
                         {job.bullets.map((b, bi) => (
                           <li key={bi} className="flex gap-2.5 text-sm leading-relaxed text-muted dark:text-neutral-400">
-                            <span className="mt-2 flex-shrink-0 w-1 h-1 rounded-full bg-muted dark:bg-neutral-500" aria-hidden="true" />
+                            <span className="mt-2 flex-shrink-0 w-1 h-1 rounded-none bg-muted dark:bg-neutral-500" aria-hidden="true" />
                             {b}
                           </li>
                         ))}
@@ -331,7 +331,7 @@ const Resume: React.FC = () => {
 
             <section aria-labelledby="education-heading" className="px-8 sm:px-12 py-10">
               <div className="flex items-center gap-3 mb-6">
-                <div className="flex items-center justify-center w-9 h-9 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08]" aria-hidden="true">
+                <div className="flex items-center justify-center w-9 h-9 rounded-none bg-neutral-100 dark:bg-white/[0.08]" aria-hidden="true">
                   <GraduationCap size={18} className="text-muted dark:text-neutral-400" />
                 </div>
                 <h2 id="education-heading" className="text-xs font-bold tracking-[0.2em] uppercase text-black dark:text-white">

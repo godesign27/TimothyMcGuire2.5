@@ -69,8 +69,8 @@ const SpeakingWorkshops: React.FC<SpeakingWorkshopsProps> = ({ setCurrentPage })
             {formats.map((f) => {
               const Icon = f.icon;
               return (
-                <div key={f.label} className="p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
-                  <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+                <div key={f.label} className="p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-none">
+                  <div className="w-10 h-10 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
                     <Icon className="w-5 h-5 text-muted dark:text-neutral-400" />
                   </div>
                   <h3 className="text-lg font-semibold text-black dark:text-white mb-3">{f.label}</h3>
@@ -92,7 +92,7 @@ const SpeakingWorkshops: React.FC<SpeakingWorkshopsProps> = ({ setCurrentPage })
             <ul className="space-y-3">
               {['AI-Native UX and Agentic Workflow Design', 'Trust Models for AI Products', 'Design Systems at Enterprise Scale', 'Human-in-the-Loop Design Patterns', 'Enterprise UX Leadership', 'Accessible Design from First Principles'].map((t) => (
                 <li key={t} className="flex items-center gap-3 text-sm text-black dark:text-white">
-                  <span className="w-1.5 h-1.5 rounded-full bg-black dark:bg-white flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-none bg-black dark:bg-white flex-shrink-0" />
                   {t}
                 </li>
               ))}
@@ -113,7 +113,7 @@ const SpeakingWorkshops: React.FC<SpeakingWorkshopsProps> = ({ setCurrentPage })
               <button
                 key={item.id}
                 onClick={() => handleNav(item.id)}
-                className="group text-left p-6 bg-neutral-50 dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px] hover:border-neutral-400 dark:hover:border-white/[0.2] transition-colors"
+                className="group text-left p-6 bg-neutral-50 dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-none hover:border-neutral-400 dark:hover:border-white/[0.2] transition-colors"
               >
                 <div className="font-semibold text-black dark:text-white mb-2 group-hover:underline">{item.label}</div>
                 <p className="text-sm text-muted dark:text-neutral-500 mb-4">{item.description}</p>

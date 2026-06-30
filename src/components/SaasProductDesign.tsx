@@ -59,7 +59,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
                 <Users className="w-6 h-6 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-xl font-semibold text-black dark:text-white mb-4">
@@ -70,7 +70,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
               </p>
             </div>
             <div>
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
                 <LayoutGrid className="w-6 h-6 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-xl font-semibold text-black dark:text-white mb-4">
@@ -81,7 +81,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
               </p>
             </div>
             <div>
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
                 <Workflow className="w-6 h-6 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-xl font-semibold text-black dark:text-white mb-4">
@@ -102,8 +102,8 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-black dark:bg-white" />
+                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-black dark:text-white mb-1">User Research</h3>
@@ -112,8 +112,8 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-black dark:bg-white" />
+                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-black dark:text-white mb-1">Information Architecture</h3>
@@ -122,8 +122,8 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-black dark:bg-white" />
+                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-black dark:text-white mb-1">Interaction Design</h3>
@@ -134,8 +134,8 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-black dark:bg-white" />
+                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-black dark:text-white mb-1">Design Systems</h3>
@@ -144,8 +144,8 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-black dark:bg-white" />
+                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-black dark:text-white mb-1">Prototyping</h3>
@@ -154,8 +154,8 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-black dark:bg-white" />
+                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-black dark:text-white mb-1">Developer Handoff</h3>
@@ -173,7 +173,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
           <h2 className="text-3xl font-bold text-black dark:text-white mb-12">Our Process</h2>
           <div className="space-y-12">
             <div className="flex gap-8">
-              <div className="w-12 h-12 flex-shrink-0 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center text-black dark:text-white font-semibold">
+              <div className="w-12 h-12 flex-shrink-0 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center text-black dark:text-white font-semibold">
                 01
               </div>
               <div>
@@ -187,7 +187,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
             </div>
 
             <div className="flex gap-8">
-              <div className="w-12 h-12 flex-shrink-0 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center text-black dark:text-white font-semibold">
+              <div className="w-12 h-12 flex-shrink-0 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center text-black dark:text-white font-semibold">
                 02
               </div>
               <div>
@@ -201,7 +201,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
             </div>
 
             <div className="flex gap-8">
-              <div className="w-12 h-12 flex-shrink-0 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center text-black dark:text-white font-semibold">
+              <div className="w-12 h-12 flex-shrink-0 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center text-black dark:text-white font-semibold">
                 03
               </div>
               <div>
@@ -215,7 +215,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
             </div>
 
             <div className="flex gap-8">
-              <div className="w-12 h-12 flex-shrink-0 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center text-black dark:text-white font-semibold">
+              <div className="w-12 h-12 flex-shrink-0 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center text-black dark:text-white font-semibold">
                 04
               </div>
               <div>
@@ -239,9 +239,9 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Mopar Redesign */}
-            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-[10px] overflow-hidden">
+            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-none overflow-hidden">
               <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-none bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
                   Enterprise
                 </span>
                 <img 
@@ -261,9 +261,9 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
             </div>
 
             {/* Atom Manager Redesign */}
-            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-[10px] overflow-hidden">
+            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-none overflow-hidden">
               <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-none bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
                   Government
                 </span>
                 <img 
@@ -282,9 +282,9 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
             </div>
 
             {/* ZS SaaS product Redesign */}
-            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-[10px] overflow-hidden">
+            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-none overflow-hidden">
               <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-sm bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-none bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
                   Healthcare
                 </span>
                 <img 
@@ -317,7 +317,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
           </p>
           <button
             onClick={handleSolutionsClick}
-            className="btn-primary px-8 py-4"
+            className="btn-primary px-8 py-4 rounded-none"
           >
             View Our Solutions
           </button>
@@ -335,7 +335,7 @@ const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage })
           </p>
           <button
             onClick={handleContactClick}
-            className="px-8 py-4 bg-white text-black rounded-full hover:bg-gray-100 transition-colors"
+            className="px-8 py-4 bg-white text-black rounded-none hover:bg-gray-100 transition-colors"
           >
             Make Contact
           </button>

@@ -54,7 +54,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
                 <Smartphone className="w-6 h-6 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-xl font-semibold text-black dark:text-white mb-4">
@@ -65,7 +65,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
               </p>
             </div>
             <div>
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
                 <Users className="w-6 h-6 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-xl font-semibold text-black dark:text-white mb-4">
@@ -76,7 +76,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
               </p>
             </div>
             <div>
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center mb-6">
+              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
                 <Zap className="w-6 h-6 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-xl font-semibold text-black dark:text-white mb-4">
@@ -112,7 +112,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
                 image: "https://images.pexels.com/photos/5053740/pexels-photo-5053740.jpeg"
               }
             ].map((project, index) => (
-              <div key={index} className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-[10px] overflow-hidden">
+              <div key={index} className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-none overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -160,7 +160,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
               }
             ].map((phase, index) => (
               <div key={index} className="flex gap-8">
-                <div className="w-12 h-12 flex-shrink-0 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center text-black dark:text-white font-semibold">
+                <div className="w-12 h-12 flex-shrink-0 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center text-black dark:text-white font-semibold">
                   {phase.step}
                 </div>
                 <div>
@@ -184,8 +184,8 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-black dark:bg-white" />
+                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-black dark:text-white mb-1">User Research</h3>
@@ -193,8 +193,8 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-black dark:bg-white" />
+                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-black dark:text-white mb-1">UX Architecture</h3>
@@ -202,8 +202,8 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-black dark:bg-white" />
+                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-black dark:text-white mb-1">Visual Design</h3>
@@ -213,8 +213,8 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
             </div>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-black dark:bg-white" />
+                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-black dark:text-white mb-1">Prototyping</h3>
@@ -222,8 +222,8 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-black dark:bg-white" />
+                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-black dark:text-white mb-1">User Testing</h3>
@@ -231,8 +231,8 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-full bg-black dark:bg-white" />
+                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
+                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-black dark:text-white mb-1">Design System</h3>
@@ -255,7 +255,7 @@ const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => 
           </p>
           <button
             onClick={handleContactClick}
-            className="px-8 py-4 bg-white text-black rounded-full hover:bg-gray-100 transition-colors"
+            className="px-8 py-4 bg-white text-black rounded-none hover:bg-gray-100 transition-colors"
           >
             Make Contact
           </button>

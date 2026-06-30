@@ -47,9 +47,9 @@ const ImageWithSkeleton: React.FC<ImageWithSkeletonProps> = ({
       {!isLoaded && (
         <div className={`absolute inset-0 flex items-center justify-center bg-gray-100 dark:bg-neutral-950 ${className}`}>
           <div className="w-3/4 max-w-md">
-            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-white/[0.06] mb-4">
+            <div className="w-full bg-gray-200 rounded-none h-2.5 dark:bg-white/[0.06] mb-4">
               <div 
-                className="bg-blue-600 h-2.5 rounded-full transition-all duration-300 ease-out" 
+                className="bg-blue-600 h-2.5 rounded-none transition-all duration-300 ease-out" 
                 style={{ width: `${loadProgress}%` }}
               ></div>
             </div>

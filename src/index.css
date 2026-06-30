@@ -21,11 +21,11 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-[10px] hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors;
+    @apply inline-flex items-center justify-center px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-none hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/20 text-black dark:text-white font-medium rounded-[10px] hover:bg-neutral-50 dark:hover:bg-white/[0.05] transition-colors;
+    @apply inline-flex items-center justify-center px-6 py-3 bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/20 text-black dark:text-white font-medium rounded-none hover:bg-neutral-50 dark:hover:bg-white/[0.05] transition-colors;
   }
 
   .btn-sm {

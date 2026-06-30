@@ -118,7 +118,7 @@ const Footer: React.FC<FooterProps> = ({ currentPage: _currentPage, setCurrentPa
             </ul>
             <button
               onClick={() => nav('contact')}
-              className="w-full inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium bg-black dark:bg-white text-white dark:text-black rounded-[10px] hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors"
+              className="w-full inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium bg-black dark:bg-white text-white dark:text-black rounded-none hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors"
             >
               Let's Talk
             </button>

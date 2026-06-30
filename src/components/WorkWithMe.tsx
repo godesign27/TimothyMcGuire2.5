@@ -65,9 +65,9 @@ const WorkWithMe: React.FC<WorkWithMeProps> = ({ setCurrentPage }) => {
                 <button
                   key={eng.id}
                   onClick={() => handleNav(eng.id)}
-                  className="group text-left p-6 bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px] hover:border-neutral-400 dark:hover:border-white/[0.2] transition-colors"
+                  className="group text-left p-6 bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-none hover:border-neutral-400 dark:hover:border-white/[0.2] transition-colors"
                 >
-                  <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-4">
+                  <div className="w-10 h-10 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-4">
                     <Icon className="w-5 h-5 text-muted dark:text-neutral-400" />
                   </div>
                   <div className="font-semibold text-black dark:text-white mb-1.5 text-sm group-hover:underline">
@@ -98,7 +98,7 @@ const WorkWithMe: React.FC<WorkWithMeProps> = ({ setCurrentPage }) => {
             <ol className="space-y-6">
               {['Reach out with a brief description of your challenge.', 'We schedule a 30-minute discovery call.', 'I share a scope of work or engagement recommendation.', 'We align on timeline and kick off.'].map((step, i) => (
                 <li key={i} className="flex items-start gap-4">
-                  <span className="flex-shrink-0 w-8 h-8 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center text-sm font-semibold text-black dark:text-white">
+                  <span className="flex-shrink-0 w-8 h-8 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center text-sm font-semibold text-black dark:text-white">
                     {i + 1}
                   </span>
                   <p className="text-muted dark:text-neutral-400 pt-1.5">{step}</p>

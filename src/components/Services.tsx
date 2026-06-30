@@ -38,8 +38,8 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
           <h2 className="text-2xl font-semibold text-black dark:text-white mb-16">Core Services</h2>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
-              <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+            <div className="p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-none">
+              <div className="w-10 h-10 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
                 <ClipboardList className="w-5 h-5 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-xl font-semibold text-black dark:text-white mb-4">UX/UI Design Consulting</h3>
@@ -56,8 +56,8 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
               </ul>
             </div>
 
-            <div className="p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
-              <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+            <div className="p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-none">
+              <div className="w-10 h-10 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
                 <Sparkles className="w-5 h-5 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-xl font-semibold text-black dark:text-white mb-4">AI + Agentic Experience</h3>
@@ -73,8 +73,8 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
               </ul>
             </div>
 
-            <div className="p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
-              <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+            <div className="p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-none">
+              <div className="w-10 h-10 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
                 <Briefcase className="w-5 h-5 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-xl font-semibold text-black dark:text-white mb-4">Brand & Identity Design</h3>
@@ -99,8 +99,8 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
           <h2 className="text-2xl font-semibold text-black dark:text-white mb-16">Specialized Services</h2>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-white dark:bg-transparent p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
-              <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+            <div className="bg-white dark:bg-transparent p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-none">
+              <div className="w-10 h-10 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
                 <Globe className="w-5 h-5 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-lg font-semibold text-black dark:text-white mb-3">Marketing Web Design</h3>
@@ -115,8 +115,8 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
               </button>
             </div>
 
-            <div className="bg-white dark:bg-transparent p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
-              <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+            <div className="bg-white dark:bg-transparent p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-none">
+              <div className="w-10 h-10 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
                 <Box className="w-5 h-5 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-lg font-semibold text-black dark:text-white mb-3">SaaS Product Design</h3>
@@ -131,8 +131,8 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
               </button>
             </div>
 
-            <div className="bg-white dark:bg-transparent p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
-              <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+            <div className="bg-white dark:bg-transparent p-8 border border-[#D9D9D9] dark:border-white/[0.1] rounded-none">
+              <div className="w-10 h-10 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
                 <Bot className="w-5 h-5 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-lg font-semibold text-black dark:text-white mb-3">Agentic Experience</h3>

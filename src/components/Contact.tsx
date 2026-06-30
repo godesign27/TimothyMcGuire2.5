@@ -97,7 +97,7 @@ const Contact: React.FC = () => {
                   href="https://cal.com/timothy-mcguire-27"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3 w-full bg-black dark:bg-white text-white dark:text-black px-6 py-3 rounded-[10px] font-medium hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors"
+                  className="flex items-center justify-center gap-3 w-full bg-black dark:bg-white text-white dark:text-black px-6 py-3 rounded-none font-medium hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Schedule a Meeting</span>
@@ -120,7 +120,7 @@ const Contact: React.FC = () => {
                       id="name"
                       name="name"
                       required
-                      className="w-full px-4 py-3 rounded-[10px] border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-black dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
+                      className="w-full px-4 py-3 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-black dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
                       placeholder="Your name"
                     />
                   </div>
@@ -134,7 +134,7 @@ const Contact: React.FC = () => {
                       id="email"
                       name="email"
                       required
-                      className="w-full px-4 py-3 rounded-[10px] border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-black dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
+                      className="w-full px-4 py-3 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-black dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -149,7 +149,7 @@ const Contact: React.FC = () => {
                       type="text"
                       id="company"
                       name="company"
-                      className="w-full px-4 py-3 rounded-[10px] border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-black dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
+                      className="w-full px-4 py-3 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-black dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
                       placeholder="Your company"
                     />
                   </div>
@@ -162,7 +162,7 @@ const Contact: React.FC = () => {
                       type="tel"
                       id="phone"
                       name="phone"
-                      className="w-full px-4 py-3 rounded-[10px] border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-black dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
+                      className="w-full px-4 py-3 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-black dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -176,7 +176,7 @@ const Contact: React.FC = () => {
                     id="projectType"
                     name="projectType"
                     required
-                    className="w-full px-4 py-3 rounded-[10px] border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-black dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
+                    className="w-full px-4 py-3 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-black dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
                   >
                     <option value="">Select a project type</option>
                     <option value="Marketing Website Design">Marketing Website Design</option>
@@ -197,13 +197,13 @@ const Contact: React.FC = () => {
                     name="message"
                     required
                     rows={6}
-                    className="w-full px-4 py-3 rounded-[10px] border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-black dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-black dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors resize-none"
                     placeholder="Tell me about your project, timeline, and any specific requirements..."
                   ></textarea>
                 </div>
 
                 {formStatus === 'success' && (
-                  <div className="p-4 bg-neutral-100 dark:bg-white/[0.08] border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
+                  <div className="p-4 bg-neutral-100 dark:bg-white/[0.08] border border-[#D9D9D9] dark:border-white/[0.1] rounded-none">
                     <p className="text-sm text-black dark:text-white font-medium">
                       Thank you! Your message has been sent successfully. I'll get back to you within 24 hours.
                     </p>
@@ -211,7 +211,7 @@ const Contact: React.FC = () => {
                 )}
 
                 {formStatus === 'error' && (
-                  <div className="p-4 bg-neutral-100 dark:bg-white/[0.08] border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
+                  <div className="p-4 bg-neutral-100 dark:bg-white/[0.08] border border-[#D9D9D9] dark:border-white/[0.1] rounded-none">
                     <p className="text-sm text-black dark:text-white font-medium">
                       Something went wrong. Please try again or email me directly at godesigngo@gmail.com
                     </p>

@@ -20,11 +20,11 @@ const SuccessStories: React.FC<SuccessStoriesProps> = ({ setCurrentPage, setSele
         </h2>
 
         <div className="grid md:grid-cols-2 gap-16 items-start">
-          <div className="bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] p-4 rounded-[10px]">
+          <div className="bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] p-4 rounded-none">
             <img
               src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Dashboard%20-%20Summary.png"
               alt="CoreTechs Dashboard"
-              className="rounded-[10px] w-full h-64 object-cover object-top"
+              className="rounded-none w-full h-64 object-cover object-top"
             />
           </div>
           <div>

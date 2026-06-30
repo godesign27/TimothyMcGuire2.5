@@ -111,8 +111,8 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
             requiring different design interventions.
           </p>
           <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            <div className="bg-white dark:bg-white/[0.03] rounded-[10px] p-8 border border-[#D9D9D9] dark:border-white/[0.1]">
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white dark:bg-white/[0.03] rounded-none p-8 border border-[#D9D9D9] dark:border-white/[0.1]">
+              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
                 <Eye className="w-6 h-6 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-xl font-semibold text-black dark:text-white mb-3">Predictability</h3>
@@ -121,8 +121,8 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
                 vs. agent vs. classifier — set expectations before outputs appear.
               </p>
             </div>
-            <div className="bg-white dark:bg-white/[0.03] rounded-[10px] p-8 border border-[#D9D9D9] dark:border-white/[0.1]">
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white dark:bg-white/[0.03] rounded-none p-8 border border-[#D9D9D9] dark:border-white/[0.1]">
+              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
                 <Shield className="w-6 h-6 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-xl font-semibold text-black dark:text-white mb-3">Transparency</h3>
@@ -131,8 +131,8 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
                 signals at decision points that build confidence without cognitive overload.
               </p>
             </div>
-            <div className="bg-white dark:bg-white/[0.03] rounded-[10px] p-8 border border-[#D9D9D9] dark:border-white/[0.1]">
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white dark:bg-white/[0.03] rounded-none p-8 border border-[#D9D9D9] dark:border-white/[0.1]">
+              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
                 <SlidersHorizontal className="w-6 h-6 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-xl font-semibold text-black dark:text-white mb-3">Control</h3>
@@ -141,8 +141,8 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
                 to everything — it's about keeping humans in the loop where judgment matters.
               </p>
             </div>
-            <div className="bg-white dark:bg-white/[0.03] rounded-[10px] p-8 border border-[#D9D9D9] dark:border-white/[0.1]">
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white dark:bg-white/[0.03] rounded-none p-8 border border-[#D9D9D9] dark:border-white/[0.1]">
+              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
                 <AlertCircle className="w-6 h-6 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-xl font-semibold text-black dark:text-white mb-3">Accountability</h3>
@@ -169,8 +169,8 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
             and the model's capabilities.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white dark:bg-white/[0.03] rounded-[10px] p-6 border border-[#D9D9D9] dark:border-white/[0.1]">
-              <div className="w-10 h-10 bg-neutral-100 dark:bg-white/[0.08] rounded-[10px] flex items-center justify-center mb-4">
+            <div className="bg-white dark:bg-white/[0.03] rounded-none p-6 border border-[#D9D9D9] dark:border-white/[0.1]">
+              <div className="w-10 h-10 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-4">
                 <Users className="w-5 h-5 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-lg font-semibold text-black dark:text-white mb-2">Copilot</h3>
@@ -179,8 +179,8 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
                 want to stay in control.
               </p>
             </div>
-            <div className="bg-white dark:bg-white/[0.03] rounded-[10px] p-6 border border-[#D9D9D9] dark:border-white/[0.1]">
-              <div className="w-10 h-10 bg-neutral-100 dark:bg-white/[0.08] rounded-[10px] flex items-center justify-center mb-4">
+            <div className="bg-white dark:bg-white/[0.03] rounded-none p-6 border border-[#D9D9D9] dark:border-white/[0.1]">
+              <div className="w-10 h-10 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-4">
                 <Bot className="w-5 h-5 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-lg font-semibold text-black dark:text-white mb-2">Agent</h3>
@@ -189,8 +189,8 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
                 visibility, and interrupt affordances.
               </p>
             </div>
-            <div className="bg-white dark:bg-white/[0.03] rounded-[10px] p-6 border border-[#D9D9D9] dark:border-white/[0.1]">
-              <div className="w-10 h-10 bg-neutral-100 dark:bg-white/[0.08] rounded-[10px] flex items-center justify-center mb-4">
+            <div className="bg-white dark:bg-white/[0.03] rounded-none p-6 border border-[#D9D9D9] dark:border-white/[0.1]">
+              <div className="w-10 h-10 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-4">
                 <Zap className="w-5 h-5 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-lg font-semibold text-black dark:text-white mb-2">Classifier</h3>
@@ -199,8 +199,8 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
                 maintaining oversight on edge cases.
               </p>
             </div>
-            <div className="bg-white dark:bg-white/[0.03] rounded-[10px] p-6 border border-[#D9D9D9] dark:border-white/[0.1]">
-              <div className="w-10 h-10 bg-neutral-100 dark:bg-white/[0.08] rounded-[10px] flex items-center justify-center mb-4">
+            <div className="bg-white dark:bg-white/[0.03] rounded-none p-6 border border-[#D9D9D9] dark:border-white/[0.1]">
+              <div className="w-10 h-10 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-4">
                 <BarChart3 className="w-5 h-5 text-muted dark:text-neutral-400" />
               </div>
               <h3 className="text-lg font-semibold text-black dark:text-white mb-2">Advisor</h3>
@@ -322,7 +322,7 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
             ].map((service) => (
               <div
                 key={service.number}
-                className="bg-white dark:bg-white/[0.03] border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px] p-8 transition-colors"
+                className="bg-white dark:bg-white/[0.03] border border-[#D9D9D9] dark:border-white/[0.1] rounded-none p-8 transition-colors"
               >
                 <p className="text-sm font-semibold text-muted dark:text-neutral-400 mb-2">
                   {service.number}
@@ -416,7 +416,7 @@ const AgenticExperience: React.FC<AgenticExperienceProps> = ({ setCurrentPage })
           </p>
           <button
             onClick={handleContactClick}
-            className="px-8 py-4 bg-white text-black rounded-full hover:bg-gray-100 transition-colors"
+            className="px-8 py-4 bg-white text-black rounded-none hover:bg-gray-100 transition-colors"
           >
             Make Contact
           </button>

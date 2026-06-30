@@ -26,8 +26,8 @@ const SpecializedExpertise: React.FC<SpecializedExpertiseProps> = ({ setCurrentP
           {items.map((item) => {
             const Icon = item.icon;
             return (
-              <div key={item.id} className="p-8 bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-[10px]">
-                <div className="w-10 h-10 rounded-[10px] bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
+              <div key={item.id} className="p-8 bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-none">
+                <div className="w-10 h-10 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
                   <Icon className="w-5 h-5 text-muted dark:text-neutral-400" />
                 </div>
                 <h3 className="text-lg font-semibold text-black dark:text-white mb-3">{item.label}</h3>
