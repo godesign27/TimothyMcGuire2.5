@@ -1,9 +1,27 @@
 import React from 'react';
-import { Globe, Box, Bot, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface SpecializedExpertiseProps {
   setCurrentPage: (page: string) => void;
 }
+
+const items = [
+  {
+    id: 'agentic-experience',
+    label: 'Agentic Experience',
+    description: 'Design AI and agent-powered interfaces that earn user trust through transparency, control, and clear mental models. Strategy through launch.',
+  },
+  {
+    id: 'marketing-web-design',
+    label: 'Marketing Web Design',
+    description: 'Create impactful web experiences that convert visitors into customers. Marketing-focused design combining aesthetics with strategic user journeys.',
+  },
+  {
+    id: 'saas-product-design',
+    label: 'SaaS Product Design',
+    description: 'Build powerful, scalable software solutions with comprehensive design expertise. Intuitive interfaces that drive user engagement and business growth.',
+  },
+];
 
 const SpecializedExpertise: React.FC<SpecializedExpertiseProps> = ({ setCurrentPage }) => {
   const handleNav = (page: string) => {
@@ -11,39 +29,45 @@ const SpecializedExpertise: React.FC<SpecializedExpertiseProps> = ({ setCurrentP
     setCurrentPage(page);
   };
 
-  const items = [
-    { id: 'agentic-experience', icon: Bot, label: 'Agentic Experience', description: 'Design AI and agent-powered interfaces that earn user trust through transparency, control, and clear mental models.' },
-    { id: 'marketing-web-design', icon: Globe, label: 'Marketing Web Design', description: 'Create impactful web experiences that convert visitors into customers with strategic user journeys.' },
-    { id: 'saas-product-design', icon: Box, label: 'SaaS Product Design', description: 'Build powerful, scalable software solutions with comprehensive SaaS design expertise.' },
-  ];
-
   return (
-    <section className="py-24 bg-neutral-50 dark:bg-white/[0.02] border-t border-[#D9D9D9] dark:border-white/[0.1]">
+    <section className="py-24 bg-white dark:bg-neutral-950 border-t border-line dark:border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-semibold text-black dark:text-white mb-12">Specialized Expertise</h2>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {items.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div key={item.id} className="p-8 bg-white dark:bg-transparent border border-[#D9D9D9] dark:border-white/[0.1] rounded-none">
-                <div className="w-10 h-10 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center mb-6">
-                  <Icon className="w-5 h-5 text-muted dark:text-neutral-400" />
-                </div>
-                <h3 className="text-lg font-semibold text-black dark:text-white mb-3">{item.label}</h3>
-                <p className="text-sm text-muted dark:text-neutral-400 mb-6 leading-relaxed">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+          <div>
+            <h2 className="text-2xl font-semibold text-ink dark:text-white mb-2">Specialized Expertise</h2>
+            <div className="w-8 h-[3px] bg-blue" />
+          </div>
+          <button
+            onClick={() => handleNav('services')}
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-blue dark:text-lavender hover:underline self-start md:self-auto"
+          >
+            All services <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-px bg-line dark:bg-white/10">
+          {items.map((item) => (
+            <div
+              key={item.id}
+              className="p-10 bg-white dark:bg-neutral-950 flex flex-col justify-between min-h-[280px]"
+            >
+              <div>
+                <h3 className="text-lg font-semibold text-ink dark:text-white mb-4">{item.label}</h3>
+                <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
                   {item.description}
                 </p>
-                <button
-                  onClick={() => handleNav(item.id)}
-                  className="inline-flex items-center gap-1 text-sm font-medium text-black dark:text-white hover:underline"
-                >
-                  Learn more <ArrowRight className="w-4 h-4" />
-                </button>
               </div>
-            );
-          })}
+              <button
+                onClick={() => handleNav(item.id)}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-blue dark:text-lavender hover:underline mt-8 self-start"
+              >
+                Learn More <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          ))}
         </div>
+
       </div>
     </section>
   );

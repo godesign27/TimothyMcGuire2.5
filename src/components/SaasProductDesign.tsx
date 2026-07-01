@@ -1,347 +1,174 @@
 import React from 'react';
-import { ChevronRight, LayoutGrid, Workflow, Users } from 'lucide-react';
+import PageBreadcrumb from './PageBreadcrumb';
+import RelatedContent from './RelatedContent';
+import SectionCTA from './SectionCTA';
 
 interface SaasProductDesignProps {
   setCurrentPage: (page: string) => void;
 }
 
+const capabilities = [
+  { label: 'User Research', body: 'Interviews, usability testing, and analytics review to understand how users actually work — not how we think they work. Research that leads to decisions, not decks.' },
+  { label: 'Information Architecture', body: 'Logical structure and navigation flow built around user mental models and task frequency. Role-based IA for multi-tenant platforms with different user types.' },
+  { label: 'Interaction Design', body: 'Micro-interactions, workflow patterns, and progressive disclosure that make complex functionality feel intuitive and reduce cognitive load on repeat tasks.' },
+  { label: 'Design Systems', body: 'Scalable component libraries with token architecture, consistent interaction patterns, and documentation that design and engineering both actually use.' },
+  { label: 'Prototyping', body: 'Interactive prototypes for testing and stakeholder alignment — from low-fidelity concept through high-fidelity specification, matched to what each stage needs.' },
+  { label: 'Developer Handoff', body: 'Detailed specifications, component documentation, and continued support through implementation. Design does not end at Figma export.' },
+];
+
+const process = [
+  { step: '01', label: 'Research & Strategy', body: 'Stakeholder interviews, user research, and analytics review to build a shared picture of what users need and where the product is currently failing them.' },
+  { step: '02', label: 'UX Architecture', body: 'Design the core information architecture and workflow patterns. The structural work that determines whether the product makes sense — before any visual design.' },
+  { step: '03', label: 'UI Design & Systems', body: 'High-fidelity interfaces built within or alongside a design system. Consistency enforced through components, not manual review.' },
+  { step: '04', label: 'Testing & Iteration', body: 'Usability testing against real tasks with real users. Findings fed directly back into design — not filed and forgotten.' },
+];
+
+const portfolio = [
+  {
+    tag: 'Enterprise',
+    image: 'https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Ion-SaaS-design.png',
+    alt: 'ION MVP',
+    title: 'UL SaaS Tool',
+    description: 'An MVP Design for UL Clients to perform compliance analysis.',
+  },
+  {
+    tag: 'Government',
+    image: 'https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Atom-Manager.png',
+    alt: 'Atom Manager',
+    title: 'Atom Manager SaaS Application Tool',
+    description: 'Redesigned a user-friendly SaaS tool. Improved the UX/UI design patterns being used to make user tasks more intuitive, predictable and easy to use.',
+  },
+  {
+    tag: 'Healthcare',
+    image: 'https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/ZS-Deployment.png',
+    alt: 'ZS SaaS Redesign',
+    title: 'ZS SaaS Product',
+    description: 'Spent eight years helping ZS transform their SaaS deployment platform — advocating for a modern design system and shaping user-focused experiences that aligned client needs with business goals.',
+  },
+];
+
 const SaasProductDesign: React.FC<SaasProductDesignProps> = ({ setCurrentPage }) => {
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const handleContactClick = () => {
-    window.scrollTo(0, 0);
-    setCurrentPage('contact');
-  };
-
-  const handleSolutionsClick = () => {
-    window.scrollTo(0, 0);
-    setCurrentPage('solutions');
-  };
+  React.useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950">
-      {/* Hero Section with Breadcrumb */}
-      <section className="relative overflow-hidden bg-white dark:bg-neutral-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <nav className="flex py-4 mb-8" aria-label="Breadcrumb">
-            <ol className="flex items-center space-x-2">
-              <li>
-                <button
-                  onClick={() => setCurrentPage('services')}
-                  className="text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white"
-                >
-                  Services
-                </button>
-              </li>
-              <ChevronRight className="w-4 h-4 text-muted dark:text-neutral-400" />
-              <li className="text-black dark:text-white font-medium">SaaS Product Design</li>
-            </ol>
-          </nav>
+    <main className="min-h-screen bg-tan-100 dark:bg-neutral-950">
 
-          <div>
-            <h1 className="text-4xl md:text-7xl font-regular text-black dark:text-white mb-6">
-              SaaS Product Design<br />
-              That Drives Growth
-            </h1>
-            <p className="text-xl text-muted dark:text-neutral-400 max-w-2xl">
-              We design intuitive, scalable SaaS products that users love. Our approach
-              combines deep user research, strategic thinking, and beautiful design to
-              create products that drive engagement and business growth.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Features */}
-      <section className="py-20">
+      {/* Hero */}
+      <section className="bg-white dark:bg-neutral-950 py-24 border-b border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-12">
+          <PageBreadcrumb
+            items={[{ label: 'Services', pageId: 'services' }, { label: 'SaaS Product Design' }]}
+            setCurrentPage={setCurrentPage}
+          />
+          <div className="grid lg:grid-cols-2 gap-16 items-end pt-8">
             <div>
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
-                <Users className="w-6 h-6 text-muted dark:text-neutral-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-black dark:text-white mb-4">
-                User-Centric Design
-              </h3>
-              <p className="text-muted dark:text-neutral-400">
-                We create intuitive interfaces that make complex functionality feel simple and natural to your users.
+              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">Service</p>
+              <h1 className="text-4xl sm:text-5xl font-semibold text-ink dark:text-tan-500 tracking-tight leading-tight mb-6">
+                SaaS product design that drives growth.
+              </h1>
+              <p className="text-base text-muted dark:text-neutral-400 leading-relaxed">
+                I design intuitive, scalable SaaS products through deep user research, strategic information architecture, and tight collaboration with engineering — from the first wireframe to the last component spec.
               </p>
             </div>
-            <div>
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
-                <LayoutGrid className="w-6 h-6 text-muted dark:text-neutral-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-black dark:text-white mb-4">
-                Design Systems
-              </h3>
-              <p className="text-muted dark:text-neutral-400">
-                Build scalable products with consistent, reusable components that grow with your business.
-              </p>
-            </div>
-            <div>
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
-                <Workflow className="w-6 h-6 text-muted dark:text-neutral-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-black dark:text-white mb-4">
-                Workflow Optimization
-              </h3>
-              <p className="text-muted dark:text-neutral-400">
-                Streamline user workflows to improve efficiency and reduce friction in key tasks.
-              </p>
+            <div className="grid grid-cols-3 gap-px bg-line dark:bg-white/10">
+              {[
+                { stat: '15+', label: 'Years SaaS UX' },
+                { stat: 'B2B', label: 'Enterprise focus' },
+                { stat: 'Ship', label: 'Dev-ready handoff' },
+              ].map((item) => (
+                <div key={item.label} className="bg-tan dark:bg-neutral-900 p-6">
+                  <p className="text-xl font-semibold text-ink dark:text-white mb-1">{item.stat}</p>
+                  <p className="text-xs text-muted dark:text-neutral-500 leading-snug">{item.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* What's Included */}
-      <section className="py-20 bg-white dark:bg-neutral-950">
+      {/* Capabilities */}
+      <section className="bg-white dark:bg-neutral-950 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-black dark:text-white mb-12">What's Included</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-black dark:text-white mb-1">User Research</h3>
-                  <p className="text-muted dark:text-neutral-400">Deep understanding of user needs and behaviors</p>
-                </div>
+          <div className="mb-12">
+            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">Capabilities</p>
+            <h2 className="text-2xl font-semibold text-ink dark:text-white">What's included.</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-line dark:bg-white/10">
+            {capabilities.map((cap) => (
+              <div key={cap.label} className="bg-white dark:bg-neutral-950 p-8">
+                <h3 className="text-sm font-semibold text-ink dark:text-white mb-3">{cap.label}</h3>
+                <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">{cap.body}</p>
               </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-black dark:text-white mb-1">Information Architecture</h3>
-                  <p className="text-muted dark:text-neutral-400">Logical structure and navigation flow</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-black dark:text-white mb-1">Interaction Design</h3>
-                  <p className="text-muted dark:text-neutral-400">Intuitive and engaging user interactions</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-black dark:text-white mb-1">Design Systems</h3>
-                  <p className="text-muted dark:text-neutral-400">Scalable component libraries and guidelines</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-black dark:text-white mb-1">Prototyping</h3>
-                  <p className="text-muted dark:text-neutral-400">Interactive prototypes for testing and validation</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-black dark:text-white mb-1">Developer Handoff</h3>
-                  <p className="text-muted dark:text-neutral-400">Detailed specifications and assets for development</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-20">
+      {/* Process */}
+      <section className="bg-tan dark:bg-neutral-900 py-24 border-t border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-black dark:text-white mb-12">Our Process</h2>
-          <div className="space-y-12">
-            <div className="flex gap-8">
-              <div className="w-12 h-12 flex-shrink-0 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center text-black dark:text-white font-semibold">
-                01
+          <div className="mb-12">
+            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">Process</p>
+            <h2 className="text-2xl font-semibold text-ink dark:text-white">How I approach a SaaS design engagement.</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-line dark:bg-white/10">
+            {process.map((p) => (
+              <div key={p.step} className="bg-white dark:bg-neutral-950 p-8">
+                <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-4">{p.step}</p>
+                <h3 className="text-sm font-semibold text-blue dark:text-lavender uppercase tracking-wider mb-3">{p.label}</h3>
+                <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">{p.body}</p>
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-2">
-                  Research & Strategy
-                </h3>
-                <p className="text-muted dark:text-neutral-400">
-                  We start by understanding your users, market, and business goals to create a strategic foundation for your product.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-8">
-              <div className="w-12 h-12 flex-shrink-0 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center text-black dark:text-white font-semibold">
-                02
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-2">
-                  UX Architecture
-                </h3>
-                <p className="text-muted dark:text-neutral-400">
-                  Design the core structure and workflows of your product, ensuring a logical and efficient user experience.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-8">
-              <div className="w-12 h-12 flex-shrink-0 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center text-black dark:text-white font-semibold">
-                03
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-2">
-                  UI Design & Systems
-                </h3>
-                <p className="text-muted dark:text-neutral-400">
-                  Create beautiful, consistent interfaces and establish a scalable design system for future growth.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex gap-8">
-              <div className="w-12 h-12 flex-shrink-0 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center text-black dark:text-white font-semibold">
-                04
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-2">
-                  Testing & Iteration
-                </h3>
-                <p className="text-muted dark:text-neutral-400">
-                  Validate designs through user testing and iterate based on real feedback to ensure product success.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Solutions CTA Section */}
-      {/* Design Solutions Grid */}
-      <section className="py-20 bg-white dark:bg-neutral-950">
+      {/* Portfolio */}
+      <section className="bg-white dark:bg-neutral-950 py-24 border-t border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-black dark:text-white mb-12 text-center">A Sample of SaaS Design Solutions</h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Mopar Redesign */}
-            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-none overflow-hidden">
-              <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-none bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
-                  Enterprise
-                </span>
-                <img 
-                  src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Ion-SaaS-design.png"
-                  alt="ION MVP" 
-                  className="w-full h-full object-contain"
-                />
+          <div className="mb-12">
+            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">Sample Work</p>
+            <h2 className="text-2xl font-semibold text-ink dark:text-white">A sample of SaaS design solutions.</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-px bg-line dark:bg-white/10">
+            {portfolio.map((item) => (
+              <div key={item.title} className="bg-white dark:bg-neutral-950">
+                <div className="aspect-[4/3] bg-tan dark:bg-neutral-900 relative overflow-hidden">
+                  <span className="absolute top-4 left-4 z-10 text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest border border-blue/30 dark:border-lavender/30 px-2 py-1 bg-white dark:bg-neutral-950">
+                    {item.tag}
+                  </span>
+                  <img src={item.image} alt={item.alt} className="w-full h-full object-contain" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-base font-semibold text-ink dark:text-white mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">{item.description}</p>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-3">
-                  UL SaaS Tool
-                </h3>
-                <p className="text-muted dark:text-neutral-400 text-sm">
-                  An MVP Design for UL Clients to perform compliance analysis.
-                </p>
-              </div>
-            </div>
-
-            {/* Atom Manager Redesign */}
-            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-none overflow-hidden">
-              <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-none bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
-                  Government
-                </span>
-                <img 
-                  src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Atom-Manager.png" 
-                  alt="Atom Manager full object-contain"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-3">
-                  Atom Manager SaaS Application Tool
-                </h3>
-                <p className="text-muted dark:text-neutral-400 text-sm">
-                  Redesign Designed a user-friendly SaaS tool. We improved the UX/UI design patterns being used to make the user tasks more intuitive, predictable and easy to use.
-                </p>
-              </div>
-            </div>
-
-            {/* ZS SaaS product Redesign */}
-            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-none overflow-hidden">
-              <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-none bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
-                  Healthcare
-                </span>
-                <img 
-                  src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/ZS-Deployment.png" 
-                  alt="ZS SaaS Redesign" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-3">
-                  ZS SaaS Product
-                </h3>
-                <p className="text-muted dark:text-neutral-400 text-sm">
-                  I spent eight years helping ZS transform their SaaS deployment platform--advocating for a modern design system and shaping user-focused experiences that aligned client needs with business goals.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Solutions CTA Section */}
-      <section className="py-20 bg-white dark:bg-neutral-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">
-            Ready to See the Solutions in Action?
-          </h2>
-          <p className="text-xl text-muted dark:text-neutral-400 mb-8 max-w-2xl mx-auto">
-            Explore how our services come to life through tailored solutions that solve real problems.
-          </p>
-          <button
-            onClick={handleSolutionsClick}
-            className="btn-primary px-8 py-4 rounded-none"
-          >
-            View Our Solutions
-          </button>
-        </div>
-      </section>
+      <RelatedContent
+        setCurrentPage={setCurrentPage}
+        heading="Related"
+        items={[
+          { id: 'enterprise-ux-consulting', eyebrow: 'Service', label: 'Enterprise UX Consulting', description: 'Senior UX expertise for complex enterprise products.' },
+          { id: 'solutions-enterprise-saas', eyebrow: 'Solution', label: 'Enterprise SaaS', description: 'Designing complex, multi-tenant SaaS platforms at scale.' },
+          { id: 'fractional-saas-designer', eyebrow: 'Service', label: 'Fractional SaaS Designer', description: 'Embedded senior design leadership on retainer.' },
+        ]}
+      />
 
-      {/* CTA Section */}
-      <section className="relative py-20 overflow-hidden bg-black dark:bg-neutral-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Seen enough? Let's create<br />something beautiful.
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            We'd love to learn more about how we can help your business.
-          </p>
-          <button
-            onClick={handleContactClick}
-            className="px-8 py-4 bg-white text-black rounded-none hover:bg-gray-100 transition-colors"
-          >
-            Make Contact
-          </button>
-        </div>
-      </section>
-    </div>
+      <SectionCTA
+        heading="Ready to improve your SaaS product?"
+        body="Tell me about your product, your users, and where things are breaking down. I'll tell you what good looks like and how to get there."
+        primaryLabel="Get in Touch"
+        primaryPage="contact"
+        secondaryLabel="See Solutions"
+        secondaryPage="solutions"
+        setCurrentPage={setCurrentPage}
+      />
+    </main>
   );
 };
 

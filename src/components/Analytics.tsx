@@ -307,7 +307,7 @@ const Analytics: React.FC = () => {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Site Analytics</h1>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-tan-500">Site Analytics</h1>
             <p className="text-sm text-gray-500 dark:text-neutral-500 mt-1">
               Last updated {lastRefresh.toLocaleTimeString()}
             </p>

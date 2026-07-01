@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Clock, Users, PenTool as Tool } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 
 interface CaseStudyDetailProps {
   setCurrentPage: (page: string) => void;
@@ -7,49 +7,43 @@ interface CaseStudyDetailProps {
 }
 
 const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSelectedCaseStudy }) => {
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  React.useEffect(() => { window.scrollTo(0, 0); }, []);
 
   const handleBackClick = () => {
-    // Scroll to top first
     window.scrollTo(0, 0);
-    // Clear the selected case study first
     setSelectedCaseStudy(null);
-    // Then navigate back to solutions
     setCurrentPage('solutions');
   };
 
-  return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950">
-      {/* Hero Section */}
-      <section className="bg-white dark:bg-neutral-950 py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Back to Solutions Button */}
-          <div className="py-4">
-            <button
-              onClick={handleBackClick}
-              className="inline-flex items-center px-4 py-2 text-sm font-medium text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors"
-            >
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to Solutions
-            </button>
-          </div>
+  const tag = (label: string) => (
+    <span className="inline-flex items-center px-3 py-1 bg-ink dark:bg-neutral-800 text-white text-xs font-medium">
+      {label}
+    </span>
+  );
 
-          <div className="py-2">
-            <h1 className="text-4xl md:text-7xl font-regular text-black dark:text-white tracking-tight mb-6">
-              Transform Healthcare Decisions with <br />
-              Data Driven Insights.
-            </h1>
-            <p className="text-xl text-black dark:text-neutral-300 max-w-4xl">
-              Unlock contract value, optimize performance, and manage population risk—all in one platform.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-8 lg:py-12">
-            {/* Dashboard Image - 9 columns (75%) on desktop */}
-            <div className="lg:col-span-9 relative bg-white rounded-none border border-[#D9D9D9] dark:border-white/[0.1] overflow-hidden aspect-[4/3] lg:aspect-auto">
+  return (
+    <div className="min-h-screen bg-tan-100 dark:bg-neutral-950">
+
+      {/* Hero */}
+      <section className="bg-white dark:bg-neutral-950 py-24 border-b border-line dark:border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <button
+            onClick={handleBackClick}
+            className="inline-flex items-center gap-2 text-sm text-muted dark:text-neutral-400 hover:text-ink dark:hover:text-white transition-colors mb-8"
+          >
+            <ArrowLeft className="w-4 h-4" /> Back to Solutions
+          </button>
+
+          <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">Case Study</p>
+          <h1 className="text-4xl md:text-6xl font-semibold text-ink dark:text-tan-500 tracking-tight mb-6 leading-tight">
+            Transform Healthcare Decisions with<br />Data-Driven Insights.
+          </h1>
+          <p className="text-xl text-muted dark:text-neutral-400 max-w-4xl mb-12">
+            Unlock contract value, optimize performance, and manage population risk — all in one platform.
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            <div className="lg:col-span-9 relative bg-white border border-line dark:border-white/10 overflow-hidden aspect-[4/3] lg:aspect-auto">
               <img
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/core-hero.png"
                 alt="Healthcare Dashboard"
@@ -58,39 +52,36 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
                 decoding="async"
               />
             </div>
-
-            {/* Content - 3 columns (25%) on desktop */}
             <div className="lg:col-span-3 flex flex-col items-start">
-              {/* Project Details Card */}
-              <div className="mt-4 lg:mt-6 bg-white dark:bg-white/[0.03] rounded-none p-6 lg:p-8 border border-[#D9D9D9] dark:border-white/[0.1]">
-                <h2 className="text-2xl font-semibold text-black dark:text-white mb-4">SaaS Product Solution</h2>
+              <div className="bg-tan dark:bg-neutral-900 p-6 lg:p-8 border border-line dark:border-white/10 w-full">
+                <h2 className="text-base font-semibold text-ink dark:text-white mb-6">SaaS Product Solution</h2>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="text-muted dark:text-neutral-400 text-sm">ROLE(s)</h4>
-                    <p className="text-black dark:text-white font-bold text-sm">Principal UX Designer + UX Director + Creative Director</p>
+                    <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-1">Role</p>
+                    <p className="text-sm text-ink dark:text-white font-medium">Principal UX Designer + UX Director + Creative Director</p>
                   </div>
                   <div>
-                    <h4 className="text-muted dark:text-neutral-400 text-sm">THE CLIENT</h4>
-                    <p className="text-black dark:text-white font-bold text-sm">Gray Matter Analytics</p>
+                    <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-1">Client</p>
+                    <p className="text-sm text-ink dark:text-white font-medium">Gray Matter Analytics</p>
                   </div>
                   <div>
-                    <h4 className="text-muted dark:text-neutral-400 text-sm">TOOLS</h4>
-                    <p className="text-black dark:text-white font-bold text-sm">Sketch, Figma, Zeplin, Teams, Jira, InVision</p>
+                    <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-1">Tools</p>
+                    <p className="text-sm text-muted dark:text-neutral-400">Sketch, Figma, Zeplin, Teams, Jira, InVision</p>
                   </div>
                   <div>
-                    <h4 className="text-muted dark:text-neutral-400 text-sm">SERVICES</h4>
-                    <ul className="text-black dark:text-white font-bold text-sm space-y-1">
-                      <li>• User Experience Design</li>
-                      <li>• User Interface Design</li>
-                      <li>• Design Library Creation</li>
-                      <li>• Prototype</li>
-                      <li>• Brand Development</li>
-                      <li>• Logo Design</li>
+                    <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-1">Services</p>
+                    <ul className="text-sm text-muted dark:text-neutral-400 space-y-0.5">
+                      <li>User Experience Design</li>
+                      <li>User Interface Design</li>
+                      <li>Design Library Creation</li>
+                      <li>Prototype</li>
+                      <li>Brand Development</li>
+                      <li>Logo Design</li>
                     </ul>
                   </div>
                   <div>
-                    <h4 className="text-muted dark:text-neutral-400 text-sm">DURATION</h4>
-                    <p className="text-black dark:text-white font-bold text-sm">Sept 2016 - Sept 2022</p>
+                    <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-1">Duration</p>
+                    <p className="text-sm text-muted dark:text-neutral-400">Sept 2016 – Sept 2022</p>
                   </div>
                 </div>
               </div>
@@ -99,290 +90,164 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
         </div>
       </section>
 
-      {/* Row 2 - Strategy Section */}
+      {/* Editorial context */}
+      <section className="py-16 bg-white dark:bg-neutral-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-3 gap-px bg-line dark:bg-white/10">
+            <div className="bg-white dark:bg-neutral-950 p-8">
+              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">The Challenge</p>
+              <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
+                Gray Matter Analytics needed to transform complex value-based care data into a platform that healthcare administrators could actually use. The existing tools required specialist interpretation — the goal was to make population risk management and contract performance analysis accessible to any clinical leader.
+              </p>
+            </div>
+            <div className="bg-white dark:bg-neutral-950 p-8">
+              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">My Approach</p>
+              <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
+                As Principal UX/UI Designer from MVP through to a mature product, I drove the complete design journey: user research with healthcare administrators, information architecture for complex multi-dimensional data, progressive disclosure to surface insight without overwhelming users, and an iterative design system that scaled across the product.
+              </p>
+            </div>
+            <div className="bg-tan dark:bg-neutral-900 p-8">
+              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">Outcome</p>
+              <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
+                A full-featured SaaS healthcare analytics platform built from the ground up. Role-based dashboards, contract performance tracking, population risk tools, and a design library that enabled a small engineering team to ship consistently complex UI with speed and quality.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Strategy */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white dark:bg-white/[0.03] rounded-none p-6 lg:p-12 border border-[#D9D9D9] dark:border-white/[0.1]">
-            <span className="inline-flex items-center px-4 py-1.5 bg-black dark:bg-neutral-900 text-white text-sm font-medium rounded-none mb-6 lg:mb-8">
-              The Strategy
-            </span>
-            <h2 className="text-2xl lg:text-4xl font-bold text-black dark:text-white mb-4 lg:mb-6">
+          <div className="bg-tan dark:bg-neutral-900 p-6 lg:p-12 border border-line dark:border-white/10">
+            {tag('The Strategy')}
+            <h2 className="text-2xl lg:text-4xl font-semibold text-ink dark:text-white mt-6 mb-4">
               Provide patient management through intuitive design and powerful functionality.
             </h2>
-            <p className="text-lg lg:text-xl text-muted dark:text-neutral-400">
+            <p className="text-lg text-muted dark:text-neutral-400">
               A comprehensive solution that puts healthcare professionals first.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Row 3 - Three Card Section */}
+      {/* Three-col: Before / Role / Persona */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-            {/* First Card - full width on mobile, 6 columns on desktop */}
-            <div className="lg:col-span-6 bg-white dark:bg-white/[0.03] rounded-none border border-[#D9D9D9] dark:border-white/[0.1] relative overflow-hidden aspect-[4/3] lg:aspect-auto">
-              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-black dark:bg-neutral-900 text-white text-sm font-medium rounded-none">
-                Before
-              </span>
-              <img
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/before.png"
-                alt="Before"
-                className="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
+            <div className="lg:col-span-6 bg-white dark:bg-neutral-950 border border-line dark:border-white/10 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <div className="absolute top-6 left-6 z-10">{tag('Before')}</div>
+              <img src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/before.png" alt="Before" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
-
-            {/* Second Card - full width on mobile, 3 columns on desktop */}
-            <div className="lg:col-span-3 bg-white dark:bg-white/[0.03] rounded-none p-6 lg:p-8 border border-[#D9D9D9] dark:border-white/[0.1]">
-              <span className="inline-flex items-center px-4 py-1.5 bg-black dark:bg-neutral-900 text-white text-sm font-medium rounded-none mb-6 lg:mb-8">
-                UX Design
-              </span>
-              <h3 className="text-lg lg:text-xl font-semibold text-black dark:text-white mb-4">
-                Principle UX/UI Designer
-              </h3>
-              <p className="text-sm lg:text-base text-muted dark:text-neutral-400">
-                As Principal UX/UI Designer, I shaped Coretechs' MVP by driving the complete design journey—translating business needs into a user-centered product through research, problem-solving, empathy, design iteration, and prototyping.
+            <div className="lg:col-span-3 bg-white dark:bg-neutral-950 p-6 lg:p-8 border border-line dark:border-white/10">
+              {tag('UX Design')}
+              <h3 className="text-base font-semibold text-ink dark:text-white mt-6 mb-4">Principal UX/UI Designer</h3>
+              <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
+                As Principal UX/UI Designer, I shaped Coretechs' MVP by driving the complete design journey — translating business needs into a user-centered product through research, problem-solving, empathy, design iteration, and prototyping.
               </p>
             </div>
-
-            {/* Third Card - full width on mobile, 3 columns on desktop */}
-            <div className="lg:col-span-3 bg-white dark:bg-white/[0.03] rounded-none border border-[#D9D9D9] dark:border-white/[0.1] relative overflow-hidden aspect-[4/3] lg:aspect-auto">
-              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-black dark:bg-neutral-900 text-white text-sm font-medium rounded-none">
-                Persona
-              </span>
-              <img
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/healthcare-user.png"
-                alt="Healthcare Professional"
-                className="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
+            <div className="lg:col-span-3 bg-white dark:bg-neutral-950 border border-line dark:border-white/10 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <div className="absolute top-6 left-6 z-10">{tag('Persona')}</div>
+              <img src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/healthcare-user.png" alt="Healthcare Professional" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Row 4 - Two Card Section */}
+      {/* Two-col: Strategy + Site Map */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            {/* First Card */}
-            <div className="bg-white dark:bg-white/[0.03] rounded-none border border-[#D9D9D9] dark:border-white/[0.1] relative overflow-hidden aspect-[4/3] lg:aspect-auto">
-              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-black dark:bg-neutral-900 text-white text-sm font-medium rounded-none">
-                UX Strategy
-              </span>
-              <img
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/requirements.png"
-                alt="Requirements"
-                className="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
+            <div className="bg-white dark:bg-neutral-950 border border-line dark:border-white/10 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <div className="absolute top-6 left-6 z-10">{tag('UX Strategy')}</div>
+              <img src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/requirements.png" alt="Requirements" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
-
-            {/* Second Card */}
-            <div className="bg-white dark:bg-white/[0.03] rounded-none border border-[#D9D9D9] dark:border-white/[0.1] relative overflow-hidden aspect-[4/3] lg:aspect-auto">
-              <div className="flex space-x-2 absolute top-6 lg:top-8 left-6 lg:left-8 z-10">
-                <span className="inline-flex items-center px-4 py-1.5 bg-black dark:bg-neutral-900 text-white text-sm font-medium rounded-none">
-                  UX Design
-                </span>
-                <span className="inline-flex items-center px-4 py-1.5 bg-black dark:bg-neutral-900 text-white text-sm font-medium rounded-none">
-                  Site Map
-                </span>
-              </div>
-              <img
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/site-map.png"
-                alt="Site Map"
-                className="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
+            <div className="bg-white dark:bg-neutral-950 border border-line dark:border-white/10 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <div className="absolute top-6 left-6 z-10 flex gap-2">{tag('UX Design')}{tag('Site Map')}</div>
+              <img src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/site-map.png" alt="Site Map" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Row 5 - Design Principles Section */}
+      {/* Design Principles */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-flex items-center px-4 py-1.5 bg-black dark:bg-neutral-900 text-white text-sm font-medium rounded-none mb-6">
-            Design Direction
-          </span>
-          <h2 className="text-2xl lg:text-4xl font-bold text-black dark:text-white mb-12">Design Principles</h2>
+          {tag('Design Direction')}
+          <h2 className="text-2xl lg:text-4xl font-semibold text-ink dark:text-white mt-6 mb-12">Design Principles</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            {/* Top Row */}
-            <div className="bg-neutral-100 dark:bg-white/[0.05] rounded-none p-6 lg:p-8 border border-[#D9D9D9] dark:border-white/[0.1]">
-              <h3 className="text-2xl lg:text-4xl font-bold text-black dark:text-white mb-6">Empowering</h3>
-              <div className="flex flex-col lg:flex-row lg:justify-between space-y-4 lg:space-y-0">
-                <span className="text-base lg:text-xl text-black dark:text-white">Insightful</span>
-                <span className="text-base lg:text-xl text-black dark:text-white">Meaningful</span>
-                <span className="text-base lg:text-xl text-black dark:text-white">Useful</span>
+            {[
+              { title: 'Empowering', values: ['Insightful', 'Meaningful', 'Useful'] },
+              { title: 'Harmonious', values: ['Intentional', 'Minimal', 'Elegant'] },
+              { title: 'Simple', values: ['Focused', 'Efficient', 'Prioritized', 'Progressive Disclosure'] },
+              { title: 'Learnable', values: ['Intuitive', 'Familiar', 'Predictable', 'Usable'] },
+            ].map((p) => (
+              <div key={p.title} className="bg-tan dark:bg-neutral-900 border border-line dark:border-white/10 p-6 lg:p-8">
+                <h3 className="text-2xl lg:text-4xl font-semibold text-ink dark:text-white mb-6">{p.title}</h3>
+                <div className="flex flex-col lg:flex-row lg:justify-between gap-4">
+                  {p.values.map((v) => <span key={v} className="text-base text-ink dark:text-white">{v}</span>)}
+                </div>
               </div>
-            </div>
-            <div className="bg-neutral-100 dark:bg-white/[0.05] rounded-none p-6 lg:p-8 border border-[#D9D9D9] dark:border-white/[0.1]">
-              <h3 className="text-2xl lg:text-4xl font-bold text-black dark:text-white mb-6">Harmonious</h3>
-              <div className="flex flex-col lg:flex-row lg:justify-between space-y-4 lg:space-y-0">
-                <span className="text-base lg:text-xl text-black dark:text-white">Intentional</span>
-                <span className="text-base lg:text-xl text-black dark:text-white">Minimal</span>
-                <span className="text-base lg:text-xl text-black dark:text-white">Elegant</span>
-              </div>
-            </div>
-            {/* Bottom Row */}
-            <div className="bg-neutral-100 dark:bg-white/[0.05] rounded-none p-6 lg:p-8 border border-[#D9D9D9] dark:border-white/[0.1]">
-              <h3 className="text-2xl lg:text-4xl font-bold text-black dark:text-white mb-6">Simple</h3>
-              <div className="flex flex-col lg:flex-row lg:justify-between space-y-4 lg:space-y-0">
-                <span className="text-base lg:text-xl text-black dark:text-white">Focused</span>
-                <span className="text-base lg:text-xl text-black dark:text-white">Efficient</span>
-                <span className="text-base lg:text-xl text-black dark:text-white">Prioritized</span>
-                <span className="text-base lg:text-xl text-black dark:text-white">Progressive Disclosure</span>
-              </div>
-            </div>
-            <div className="bg-neutral-100 dark:bg-white/[0.05] rounded-none p-6 lg:p-8 border border-[#D9D9D9] dark:border-white/[0.1]">
-              <h3 className="text-2xl lg:text-4xl font-bold text-black dark:text-white mb-6">Learnable</h3>
-              <div className="flex flex-col lg:flex-row lg:justify-between space-y-4 lg:space-y-0">
-                <span className="text-base lg:text-xl text-black dark:text-white">Intuitive</span>
-                <span className="text-base lg:text-xl text-black dark:text-white">Familiar</span>
-                <span className="text-base lg:text-xl text-black dark:text-white">Predictable</span>
-                <span className="text-base lg:text-xl text-black dark:text-white">Usable</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Row 6 - Two Image Cards */}
+      {/* Wireframe + Color */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            {/* First Card */}
-            <div className="bg-white dark:bg-white/[0.03] rounded-none border border-[#D9D9D9] dark:border-white/[0.1] relative overflow-hidden aspect-[4/3] lg:aspect-auto">
-              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-black dark:bg-neutral-900 text-white text-sm font-medium rounded-none">
-                UX Design
-              </span>
-              <img
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/wireframe.png"
-                alt="Wireframe"
-                className="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
+            <div className="bg-white dark:bg-neutral-950 border border-line dark:border-white/10 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <div className="absolute top-6 left-6 z-10">{tag('UX Design')}</div>
+              <img src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/wireframe.png" alt="Wireframe" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
-
-            {/* Second Card */}
-            <div className="bg-white dark:bg-white/[0.03] rounded-none border border-[#D9D9D9] dark:border-white/[0.1] relative overflow-hidden aspect-[4/3] lg:aspect-auto">
-              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-black dark:bg-neutral-900 text-white text-sm font-medium rounded-none">
-                UI Design
-              </span>
-              <img
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/color-harmony%20(1).png"
-                alt="Color Harmony"
-                className="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
+            <div className="bg-white dark:bg-neutral-950 border border-line dark:border-white/10 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <div className="absolute top-6 left-6 z-10">{tag('UI Design')}</div>
+              <img src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/color-harmony%20(1).png" alt="Color Harmony" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Row 7 - Color Palette Card */}
+      {/* Color Palette */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-neutral-100 dark:bg-white/[0.05] rounded-none border border-[#D9D9D9] dark:border-white/[0.1] relative overflow-hidden p-6 lg:p-8">
-            <span className="inline-flex items-center px-4 py-1.5 bg-black dark:bg-neutral-900 text-white text-sm font-medium rounded-none mb-4">
-              UI Design
-            </span>
-            <h2 className="text-2xl lg:text-4xl font-regular text-black dark:text-white mb-6">Color Palette</h2>
-            <img
-              src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/colorpalette2.png"
-              alt="Color Palette"
-              className="w-full h-full object-cover rounded-none"
-              loading="lazy"
-              decoding="async"
-            />
+          <div className="bg-tan dark:bg-neutral-900 border border-line dark:border-white/10 p-6 lg:p-8">
+            {tag('UI Design')}
+            <h2 className="text-2xl lg:text-4xl font-semibold text-ink dark:text-white mt-4 mb-6">Color Palette</h2>
+            <img src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/colorpalette2.png" alt="Color Palette" className="w-full object-cover" loading="lazy" decoding="async" />
           </div>
         </div>
       </section>
 
-      {/* Row 8 - Button Component Card */}
+      {/* Button Component */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-neutral-100 dark:bg-white/[0.05] rounded-none border border-[#D9D9D9] dark:border-white/[0.1] relative overflow-hidden p-6 lg:p-8">
-            <div className="flex space-x-2 mb-4">
-              <span className="inline-flex items-center px-4 py-1.5 bg-black dark:bg-neutral-900 text-white text-sm font-medium rounded-none">
-                UI Design
-              </span>
-              <span className="inline-flex items-center px-4 py-1.5 bg-black dark:bg-neutral-900 text-white text-sm font-regular rounded-none">
-                Component Definition
-              </span>
-            </div>
-            <h2 className="text-2xl lg:text-4xl font-regular text-black dark:text-white mb-6">Button Component</h2>
-            <img
-              src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/button-component.png"
-              alt="Button Component"
-              className="w-full h-full object-cover rounded-none"
-              loading="lazy"
-              decoding="async"
-            />
+          <div className="bg-tan dark:bg-neutral-900 border border-line dark:border-white/10 p-6 lg:p-8">
+            <div className="flex gap-2 mb-4">{tag('UI Design')}{tag('Component Definition')}</div>
+            <h2 className="text-2xl lg:text-4xl font-semibold text-ink dark:text-white mb-6">Button Component</h2>
+            <img src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/button-component.png" alt="Button Component" className="w-full object-cover" loading="lazy" decoding="async" />
           </div>
         </div>
       </section>
 
-      {/* Row 9 - Page Designs Card */}
+      {/* Final Page Designs */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white dark:bg-white/[0.03] rounded-none border border-[#D9D9D9] dark:border-white/[0.1] relative overflow-hidden p-6 lg:p-8">
-            <div className="flex space-x-2 mb-4">
-              <span className="inline-flex items-center px-4 py-1.5 bg-black dark:bg-neutral-900 text-white text-sm font-medium rounded-none">
-                UI Design
-              </span>
-              <span className="inline-flex items-center px-4 py-1.5 bg-black dark:bg-neutral-900 text-white text-sm font-regular rounded-none">
-                Final Designs
-              </span>
-            </div>
-            <h2 className="text-2xl lg:text-4xl font-regular text-black dark:text-white mb-6">Page Designs</h2>
+          <div className="bg-white dark:bg-neutral-950 border border-line dark:border-white/10 p-6 lg:p-8">
+            <div className="flex gap-2 mb-4">{tag('UI Design')}{tag('Final Designs')}</div>
+            <h2 className="text-2xl lg:text-4xl font-semibold text-ink dark:text-white mb-6">Page Designs</h2>
             <div className="space-y-6">
-              <img
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Dashboard%20-%20Summary.png"
-                alt="Dashboard Summary"
-                className="w-full rounded-none"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Measure-detail-overview.png"
-                alt="Measure Detail Overview"
-                className="w-full rounded-none"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Measure-detailcard-practices.png"
-                alt="Measure Detail Card Practices"
-                className="w-full rounded-none"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Members.detail.png"
-                alt="Members Detail"
-                className="w-full rounded-none"
-                loading="lazy"
-                decoding="async"
-              />
-              <img
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Population%20Builder%20Landing%20Page.png"
-                alt="Population Builder Landing Page"
-                className="w-full rounded-none"
-                loading="lazy"
-                decoding="async"
-              />
+              <img src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Dashboard%20-%20Summary.png" alt="Dashboard Summary" className="w-full" loading="lazy" decoding="async" />
+              <img src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Measure-detail-overview.png" alt="Measure Detail Overview" className="w-full" loading="lazy" decoding="async" />
+              <img src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Measure-detailcard-practices.png" alt="Measure Detail Card Practices" className="w-full" loading="lazy" decoding="async" />
+              <img src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Members.detail.png" alt="Members Detail" className="w-full" loading="lazy" decoding="async" />
+              <img src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Population%20Builder%20Landing%20Page.png" alt="Population Builder Landing Page" className="w-full" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
       </section>
+
     </div>
   );
 };

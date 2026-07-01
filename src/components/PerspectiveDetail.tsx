@@ -94,10 +94,10 @@ const perspectiveConfig: Record<string, {
   'perspectives-speaking': {
     label: 'Speaking',
     subtitle: 'Conference talks, workshops, and panel discussions on AI product design and enterprise UX.',
-    accent: 'text-violet-600 dark:text-violet-400',
+    accent: 'text-blue dark:text-lavender',
     gradient: 'from-violet-50 via-purple-50 to-fuchsia-100 dark:from-violet-950 dark:via-purple-950 dark:to-fuchsia-950',
     icon: Mic2,
-    iconColor: 'text-violet-600 dark:text-violet-400',
+    iconColor: 'text-blue dark:text-lavender',
     sections: [
       { heading: 'Past talks', body: 'Placeholder — talk cards will appear here. Topics have included trust models in AI products, scaling design systems, and human-in-the-loop design.' },
       { heading: 'Talk topics', body: 'Placeholder copy. Available talk topics include: AI-Native UX, Agentic Workflow Design, Design Leadership in Enterprise, and Accessible Interaction Patterns.' },
@@ -123,7 +123,7 @@ const PerspectiveDetail: React.FC<PerspectiveDetailProps> = ({ page, setCurrentP
   const Icon = config.icon;
 
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950">
+    <div className="min-h-screen bg-tan-100 dark:bg-neutral-950">
       {/* Hero */}
       <section className="bg-white dark:bg-neutral-950 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -138,7 +138,7 @@ const PerspectiveDetail: React.FC<PerspectiveDetailProps> = ({ page, setCurrentP
                 </button>
               </li>
               <ChevronRight className="w-4 h-4 text-muted dark:text-neutral-400" />
-              <li className="text-black dark:text-white font-medium">{config.label}</li>
+              <li className="text-ink dark:text-white font-medium">{config.label}</li>
             </ol>
           </nav>
 
@@ -151,7 +151,7 @@ const PerspectiveDetail: React.FC<PerspectiveDetailProps> = ({ page, setCurrentP
                 Perspectives
               </p>
             </div>
-            <h1 className="text-4xl md:text-6xl font-light text-black dark:text-white tracking-tight mb-6">
+            <h1 className="text-4xl md:text-6xl font-semibold text-ink dark:text-tan-500 tracking-tight mb-6">
               {config.label}
             </h1>
             <p className="text-xl text-muted dark:text-neutral-400">
@@ -167,7 +167,7 @@ const PerspectiveDetail: React.FC<PerspectiveDetailProps> = ({ page, setCurrentP
           <div className="max-w-3xl space-y-16">
             {config.sections.map((section, i) => (
               <div key={i} className="border-l-2 border-neutral-200 dark:border-white/[0.08] pl-8">
-                <h2 className="text-2xl font-semibold text-black dark:text-white mb-4">
+                <h2 className="text-2xl font-semibold text-ink dark:text-white mb-4">
                   {section.heading}
                 </h2>
                 <p className="text-lg text-muted dark:text-neutral-400 leading-relaxed">
@@ -182,7 +182,7 @@ const PerspectiveDetail: React.FC<PerspectiveDetailProps> = ({ page, setCurrentP
       {/* Related Pages */}
       <section className="py-20 bg-white dark:bg-neutral-950 border-t border-[#D9D9D9] dark:border-white/[0.1]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-semibold text-black dark:text-white mb-10">
+          <h2 className="text-2xl font-semibold text-ink dark:text-white mb-10">
             Related
           </h2>
           <div className="grid sm:grid-cols-3 gap-6">
@@ -195,11 +195,11 @@ const PerspectiveDetail: React.FC<PerspectiveDetailProps> = ({ page, setCurrentP
                 }}
                 className="group text-left p-6 bg-white dark:bg-white/[0.03] border border-[#D9D9D9] dark:border-white/[0.1] rounded-none hover:border-[#D9D9D9] dark:hover:border-white/[0.15] transition-all"
               >
-                <div className="font-semibold text-black dark:text-white mb-2 group-hover:underline">
+                <div className="font-semibold text-ink dark:text-white mb-2 group-hover:underline">
                   {item.label}
                 </div>
                 <p className="text-sm text-muted dark:text-neutral-400 mb-4">{item.description}</p>
-                <span className="inline-flex items-center gap-1 text-xs font-medium text-brand-600 dark:text-brand-400">
+                <span className="inline-flex items-center gap-1 text-xs font-medium text-blue dark:text-lavender">
                   Explore <ArrowRight className="w-3 h-3" />
                 </span>
               </button>

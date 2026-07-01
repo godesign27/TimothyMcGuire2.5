@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Clock, Users, PenTool as Tool } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import ImageWithSkeleton from './ui/ImageWithSkeleton';
 
 interface CaseStudyDetailProps {
@@ -8,46 +8,43 @@ interface CaseStudyDetailProps {
 }
 
 const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSelectedCaseStudy }) => {
+  React.useEffect(() => { window.scrollTo(0, 0); }, []);
+
   const handleBackClick = () => {
-    // Scroll to top first
     window.scrollTo(0, 0);
-    // Clear the selected case study first
     setSelectedCaseStudy(null);
-    // Then navigate back to solutions
     setCurrentPage('solutions');
   };
 
+  const tag = (label: string) => (
+    <span className="inline-flex items-center px-3 py-1 bg-ink dark:bg-neutral-800 text-white text-xs font-medium">
+      {label}
+    </span>
+  );
+
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950">
-      {/* Hero Section */}
-      <section className="relative pt-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Back to Solutions Button */}
-          <div className="py-4">
-            <button
-              onClick={handleBackClick}
-              className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-600 dark:text-neutral-500 hover:text-gray-900 dark:hover:text-white transition-colors"
-            >
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to Solutions
-            </button>
-          </div>
-        
-          <div className="py-2">
-            <h1 className="text-4xl md:text-7xl font-regular text-gray-900 dark:text-white tracking-tight mb-6">
-              A frictionless, journey that seduces and entices patrons to create cocktails.  <br />
-              
-            </h1>
-            <p className="text-xl text-gray-800 dark:text-gray-200 max-w-4xl">
-              Mobile-led cards, trending rails, and contextual CTAs guide exploration; the recipe page spotlights essentials (glass type, skill level, main spirit) with one-tap actions to save, share, or print. It's designed to move users from browse → pick → pour in just a few taps.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 py-8 lg:py-12">
-            {/* Dashboard Image - 9 columns (75%) on desktop */}
-            <div className="lg:col-span-9 relative bg-white rounded-none shadow-lg overflow-hidden h-[700px]">
+    <div className="min-h-screen bg-tan-100 dark:bg-neutral-950">
+
+      {/* Hero */}
+      <section className="bg-white dark:bg-neutral-950 py-24 border-b border-line dark:border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <button
+            onClick={handleBackClick}
+            className="inline-flex items-center gap-2 text-sm text-muted dark:text-neutral-400 hover:text-ink dark:hover:text-white transition-colors mb-8"
+          >
+            <ArrowLeft className="w-4 h-4" /> Back to Solutions
+          </button>
+
+          <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">Case Study</p>
+          <h1 className="text-4xl md:text-6xl font-semibold text-ink dark:text-tan-500 tracking-tight mb-6 leading-tight">
+            A frictionless journey that seduces and entices patrons to create cocktails.
+          </h1>
+          <p className="text-xl text-muted dark:text-neutral-400 max-w-4xl mb-12">
+            Mobile-led cards, trending rails, and contextual CTAs guide exploration; the recipe page spotlights essentials (glass type, skill level, main spirit) with one-tap actions to save, share, or print. Designed to move users from browse → pick → pour in just a few taps.
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+            <div className="lg:col-span-9 relative bg-white border border-line dark:border-white/10 overflow-hidden h-[700px]">
               <ImageWithSkeleton
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/TCP_desktop_homepage_.jpg"
                 alt="The Cocktail Project by Jim Beam"
@@ -56,40 +53,37 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
                 decoding="async"
               />
             </div>
-
-            {/* Content - 3 columns (25%) on desktop */}
             <div className="lg:col-span-3 flex flex-col items-start self-start">
-              {/* Project Details Card */}
-              <div className="mt-4 lg:mt-6 bg-white/80 backdrop-blur-sm rounded-none p-6 lg:p-8 shadow-sm">
-                <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">New Site Responsive Design</h2>
+              <div className="bg-tan dark:bg-neutral-900 p-6 lg:p-8 border border-line dark:border-white/10 w-full">
+                <h2 className="text-base font-semibold text-ink dark:text-white mb-6">New Site Responsive Design</h2>
                 <div className="space-y-4">
                   <div>
-                    <h4 className="text-gray-600 text-sm">ROLE(s)</h4>
-                    <p className="text-gray-900 font-bold text-sm">Principal UX Designer + UX Director + Creative Visionary</p>
+                    <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-1">Role</p>
+                    <p className="text-sm text-ink dark:text-white font-medium">Principal UX Designer + UX Director + Creative Visionary</p>
                   </div>
                   <div>
-                    <h4 className="text-gray-600 text-sm">THE CLIENT</h4>
-                    <p className="text-gray-900 font-bold text-sm">Suntory Lab + Jim Beam</p>
+                    <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-1">Client</p>
+                    <p className="text-sm text-ink dark:text-white font-medium">Suntory Lab + Jim Beam</p>
                   </div>
                   <div>
-                    <h4 className="text-gray-600 text-sm">TOOLS</h4>
-                    <p className="text-gray-900 font-bold text-sm">Sketch, InVision Prototyping, Zeplin, MS Word, Slack, PowerPoint, Adobe Suite </p>
+                    <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-1">Tools</p>
+                    <p className="text-sm text-muted dark:text-neutral-400">Sketch, InVision, Zeplin, MS Word, Slack, PowerPoint, Adobe Suite</p>
                   </div>
                   <div>
-                    <h4 className="text-gray-600 text-sm">SERVICES</h4>
-                    <ul className="text-gray-900 font-bold text-sm space-y-1">
-                      <li>• User Experience Design</li>
-                      <li>• User Research</li>
-                      <li>• Content Strategy</li>
-                      <li>• Design Library Creation</li>
-                      <li>• Prototype</li>
-                      <li>• Brand Development</li>
-                      <li>• Logo Design</li>
+                    <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-1">Services</p>
+                    <ul className="text-sm text-muted dark:text-neutral-400 space-y-0.5">
+                      <li>User Experience Design</li>
+                      <li>User Research</li>
+                      <li>Content Strategy</li>
+                      <li>Design Library Creation</li>
+                      <li>Prototype</li>
+                      <li>Brand Development</li>
+                      <li>Logo Design</li>
                     </ul>
                   </div>
                   <div>
-                    <h4 className="text-gray-600 text-sm">DURATION</h4>
-                    <p className="text-gray-900 font-bold text-sm">Sept 2016 - Sept 2017</p>
+                    <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-1">Duration</p>
+                    <p className="text-sm text-muted dark:text-neutral-400">Sept 2016 – Sept 2017</p>
                   </div>
                 </div>
               </div>
@@ -98,291 +92,164 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
         </div>
       </section>
 
-      {/* Row 2 - Strategy Section */}
+      {/* Editorial context */}
+      <section className="py-16 bg-white dark:bg-neutral-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-3 gap-px bg-line dark:bg-white/10">
+            <div className="bg-white dark:bg-neutral-950 p-8">
+              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">The Challenge</p>
+              <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
+                Suntory Lab and Jim Beam needed a digital experience that would turn casual spirit drinkers into engaged cocktail makers. The audience ranged from curious novices to cocktail enthusiasts — and the experience had to serve all of them without feeling complicated. The brand story also needed to be told through the product, not just around it.
+              </p>
+            </div>
+            <div className="bg-white dark:bg-neutral-950 p-8">
+              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">My Approach</p>
+              <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
+                As Principal UX Designer and Creative Visionary, I built the experience from the ground up: user research to understand the three core audience types (Recipe Searchers, Cocktail Lifestylists, Spirits Enthusiasts), a sitemap and content strategy built around those personas, and a mobile-first design system that used editorial photography and progressive disclosure to guide users naturally toward making a drink.
+              </p>
+            </div>
+            <div className="bg-tan dark:bg-neutral-900 p-8">
+              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">Outcome</p>
+              <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
+                A fully responsive cocktail destination site with mobile-first card layouts, trending recipe rails, brand landing pages, and a streamlined recipe detail experience. User testing validated that the browse-to-pour flow reduced decision friction significantly — users found a recipe they wanted to make in fewer taps than any previous benchmark.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Strategy */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-50 rounded-none p-6 lg:p-12">
-            <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none mb-6 lg:mb-8">
-              The Strategy
-            </span>
-            <h2 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-4 lg:mb-6">
+          <div className="bg-tan dark:bg-neutral-900 p-6 lg:p-12 border border-line dark:border-white/10">
+            {tag('The Strategy')}
+            <h2 className="text-2xl lg:text-4xl font-semibold text-ink dark:text-white mt-6 mb-4">
               The right path for every palate.
             </h2>
-            <p className="text-lg lg:text-xl text-gray-600">
-              Build the homepage as a gateway for Recipe Searchers, Cocktail Lifestylists, and Spirits Enthusiasts. When the audience sees themselves instantly, they stay, explore, and make a drink—exactly the behavior we designed for.
+            <p className="text-lg text-muted dark:text-neutral-400">
+              Build the homepage as a gateway for Recipe Searchers, Cocktail Lifestylists, and Spirits Enthusiasts. When the audience sees themselves instantly, they stay, explore, and make a drink — exactly the behavior we designed for.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Row 3 - Three Card Section */}
+      {/* Three-col: Wireframe / Role / Persona */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-            {/* First Card - full width on mobile, 6 columns on desktop */}
-            <div className="lg:col-span-6 bg-gray-50 rounded-none border border-gray-300 relative overflow-hidden h-[600px]">
-              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none">
-                Built from Skratch
-              </span>
-              <ImageWithSkeleton
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/04-TCP_desktop_wireframe2.png"
-                alt="Before"
-                className="w-full h-full object-cover object-center"
-                loading="lazy"
-                decoding="async"
-              />
+            <div className="lg:col-span-6 bg-white dark:bg-neutral-950 border border-line dark:border-white/10 relative overflow-hidden h-[600px]">
+              <div className="absolute top-6 left-6 z-10">{tag('Built from Scratch')}</div>
+              <ImageWithSkeleton src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/04-TCP_desktop_wireframe2.png" alt="Desktop Wireframe" className="w-full h-full object-cover object-center" loading="lazy" decoding="async" />
             </div>
-
-            {/* Second Card - full width on mobile, 3 columns on desktop */}
-            <div className="lg:col-span-3 bg-gray-50 rounded-none p-6 lg:p-8">
-              <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none mb-6 lg:mb-8">
-                UX Design
-              </span>
-              <h3 className="text-lg lg:text-xl font-semibold text-gray-900 mb-4">
-                Principle UX/UI Designer
-              </h3>
-              <p className="text-sm lg:text-base text-gray-600">
-                As Principal UX/UI Designer, I shaped the solution by driving the complete design journey—translating business needs into a user-centered solution. I created, a sitemape, wireframes, problem-solving, empathy, design iteration, prototyping through user testing research.
+            <div className="lg:col-span-3 bg-white dark:bg-neutral-950 p-6 lg:p-8 border border-line dark:border-white/10">
+              {tag('UX Design')}
+              <h3 className="text-base font-semibold text-ink dark:text-white mt-6 mb-4">Principal UX/UI Designer</h3>
+              <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
+                As Principal UX/UI Designer, I shaped the solution by driving the complete design journey — translating business needs into a user-centered product. I created a sitemap, wireframes, empathy mapping, design iteration, and prototyping through user testing research.
               </p>
             </div>
-
-            {/* Third Card - full width on mobile, 3 columns on desktop */}
-            <div className="lg:col-span-3 bg-gray-50 rounded-none border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
-              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none">
-                Persona
-              </span>
-              <ImageWithSkeleton
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/persona2.png"
-                alt="Cocktail Lifestylist"
-                className="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
+            <div className="lg:col-span-3 bg-white dark:bg-neutral-950 border border-line dark:border-white/10 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <div className="absolute top-6 left-6 z-10">{tag('Persona')}</div>
+              <ImageWithSkeleton src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/persona2.png" alt="Cocktail Lifestylist" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Row 4 - Two Card Section */}
+      {/* Two-col: Strategy + Site Map */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            {/* First Card */}
-            <div className="bg-white rounded-none border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
-              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none">
-                UX Strategy
-              </span>
-              <ImageWithSkeleton
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/strategy_b.png"
-                alt="Strategy"
-                className="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
+            <div className="bg-white dark:bg-neutral-950 border border-line dark:border-white/10 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <div className="absolute top-6 left-6 z-10">{tag('UX Strategy')}</div>
+              <ImageWithSkeleton src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/strategy_b.png" alt="Strategy" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
-
-            {/* Second Card */}
-            <div className="bg-gray-50 rounded-none border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
-              <div className="flex space-x-2 absolute top-6 lg:top-8 left-6 lg:left-8 z-10">
-                <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none">
-                  UX Design
-                </span>
-                <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none">
-                  Site Map
-                </span>
-              </div>
-              <ImageWithSkeleton
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/sitemap.png"
-                alt="Site Map"
-                className="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
+            <div className="bg-white dark:bg-neutral-950 border border-line dark:border-white/10 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <div className="absolute top-6 left-6 z-10 flex gap-2">{tag('UX Design')}{tag('Site Map')}</div>
+              <ImageWithSkeleton src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/sitemap.png" alt="Site Map" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Row 5 - Design Principles Section */}
+      {/* Design Principles */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none mb-6">
-            Design Direction
-          </span>
-          <h2 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-12">Design Principles</h2>
+          {tag('Design Direction')}
+          <h2 className="text-2xl lg:text-4xl font-semibold text-ink dark:text-white mt-6 mb-12">Design Principles</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            {/* Top Row */}
-            <div className="bg-purple-100 rounded-none p-6 lg:p-8">
-              <h3 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-6">Empowering</h3>
-              <div className="flex flex-col lg:flex-row lg:justify-between space-y-4 lg:space-y-0">
-                <span className="text-base lg:text-xl text-gray-700">Insightful</span>
-                <span className="text-base lg:text-xl text-gray-700">Meaningful</span>
-                <span className="text-base lg:text-xl text-gray-700">Useful</span>
+            {[
+              { title: 'Empowering', values: ['Insightful', 'Meaningful', 'Useful'] },
+              { title: 'Harmonious', values: ['Intentional', 'Minimal', 'Elegant'] },
+              { title: 'Simple', values: ['Focused', 'Efficient', 'Prioritized', 'Progressive Disclosure'] },
+              { title: 'Learnable', values: ['Intuitive', 'Familiar', 'Predictable', 'Usable'] },
+            ].map((p) => (
+              <div key={p.title} className="bg-tan dark:bg-neutral-900 border border-line dark:border-white/10 p-6 lg:p-8">
+                <h3 className="text-2xl lg:text-4xl font-semibold text-ink dark:text-white mb-6">{p.title}</h3>
+                <div className="flex flex-col lg:flex-row lg:justify-between gap-4">
+                  {p.values.map((v) => <span key={v} className="text-base text-ink dark:text-white">{v}</span>)}
+                </div>
               </div>
-            </div>
-            <div className="bg-yellow-100 rounded-none p-6 lg:p-8">
-              <h3 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-6">Harmonious</h3>
-              <div className="flex flex-col lg:flex-row lg:justify-between space-y-4 lg:space-y-0">
-                <span className="text-base lg:text-xl text-gray-700">Intentional</span>
-                <span className="text-base lg:text-xl text-gray-700">Minimal</span>
-                <span className="text-base lg:text-xl text-gray-700">Elegant</span>
-              </div>
-            </div>
-            {/* Bottom Row */}
-            <div className="bg-blue-100 rounded-none p-6 lg:p-8">
-              <h3 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-6">Simple</h3>
-              <div className="flex flex-col lg:flex-row lg:justify-between space-y-4 lg:space-y-0">
-                <span className="text-base lg:text-xl text-gray-700">Focused</span>
-                <span className="text-base lg:text-xl text-gray-700">Efficient</span>
-                <span className="text-base lg:text-xl text-gray-700">Prioritized</span>
-                <span className="text-base lg:text-xl text-gray-700">Progressive Disclosure</span>
-              </div>
-            </div>
-            <div className="bg-orange-100 rounded-none p-6 lg:p-8">
-              <h3 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-6">Learnable</h3>
-              <div className="flex flex-col lg:flex-row lg:justify-between space-y-4 lg:space-y-0">
-                <span className="text-base lg:text-xl text-gray-700">Intuitive</span>
-                <span className="text-base lg:text-xl text-gray-700">Familiar</span>
-                <span className="text-base lg:text-xl text-gray-700">Predictable</span>
-                <span className="text-base lg:text-xl text-gray-700">Usable</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Row 6 - Two Image Cards */}
+      {/* Wireframe + User Testing */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            {/* First Card */}
-            <div className="bg-gray-50 rounded-none border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
-              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none">
-                UX Design
-              </span>
-              <ImageWithSkeleton
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/04-TCP_desktop_wireframe.jpg"
-                alt="Wireframe"
-                className="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
+            <div className="bg-white dark:bg-neutral-950 border border-line dark:border-white/10 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <div className="absolute top-6 left-6 z-10">{tag('UX Design')}</div>
+              <ImageWithSkeleton src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/04-TCP_desktop_wireframe.jpg" alt="Wireframe" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </div>
-
-            {/* Second Card */}
-            <div className="bg-white rounded-none border border-gray-300 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
-              <span className="absolute top-6 lg:top-8 left-6 lg:left-8 z-10 inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none">
-                User Testing
-              </span>
-              <ImageWithSkeleton
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/user_testing_quotes.png"
-                alt="Color Harmony"
-                className="w-full h-full object-center max-w-[500px]"
-                loading="lazy"
-                decoding="async"
-              />
+            <div className="bg-white dark:bg-neutral-950 border border-line dark:border-white/10 relative overflow-hidden aspect-[4/3] lg:aspect-auto">
+              <div className="absolute top-6 left-6 z-10">{tag('User Testing')}</div>
+              <ImageWithSkeleton src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/user_testing_quotes.png" alt="User Testing Quotes" className="w-full h-full object-center max-w-[500px]" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Row 7 - Color Palette Card */}
+      {/* Homepage Solution */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-100 rounded-none border border-gray-300 relative overflow-hidden p-6 lg:p-8">
-            <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none mb-4">
-              UI Design
-            </span>
-            <h2 className="text-2xl lg:text-4xl font-regular text-gray-900 mb-6">Home Page Solution</h2>
-            <ImageWithSkeleton
-              src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/TCP_desktop_homepage_.jpg"
-              alt="Color Palette"
-              className="w-full h-full object-cover rounded-none"
-              loading="lazy"
-              decoding="async"
-            />
+          <div className="bg-tan dark:bg-neutral-900 border border-line dark:border-white/10 p-6 lg:p-8">
+            {tag('UI Design')}
+            <h2 className="text-2xl lg:text-4xl font-semibold text-ink dark:text-white mt-4 mb-6">Home Page Solution</h2>
+            <ImageWithSkeleton src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/TCP_desktop_homepage_.jpg" alt="Homepage" className="w-full object-cover" loading="lazy" decoding="async" />
           </div>
         </div>
       </section>
 
-      {/* Row 8 - Button Component Card */}
+      {/* Recipe Detail */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-100 rounded-none border border-gray-300 relative overflow-hidden p-6 lg:p-8">
-            <div className="flex space-x-2 mb-4">
-              <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none">
-                UI Design
-              </span>
-              <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-regular rounded-none">
-                Final Design
-              </span>
-            </div>
-            <h2 className="text-2xl lg:text-4xl font-regular text-gray-900 mb-6">Recipe Detail</h2>
-            <ImageWithSkeleton
-              src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/TCP_desktop_recipe_basic_v1.jpg"
-              alt="Button Component"
-              className="w-full h-full object-cover rounded-none"
-              loading="lazy"
-              decoding="async"
-            />
+          <div className="bg-tan dark:bg-neutral-900 border border-line dark:border-white/10 p-6 lg:p-8">
+            <div className="flex gap-2 mb-4">{tag('UI Design')}{tag('Final Design')}</div>
+            <h2 className="text-2xl lg:text-4xl font-semibold text-ink dark:text-white mb-6">Recipe Detail</h2>
+            <ImageWithSkeleton src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/TCP_desktop_recipe_basic_v1.jpg" alt="Recipe Detail" className="w-full object-cover" loading="lazy" decoding="async" />
           </div>
         </div>
       </section>
 
-      {/* Row 9 - Page Designs Card */}
+      {/* Final Page Designs */}
       <section className="py-6 lg:py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-none border border-gray-300 relative overflow-hidden p-6 lg:p-8">
-            <div className="flex space-x-2 mb-4">
-              <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-medium rounded-none">
-                UI Design
-              </span>
-              <span className="inline-flex items-center px-4 py-1.5 bg-gray-700 text-white text-sm font-regular rounded-none">
-                Final Designs
-              </span>
-            </div>
-            <h2 className="text-2xl lg:text-4xl font-regular text-gray-900 mb-6">Page Designs</h2>
+          <div className="bg-white dark:bg-neutral-950 border border-line dark:border-white/10 p-6 lg:p-8">
+            <div className="flex gap-2 mb-4">{tag('UI Design')}{tag('Final Designs')}</div>
+            <h2 className="text-2xl lg:text-4xl font-semibold text-ink dark:text-white mb-6">Page Designs</h2>
             <div className="space-y-6">
-              <ImageWithSkeleton
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/cp_mybar.png"
-                alt="Measure Detail Overview"
-                className="max-w-full h-auto rounded-none"
-                loading="lazy"
-                decoding="async"
-              />
-              
-              <ImageWithSkeleton
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/TCP_desktop_registration_0002_Layer%20Comp%203.jpg"
-                alt="Measure Detail Card Practices"
-                className="w-full rounded-none"
-                loading="lazy"
-                decoding="async"
-              />
-              <ImageWithSkeleton
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/TCP_desktop_brand_landing_simple_v1.jpg"
-                alt="Members Detail"
-                className="w-full rounded-none"
-                loading="lazy"
-                decoding="async"
-              />
-              <ImageWithSkeleton
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/TCP_desktop_recipe_results_0004_Layer%20Comp%205.jpg"
-                alt="Population Builder Landing Page"
-                className="w-full rounded-none"
-                loading="lazy"
-                decoding="async"
-              />
-              <ImageWithSkeleton
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/10-TCP_mobile_recipe.jpg"
-                alt="Dashboard Summary"
-                className="w-full rounded-none"
-                loading="lazy"
-                decoding="async"
-              />
+              <ImageWithSkeleton src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/cp_mybar.png" alt="My Bar" className="max-w-full h-auto" loading="lazy" decoding="async" />
+              <ImageWithSkeleton src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/TCP_desktop_registration_0002_Layer%20Comp%203.jpg" alt="Registration" className="w-full" loading="lazy" decoding="async" />
+              <ImageWithSkeleton src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/TCP_desktop_brand_landing_simple_v1.jpg" alt="Brand Landing" className="w-full" loading="lazy" decoding="async" />
+              <ImageWithSkeleton src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/TCP_desktop_recipe_results_0004_Layer%20Comp%205.jpg" alt="Recipe Results" className="w-full" loading="lazy" decoding="async" />
+              <ImageWithSkeleton src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/JimBeam/10-TCP_mobile_recipe.jpg" alt="Mobile Recipe" className="w-full" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
       </section>
+
     </div>
   );
 };

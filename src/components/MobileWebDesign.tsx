@@ -1,267 +1,122 @@
 import React from 'react';
-import { ChevronRight, Smartphone, Users, Zap } from 'lucide-react';
+import PageBreadcrumb from './PageBreadcrumb';
+import RelatedContent from './RelatedContent';
+import SectionCTA from './SectionCTA';
 
 interface MobileWebDesignProps {
   setCurrentPage: (page: string) => void;
 }
 
-const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => {
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+const deliverables = [
+  { label: 'Responsive web design', body: 'Pixel-precise layouts that work across breakpoints — not just desktop shrunk to mobile, but experiences designed from the smallest screen up.' },
+  { label: 'Mobile app UX/UI', body: 'Native iOS and Android patterns applied with intention. Platform conventions respected where they serve the user; broken where they would limit the experience.' },
+  { label: 'Cross-device user flows', body: 'Mapping how users move between devices across a session — starting on phone, completing on desktop — and designing the handoff moments that make multi-device use seamless.' },
+  { label: 'Touch interaction design', body: 'Gesture patterns, touch targets, and interaction models designed for the constraints and capabilities of touch input: thumbs, gloves, one-handed use.' },
+  { label: 'Performance-aware design', body: 'Design decisions that account for real-world network conditions, device memory constraints, and the performance budget engineering works within.' },
+  { label: 'Component-ready specs', body: 'Design files structured for component-based development: named layers, consistent spacing tokens, interaction annotations, and dev-ready handoff.' },
+];
 
-  const handleContactClick = () => {
-    window.scrollTo(0, 0);
-    setCurrentPage('contact');
-  };
+const MobileWebDesign: React.FC<MobileWebDesignProps> = ({ setCurrentPage }) => {
+  React.useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950">
-      {/* Hero Section with Breadcrumb */}
-      <section className="relative overflow-hidden bg-white dark:bg-neutral-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <nav className="flex py-4 mb-8" aria-label="Breadcrumb">
-            <ol className="flex items-center space-x-2">
-              <li>
-                <button
-                  onClick={() => setCurrentPage('services')}
-                  className="text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white"
-                >
-                  Services
-                </button>
-              </li>
-              <ChevronRight className="w-4 h-4 text-muted dark:text-neutral-400" />
-              <li className="text-black dark:text-white font-medium">Mobile App Design</li>
-            </ol>
-          </nav>
+    <main className="min-h-screen bg-tan-100 dark:bg-neutral-950">
 
-          <div>
-            <h1 className="text-4xl md:text-7xl font-regular text-black dark:text-white mb-6">
-              Mobile App Design<br />
-              That Drives Engagement
+      {/* Hero */}
+      <section className="bg-white dark:bg-neutral-950 py-24 border-b border-line dark:border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <PageBreadcrumb
+            items={[{ label: 'Services', pageId: 'services' }, { label: 'Mobile & Web Design' }]}
+            setCurrentPage={setCurrentPage}
+          />
+          <div className="pt-8 max-w-3xl">
+            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">Service</p>
+            <h1 className="text-4xl sm:text-5xl font-semibold text-ink dark:text-tan-500 tracking-tight leading-tight mb-6">
+              Responsive experiences that shine on every device.
             </h1>
-            <p className="text-xl text-muted dark:text-neutral-400 max-w-2xl">
-              We create beautiful, intuitive mobile experiences that users love.
-              Our designs are crafted to engage users, simplify interactions, and
-              deliver exceptional value across all devices.
+            <p className="text-base text-muted dark:text-neutral-400 leading-relaxed mb-8 max-w-xl">
+              Mobile and responsive web design done with the same rigor I bring to enterprise products: real user research, performance-aware decisions, and component-ready handoff that engineering can actually build.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-12">
-            <div>
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
-                <Smartphone className="w-6 h-6 text-muted dark:text-neutral-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-black dark:text-white mb-4">
-                Native Experience
-              </h3>
-              <p className="text-muted dark:text-neutral-400">
-                We design apps that feel natural and intuitive on every platform, following platform-specific guidelines and best practices.
-              </p>
-            </div>
-            <div>
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
-                <Users className="w-6 h-6 text-muted dark:text-neutral-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-black dark:text-white mb-4">
-                User-First Design
-              </h3>
-              <p className="text-muted dark:text-neutral-400">
-                Every interaction is crafted with your users in mind, ensuring an engaging and seamless mobile experience.
-              </p>
-            </div>
-            <div>
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
-                <Zap className="w-6 h-6 text-muted dark:text-neutral-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-black dark:text-white mb-4">
-                Performance Optimized
-              </h3>
-              <p className="text-muted dark:text-neutral-400">
-                Fast-loading, responsive apps that provide excellent user experience even in challenging network conditions.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Design Solutions */}
-      <section className="py-20 bg-white dark:bg-neutral-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-black dark:text-white mb-12">Design Solutions</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Health & Fitness App",
-                description: "Designed an intuitive fitness tracking app with personalized workout plans and progress monitoring.",
-                image: "https://images.pexels.com/photos/4498606/pexels-photo-4498606.jpeg"
-              },
-              {
-                title: "Food Delivery App",
-                description: "Created a seamless food ordering experience with real-time order tracking and easy payment.",
-                image: "https://images.pexels.com/photos/6963098/pexels-photo-6963098.jpeg"
-              },
-              {
-                title: "Social Platform",
-                description: "Developed a modern social platform focused on community engagement and content sharing.",
-                image: "https://images.pexels.com/photos/5053740/pexels-photo-5053740.jpeg"
-              }
-            ].map((project, index) => (
-              <div key={index} className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-none overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-black dark:text-white mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted dark:text-neutral-400">
-                    {project.description}
-                  </p>
+            <div className="grid grid-cols-3 gap-px bg-line dark:bg-white/10 max-w-sm">
+              {[
+                { stat: 'Mobile', label: 'First approach' },
+                { stat: 'iOS', label: 'and Android' },
+                { stat: 'All', label: 'Breakpoints covered' },
+              ].map((item) => (
+                <div key={item.label} className="bg-tan dark:bg-neutral-900 p-4">
+                  <p className="text-base font-semibold text-ink dark:text-white mb-0.5">{item.stat}</p>
+                  <p className="text-xs text-muted dark:text-neutral-500">{item.label}</p>
                 </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Deliverables */}
+      <section className="bg-white dark:bg-neutral-950 py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
+            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">Deliverables</p>
+            <h2 className="text-2xl font-semibold text-ink dark:text-white">What I bring to mobile and web projects.</h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-line dark:bg-white/10">
+            {deliverables.map((d) => (
+              <div key={d.label} className="bg-white dark:bg-neutral-950 p-8">
+                <h3 className="text-sm font-semibold text-ink dark:text-white mb-3">{d.label}</h3>
+                <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">{d.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-20">
+      {/* Approach */}
+      <section className="bg-tan dark:bg-neutral-900 py-24 border-t border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-black dark:text-white mb-12">Our Process</h2>
-          <div className="space-y-12">
-            {[
-              {
-                step: "01",
-                title: "Research & Strategy",
-                description: "We start by understanding your users, market, and business goals to create a strategic foundation for your mobile app."
-              },
-              {
-                step: "02",
-                title: "UX Design & Prototyping",
-                description: "Our designers create intuitive flows and interactive prototypes that align with mobile platform guidelines."
-              },
-              {
-                step: "03",
-                title: "UI Design & Testing",
-                description: "We craft beautiful interfaces and test them with real users to ensure optimal usability and engagement."
-              },
-              {
-                step: "04",
-                title: "Launch & Optimization",
-                description: "After launch, we monitor performance and user feedback to continuously improve the experience."
-              }
-            ].map((phase, index) => (
-              <div key={index} className="flex gap-8">
-                <div className="w-12 h-12 flex-shrink-0 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center text-black dark:text-white font-semibold">
-                  {phase.step}
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-black dark:text-white mb-2">
-                    {phase.title}
-                  </h3>
-                  <p className="text-muted dark:text-neutral-400">
-                    {phase.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* What's Included */}
-      <section className="py-20 bg-white dark:bg-neutral-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-black dark:text-white mb-12">What's Included</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-black dark:text-white mb-1">User Research</h3>
-                  <p className="text-muted dark:text-neutral-400">Deep understanding of mobile user behavior</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-black dark:text-white mb-1">UX Architecture</h3>
-                  <p className="text-muted dark:text-neutral-400">Intuitive navigation and user flows</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-black dark:text-white mb-1">Visual Design</h3>
-                  <p className="text-muted dark:text-neutral-400">Beautiful, platform-specific UI design</p>
-                </div>
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-6">Approach</p>
+              <h2 className="text-2xl font-semibold text-ink dark:text-white mb-6 leading-snug">Mobile-first is a constraint, not a checkbox.</h2>
+              <div className="space-y-4 text-base text-muted dark:text-neutral-400 leading-relaxed">
+                <p>Starting from the smallest screen forces good information hierarchy decisions. If it works at 375px, it will work everywhere. If you have to hide content on mobile, you probably have too much of it.</p>
+                <p>I design for the real conditions in which mobile products are used: outdoors in bright light, on a crowded train with one hand occupied, with slow network connections, with notifications interrupting the flow. Constraints that reveal which design decisions actually hold up.</p>
               </div>
             </div>
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
+            <div className="space-y-px bg-line dark:bg-white/10">
+              {[
+                { label: 'Accessibility first', body: 'Touch targets, color contrast, and screen reader support are not afterthoughts — they are the starting conditions for every mobile design I build.' },
+                { label: 'Real device testing', body: 'Designs are reviewed on physical devices, not just browser simulators. The difference matters more than most teams realize.' },
+                { label: 'Platform conventions matter', body: 'iOS and Android users have different expectations. I apply platform patterns where they serve the user and diverge deliberately when the experience requires it.' },
+              ].map((item) => (
+                <div key={item.label} className="bg-white dark:bg-neutral-950 p-6">
+                  <p className="text-sm font-semibold text-ink dark:text-white mb-2">{item.label}</p>
+                  <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">{item.body}</p>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-black dark:text-white mb-1">Prototyping</h3>
-                  <p className="text-muted dark:text-neutral-400">Interactive prototypes for testing</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-black dark:text-white mb-1">User Testing</h3>
-                  <p className="text-muted dark:text-neutral-400">Comprehensive usability testing</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-black dark:text-white mb-1">Design System</h3>
-                  <p className="text-muted dark:text-neutral-400">Complete mobile design system</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="relative py-20 overflow-hidden bg-black dark:bg-neutral-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Let's create<br />something beautiful.
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            We'd love to learn more about how we can help your business.
-          </p>
-          <button
-            onClick={handleContactClick}
-            className="px-8 py-4 bg-white text-black rounded-none hover:bg-gray-100 transition-colors"
-          >
-            Make Contact
-          </button>
-        </div>
-      </section>
-    </div>
+      <RelatedContent
+        setCurrentPage={setCurrentPage}
+        heading="Related"
+        items={[
+          { id: 'saas-product-design', eyebrow: 'Service', label: 'SaaS Product Design', description: 'End-to-end product design for software platforms.' },
+          { id: 'marketing-web-design', eyebrow: 'Service', label: 'Marketing Web Design', description: 'Conversion-focused websites that tell your story.' },
+          { id: 'solutions-enterprise-saas', eyebrow: 'Solution', label: 'Enterprise SaaS', description: 'Complex multi-tenant platform design.' },
+        ]}
+      />
+
+      <SectionCTA
+        heading="Building something for mobile or web?"
+        body="Tell me about your product, your users, and what you're trying to accomplish. I'll tell you what good looks like."
+        primaryLabel="Let's Talk"
+        primaryPage="contact"
+        setCurrentPage={setCurrentPage}
+      />
+    </main>
   );
 };
 

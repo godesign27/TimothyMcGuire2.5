@@ -1,63 +1,64 @@
 import React from 'react';
-import { BackgroundGradientAnimation } from './ui/background-gradient-animation';
-import { useTheme } from 'next-themes';
+import { ArrowRight } from 'lucide-react';
 
 interface HeroProps {
   setCurrentPage: (page: string) => void;
 }
 
-const LightHero = () => (
-  <BackgroundGradientAnimation
-    gradientBackgroundStart="rgb(190, 205, 255)"
-    gradientBackgroundEnd="rgb(255, 195, 215)"
-    firstColor="80, 125, 255"
-    secondColor="200, 80, 255"
-    thirdColor="75, 125, 255"
-    fourthColor="110, 135, 255"
-    fifthColor="120, 155, 255"
-    blendingValue="soft-light"
-    size="90%"
-    interactive={false}
-    containerClassName="absolute inset-0"
-  />
-);
-
-const DarkHero = () => (
-  <BackgroundGradientAnimation
-    gradientBackgroundStart="rgb(30, 0, 60)"
-    gradientBackgroundEnd="rgb(60, 0, 80)"
-    firstColor="115, 70, 255"
-    secondColor="195, 105, 255"
-    thirdColor="90, 40, 200"
-    fourthColor="115, 70, 255"
-    fifthColor="195, 105, 255"
-    blendingValue="soft-light"
-    size="90%"
-    interactive={false}
-    containerClassName="absolute inset-0"
-  />
-);
-
-const Hero: React.FC<HeroProps> = () => {
-  const { resolvedTheme } = useTheme();
+const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
+  const navigate = (page: string) => {
+    window.scrollTo(0, 0);
+    setCurrentPage(page);
+  };
 
   return (
-    <section className="relative pt-16 overflow-hidden">
-      {resolvedTheme === 'dark' ? <DarkHero /> : <LightHero />}
+    <section
+      className="relative pt-16 min-h-[100dvh] flex items-center overflow-hidden"
+      style={{
+        background: 'linear-gradient(160deg, #F3EFE7 0%, #ffffff 55%, #e8f0fe 100%)',
+      }}
+    >
+      {/* Subtle blue accent line */}
+      <div className="absolute top-0 left-0 right-0 h-[3px] bg-blue hidden dark:block" style={{ background: '#2563EB' }} />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="py-24 md:py-32">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl text-black dark:text-white tracking-tight leading-[1.1]">
-              Human-Centered Design, Built for Results.
-            </h1>
+      {/* Dark mode override */}
+      <div className="absolute inset-0 bg-neutral-950 dark:block hidden" />
 
-            <p className="mt-8 text-lg md:text-xl text-muted dark:text-white/80 max-w-2xl leading-relaxed">
-              I specialize in experience design for enterprise SaaS, AI-native products, and complex digital platforms. Bringing human-centered thinking, creative problem-solving, and technology together.
-            </p>
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
+        <div className="max-w-3xl">
+
+          <p className="text-sm font-medium text-blue dark:text-lavender mb-6 tracking-wide uppercase">
+            Experience Design
+          </p>
+
+          <h1 className="text-[3.5rem] md:text-[4.5rem] lg:text-[5rem] font-semibold text-ink dark:text-tan-500 tracking-tight leading-[1.05] mb-8">
+            Human-Centered Design, Built for Results.
+          </h1>
+
+          <p className="text-lg md:text-xl text-muted dark:text-neutral-400 max-w-xl leading-relaxed mb-10">
+            I specialize in experience design for enterprise SaaS, AI-native products, and complex digital platforms. Bringing human-centered thinking, creative problem-solving, and technology together.
+          </p>
+
+          <div className="flex flex-wrap items-center gap-4">
+            <button
+              onClick={() => navigate('contact')}
+              className="btn-primary btn-lg inline-flex items-center gap-2"
+            >
+              Let's Talk
+              <ArrowRight className="w-4 h-4" />
+            </button>
+            <button
+              onClick={() => navigate('solutions')}
+              className="btn-secondary btn-lg"
+            >
+              View Work
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Bottom divider */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-line dark:bg-white/10" />
     </section>
   );
 };

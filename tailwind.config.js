@@ -4,24 +4,28 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['"Instrument Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+      },
       colors: {
-        brand: {
-          DEFAULT: '#6D28D9',
-          50: '#F5F3FF',
-          100: '#EDE9FE',
-          200: '#DCD6FE',
-          300: '#C3B4FE',
-          400: '#A78BFA',
-          500: '#8B5CF6',
-          600: '#7C3AED',
-          700: '#6D28D9',
-          800: '#5B21B6',
-          900: '#4C1D95',
-          950: '#2E1065'
+        tan: {
+          DEFAULT: '#F3EFE7',
+          50:  '#FDFCFB',
+          100: '#FAF8F4',
+          200: '#F6F1EB',
+          300: '#F3EFE7',
+          400: '#EAE3D6',
+          500: '#DDD5C4',
+          600: '#CEC3AE',
+          700: '#B8A893',
+          800: '#9E8E79',
+          900: '#7D6E5D',
         },
+        blue: '#2563EB',
+        lavender: '#A29BFE',
         ink: '#111111',
         muted: '#666666',
-        line: '#D9D9D9',
+        line: '#DDD5C4',
         neutral: {
           DEFAULT: '#19181B',
           50: '#FAFAFA',
@@ -39,48 +43,6 @@ export default {
       },
       borderRadius: {
         'card': '0px',
-      },
-      animation: {
-        first: "moveVertical 30s ease infinite",
-        second: "moveInCircle 20s reverse infinite",
-        third: "moveInCircle 40s linear infinite",
-        fourth: "moveHorizontal 40s ease infinite",
-        fifth: "moveInCircle 20s ease infinite",
-      },
-      keyframes: {
-        moveHorizontal: {
-          "0%": {
-            transform: "translateX(-50%) translateY(-10%)",
-          },
-          "50%": {
-            transform: "translateX(50%) translateY(10%)",
-          },
-          "100%": {
-            transform: "translateX(-50%) translateY(-10%)",
-          },
-        },
-        moveInCircle: {
-          "0%": {
-            transform: "rotate(0deg)",
-          },
-          "50%": {
-            transform: "rotate(180deg)",
-          },
-          "100%": {
-            transform: "rotate(360deg)",
-          },
-        },
-        moveVertical: {
-          "0%": {
-            transform: "translateY(-50%)",
-          },
-          "50%": {
-            transform: "translateY(50%)",
-          },
-          "100%": {
-            transform: "translateY(-50%)",
-          },
-        },
       },
     },
   },

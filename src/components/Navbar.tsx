@@ -185,11 +185,24 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center cursor-pointer" onClick={() => navigate('home')}>
-              <img
-                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/tim-logo2.png"
-                alt="Timothy McGuire"
-                className="h-8 w-auto mr-4"
-              />
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mr-3 flex-shrink-0"
+                aria-hidden="true"
+              >
+                {/* Background */}
+                <rect width="32" height="32" className="fill-ink dark:fill-white" />
+                {/* T crossbar */}
+                <rect x="7" y="9" width="18" height="3.5" className="fill-white dark:fill-ink" />
+                {/* T stem */}
+                <rect x="14.25" y="9" width="3.5" height="16" className="fill-white dark:fill-ink" />
+                {/* Blue accent — bottom of stem */}
+                <rect x="14.25" y="22" width="3.5" height="3" fill="#2563EB" />
+              </svg>
               <span className="text-xl font-semibold text-black dark:text-white">Timothy McGuire</span>
             </div>
 

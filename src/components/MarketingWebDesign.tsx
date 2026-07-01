@@ -1,387 +1,126 @@
 import React from 'react';
-import { ChevronRight, Globe, Users, Zap } from 'lucide-react';
+import PageBreadcrumb from './PageBreadcrumb';
+import RelatedContent from './RelatedContent';
+import SectionCTA from './SectionCTA';
 
 interface MarketingWebDesignProps {
   setCurrentPage: (page: string) => void;
 }
 
+const deliverables = [
+  { label: 'Messaging architecture', body: "Before any design begins: what are we saying, to whom, in what order? Mapping the narrative structure that the visual design will express." },
+  { label: 'Page design & layout', body: 'High-fidelity page designs for homepage, product pages, pricing, and supporting pages. Every layout decision made with the conversion goal in mind.' },
+  { label: 'Design system for web', body: 'A component-based design system sized for the marketing site: reusable sections, consistent tokens, and documentation the team can extend.' },
+  { label: 'Responsive across breakpoints', body: 'Desktop, tablet, and mobile designed in full — not desktop first and mobile as an afterthought.' },
+  { label: 'CTA and conversion design', body: 'Primary and secondary CTAs designed with intent. Button hierarchy, form design, and conversion flow optimization as part of the core work.' },
+  { label: 'Dev-ready handoff', body: 'Figma files organized for component-based development. Annotated with spacing, interaction, and animation specs that engineers can build from directly.' },
+];
+
 const MarketingWebDesign: React.FC<MarketingWebDesignProps> = ({ setCurrentPage }) => {
-  React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const handleContactClick = () => {
-    window.scrollTo(0, 0);
-    setCurrentPage('contact');
-  };
-
-  const handleSolutionsClick = () => {
-    window.scrollTo(0, 0);
-    setCurrentPage('solutions');
-  };
+  React.useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950">
-      {/* Hero Section with Breadcrumb */}
-      <section className="relative overflow-hidden bg-white dark:bg-neutral-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <nav className="flex py-4 mb-8" aria-label="Breadcrumb">
-            <ol className="flex items-center space-x-2">
-              <li>
-                <button
-                  onClick={() => setCurrentPage('services')}
-                  className="text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white"
-                >
-                  Services
-                </button>
-              </li>
-              <ChevronRight className="w-4 h-4 text-muted dark:text-neutral-400" />
-              <li className="text-black dark:text-white font-medium">Marketing Web Design</li>
-            </ol>
-          </nav>
+    <main className="min-h-screen bg-tan-100 dark:bg-neutral-950">
 
-          <div>
-            <h1 className="text-4xl md:text-7xl font-regular text-black dark:text-white mb-6">
-              Marketing Web Design<br />
-              That Drives Results
-            </h1>
-            <p className="text-xl text-muted dark:text-neutral-400 max-w-2xl">
-              We create beautiful, high-performing websites that help businesses grow.
-              Our designs are crafted to engage visitors, communicate value, and convert
-              leads into customers.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="py-20">
+      {/* Hero */}
+      <section className="bg-white dark:bg-neutral-950 py-24 border-b border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-12">
+          <PageBreadcrumb
+            items={[{ label: 'Services', pageId: 'services' }, { label: 'Marketing Web Design' }]}
+            setCurrentPage={setCurrentPage}
+          />
+          <div className="grid lg:grid-cols-2 gap-16 items-end pt-8">
             <div>
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
-                <Globe className="w-6 h-6 text-muted dark:text-neutral-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-black dark:text-white mb-4">
-                Conversion-Focused Design
-              </h3>
-              <p className="text-muted dark:text-neutral-400">
-                We design with your business goals in mind, creating user experiences that feel natural to your visitors.
+              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">Service</p>
+              <h1 className="text-4xl sm:text-5xl font-semibold text-ink dark:text-tan-500 tracking-tight leading-tight mb-6">
+                Conversion-focused websites that tell your story.
+              </h1>
+              <p className="text-base text-muted dark:text-neutral-400 leading-relaxed">
+                Marketing site design that starts with narrative architecture — what you are saying and why it should matter to the reader — before any pixel is placed. The result is websites that convert because they communicate clearly, not because they look impressive.
               </p>
             </div>
-            <div>
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
-                <Users className="w-6 h-6 text-muted dark:text-neutral-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-black dark:text-white mb-4">
-                User-Centric Approach
-              </h3>
-              <p className="text-muted dark:text-neutral-400">
-                Every design decision is based on deep understanding of your users' needs, behaviors, and preferences.
-              </p>
-            </div>
-            <div>
-              <div className="w-12 h-12 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center mb-6">
-                <Zap className="w-6 h-6 text-muted dark:text-neutral-400" />
-              </div>
-              <h3 className="text-xl font-semibold text-black dark:text-white mb-4">
-                Performance Optimized
-              </h3>
-              <p className="text-muted dark:text-neutral-400">
-                Fast-loading, responsive websites that provide excellent user experience across all devices and platforms.
-              </p>
+            <div className="grid grid-cols-3 gap-px bg-line dark:bg-white/10">
+              {[
+                { stat: 'Story', label: 'Narrative-first approach' },
+                { stat: 'Convert', label: 'Conversion design focus' },
+                { stat: 'Ship', label: 'Dev-ready handoff' },
+              ].map((item) => (
+                <div key={item.label} className="bg-tan dark:bg-neutral-900 p-6">
+                  <p className="text-xl font-semibold text-ink dark:text-white mb-1">{item.stat}</p>
+                  <p className="text-xs text-muted dark:text-neutral-500 leading-snug">{item.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* What's Included */}
-      <section className="py-20 bg-white dark:bg-neutral-950">
+      {/* Deliverables */}
+      <section className="bg-white dark:bg-neutral-950 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-black dark:text-white mb-12">What's Included</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-black dark:text-white mb-1">Custom Design</h3>
-                  <p className="text-muted dark:text-neutral-400">Unique, branded design that sets you apart</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-black dark:text-white mb-1">Responsive Development</h3>
-                  <p className="text-muted dark:text-neutral-400">Perfect experience on all devices</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-black dark:text-white mb-1">SEO Optimization</h3>
-                  <p className="text-muted dark:text-neutral-400">Built to perform well in search results</p>
-                </div>
-              </div>
-            </div>
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-black dark:text-white mb-1">Content Strategy</h3>
-                  <p className="text-muted dark:text-neutral-400">Strategic content placement for maximum impact</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-black dark:text-white mb-1">Analytics Integration</h3>
-                  <p className="text-muted dark:text-neutral-400">Track and measure your success</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-6 h-6 rounded-none bg-neutral-100 dark:bg-white/[0.08] flex items-center justify-center flex-shrink-0">
-                  <div className="w-2 h-2 rounded-none bg-black dark:bg-white" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-black dark:text-white mb-1">Ongoing Support</h3>
-                  <p className="text-muted dark:text-neutral-400">Dedicated support after launch</p>
-                </div>
-              </div>
-            </div>
+          <div className="mb-12">
+            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">What's included</p>
+            <h2 className="text-2xl font-semibold text-ink dark:text-white">What I deliver.</h2>
           </div>
-        </div>
-      </section>
-
-      {/* Design Solutions Grid */}
-      <section className="py-20 bg-white dark:bg-neutral-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-black dark:text-white mb-12 text-center">A Sample of Design Solutions</h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Mopar Redesign */}
-            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-none overflow-hidden">
-              <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-none bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
-                  Automotive
-                </span>
-                <img 
-                  src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Mopar-web-design.png"
-                  alt="Mopar Redesign" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-3">
-                  Mopar Redesign
-                </h3>
-                <p className="text-muted dark:text-neutral-400 text-sm">
-                  A Redesigned the Mopar.com website using bold type and photography to energize this audience.
-                </p>
-              </div>
-            </div>
-
-            {/* TransUnion.com Redesign */}
-            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-none overflow-hidden">
-              <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-none bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
-                  Enterprise
-                </span>
-                <img 
-                  src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/TransUnion.png" 
-                  alt="TransUnion.com Redesign" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-3">
-                  TransUnion Redesign
-                </h3>
-                <p className="text-muted dark:text-neutral-400 text-sm">
-                  Designed a responsive, user-friendly site that works seamlessly on desktop and mobile. We transformed the experience to focus on what users need, rather than just how the business operates.
-                </p>
-              </div>
-            </div>
-
-            {/* Aramark Redesign */}
-            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-none overflow-hidden">
-              <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-none bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
-                  Enterprise
-                </span>
-                <img 
-                  src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/aramark.png" 
-                  alt="Aramark Redesign" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-3">
-                  Aramark Redesign
-                </h3>
-                <p className="text-muted dark:text-neutral-400 text-sm">
-                  Focused on users, we redesigned Aramark's site with clear navigation, bold visuals, and storytelling that showcased their services while staying true to their brand pillars.
-                </p>
-              </div>
-            </div>
-
-            {/* Chrysler Redesign */}
-            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-none overflow-hidden">
-              <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-none bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
-                  Automotive
-                </span>
-                <img 
-                  src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Chrysler-web-design.png" 
-                  alt="Chrysler Redesign" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-3">
-                  Chrysler Redesign
-                </h3>
-                <p className="text-muted dark:text-neutral-400 text-sm">
-                  We reimagined Chrylser's site with user-first design, reorganizing content to match user needs. Bold typography, dynamic photography, and rich storytelling highlighted services and aligned with brand strategy.
-                </p>
-              </div>
-            </div>
-
-            {/* Accenture - Leave of Absence */}
-            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-none overflow-hidden">
-              <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-none bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
-                  HR Solutions
-                </span>
-                <img 
-                  src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/accenture-employeeleave.png" 
-                  alt="Accenture Leave of Absence" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-3">
-                  Accenture - Leave of Absence
-                </h3>
-                <p className="text-muted dark:text-neutral-400 text-sm">
-                  We redesigned Accenture's leave of absence experience with a responsive, user-centered solution, creating custom design patterns for a consistent and engaging experience on all devices.
-                </p>
-              </div>
-            </div>
-
-            {/* Atom Manager Web Redesign */}
-            <div className="bg-white dark:bg-white/[0.03] dark:border dark:border-white/[0.1] rounded-none overflow-hidden">
-              <div className="aspect-[4/3] bg-white dark:bg-white/[0.03] relative">
-                <span className="absolute top-4 left-4 z-10 inline-flex items-center px-2.5 py-0.5 rounded-none bg-purple-100 text-purple-800 text-xs font-medium border border-purple-400 dark:bg-white/[0.08] dark:text-purple-400 dark:border-purple-400">
-                  FinTech
-                </span>
-                <img 
-                  src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Atomanger-web-design.png" 
-                  alt="Atom Manager Redesign" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-black dark:text-white mb-3">
-                  Atom Manager Redesign
-                </h3>
-                <p className="text-muted dark:text-neutral-400 text-sm">
-                  I reimagined the Atom Manager marketing site, designing a new logo and a CRM form flow that integrates with the SaaS dashboard for lead generation. The responsive design ensured a seamless user experience across devices.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-20 bg-white dark:bg-neutral-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-black dark:text-white mb-12">Our Process</h2>
-          <div className="space-y-12">
-            {[
-              {
-                step: "01",
-                title: "Discovery & Strategy",
-                description: "We start by understanding your business, goals, and target audience to create a strategic foundation for your website."
-              },
-              {
-                step: "02",
-                title: "Design & Prototyping",
-                description: "Our designers create beautiful, functional layouts that align with your brand and optimize for conversions."
-              },
-              {
-                step: "03",
-                title: "Development & Testing",
-                description: "We build your website using modern technologies, ensuring it's fast, secure, and works flawlessly across all devices."
-              },
-              {
-                step: "04",
-                title: "Launch & Optimization",
-                description: "After launch, we monitor performance and make data-driven improvements to maximize results."
-              }
-            ].map((phase, index) => (
-              <div key={index} className="flex gap-8">
-                <div className="w-12 h-12 flex-shrink-0 bg-neutral-100 dark:bg-white/[0.08] rounded-none flex items-center justify-center text-black dark:text-white font-semibold">
-                  {phase.step}
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-black dark:text-white mb-2">
-                    {phase.title}
-                  </h3>
-                  <p className="text-muted dark:text-neutral-400">
-                    {phase.description}
-                  </p>
-                </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-line dark:bg-white/10">
+            {deliverables.map((d) => (
+              <div key={d.label} className="bg-white dark:bg-neutral-950 p-8">
+                <h3 className="text-sm font-semibold text-ink dark:text-white mb-3">{d.label}</h3>
+                <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">{d.body}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
-{/* Solutions CTA Section */}
-      <section className="py-20 bg-white dark:bg-neutral-950">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white mb-4">
-            Ready to See the Solutions in Action?
-          </h2>
-          <p className="text-xl text-muted dark:text-neutral-400 mb-8 max-w-2xl mx-auto">
-            Explore how our services come to life through tailored solutions that solve real problems.
-          </p>
-          <button
-            onClick={handleSolutionsClick}
-            className="btn-primary px-8 py-4 rounded-none"
-          >
-            View Our Solutions
-          </button>
+
+      {/* Approach */}
+      <section className="bg-tan dark:bg-neutral-900 py-24 border-t border-line dark:border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-6">Approach</p>
+              <h2 className="text-2xl font-semibold text-ink dark:text-white mb-6 leading-snug">
+                A website is a narrative, not a page layout.
+              </h2>
+              <div className="space-y-4 text-base text-muted dark:text-neutral-400 leading-relaxed">
+                <p>Most marketing sites are designed section by section: hero, features, testimonials, pricing, CTA. The sections are fine in isolation; the problem is they do not add up to an argument. Visitors leave because they did not get a clear answer to the question they came with.</p>
+                <p>I start every marketing site engagement with a narrative architecture phase: mapping the questions a visitor arrives with, the order in which they need to be answered, and the moment they have enough information to act. The page layout is the expression of that architecture — not the other way around.</p>
+              </div>
+            </div>
+            <div className="space-y-px bg-line dark:bg-white/10">
+              {[
+                { label: 'Who this is for', body: 'SaaS companies and professional services firms that need a website that sells a specific value proposition to a specific buyer — not a generic presence that says nothing to no one.' },
+                { label: 'What I am not', body: 'A full-stack web developer. I design and specify; I do not build in code. Engagements include dev-ready handoff that any front-end team can build from.' },
+                { label: 'Timeline', body: 'A typical marketing site engagement runs 4–8 weeks depending on scope. Strategy and messaging first, then design, then handoff.' },
+              ].map((item) => (
+                <div key={item.label} className="bg-white dark:bg-neutral-950 p-6">
+                  <p className="text-sm font-semibold text-ink dark:text-white mb-2">{item.label}</p>
+                  <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">{item.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
-      {/* CTA Section */}
-      <section className="relative py-20 overflow-hidden bg-black dark:bg-neutral-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Let's create<br />something beautiful.
-          </h2>
-          <p className="text-xl text-white/90 mb-8">
-            We'd love to learn more about how we can help your business.
-          </p>
-          <button
-            onClick={handleContactClick}
-            className="px-8 py-4 bg-white text-black rounded-none hover:bg-gray-100 transition-colors"
-          >
-            Make Contact
-          </button>
-        </div>
-      </section>
-    </div>
+
+      <RelatedContent
+        setCurrentPage={setCurrentPage}
+        heading="Related"
+        items={[
+          { id: 'saas-product-design', eyebrow: 'Service', label: 'SaaS Product Design', description: 'End-to-end product design for software platforms.' },
+          { id: 'mobile-web-design', eyebrow: 'Service', label: 'Mobile & Web Design', description: 'Responsive experiences across all devices.' },
+          { id: 'fractional-saas-designer', eyebrow: 'Service', label: 'Fractional SaaS Designer', description: 'Embedded senior design leadership on retainer.' },
+        ]}
+      />
+
+      <SectionCTA
+        heading="Ready to redesign your marketing site?"
+        body="Tell me about your product, your buyers, and what story you need to tell. I'll tell you how I would approach it."
+        primaryLabel="Let's Talk"
+        primaryPage="contact"
+        setCurrentPage={setCurrentPage}
+      />
+    </main>
   );
 };
 

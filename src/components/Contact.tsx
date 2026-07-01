@@ -37,14 +37,14 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950">
+    <div className="min-h-screen bg-tan-100 dark:bg-neutral-950">
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <p className="text-sm font-semibold uppercase tracking-widest text-muted dark:text-neutral-500 mb-4">
               Contact
             </p>
-            <h1 className="text-4xl md:text-6xl font-light text-black dark:text-white tracking-tight mb-6">
+            <h1 className="text-4xl md:text-6xl font-semibold text-ink dark:text-tan-500 tracking-tight mb-6">
               Let's Create Something Together.
             </h1>
             <p className="text-xl text-muted dark:text-neutral-400 max-w-2xl">
@@ -58,14 +58,14 @@ const Contact: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-16">
             <div className="space-y-8">
-              <h2 className="text-xl font-semibold text-black dark:text-white">Get in Touch</h2>
+              <h2 className="text-xl font-semibold text-ink dark:text-white">Get in Touch</h2>
 
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
                   <Mail className="w-5 h-5 text-muted dark:text-neutral-400" />
                 </div>
                 <div>
-                  <h3 className="text-base font-medium text-black dark:text-white">Email</h3>
+                  <h3 className="text-base font-medium text-ink dark:text-white">Email</h3>
                   <p className="mt-1 text-sm text-muted dark:text-neutral-400">godesigngo@gmail.com</p>
                 </div>
               </div>
@@ -77,7 +77,7 @@ const Contact: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-base font-medium text-black dark:text-white">Phone</h3>
+                  <h3 className="text-base font-medium text-ink dark:text-white">Phone</h3>
                   <p className="mt-1 text-sm text-muted dark:text-neutral-400">(773)-724-0473</p>
                 </div>
               </div>
@@ -87,7 +87,7 @@ const Contact: React.FC = () => {
                   <Clock className="w-5 h-5 text-muted dark:text-neutral-400" />
                 </div>
                 <div>
-                  <h3 className="text-base font-medium text-black dark:text-white">Business Hours</h3>
+                  <h3 className="text-base font-medium text-ink dark:text-white">Business Hours</h3>
                   <p className="mt-1 text-sm text-muted dark:text-neutral-400">Monday - Friday, 9am - 5pm CST</p>
                 </div>
               </div>
@@ -97,7 +97,7 @@ const Contact: React.FC = () => {
                   href="https://cal.com/timothy-mcguire-27"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-3 w-full bg-black dark:bg-white text-white dark:text-black px-6 py-3 rounded-none font-medium hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors"
+                  className="flex items-center justify-center gap-3 w-full bg-ink dark:bg-white text-white dark:text-ink px-6 py-3 font-medium hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>Schedule a Meeting</span>
@@ -112,7 +112,7 @@ const Contact: React.FC = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-black dark:text-white mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-ink dark:text-white mb-2">
                       Name *
                     </label>
                     <input
@@ -120,13 +120,13 @@ const Contact: React.FC = () => {
                       id="name"
                       name="name"
                       required
-                      className="w-full px-4 py-3 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-black dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
+                      className="w-full px-4 py-3 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-ink dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
                       placeholder="Your name"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-black dark:text-white mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-ink dark:text-white mb-2">
                       Email *
                     </label>
                     <input
@@ -134,7 +134,7 @@ const Contact: React.FC = () => {
                       id="email"
                       name="email"
                       required
-                      className="w-full px-4 py-3 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-black dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
+                      className="w-full px-4 py-3 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-ink dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -142,41 +142,41 @@ const Contact: React.FC = () => {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-black dark:text-white mb-2">
+                    <label htmlFor="company" className="block text-sm font-medium text-ink dark:text-white mb-2">
                       Company
                     </label>
                     <input
                       type="text"
                       id="company"
                       name="company"
-                      className="w-full px-4 py-3 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-black dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
+                      className="w-full px-4 py-3 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-ink dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
                       placeholder="Your company"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-black dark:text-white mb-2">
+                    <label htmlFor="phone" className="block text-sm font-medium text-ink dark:text-white mb-2">
                       Phone
                     </label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
-                      className="w-full px-4 py-3 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-black dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
+                      className="w-full px-4 py-3 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-ink dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
                       placeholder="(555) 123-4567"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="projectType" className="block text-sm font-medium text-black dark:text-white mb-2">
+                  <label htmlFor="projectType" className="block text-sm font-medium text-ink dark:text-white mb-2">
                     Project Type *
                   </label>
                   <select
                     id="projectType"
                     name="projectType"
                     required
-                    className="w-full px-4 py-3 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-black dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
+                    className="w-full px-4 py-3 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-ink dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors"
                   >
                     <option value="">Select a project type</option>
                     <option value="Marketing Website Design">Marketing Website Design</option>
@@ -189,7 +189,7 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-black dark:text-white mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-ink dark:text-white mb-2">
                     Project Details *
                   </label>
                   <textarea
@@ -197,14 +197,14 @@ const Contact: React.FC = () => {
                     name="message"
                     required
                     rows={6}
-                    className="w-full px-4 py-3 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-black dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-none border border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent text-ink dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors resize-none"
                     placeholder="Tell me about your project, timeline, and any specific requirements..."
                   ></textarea>
                 </div>
 
                 {formStatus === 'success' && (
                   <div className="p-4 bg-neutral-100 dark:bg-white/[0.08] border border-[#D9D9D9] dark:border-white/[0.1] rounded-none">
-                    <p className="text-sm text-black dark:text-white font-medium">
+                    <p className="text-sm text-ink dark:text-white font-medium">
                       Thank you! Your message has been sent successfully. I'll get back to you within 24 hours.
                     </p>
                   </div>
@@ -212,7 +212,7 @@ const Contact: React.FC = () => {
 
                 {formStatus === 'error' && (
                   <div className="p-4 bg-neutral-100 dark:bg-white/[0.08] border border-[#D9D9D9] dark:border-white/[0.1] rounded-none">
-                    <p className="text-sm text-black dark:text-white font-medium">
+                    <p className="text-sm text-ink dark:text-white font-medium">
                       Something went wrong. Please try again or email me directly at godesigngo@gmail.com
                     </p>
                   </div>

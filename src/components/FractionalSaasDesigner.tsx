@@ -1,5 +1,8 @@
 import React from 'react';
-import { ChevronRight, BarChart3, Layers, GitBranch, Component, Workflow, ScanSearch, Sparkles, Combine, Network } from 'lucide-react';
+import { BarChart3, Layers, GitBranch, Component, Workflow, ScanSearch, Sparkles, Combine, Network } from 'lucide-react';
+import PageBreadcrumb from './PageBreadcrumb';
+import RelatedContent from './RelatedContent';
+import SectionCTA from './SectionCTA';
 
 interface FractionalSaasDesignerProps {
   setCurrentPage: (page: string) => void;
@@ -283,27 +286,18 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950">
+    <div className="min-h-screen bg-tan-100 dark:bg-neutral-950">
       {/* Hero Section with Breadcrumb */}
       <section className="relative overflow-hidden bg-white dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <nav className="flex py-4 mb-8" aria-label="Breadcrumb">
-            <ol className="flex items-center space-x-2">
-              <li>
-                <button
-                  onClick={() => setCurrentPage('services')}
-                  className="text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white"
-                >
-                  Services
-                </button>
-              </li>
-              <ChevronRight className="w-4 h-4 text-muted dark:text-neutral-400" />
-              <li className="text-black dark:text-white font-medium">Fractional SaaS Designer</li>
-            </ol>
-          </nav>
+          <PageBreadcrumb
+            items={[{ label: 'Services', pageId: 'services' }, { label: 'Fractional SaaS Designer' }]}
+            setCurrentPage={setCurrentPage}
+          />
 
-          <div>
-            <h1 className="text-4xl md:text-7xl font-regular text-black dark:text-white mb-6">
+          <div className="pt-8">
+            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">Service</p>
+            <h1 className="text-4xl sm:text-5xl font-semibold text-ink dark:text-tan-500 tracking-tight leading-tight mb-6">
               Fractional SaaS Designer<br />
               Embedded With Your Team
             </h1>
@@ -610,35 +604,23 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
         </div>
       </section>
 
-      {/* Closing */}
-      <section className="py-20 md:py-24 bg-white dark:bg-neutral-950">
-        <div className="max-w-[1140px] mx-auto px-6">
-          <div className="max-w-[720px] mx-auto text-center">
-            <h2 className="text-[24px] md:text-[28px] font-semibold text-black dark:text-white leading-snug mb-6">
-              Small, focused improvements — applied consistently — can significantly improve both user experience and product velocity.
-            </h2>
-            <p className="text-[16px] leading-[1.7] text-muted dark:text-neutral-400 mb-10">
-              For SaaS teams in a similar position — where the product is strong but UX and systems need to catch up — this type of embedded, incremental approach provides a clear path forward.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button
-                onClick={() => setCurrentPage('contact')}
-                className="inline-flex items-center px-6 py-3 bg-black dark:bg-white text-white dark:text-black text-sm font-medium rounded-none hover:bg-gray-900 dark:hover:bg-gray-100 transition-colors"
-              >
-                Start a conversation
-              </button>
-              <a
-                href="https://cal.com/timothy-mcguire-27"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-6 py-3 bg-white dark:bg-white/[0.03] text-black dark:text-neutral-400 text-sm font-medium rounded-none border border-[#D9D9D9] dark:border-white/[0.1] hover:bg-gray-50 dark:hover:bg-white/[0.06] transition-colors"
-              >
-                Schedule a call
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <RelatedContent
+        setCurrentPage={setCurrentPage}
+        heading="Related"
+        items={[
+          { id: 'enterprise-ux-consulting', eyebrow: 'Service', label: 'Enterprise UX Consulting', description: 'Longer-form consulting for complex enterprise products.' },
+          { id: 'saas-product-design', eyebrow: 'Service', label: 'SaaS Product Design', description: 'End-to-end product design for software platforms.' },
+          { id: 'strategy-sessions', eyebrow: 'Service', label: 'Strategy Sessions', description: 'Focused one-on-one sessions for design challenges.' },
+        ]}
+      />
+
+      <SectionCTA
+        heading="Small improvements, consistently applied."
+        body="For SaaS teams where the product is strong but UX and systems need to catch up — this embedded, incremental approach provides a clear path forward. Let's talk."
+        primaryLabel="Start a Conversation"
+        primaryPage="contact"
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 };

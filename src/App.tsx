@@ -30,6 +30,12 @@ import PerspectiveDetail from './components/PerspectiveDetail';
 import SolutionDetail from './components/SolutionDetail';
 import Resume from './components/Resume';
 import Analytics from './components/Analytics';
+import DesignLibrary from './components/DesignLibrary';
+import HomeEditorial from './components/HomeEditorial';
+import MyPhilosophy from './components/MyPhilosophy';
+import HowIWork from './components/HowIWork';
+import WritingHub from './components/WritingHub';
+import SpeakingPage from './components/SpeakingPage';
 import { trackPageView } from './lib/analytics';
 
 interface PageMeta {
@@ -212,6 +218,7 @@ const pageToPath: Record<string, string> = {
   'perspectives-writing': '/perspectives/writing',
   'perspectives-speaking': '/perspectives/speaking',
   analytics: '/analytics',
+  '__design__': '/__design__',
 };
 
 const getPageFromPath = (pathname: string): string => {
@@ -282,11 +289,7 @@ function App() {
   }, [currentPage]);
 
   const perspectiveDetailPages = new Set([
-    'perspectives-my-philosophy',
-    'perspectives-how-i-work',
     'perspectives-ai-native-design',
-    'perspectives-writing',
-    'perspectives-speaking',
   ]);
 
   const solutionDetailPages = new Set([
@@ -316,9 +319,18 @@ function App() {
             <SuccessStories setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />
             <SpecializedExpertise setCurrentPage={setCurrentPage} />
             <Testimonials />
+            <HomeEditorial setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />
             <CTA setCurrentPage={setCurrentPage} />
           </>
         );
+      case 'perspectives-my-philosophy':
+        return <MyPhilosophy setCurrentPage={setCurrentPage} />;
+      case 'perspectives-how-i-work':
+        return <HowIWork setCurrentPage={setCurrentPage} />;
+      case 'perspectives-writing':
+        return <WritingHub setCurrentPage={setCurrentPage} />;
+      case 'perspectives-speaking':
+        return <SpeakingPage setCurrentPage={setCurrentPage} />;
       case 'about':
         return <About />;
       case 'contact':
@@ -349,6 +361,8 @@ function App() {
         return <Resume />;
       case 'analytics':
         return <Analytics />;
+      case '__design__':
+        return <DesignLibrary />;
       case 'solutions':
         if (selectedCaseStudy === 'CoreTechs SaaS Healthcare Product') {
           return <CaseStudyDetail setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
@@ -366,7 +380,7 @@ function App() {
 
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <div className="min-h-screen bg-white dark:bg-brand-950">
+      <div className="min-h-screen bg-tan-100 dark:bg-neutral-950">
         <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
         {renderPage()}
         <Footer currentPage={currentPage} setCurrentPage={setCurrentPage} />

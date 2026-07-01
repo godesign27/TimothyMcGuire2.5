@@ -4,30 +4,50 @@ import { FileDown, Briefcase, GraduationCap, Wrench, Sparkles, ExternalLink } fr
 const Resume: React.FC = () => {
 
   const competencies = [
-    'AI-Native UX & Agentic Systems',
-    'Human-in-the-Loop Design',
-    'LLM Oversight & Trust Models',
-    'Decision-Support Interfaces',
-    'UX Strategy & User-Centered Design',
-    'Enterprise SaaS UX',
-    'End-to-End Product Design',
-    'Information Architecture',
-    'Interaction Design',
-    'Analytics & Data Visualization UX',
-    'Design Systems & Pattern Libraries',
-    'Accessibility & Inclusive Design',
-    'Stakeholder Alignment',
-    'Cross-Functional Collaboration',
-    'Design Leadership & Mentorship',
+    'Agentic AI',
+    'AI Product Design',
+    'Human-in-the-Loop Systems',
+    'LLM UX',
+    'Design Systems',
+    'Design Tokens',
+    'Figma Variables',
+    'Design System Governance',
+    'Documentation Platforms',
+    'Repository as Source of Truth',
+    'Enterprise SaaS',
+    'UX Strategy',
+    'UX/UI Product Design',
+    'User Research',
+    'Accessibility',
+    'Analytics & Data Visualization',
   ];
 
   const tools = [
-    'Figma', 'Sketch', 'Adobe Creative Suite', 'Jira', 'Confluence', 'Miro', 'Slack',
-    'OpenAI APIs', 'Claude', 'Gemini', 'Cursor', 'GitHub Copilot',
+    'Figma', 'Sketch', 'Adobe Creative Suite', 'Jira', 'Confluence', 'Miro', 'Slack', 'Notion',
+    'Zeroheight', 'Supernova', 'Storybook', 'Tokens Studio', 'Figma Variables',
+    'OpenAI APIs', 'Claude', 'Gemini', 'Cursor', 'VS Code', 'GitHub Copilot',
     'Bolt.new', 'Replit', 'Lovable.dev', 'Figma Make',
   ];
 
   const experience = [
+    {
+      company: 'ZS Associates',
+      title: 'Principal Product Designer / UX Lead',
+      period: '2017 – Present',
+      location: 'Remote',
+      projects: 'Zaidyn Healthcare SaaS Ecosystem',
+      bullets: [
+        'Led enterprise UX strategy across the Zaidyn healthcare SaaS ecosystem spanning 20+ products.',
+        'Defined and executed Agentic AI UX strategy including AI-assisted workflows, human-in-the-loop controls, explainability, auditability, and responsible AI governance.',
+        'Architected AI-native experiences leveraging LLMs, predictive analytics, recommendation engines, and workflow automation.',
+        'Established enterprise Design System strategy using design tokens, Figma Variables, accessibility standards, and governance frameworks.',
+        'Created a repository-driven Design System operating model positioning repositories as the single source of truth for design, engineering, documentation, and AI-enabled development.',
+        'Led implementation of a modern documentation platform improving discoverability, onboarding efficiency, and adoption.',
+        'Reduced design-to-development friction by 25–35% through alignment of design assets and engineering implementation.',
+        'Reduced cognitive load and improved task efficiency by 30–40% across analytics-intensive healthcare workflows.',
+        'Improved design system adoption by 50%+ while accelerating feature delivery and consistency.',
+      ],
+    },
     {
       company: 'Agate Software',
       title: 'Principal UX/UI Designer & Manager',
@@ -176,11 +196,11 @@ const Resume: React.FC = () => {
   ];
 
   return (
-    <main className="min-h-screen bg-white dark:bg-neutral-950">
+    <main className="min-h-screen bg-tan-100 dark:bg-neutral-950">
       <section aria-label="Resume header" className="py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-light tracking-tight text-black dark:text-white mb-4">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-ink dark:text-tan-500 mb-4">
               Timothy J. McGuire
             </h1>
 
@@ -207,7 +227,7 @@ const Resume: React.FC = () => {
 
             <div className="mt-10 flex justify-center">
               <a
-                href="/Timothy_McGuire_AI_Agentic_UX_Designer_2026.pdf"
+                href="/Timothy_McGuire_AI_UX_Designer_2026C.pdf"
                 download
                 className="btn-primary"
               >
@@ -226,10 +246,12 @@ const Resume: React.FC = () => {
 
             <div className="px-8 sm:px-12 pt-12 pb-10 border-b border-[#D9D9D9] dark:border-white/[0.1]">
               <p className="text-base leading-relaxed text-muted dark:text-neutral-400">
-                Senior and Principal UX Designer with 15+ years of experience leading end-to-end product
-                design for enterprise SaaS, data-intensive platforms, and AI-driven systems. Deep expertise
-                in AI-native UX, agentic workflows, human-in-the-loop systems, and LLM-integrated
-                decision support.
+                Senior / Principal Product Designer with 15+ years of experience leading enterprise SaaS,
+                AI-native products, healthcare platforms, FinTech solutions, and large-scale design systems.
+                Specialized in Agentic AI UX, human-in-the-loop systems, LLM-powered experiences, design
+                system governance, repository-driven source-of-truth strategies, and modern documentation
+                platforms. Proven track record of improving usability, accelerating delivery, increasing
+                adoption, and aligning user needs with business outcomes.
               </p>
             </div>
 
@@ -238,7 +260,7 @@ const Resume: React.FC = () => {
                 <div className="flex items-center justify-center w-9 h-9 rounded-none bg-neutral-100 dark:bg-white/[0.08]" aria-hidden="true">
                   <Sparkles size={18} className="text-muted dark:text-neutral-400" />
                 </div>
-                <h2 id="competencies-heading" className="text-xs font-bold tracking-[0.2em] uppercase text-black dark:text-white">
+                <h2 id="competencies-heading" className="text-xs font-semibold tracking-[0.2em] uppercase text-ink dark:text-white">
                   Core Competencies
                 </h2>
               </div>
@@ -259,7 +281,7 @@ const Resume: React.FC = () => {
                 <div className="flex items-center justify-center w-9 h-9 rounded-none bg-neutral-100 dark:bg-white/[0.08]" aria-hidden="true">
                   <Wrench size={18} className="text-muted dark:text-neutral-400" />
                 </div>
-                <h2 id="tools-heading" className="text-xs font-bold tracking-[0.2em] uppercase text-black dark:text-white">
+                <h2 id="tools-heading" className="text-xs font-semibold tracking-[0.2em] uppercase text-ink dark:text-white">
                   Tools & Technologies
                 </h2>
               </div>
@@ -280,7 +302,7 @@ const Resume: React.FC = () => {
                 <div className="flex items-center justify-center w-9 h-9 rounded-none bg-neutral-100 dark:bg-white/[0.08]" aria-hidden="true">
                   <Briefcase size={18} className="text-muted dark:text-neutral-400" />
                 </div>
-                <h2 id="experience-heading" className="text-xs font-bold tracking-[0.2em] uppercase text-black dark:text-white">
+                <h2 id="experience-heading" className="text-xs font-semibold tracking-[0.2em] uppercase text-ink dark:text-white">
                   Professional Experience
                 </h2>
               </div>
@@ -294,7 +316,7 @@ const Resume: React.FC = () => {
                     <div className="absolute left-0 top-[7px] w-[15px] h-[15px] rounded-none border-[3px] border-[#D9D9D9] dark:border-white/[0.1] bg-white dark:bg-transparent" aria-hidden="true" />
 
                     <div>
-                      <h3 className="text-lg font-semibold text-black dark:text-white leading-snug">
+                      <h3 className="text-lg font-semibold text-ink dark:text-white leading-snug">
                         {job.company}
                       </h3>
                       <p className="mt-1 text-sm font-medium text-muted dark:text-neutral-400">
@@ -334,12 +356,12 @@ const Resume: React.FC = () => {
                 <div className="flex items-center justify-center w-9 h-9 rounded-none bg-neutral-100 dark:bg-white/[0.08]" aria-hidden="true">
                   <GraduationCap size={18} className="text-muted dark:text-neutral-400" />
                 </div>
-                <h2 id="education-heading" className="text-xs font-bold tracking-[0.2em] uppercase text-black dark:text-white">
+                <h2 id="education-heading" className="text-xs font-semibold tracking-[0.2em] uppercase text-ink dark:text-white">
                   Education
                 </h2>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-black dark:text-white">
+                <h3 className="text-lg font-semibold text-ink dark:text-white">
                   University of Wisconsin–Madison
                 </h3>
                 <p className="mt-1 text-sm text-muted dark:text-neutral-400">
@@ -354,7 +376,7 @@ const Resume: React.FC = () => {
               Want a copy for your records?
             </p>
             <a
-              href="/Timothy_McGuire_AI_Agentic_UX_Designer_2026.pdf"
+              href="/Timothy_McGuire_AI_UX_Designer_2026C.pdf"
               download
               className="btn-secondary"
             >
