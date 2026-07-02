@@ -55,12 +55,12 @@ const css = `
 
 const DesignSystemIllustration: React.FC = () => (
   <svg
-    className="ds-illus w-full h-full"
+    className="ds-illus w-full"
     viewBox="0 0 580 560"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true"
-    style={{ maxHeight: 520 }}
+    style={{ width: '100%', height: 'auto', maxHeight: 560 }}
   >
     <defs>
       <style>{css}</style>

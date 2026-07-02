@@ -60,7 +60,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
           </div>
 
           {/* Right: Design system illustration */}
-          <div className="hidden lg:flex items-center justify-center">
+          <div className="hidden lg:block w-full">
             <DesignSystemIllustration />
           </div>
 
