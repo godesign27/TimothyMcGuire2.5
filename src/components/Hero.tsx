@@ -1,26 +1,10 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import DesignSystemIllustration from './DesignSystemIllustration';
 
 interface HeroProps {
   setCurrentPage: (page: string) => void;
 }
-
-const ASCII_TOP    = `╔══════════════════════════════════════════╗`;
-const ASCII_TITLE  = `║  ▪ Platform              [●] [●] [×]    ║`;
-const ASCII_DIV1   = `╠════════════╦═════════════════════════════╣`;
-const ASCII_ROW1   = `║            ║  Overview             Q  ↺  ║`;
-const ASCII_HOME   = `║  ◉  Home   ╠═════════════════════════════╣`;
-const ASCII_BLANK1 = `║            ║                             ║`;
-const ASCII_DATA   = `║  ≡  Data   ║  ┌──────────┐  ┌────────┐  ║`;
-const ASCII_STAT1  = `║            ║  │  47,291  │  │  82%   │  ║`;
-const ASCII_AI     = `║  ◈  AI     ║  │  Members │  │ Active │  ║`;
-const ASCII_STAT2  = `║            ║  └──────────┘  └────────┘  ║`;
-const ASCII_DOCS   = `║  ⊞  Docs   ║                             ║`;
-const ASCII_RISK   = `║            ║  Risk Score                 ║`;
-const ASCII_ADMIN  = `║  ↑  Admin  ║  ██████████░░░  74%         ║`;
-const ASCII_BLANK2 = `║            ║                             ║`;
-const ASCII_ALERT  = `║            ║  ▲ AI flagged 3 records     ║`;
-const ASCII_BOT    = `╚════════════╩═════════════════════════════╝`;
 
 const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
   const navigate = (page: string) => {
@@ -42,7 +26,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
       <div className="absolute inset-0 bg-neutral-950 dark:block hidden" />
 
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
 
           {/* Left: Hero copy */}
           <div>
@@ -75,30 +59,9 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
             </div>
           </div>
 
-          {/* Right: ASCII wireframe */}
-          <div className="hidden lg:flex items-center justify-end">
-            <pre
-              className="font-mono select-none leading-snug"
-              style={{ fontSize: '11.5px', color: 'rgba(17,17,17,0.18)' }}
-              aria-hidden="true"
-            >
-              <span className="dark:text-white/[0.12] text-inherit block">{ASCII_TOP}</span>
-              <span className="dark:text-white/[0.12] text-inherit block">{ASCII_TITLE}</span>
-              <span className="dark:text-white/[0.12] text-inherit block">{ASCII_DIV1}</span>
-              <span className="dark:text-white/[0.12] text-inherit block">{ASCII_ROW1}</span>
-              <span className="dark:text-white/[0.12] text-inherit block">{ASCII_HOME}</span>
-              <span className="dark:text-white/[0.12] text-inherit block">{ASCII_BLANK1}</span>
-              <span className="dark:text-white/[0.12] text-inherit block">{ASCII_DATA}</span>
-              <span className="dark:text-white/[0.12] text-inherit block">{ASCII_STAT1}</span>
-              <span className="dark:text-white/[0.12] text-inherit block">{ASCII_AI}</span>
-              <span className="dark:text-white/[0.12] text-inherit block">{ASCII_STAT2}</span>
-              <span className="dark:text-white/[0.12] text-inherit block">{ASCII_DOCS}</span>
-              <span className="dark:text-white/[0.12] text-inherit block">{ASCII_RISK}</span>
-              <span className="dark:text-white/[0.12] text-inherit block">{ASCII_ADMIN}</span>
-              <span className="dark:text-white/[0.12] text-inherit block">{ASCII_BLANK2}</span>
-              <span style={{ color: 'rgba(37,99,235,0.45)' }} className="dark:text-blue/40 block">{ASCII_ALERT}</span>
-              <span className="dark:text-white/[0.12] text-inherit block">{ASCII_BOT}</span>
-            </pre>
+          {/* Right: Design system illustration */}
+          <div className="hidden lg:flex items-center justify-center">
+            <DesignSystemIllustration />
           </div>
 
         </div>
