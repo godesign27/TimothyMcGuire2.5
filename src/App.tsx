@@ -44,17 +44,17 @@ interface PageMeta {
   path: string;
 }
 
-const SITE_NAME = 'Timothy McGuire - Experience Designer';
+const SITE_NAME = 'Timothy McGuire — Agentic AI Designer & Director';
 
 const pageSeo: Record<string, PageMeta> = {
   home: {
     title: SITE_NAME,
-    description: 'Timothy McGuire is a Senior UX Designer with 15+ years of experience creating intuitive SaaS products, AI-native platforms, and enterprise digital experiences.',
+    description: 'Timothy McGuire is an Agentic AI Designer and Director with 15+ years of experience designing AI-native products, agentic systems, enterprise SaaS platforms, and agentic design systems. Trust-by-design, human-in-the-loop, and agentic UX frameworks.',
     path: '/',
   },
   about: {
     title: `${SITE_NAME} | About`,
-    description: 'Learn about Timothy McGuire, a Senior UX Designer with 15+ years of experience leading user-centered design for enterprise SaaS, AI products, and digital platforms.',
+    description: 'Timothy McGuire is an Agentic AI Design Director with 15+ years leading AI-native product design, agentic experience strategy, and enterprise UX for complex SaaS platforms.',
     path: '/about',
   },
   contact: {
@@ -83,18 +83,18 @@ const pageSeo: Record<string, PageMeta> = {
     path: '/services/mobile-web-design',
   },
   'fractional-saas-designer': {
-    title: `${SITE_NAME} | Fractional SaaS Designer`,
-    description: 'Hire a fractional SaaS designer for flexible, senior-level UX/UI design leadership without the full-time overhead.',
+    title: `${SITE_NAME} | Fractional Agentic AI Design Director`,
+    description: 'Hire a fractional Agentic AI Design Director. Senior-level agentic UX leadership, agentic design systems, and AI product strategy on retainer — without the full-time overhead.',
     path: '/services/fractional-saas-designer',
   },
   'agentic-experience': {
-    title: `${SITE_NAME} | AI & Agentic Experience Design`,
-    description: 'AI and agent experience design services. Trust-by-design frameworks, mental model mapping, and interaction patterns for AI-powered products.',
+    title: `Timothy McGuire | Agentic AI Designer & Agentic Experience Design Director`,
+    description: 'Agentic AI designer and director with deep expertise in agentic experience design, agentic design systems, trust-by-design frameworks, human-in-the-loop patterns, and AI product strategy. Available for consulting and fractional leadership.',
     path: '/services/agentic-experience',
   },
   'enterprise-ux-consulting': {
-    title: `${SITE_NAME} | Enterprise UX Consulting`,
-    description: 'Senior UX consulting for complex enterprise products. Platform redesign, stakeholder alignment, design systems, and research-driven strategy.',
+    title: `${SITE_NAME} | Enterprise UX Consulting & Agentic AI Strategy`,
+    description: 'Director-level enterprise UX consulting and agentic AI experience strategy. Complex SaaS platform redesign, agentic design systems, stakeholder alignment, and research-driven transformation.',
     path: '/services/enterprise-ux-consulting',
   },
   'speaking-workshops': {
@@ -128,13 +128,13 @@ const pageSeo: Record<string, PageMeta> = {
     path: '/solutions/enterprise-saas',
   },
   'solutions-ai-native-products': {
-    title: `${SITE_NAME} | AI-Native Product Design`,
-    description: 'Designing products where AI is foundational — not bolted on — and trust is built into every interaction.',
+    title: `Timothy McGuire | AI-Native & Agentic Product Design`,
+    description: 'Expert agentic AI designer and director. Designing AI-native and agentic products where trust, transparency, and human-in-the-loop control are foundational — not bolted on. Trust-by-design, confidence signaling, agentic oversight UI.',
     path: '/solutions/ai-native-products',
   },
   'solutions-design-systems': {
-    title: `${SITE_NAME} | Design Systems`,
-    description: 'Building the shared language that lets teams design and ship faster without sacrificing consistency.',
+    title: `Timothy McGuire | Agentic Design Systems & Component Architecture`,
+    description: 'Building agentic design systems — token architecture, component libraries, and pattern frameworks purpose-built for AI-native and agentic products. Shared language for teams shipping at speed without sacrificing consistency.',
     path: '/solutions/design-systems',
   },
   'solutions-healthcare-ux': {
