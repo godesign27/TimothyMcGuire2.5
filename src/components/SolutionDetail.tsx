@@ -2,6 +2,22 @@ import React from 'react';
 import PageBreadcrumb from './PageBreadcrumb';
 import RelatedContent from './RelatedContent';
 import SectionCTA from './SectionCTA';
+import Eyebrow from './Eyebrow';
+import EnterpriseDashboardIllustration from './illustrations/EnterpriseDashboardIllustration';
+import AgentOrchestrationIllustration from './illustrations/AgentOrchestrationIllustration';
+import TokenArchitectureIllustration from './illustrations/TokenArchitectureIllustration';
+import ClinicalWorkflowIllustration from './illustrations/ClinicalWorkflowIllustration';
+import FintechDashboardIllustration from './illustrations/FintechDashboardIllustration';
+import ModernizationIllustration from './illustrations/ModernizationIllustration';
+
+const solutionIllustrations: Record<string, React.ReactNode> = {
+  'solutions-enterprise-saas': <EnterpriseDashboardIllustration />,
+  'solutions-ai-native-products': <AgentOrchestrationIllustration />,
+  'solutions-design-systems': <TokenArchitectureIllustration />,
+  'solutions-healthcare-ux': <ClinicalWorkflowIllustration />,
+  'solutions-fintech-ux': <FintechDashboardIllustration />,
+  'solutions-product-modernization': <ModernizationIllustration />,
+};
 
 interface SolutionDetailProps {
   page: string;
@@ -232,6 +248,7 @@ const solutionConfig: Record<string, SolutionConfig> = {
 
 const SolutionDetail: React.FC<SolutionDetailProps> = ({ page, setCurrentPage }) => {
   const config = solutionConfig[page];
+  const illustration = solutionIllustrations[page];
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -254,9 +271,7 @@ const SolutionDetail: React.FC<SolutionDetailProps> = ({ page, setCurrentPage })
           />
           <div className="grid lg:grid-cols-2 gap-16 items-end pt-8">
             <div>
-              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">
-                {config.eyebrow}
-              </p>
+              <Eyebrow className="mb-4">{config.eyebrow}</Eyebrow>
               <h1 className="text-4xl sm:text-5xl font-semibold text-ink dark:text-tan-500 tracking-tight leading-tight mb-6">
                 {config.subtitle}
               </h1>
@@ -264,13 +279,16 @@ const SolutionDetail: React.FC<SolutionDetailProps> = ({ page, setCurrentPage })
                 {config.heroBody}
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-px bg-line dark:bg-white/10">
-              {config.evidence.map((item) => (
-                <div key={item.label} className="bg-tan dark:bg-neutral-900 p-6">
-                  <p className="text-xl font-semibold text-ink dark:text-white mb-1">{item.stat}</p>
-                  <p className="text-xs text-muted dark:text-neutral-500 leading-snug">{item.label}</p>
-                </div>
-              ))}
+            <div className="hidden lg:flex flex-col gap-8">
+              {illustration}
+              <div className="grid grid-cols-2 gap-px bg-line dark:bg-white/10">
+                {config.evidence.map((item) => (
+                  <div key={item.label} className="bg-tan dark:bg-neutral-900 px-5 py-4">
+                    <p className="text-sm font-semibold text-ink dark:text-white mb-0.5">{item.stat}</p>
+                    <p className="text-xs text-muted dark:text-neutral-500 leading-snug">{item.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -281,9 +299,7 @@ const SolutionDetail: React.FC<SolutionDetailProps> = ({ page, setCurrentPage })
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
-              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-6">
-                The challenge
-              </p>
+              <Eyebrow className="mb-6">The challenge</Eyebrow>
               <h2 className="text-2xl font-semibold text-ink dark:text-white mb-6 leading-snug">
                 {config.challengeHeading}
               </h2>
@@ -296,9 +312,7 @@ const SolutionDetail: React.FC<SolutionDetailProps> = ({ page, setCurrentPage })
               </div>
             </div>
             <div>
-              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-6">
-                My approach
-              </p>
+              <Eyebrow className="mb-6">My approach</Eyebrow>
               <h2 className="text-2xl font-semibold text-ink dark:text-white mb-6 leading-snug">
                 {config.approachHeading}
               </h2>
@@ -318,9 +332,7 @@ const SolutionDetail: React.FC<SolutionDetailProps> = ({ page, setCurrentPage })
       <section className="bg-tan dark:bg-neutral-900 py-24 border-t border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">
-              Key Patterns
-            </p>
+            <Eyebrow className="mb-3">Key Patterns</Eyebrow>
             <h2 className="text-2xl font-semibold text-ink dark:text-white leading-snug">
               How this shows up in the work.
             </h2>
