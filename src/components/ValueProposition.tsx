@@ -24,12 +24,9 @@ const ValueProposition: React.FC = () => {
 
           {/* Left: featured callout */}
           <div className="lg:sticky lg:top-32">
-            <div
-              className="p-10 border border-line dark:border-white/10"
-              style={{ background: 'linear-gradient(135deg, #F3EFE7 0%, #ffffff 100%)' }}
-            >
+            <div className="p-10 border border-line dark:border-white/10 bg-gradient-to-br from-tan-100 to-white dark:from-neutral-900 dark:to-neutral-950">
               <div className="w-8 h-[3px] bg-blue mb-8" />
-              <h2 className="text-3xl md:text-4xl font-semibold text-ink dark:text-white leading-tight mb-6">
+              <h2 className="text-3xl md:text-4xl font-semibold text-ink dark:text-tan-500 leading-tight mb-6">
                 {featured.title}
               </h2>
               <p className="text-base text-muted dark:text-neutral-400 leading-relaxed">
