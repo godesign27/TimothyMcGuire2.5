@@ -233,7 +233,7 @@ function App() {
 
   React.useEffect(() => {
     const meta = pageSeo[currentPage] ?? pageSeo.home;
-    const baseUrl = 'https://godesigninc.com';
+    const baseUrl = 'https://timothymcguire.com';
 
     document.title = meta.title;
 
