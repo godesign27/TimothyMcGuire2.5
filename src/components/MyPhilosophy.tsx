@@ -1,4 +1,5 @@
 import React from 'react';
+import Eyebrow from './Eyebrow';
 import PageBreadcrumb from './PageBreadcrumb';
 import RelatedContent from './RelatedContent';
 import SectionCTA from './SectionCTA';
@@ -56,9 +57,7 @@ const MyPhilosophy: React.FC<MyPhilosophyProps> = ({ setCurrentPage }) => {
           />
           <div className="grid lg:grid-cols-2 gap-16 items-end pt-8">
             <div>
-              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">
-                Philosophy
-              </p>
+              <Eyebrow className="mb-4">Philosophy</Eyebrow>
               <h1 className="text-4xl sm:text-5xl font-semibold text-ink dark:text-tan-500 tracking-tight leading-tight mb-6">
                 Design is a translation act.
               </h1>
@@ -103,9 +102,7 @@ const MyPhilosophy: React.FC<MyPhilosophyProps> = ({ setCurrentPage }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-24">
             <div>
-              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-6">
-                On the work
-              </p>
+              <Eyebrow className="mb-6">On the work</Eyebrow>
               <h2 className="text-2xl md:text-3xl font-semibold text-ink dark:text-white mb-6 leading-snug">
                 Why I focus on enterprise.
               </h2>
@@ -122,9 +119,7 @@ const MyPhilosophy: React.FC<MyPhilosophyProps> = ({ setCurrentPage }) => {
               </div>
             </div>
             <div>
-              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-6">
-                On AI
-              </p>
+              <Eyebrow className="mb-6">On AI</Eyebrow>
               <h2 className="text-2xl md:text-3xl font-semibold text-ink dark:text-white mb-6 leading-snug">
                 Why explainability is the design problem of this decade.
               </h2>

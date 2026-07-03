@@ -1,7 +1,9 @@
 import React from 'react';
+import Eyebrow from './Eyebrow';
 import PageBreadcrumb from './PageBreadcrumb';
 import RelatedContent from './RelatedContent';
 import SectionCTA from './SectionCTA';
+import StrategySessionIllustration from './illustrations/StrategySessionIllustration';
 
 interface StrategySessionsProps {
   setCurrentPage: (page: string) => void;
@@ -57,25 +59,30 @@ const StrategySessions: React.FC<StrategySessionsProps> = ({ setCurrentPage }) =
             items={[{ label: 'Services', pageId: 'services' }, { label: 'Strategy Sessions' }]}
             setCurrentPage={setCurrentPage}
           />
-          <div className="pt-8 max-w-3xl">
-            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">Service</p>
-            <h1 className="text-4xl sm:text-5xl font-semibold text-ink dark:text-tan-500 tracking-tight leading-tight mb-6">
-              Focused time with a senior design mind.
-            </h1>
-            <p className="text-base text-muted dark:text-neutral-400 leading-relaxed mb-8 max-w-xl">
-              Short, structured engagements for product teams and founders who need a clear perspective on a design challenge — without the overhead of a full engagement. Come with a specific question; leave with a direct answer and a written follow-up.
-            </p>
-            <div className="grid grid-cols-3 gap-px bg-line dark:bg-white/10 max-w-sm">
-              {[
-                { stat: 'Remote', label: 'Video call' },
-                { stat: 'Fast', label: 'Same-week availability' },
-                { stat: 'Direct', label: 'No filler' },
-              ].map((item) => (
-                <div key={item.label} className="bg-tan dark:bg-neutral-900 p-4">
-                  <p className="text-base font-semibold text-ink dark:text-white mb-0.5">{item.stat}</p>
-                  <p className="text-xs text-muted dark:text-neutral-500">{item.label}</p>
-                </div>
-              ))}
+          <div className="grid lg:grid-cols-2 gap-16 items-end pt-8">
+            <div>
+              <Eyebrow className="mb-4">Service</Eyebrow>
+              <h1 className="text-4xl sm:text-5xl font-semibold text-ink dark:text-tan-500 tracking-tight leading-tight mb-6">
+                Focused time with a senior design mind.
+              </h1>
+              <p className="text-base text-muted dark:text-neutral-400 leading-relaxed mb-8">
+                Short, structured engagements for product teams and founders who need a clear perspective on a design challenge — without the overhead of a full engagement. Come with a specific question; leave with a direct answer and a written follow-up.
+              </p>
+            </div>
+            <div className="hidden lg:flex flex-col gap-8">
+              <StrategySessionIllustration />
+              <div className="grid grid-cols-3 gap-px bg-line dark:bg-white/10">
+                {[
+                  { stat: 'Remote', label: 'Video call' },
+                  { stat: 'Fast', label: 'Same-week availability' },
+                  { stat: 'Direct', label: 'No filler' },
+                ].map((item) => (
+                  <div key={item.label} className="bg-tan-100 dark:bg-neutral-900 px-5 py-4">
+                    <p className="text-sm font-semibold text-ink dark:text-white mb-0.5">{item.stat}</p>
+                    <p className="text-xs text-muted dark:text-neutral-500">{item.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -85,7 +92,7 @@ const StrategySessions: React.FC<StrategySessionsProps> = ({ setCurrentPage }) =
       <section className="bg-white dark:bg-neutral-950 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">Session Types</p>
+            <Eyebrow className="mb-3">Session Types</Eyebrow>
             <h2 className="text-2xl font-semibold text-ink dark:text-white">Available formats.</h2>
           </div>
           <div className="grid sm:grid-cols-2 gap-px bg-line dark:bg-white/10">
@@ -112,7 +119,7 @@ const StrategySessions: React.FC<StrategySessionsProps> = ({ setCurrentPage }) =
       <section className="bg-tan dark:bg-neutral-900 py-24 border-t border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">What to expect</p>
+            <Eyebrow className="mb-3">What to expect</Eyebrow>
             <h2 className="text-2xl font-semibold text-ink dark:text-white">How a session works.</h2>
           </div>
           <div className="grid sm:grid-cols-3 gap-px bg-line dark:bg-white/10">

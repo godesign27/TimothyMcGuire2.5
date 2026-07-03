@@ -1,4 +1,5 @@
 import React from 'react';
+import Eyebrow from './Eyebrow';
 import { ArrowRight } from 'lucide-react';
 import PageBreadcrumb from './PageBreadcrumb';
 import RelatedContent from './RelatedContent';
@@ -70,9 +71,7 @@ const SpeakingPage: React.FC<SpeakingPageProps> = ({ setCurrentPage }) => {
           />
           <div className="grid lg:grid-cols-2 gap-16 items-end pt-8">
             <div>
-              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">
-                Speaking
-              </p>
+              <Eyebrow className="mb-4">Speaking</Eyebrow>
               <h1 className="text-4xl sm:text-5xl font-semibold text-ink dark:text-tan-500 tracking-tight leading-tight mb-6">
                 Talks on AI design, enterprise UX, and the craft of building intelligent products.
               </h1>
@@ -107,9 +106,7 @@ const SpeakingPage: React.FC<SpeakingPageProps> = ({ setCurrentPage }) => {
       <section className="bg-white dark:bg-neutral-950 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">
-              Talk Topics
-            </p>
+            <Eyebrow className="mb-3">Talk Topics</Eyebrow>
             <h2 className="text-2xl md:text-3xl font-semibold text-ink dark:text-white leading-snug">
               Available talks and workshops.
             </h2>
@@ -153,9 +150,7 @@ const SpeakingPage: React.FC<SpeakingPageProps> = ({ setCurrentPage }) => {
       <section className="bg-tan dark:bg-neutral-900 py-24 border-t border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">
-              Who I speak for
-            </p>
+            <Eyebrow className="mb-3">Who I speak for</Eyebrow>
             <h2 className="text-2xl font-semibold text-ink dark:text-white">
               The right fit depends on the audience.
             </h2>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Eyebrow from './Eyebrow';
 import { ArrowLeft } from 'lucide-react';
 
 interface CaseStudyDetailProps {
@@ -34,7 +35,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
             <ArrowLeft className="w-4 h-4" /> Back to Solutions
           </button>
 
-          <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">Case Study</p>
+          <Eyebrow className="mb-4">Case Study</Eyebrow>
           <h1 className="text-4xl md:text-6xl font-semibold text-ink dark:text-tan-500 tracking-tight mb-6 leading-tight">
             Transform Healthcare Decisions with<br />Data-Driven Insights.
           </h1>
@@ -95,19 +96,19 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-px bg-line dark:bg-white/10">
             <div className="bg-white dark:bg-neutral-950 p-8">
-              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">The Challenge</p>
+              <Eyebrow className="mb-4">The Challenge</Eyebrow>
               <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
                 Gray Matter Analytics needed to transform complex value-based care data into a platform that healthcare administrators could actually use. The existing tools required specialist interpretation — the goal was to make population risk management and contract performance analysis accessible to any clinical leader.
               </p>
             </div>
             <div className="bg-white dark:bg-neutral-950 p-8">
-              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">My Approach</p>
+              <Eyebrow className="mb-4">My Approach</Eyebrow>
               <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
                 As Principal UX/UI Designer from MVP through to a mature product, I drove the complete design journey: user research with healthcare administrators, information architecture for complex multi-dimensional data, progressive disclosure to surface insight without overwhelming users, and an iterative design system that scaled across the product.
               </p>
             </div>
             <div className="bg-tan dark:bg-neutral-900 p-8">
-              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">Outcome</p>
+              <Eyebrow className="mb-4">Outcome</Eyebrow>
               <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
                 A full-featured SaaS healthcare analytics platform built from the ground up. Role-based dashboards, contract performance tracking, population risk tools, and a design library that enabled a small engineering team to ship consistently complex UI with speed and quality.
               </p>

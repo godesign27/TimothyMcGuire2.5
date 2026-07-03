@@ -1,8 +1,10 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import Eyebrow from './Eyebrow';
 import PageBreadcrumb from './PageBreadcrumb';
 import RelatedContent from './RelatedContent';
 import SectionCTA from './SectionCTA';
+import EnterpriseDashboardIllustration from './illustrations/EnterpriseDashboardIllustration';
 
 interface EnterpriseUXConsultingProps {
   setCurrentPage: (page: string) => void;
@@ -39,7 +41,7 @@ const EnterpriseUXConsulting: React.FC<EnterpriseUXConsultingProps> = ({ setCurr
           />
           <div className="grid lg:grid-cols-2 gap-16 items-end pt-8">
             <div>
-              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">Service</p>
+              <Eyebrow className="mb-4">Service</Eyebrow>
               <h1 className="text-4xl sm:text-5xl font-semibold text-ink dark:text-tan-500 tracking-tight leading-tight mb-6">
                 Senior UX expertise for complex enterprise products.
               </h1>
@@ -53,17 +55,20 @@ const EnterpriseUXConsulting: React.FC<EnterpriseUXConsultingProps> = ({ setCurr
                 Discuss your project <ArrowRight className="w-4 h-4" />
               </button>
             </div>
-            <div className="grid grid-cols-3 gap-px bg-line dark:bg-white/10">
-              {[
-                { stat: '15+', label: 'Years enterprise UX' },
-                { stat: 'Sr/Dir', label: 'Seniority level' },
-                { stat: 'Remote', label: 'Collaboration model' },
-              ].map((item) => (
-                <div key={item.label} className="bg-tan dark:bg-neutral-900 p-6">
-                  <p className="text-xl font-semibold text-ink dark:text-white mb-1">{item.stat}</p>
-                  <p className="text-xs text-muted dark:text-neutral-500 leading-snug">{item.label}</p>
-                </div>
-              ))}
+            <div className="hidden lg:flex flex-col gap-8">
+              <EnterpriseDashboardIllustration />
+              <div className="grid grid-cols-3 gap-px bg-line dark:bg-white/10">
+                {[
+                  { stat: '15+', label: 'Years enterprise UX' },
+                  { stat: 'Sr/Dir', label: 'Seniority level' },
+                  { stat: 'Remote', label: 'Collaboration model' },
+                ].map((item) => (
+                  <div key={item.label} className="bg-tan-100 dark:bg-neutral-900 px-5 py-4">
+                    <p className="text-sm font-semibold text-ink dark:text-white mb-0.5">{item.stat}</p>
+                    <p className="text-xs text-muted dark:text-neutral-500">{item.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -73,7 +78,7 @@ const EnterpriseUXConsulting: React.FC<EnterpriseUXConsultingProps> = ({ setCurr
       <section className="bg-white dark:bg-neutral-950 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">Capabilities</p>
+            <Eyebrow className="mb-3">Capabilities</Eyebrow>
             <h2 className="text-2xl md:text-3xl font-semibold text-ink dark:text-white leading-snug">
               What I bring to an enterprise engagement.
             </h2>
@@ -93,7 +98,7 @@ const EnterpriseUXConsulting: React.FC<EnterpriseUXConsultingProps> = ({ setCurr
       <section className="bg-tan dark:bg-neutral-900 py-24 border-t border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">How it works</p>
+            <Eyebrow className="mb-3">How it works</Eyebrow>
             <h2 className="text-2xl font-semibold text-ink dark:text-white leading-snug">A process built around real collaboration.</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-line dark:bg-white/10">
@@ -113,7 +118,7 @@ const EnterpriseUXConsulting: React.FC<EnterpriseUXConsultingProps> = ({ setCurr
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
-              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-6">Who this is for</p>
+              <Eyebrow className="mb-6">Who this is for</Eyebrow>
               <h2 className="text-2xl font-semibold text-ink dark:text-white mb-6 leading-snug">The right fit for this engagement.</h2>
               <div className="space-y-4 text-base text-muted dark:text-neutral-400 leading-relaxed">
                 <p>Enterprise SaaS companies going through a platform redesign, modernization, or major feature expansion. Teams that need senior design judgment but not a full-time hire.</p>
@@ -122,7 +127,7 @@ const EnterpriseUXConsulting: React.FC<EnterpriseUXConsultingProps> = ({ setCurr
               </div>
             </div>
             <div>
-              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-6">Engagement models</p>
+              <Eyebrow className="mb-6">Engagement models</Eyebrow>
               <div className="space-y-px bg-line dark:bg-white/10">
                 {[
                   { label: 'Project-based', body: 'Defined scope, timeline, and deliverables. Best for platform redesigns, design system builds, and bounded initiatives.' },

@@ -1,4 +1,5 @@
 import React from 'react';
+import Eyebrow from './Eyebrow';
 import { BookOpen, Workflow, Bot, PenLine, Mic2, ArrowRight } from 'lucide-react';
 import SectionCTA from './SectionCTA';
 
@@ -54,9 +55,7 @@ const Perspectives: React.FC<PerspectivesProps> = ({ setCurrentPage }) => {
       <section className="py-24 border-b border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
-            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">
-              Perspectives
-            </p>
+            <Eyebrow className="mb-4">Perspectives</Eyebrow>
             <h1 className="text-4xl md:text-6xl font-semibold text-ink dark:text-tan-500 tracking-tight mb-6">
               How I think about design.
             </h1>

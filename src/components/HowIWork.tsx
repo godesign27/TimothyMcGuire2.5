@@ -1,4 +1,5 @@
 import React from 'react';
+import Eyebrow from './Eyebrow';
 import PageBreadcrumb from './PageBreadcrumb';
 import RelatedContent from './RelatedContent';
 import SectionCTA from './SectionCTA';
@@ -67,9 +68,7 @@ const HowIWork: React.FC<HowIWorkProps> = ({ setCurrentPage }) => {
             setCurrentPage={setCurrentPage}
           />
           <div className="pt-8 max-w-3xl">
-            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">
-              Process
-            </p>
+            <Eyebrow className="mb-4">Process</Eyebrow>
             <h1 className="text-4xl sm:text-5xl font-semibold text-ink dark:text-tan-500 tracking-tight leading-tight mb-6">
               From ambiguous problem to shipped product.
             </h1>
@@ -131,9 +130,7 @@ const HowIWork: React.FC<HowIWorkProps> = ({ setCurrentPage }) => {
       <section className="bg-tan dark:bg-neutral-900 py-24 border-t border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">
-              How I collaborate
-            </p>
+            <Eyebrow className="mb-3">How I collaborate</Eyebrow>
             <h2 className="text-2xl md:text-3xl font-semibold text-ink dark:text-white max-w-xl leading-snug">
               Design doesn't happen in isolation.
             </h2>
@@ -166,9 +163,7 @@ const HowIWork: React.FC<HowIWorkProps> = ({ setCurrentPage }) => {
       <section className="bg-white dark:bg-neutral-950 py-24 border-t border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">
-              Tooling
-            </p>
+            <Eyebrow className="mb-3">Tooling</Eyebrow>
             <h2 className="text-2xl font-semibold text-ink dark:text-white">
               What I use.
             </h2>

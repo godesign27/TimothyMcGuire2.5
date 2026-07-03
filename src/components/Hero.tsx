@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import DesignSystemIllustration from './DesignSystemIllustration';
+import Eyebrow from './Eyebrow';
 
 interface HeroProps {
   setCurrentPage: (page: string) => void;
@@ -30,9 +31,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
 
           {/* Left: Hero copy */}
           <div>
-            <p className="text-sm font-medium text-blue dark:text-lavender mb-6 tracking-wide uppercase">
-              Experience Design
-            </p>
+            <Eyebrow className="mb-6">Experience Design</Eyebrow>
 
             <h1 className="text-[3.5rem] md:text-[4.5rem] lg:text-[5rem] font-semibold text-ink dark:text-tan-500 tracking-tight leading-[1.05] mb-8">
               Human-Centered Design, Built for Results.

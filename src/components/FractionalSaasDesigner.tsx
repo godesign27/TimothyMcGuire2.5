@@ -1,5 +1,7 @@
 import React from 'react';
+import SprintBoardIllustration from './illustrations/SprintBoardIllustration';
 import { BarChart3, Layers, GitBranch, Component, Workflow, ScanSearch, Sparkles, Combine, Network } from 'lucide-react';
+import Eyebrow from './Eyebrow';
 import PageBreadcrumb from './PageBreadcrumb';
 import RelatedContent from './RelatedContent';
 import SectionCTA from './SectionCTA';
@@ -295,15 +297,32 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
             setCurrentPage={setCurrentPage}
           />
 
-          <div className="pt-8">
-            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">Service</p>
-            <h1 className="text-4xl sm:text-5xl font-semibold text-ink dark:text-tan-500 tracking-tight leading-tight mb-6">
-              Fractional SaaS Designer<br />
-              Embedded With Your Team
-            </h1>
-            <p className="text-xl text-muted dark:text-neutral-400 max-w-2xl">
-              SaaS teams don't usually have a product problem — they have a UX and system evolution problem. Through a flexible, embedded model, I work directly with product and engineering teams to simplify workflows, improve usability, and evolve the product experience in a way that compounds over time.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-16 items-end pt-8">
+            <div>
+              <Eyebrow className="mb-4">Service</Eyebrow>
+              <h1 className="text-4xl sm:text-5xl font-semibold text-ink dark:text-tan-500 tracking-tight leading-tight mb-6">
+                Fractional SaaS Designer<br />
+                Embedded With Your Team
+              </h1>
+              <p className="text-base text-muted dark:text-neutral-400 leading-relaxed">
+                SaaS teams don't usually have a product problem — they have a UX and system evolution problem. Through a flexible, embedded model, I work directly with product and engineering teams to simplify workflows, improve usability, and evolve the product experience in a way that compounds over time.
+              </p>
+            </div>
+            <div className="hidden lg:flex flex-col gap-8">
+              <SprintBoardIllustration />
+              <div className="grid grid-cols-3 gap-px bg-line dark:bg-white/10">
+                {[
+                  { stat: 'Embed', label: 'In your workflow' },
+                  { stat: 'Sprint', label: 'Cadence design' },
+                  { stat: 'Ship', label: 'Dev-ready handoff' },
+                ].map((item) => (
+                  <div key={item.label} className="bg-tan-100 dark:bg-neutral-900 px-5 py-4">
+                    <p className="text-sm font-semibold text-ink dark:text-white mb-0.5">{item.stat}</p>
+                    <p className="text-xs text-muted dark:text-neutral-500">{item.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

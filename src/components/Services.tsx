@@ -1,4 +1,5 @@
 import React from 'react';
+import Eyebrow from './Eyebrow';
 import { Globe, Box, Bot, ArrowRight, ClipboardList, Sparkles, Briefcase } from 'lucide-react';
 import SectionCTA from './SectionCTA';
 
@@ -22,7 +23,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-end">
             <div>
-              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">Services</p>
+              <Eyebrow className="mb-4">Services</Eyebrow>
               <h1 className="text-4xl md:text-6xl font-semibold text-ink dark:text-tan-500 tracking-tight mb-6">
                 Solving Real Problems. Designing Exceptional Experiences.
               </h1>
@@ -51,7 +52,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">Core Services</p>
+            <Eyebrow className="mb-3">Core Services</Eyebrow>
             <h2 className="text-2xl font-semibold text-ink dark:text-white">What I do best.</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-px bg-line dark:bg-white/10">
@@ -115,7 +116,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
       <section className="py-24 bg-tan dark:bg-neutral-900 border-t border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">Specialized Services</p>
+            <Eyebrow className="mb-3">Specialized Services</Eyebrow>
             <h2 className="text-2xl font-semibold text-ink dark:text-white">Focused expertise for specific needs.</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-px bg-line dark:bg-white/10">
@@ -174,7 +175,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
       <section className="py-24 border-t border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">How I work</p>
+            <Eyebrow className="mb-3">How I work</Eyebrow>
             <h2 className="text-2xl font-semibold text-ink dark:text-white">The process.</h2>
           </div>
           <div className="grid md:grid-cols-4 gap-px bg-line dark:bg-white/10">
