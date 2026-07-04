@@ -4,7 +4,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Partners from './components/Partners';
 import ValueProposition from './components/ValueProposition';
-import SuccessStories from './components/SuccessStories';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
@@ -36,6 +35,8 @@ import MyPhilosophy from './components/MyPhilosophy';
 import HowIWork from './components/HowIWork';
 import WritingHub from './components/WritingHub';
 import SpeakingPage from './components/SpeakingPage';
+import AIExperienceArchitecturePage from './components/AIExperienceArchitecturePage';
+import ContactModal from './components/ContactModal';
 import { trackPageView } from './lib/analytics';
 
 interface PageMeta {
@@ -187,6 +188,36 @@ const pageSeo: Record<string, PageMeta> = {
     description: 'Site analytics dashboard.',
     path: '/analytics',
   },
+  'ai-experience-architecture': {
+    title: `Timothy McGuire | AI Experience Architecture™`,
+    description: 'A framework for designing intelligent enterprise products that people understand, trust, and confidently adopt. Five pillars: Signal Architecture, Human Oversight Design, Agentic Design Systems, Trust Architecture, AI Governance UX.',
+    path: '/ai-experience-architecture',
+  },
+  'case-studies': {
+    title: `${SITE_NAME} | Case Studies`,
+    description: 'Case studies and strategic work across enterprise AI, healthcare SaaS, agentic design systems, and complex product design.',
+    path: '/case-studies',
+  },
+  'work-with-me-enterprise-consulting': {
+    title: `${SITE_NAME} | Enterprise AI Consulting`,
+    description: 'Senior UX leadership and AI experience strategy for complex enterprise AI products.',
+    path: '/work-with-me/enterprise-consulting',
+  },
+  'work-with-me-fractional-leadership': {
+    title: `${SITE_NAME} | Fractional Design Leadership`,
+    description: 'Senior design leadership on a flexible cadence — without the full-time overhead.',
+    path: '/work-with-me/fractional-leadership',
+  },
+  'work-with-me-strategy-sessions': {
+    title: `${SITE_NAME} | Strategy Sessions`,
+    description: 'Focused advisory engagements with a senior AI experience design mind.',
+    path: '/work-with-me/strategy-sessions',
+  },
+  'work-with-me-speaking-workshops': {
+    title: `${SITE_NAME} | Speaking & Workshops`,
+    description: 'Talks and facilitated workshops on AI experience design for teams and conferences.',
+    path: '/work-with-me/speaking-workshops',
+  },
 };
 
 const pageToPath: Record<string, string> = {
@@ -203,8 +234,14 @@ const pageToPath: Record<string, string> = {
   'enterprise-ux-consulting': '/services/enterprise-ux-consulting',
   'speaking-workshops': '/services/speaking-workshops',
   'strategy-sessions': '/services/strategy-sessions',
-  'work-with-me': '/services/work-with-me',
+  'work-with-me': '/work-with-me',
   resume: '/resume',
+  'ai-experience-architecture': '/ai-experience-architecture',
+  'case-studies': '/case-studies',
+  'work-with-me-enterprise-consulting': '/work-with-me/enterprise-consulting',
+  'work-with-me-fractional-leadership': '/work-with-me/fractional-leadership',
+  'work-with-me-strategy-sessions': '/work-with-me/strategy-sessions',
+  'work-with-me-speaking-workshops': '/work-with-me/speaking-workshops',
   'solutions-enterprise-saas': '/solutions/enterprise-saas',
   'solutions-ai-native-products': '/solutions/ai-native-products',
   'solutions-design-systems': '/solutions/design-systems',
@@ -315,11 +352,10 @@ function App() {
           <>
             <Hero setCurrentPage={setCurrentPage} />
             <Partners />
+            <HomeEditorial setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />
             <ValueProposition />
-            <SuccessStories setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />
             <SpecializedExpertise setCurrentPage={setCurrentPage} />
             <Testimonials />
-            <HomeEditorial setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />
             <CTA setCurrentPage={setCurrentPage} />
           </>
         );
@@ -363,6 +399,18 @@ function App() {
         return <Analytics />;
       case '__design__':
         return <DesignLibrary />;
+      case 'ai-experience-architecture':
+        return <AIExperienceArchitecturePage setCurrentPage={setCurrentPage} />;
+      case 'case-studies':
+        return <Solutions setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
+      case 'work-with-me-enterprise-consulting':
+        return <EnterpriseUXConsulting setCurrentPage={setCurrentPage} />;
+      case 'work-with-me-fractional-leadership':
+        return <FractionalSaasDesigner setCurrentPage={setCurrentPage} />;
+      case 'work-with-me-strategy-sessions':
+        return <StrategySessions setCurrentPage={setCurrentPage} />;
+      case 'work-with-me-speaking-workshops':
+        return <SpeakingWorkshops setCurrentPage={setCurrentPage} />;
       case 'solutions':
         if (selectedCaseStudy === 'CoreTechs SaaS Healthcare Product') {
           return <CaseStudyDetail setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;

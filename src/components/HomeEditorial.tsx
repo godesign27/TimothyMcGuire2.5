@@ -8,24 +8,24 @@ interface HomeEditorialProps {
 
 const principles = [
   {
+    icon: Layers,
+    label: 'Systems Before Screens',
+    description: 'The interface is the surface. The architecture is the substance. Design the system first, the screen second.',
+  },
+  {
     icon: Eye,
-    label: 'Simplicity',
-    description: 'Complexity hidden, not removed. The right detail at the right moment.',
+    label: 'Trust Is a Design Material',
+    description: 'Trust is not a feature to add at the end. It is a material — like color or spacing — considered in every decision.',
+  },
+  {
+    icon: GitBranch,
+    label: 'Governance Is a Design Problem',
+    description: "Who decides how the AI behaves? Design that answer before it is made for you.",
   },
   {
     icon: Search,
-    label: 'Explainability',
-    description: 'AI decisions made visible. Users understand what the system did and why.',
-  },
-  {
-    icon: BarChart3,
-    label: 'Observability',
-    description: "System state is always legible. Users know what's happening, what changed, and what to do next.",
-  },
-  {
-    icon: Layers,
-    label: 'Systems Thinking',
-    description: 'Every component decision ripples. Design for the whole, not just the screen in front of you.',
+    label: 'Human-in-the-Loop Is a Pattern',
+    description: 'Oversight is not a disclaimer. It is a designed moment — with a clear interface, a clear action, and a clear consequence.',
   },
 ];
 
@@ -125,9 +125,9 @@ const perspectiveCards = [
 const aiPhases = [
   {
     phase: '01',
-    label: 'Research',
+    label: 'Diagnose',
     description:
-      'Stakeholder interviews, workflow shadowing, and system audits to surface the real problem space — not the assumed one.',
+      'Surface the real AI experience problem. Where does the system confuse, overwhelm, or lose the user? What decisions are invisible?',
     svg: (
       <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="4" width="56" height="56" stroke="currentColor" strokeWidth="0.5" className="text-line dark:text-white/10" />
@@ -144,9 +144,9 @@ const aiPhases = [
   },
   {
     phase: '02',
-    label: 'Concept',
+    label: 'Architect',
     description:
-      'Frameworks before wireframes. Information architecture, mental model mapping, and interaction principles before any pixel work.',
+      'Design the information architecture for AI states, signals, and human oversight before any interface work begins.',
     svg: (
       <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="4" width="56" height="56" stroke="currentColor" strokeWidth="0.5" className="text-line dark:text-white/10" />
@@ -161,9 +161,9 @@ const aiPhases = [
   },
   {
     phase: '03',
-    label: 'Execution',
+    label: 'Govern',
     description:
-      'High-fidelity design, component systems, annotated specs, and prototype validation — built to ship without translation loss.',
+      'Build the components, tokens, patterns, and documentation that encode the architecture — so it scales without drifting.',
     svg: (
       <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="4" y="4" width="56" height="56" stroke="currentColor" strokeWidth="0.5" className="text-line dark:text-white/10" />
@@ -263,103 +263,6 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
 
   return (
     <>
-      {/* ── Featured Case Studies ─────────────────────────────────── */}
-      <section className="bg-white dark:bg-neutral-950 py-24 border-t border-line dark:border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-14">
-            <div>
-              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">
-                Selected Work
-              </p>
-              <h2 className="text-3xl md:text-4xl font-semibold text-ink dark:text-white leading-tight">
-                Problems worth solving.
-              </h2>
-            </div>
-            <button
-              onClick={() => navigate('solutions')}
-              className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-ink dark:text-white hover:text-blue dark:hover:text-lavender transition-colors"
-            >
-              All case studies <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-            </button>
-          </div>
-
-          <div className="grid lg:grid-cols-5 gap-px bg-line dark:bg-white/10 mb-px">
-            <button
-              onClick={() => handleCaseStudyClick('CoreTechs SaaS Healthcare Product')}
-              className="group lg:col-span-3 text-left bg-white dark:bg-neutral-950 hover:bg-tan-100 dark:hover:bg-white/[0.03] transition-colors overflow-hidden"
-            >
-              <div className="aspect-[16/9] overflow-hidden border-b border-line dark:border-white/10">
-                <img
-                  src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Dashboard%20-%20Summary.png"
-                  alt="CoreTechs Dashboard"
-                  className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
-                />
-              </div>
-              <div className="p-8">
-                <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">
-                  Healthcare SaaS · 5-year engagement
-                </p>
-                <h3 className="text-xl md:text-2xl font-semibold text-ink dark:text-white mb-3 group-hover:text-blue dark:group-hover:text-lavender transition-colors leading-snug">
-                  CoreTechs — From developer tool to enterprise product
-                </h3>
-                <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed mb-6 max-w-lg">
-                  Full-lifecycle UX/UI transformation spanning design system, user flows, and product strategy — turning a complex analytics platform into something payors and providers actually trust.
-                </p>
-                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-blue dark:text-lavender">
-                  View case study <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
-                </span>
-              </div>
-            </button>
-
-            <div className="lg:col-span-2 flex flex-col gap-px bg-line dark:bg-white/10">
-              <button
-                onClick={() => navigate('solutions-design-systems')}
-                className="group flex-1 text-left p-8 bg-white dark:bg-neutral-950 hover:bg-tan-100 dark:hover:bg-white/[0.03] transition-colors"
-              >
-                <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">
-                  Design System
-                </p>
-                <h3 className="text-lg font-semibold text-ink dark:text-white mb-3 group-hover:text-blue dark:group-hover:text-lavender transition-colors leading-snug">
-                  Enterprise Design System at Scale
-                </h3>
-                <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed mb-6">
-                  Building a shared component library and governance model that unified design and engineering across product lines.
-                </p>
-                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-blue dark:text-lavender">
-                  Explore solutions <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
-                </span>
-              </button>
-              <button
-                onClick={() => navigate('solutions-ai-native-products')}
-                className="group flex-1 text-left p-8 bg-white dark:bg-neutral-950 hover:bg-tan-100 dark:hover:bg-white/[0.03] transition-colors"
-              >
-                <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">
-                  AI-Native Products
-                </p>
-                <h3 className="text-lg font-semibold text-ink dark:text-white mb-3 group-hover:text-blue dark:group-hover:text-lavender transition-colors leading-snug">
-                  Designing for Intelligent Workflows
-                </h3>
-                <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed mb-6">
-                  UX patterns for AI co-pilots, agentic dashboards, and decision-support interfaces where explainability is non-negotiable.
-                </p>
-                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-blue dark:text-lavender">
-                  Explore solutions <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
-                </span>
-              </button>
-            </div>
-          </div>
-
-          <div className="flex md:hidden mt-8">
-            <button
-              onClick={() => navigate('solutions')}
-              className="inline-flex items-center gap-2 text-sm font-medium text-ink dark:text-white hover:text-blue dark:hover:text-lavender transition-colors"
-            >
-              All case studies <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-            </button>
-          </div>
-        </div>
-      </section>
-
       {/* ── Current Focus Strip ───────────────────────────────────── */}
       <section className="bg-tan dark:bg-neutral-900 py-10 border-t border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -380,35 +283,102 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
         </div>
       </section>
 
-      {/* ── AI-Native Design Callout ──────────────────────────────── */}
+      {/* ── AI Experience Architecture™ Manifesto ─────────────── */}
+      <section className="bg-neutral-950 py-24 border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+
+            {/* Left: Manifesto */}
+            <div>
+              <p className="flex items-center gap-2 text-xs font-semibold text-blue uppercase tracking-widest mb-6">
+                <span className="w-[7px] h-[7px] bg-blue flex-shrink-0" aria-hidden="true" />
+                AI Experience Architecture™
+              </p>
+              <h2 className="text-2xl md:text-3xl font-semibold text-white leading-snug mb-6">
+                A new discipline for a new era.
+              </h2>
+              <p className="text-base text-neutral-400 leading-relaxed mb-6">
+                AI is being deployed into enterprise products faster than it can be designed. Organizations have model capabilities. What they don't have is a framework for the experience — what the AI communicates, what the human understands, and how trust is built and maintained.
+              </p>
+              <blockquote className="border-l-4 border-blue pl-6 py-1 mb-8">
+                <p className="text-base text-white leading-relaxed">
+                  It is not a UI methodology. It is an architecture — the structural discipline that makes AI systems legible, trustworthy, and governable by the humans who depend on them.
+                </p>
+              </blockquote>
+              <button
+                onClick={() => navigate('solutions-ai-native-products')}
+                className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white text-sm font-medium hover:border-white hover:bg-white/5 transition-colors"
+              >
+                Explore the work <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
+              </button>
+            </div>
+
+            {/* Right: Five Pillars */}
+            <div>
+              <p className="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-6">
+                Five Pillars
+              </p>
+              <div className="flex flex-col gap-px bg-white/10">
+                {[
+                  { n: '01', label: 'Signal Architecture' },
+                  { n: '02', label: 'Human Oversight Design' },
+                  { n: '03', label: 'Agentic Design Systems', active: true },
+                  { n: '04', label: 'Trust Architecture' },
+                  { n: '05', label: 'AI Governance UX' },
+                ].map((pillar) => (
+                  <div
+                    key={pillar.n}
+                    className={`flex items-center gap-6 px-6 py-5 ${
+                      pillar.active
+                        ? 'bg-neutral-900 border-l-4 border-blue'
+                        : 'bg-neutral-950'
+                    }`}
+                  >
+                    <span className="text-xs font-semibold text-neutral-600 tracking-wider shrink-0 w-6">
+                      {pillar.n}
+                    </span>
+                    <span className={`text-sm font-medium ${pillar.active ? 'text-blue' : 'text-neutral-300'}`}>
+                      {pillar.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-6 text-xs text-neutral-600 leading-relaxed">
+                The full framework is not public. The thinking is.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── The Design Challenge ──────────────────────────────────── */}
       <section className="bg-white dark:bg-neutral-950 py-24 border-t border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-6">
-                AI-Native Design
+                The Challenge
               </p>
               <blockquote className="text-2xl md:text-3xl font-semibold text-ink dark:text-white leading-snug mb-8">
-                "When the product thinks, the designer's job changes fundamentally."
+                "Enterprises are deploying AI at the speed of infrastructure. The experience is still being designed at the speed of Jira tickets."
               </blockquote>
               <p className="text-base text-muted dark:text-neutral-400 leading-relaxed mb-8 max-w-md">
-                AI-native design isn't about adding chatbots to existing products. It's about rethinking
-                how humans and intelligent systems build shared understanding — through transparency,
-                control, and intentional feedback loops.
+                The gap between capability and experience is the most expensive problem in enterprise AI. Products make decisions users don't understand. Controls are buried. Trust is assumed rather than designed. This is the problem I work on.
               </p>
               <button
                 onClick={() => navigate('perspectives-ai-native-design')}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-ink dark:bg-white text-white dark:text-ink text-sm font-medium hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors"
               >
-                Read the full guide <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
+                Read the full perspective <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
               </button>
             </div>
             <div className="grid grid-cols-2 gap-px bg-line dark:bg-white/10">
               {[
-                { label: 'Explainability', body: 'Users should always understand what the AI did and why.' },
-                { label: 'Human Override', body: 'Every automated action needs a visible, easy undo path.' },
-                { label: 'Calibrated Confidence', body: 'Show uncertainty. False precision erodes trust faster than admitting limits.' },
-                { label: 'Progressive Disclosure', body: 'Surface AI reasoning at the moment users need it — not all at once.' },
+                { label: 'Signal Legibility', body: 'Users should always understand what the AI detected, decided, and why.' },
+                { label: 'Oversight Design', body: 'Every autonomous action needs a visible, accessible correction path.' },
+                { label: 'Trust Calibration', body: 'Show uncertainty. False precision erodes trust faster than honest limitations.' },
+                { label: 'Human-in-the-Loop', body: 'Surface AI reasoning at the moment users need oversight — not all at once.' },
               ].map((item) => (
                 <div key={item.label} className="p-6 bg-white dark:bg-neutral-950">
                   <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-2">
@@ -427,10 +397,10 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-14">
             <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">
-              How I Design for AI
+              My Approach
             </p>
             <h2 className="text-2xl md:text-3xl font-semibold text-ink dark:text-white max-w-lg leading-snug">
-              Three phases. One continuous thread.
+              From diagnosis to architecture to governance.
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-px bg-line dark:bg-white/10">
@@ -462,7 +432,7 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
               Design Principles
             </p>
             <h2 className="text-2xl md:text-3xl font-semibold text-ink dark:text-white">
-              Four things I never compromise on.
+              Four principles I design by.
             </h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-line dark:bg-white/10">
@@ -641,6 +611,103 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
                 </div>
               </button>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Featured Case Studies ─────────────────────────────────── */}
+      <section className="bg-white dark:bg-neutral-950 py-24 border-t border-line dark:border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-end justify-between mb-14">
+            <div>
+              <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">
+                Selected Work
+              </p>
+              <h2 className="text-3xl md:text-4xl font-semibold text-ink dark:text-white leading-tight">
+                Problems worth solving.
+              </h2>
+            </div>
+            <button
+              onClick={() => navigate('solutions')}
+              className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-ink dark:text-white hover:text-blue dark:hover:text-lavender transition-colors"
+            >
+              All case studies <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
+            </button>
+          </div>
+
+          <div className="grid lg:grid-cols-5 gap-px bg-line dark:bg-white/10 mb-px">
+            <button
+              onClick={() => handleCaseStudyClick('CoreTechs SaaS Healthcare Product')}
+              className="group lg:col-span-3 text-left bg-white dark:bg-neutral-950 hover:bg-tan-100 dark:hover:bg-white/[0.03] transition-colors overflow-hidden"
+            >
+              <div className="aspect-[16/9] overflow-hidden border-b border-line dark:border-white/10">
+                <img
+                  src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Dashboard%20-%20Summary.png"
+                  alt="CoreTechs Dashboard"
+                  className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
+                />
+              </div>
+              <div className="p-8">
+                <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">
+                  Healthcare SaaS · 5-year engagement
+                </p>
+                <h3 className="text-xl md:text-2xl font-semibold text-ink dark:text-white mb-3 group-hover:text-blue dark:group-hover:text-lavender transition-colors leading-snug">
+                  CoreTechs — From developer tool to enterprise product
+                </h3>
+                <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed mb-6 max-w-lg">
+                  Full-lifecycle UX/UI transformation spanning design system, user flows, and product strategy — turning a complex analytics platform into something payors and providers actually trust.
+                </p>
+                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-blue dark:text-lavender">
+                  View case study <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
+                </span>
+              </div>
+            </button>
+
+            <div className="lg:col-span-2 flex flex-col gap-px bg-line dark:bg-white/10">
+              <button
+                onClick={() => navigate('solutions-design-systems')}
+                className="group flex-1 text-left p-8 bg-white dark:bg-neutral-950 hover:bg-tan-100 dark:hover:bg-white/[0.03] transition-colors"
+              >
+                <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">
+                  Design System
+                </p>
+                <h3 className="text-lg font-semibold text-ink dark:text-white mb-3 group-hover:text-blue dark:group-hover:text-lavender transition-colors leading-snug">
+                  Enterprise Design System at Scale
+                </h3>
+                <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed mb-6">
+                  Building a shared component library and governance model that unified design and engineering across product lines.
+                </p>
+                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-blue dark:text-lavender">
+                  Explore solutions <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
+                </span>
+              </button>
+              <button
+                onClick={() => navigate('solutions-ai-native-products')}
+                className="group flex-1 text-left p-8 bg-white dark:bg-neutral-950 hover:bg-tan-100 dark:hover:bg-white/[0.03] transition-colors"
+              >
+                <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">
+                  AI-Native Products
+                </p>
+                <h3 className="text-lg font-semibold text-ink dark:text-white mb-3 group-hover:text-blue dark:group-hover:text-lavender transition-colors leading-snug">
+                  Designing for Intelligent Workflows
+                </h3>
+                <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed mb-6">
+                  UX patterns for AI co-pilots, agentic dashboards, and decision-support interfaces where explainability is non-negotiable.
+                </p>
+                <span className="inline-flex items-center gap-1.5 text-xs font-medium text-blue dark:text-lavender">
+                  Explore solutions <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div className="flex md:hidden mt-8">
+            <button
+              onClick={() => navigate('solutions')}
+              className="inline-flex items-center gap-2 text-sm font-medium text-ink dark:text-white hover:text-blue dark:hover:text-lavender transition-colors"
+            >
+              All case studies <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
+            </button>
           </div>
         </div>
       </section>
