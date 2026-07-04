@@ -284,7 +284,7 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
       </section>
 
       {/* ── AI Experience Architecture™ Manifesto ─────────────── */}
-      <section className="bg-neutral-950 py-24 border-t border-white/10">
+      <section className="bg-tan-100 dark:bg-neutral-950 py-24 border-t border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
 
@@ -294,20 +294,20 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
                 <span className="w-[7px] h-[7px] bg-blue flex-shrink-0" aria-hidden="true" />
                 AI Experience Architecture™
               </p>
-              <h2 className="text-2xl md:text-3xl font-semibold text-white leading-snug mb-6">
+              <h2 className="text-2xl md:text-3xl font-semibold text-ink dark:text-white leading-snug mb-6">
                 A new discipline for a new era.
               </h2>
-              <p className="text-base text-neutral-400 leading-relaxed mb-6">
+              <p className="text-base text-muted dark:text-neutral-400 leading-relaxed mb-6">
                 AI is being deployed into enterprise products faster than it can be designed. Organizations have model capabilities. What they don't have is a framework for the experience — what the AI communicates, what the human understands, and how trust is built and maintained.
               </p>
               <blockquote className="border-l-4 border-blue pl-6 py-1 mb-8">
-                <p className="text-base text-white leading-relaxed">
+                <p className="text-base text-ink dark:text-white leading-relaxed">
                   It is not a UI methodology. It is an architecture — the structural discipline that makes AI systems legible, trustworthy, and governable by the humans who depend on them.
                 </p>
               </blockquote>
               <button
                 onClick={() => navigate('solutions-ai-native-products')}
-                className="inline-flex items-center gap-2 px-6 py-3 border border-white/30 text-white text-sm font-medium hover:border-white hover:bg-white/5 transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-ink/30 dark:border-white/30 text-ink dark:text-white text-sm font-medium hover:border-ink dark:hover:border-white hover:bg-ink/5 dark:hover:bg-white/5 transition-colors"
               >
                 Explore the work <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
               </button>
@@ -315,10 +315,10 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
 
             {/* Right: Five Pillars */}
             <div>
-              <p className="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-6">
+              <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-6">
                 Five Pillars
               </p>
-              <div className="flex flex-col gap-px bg-white/10">
+              <div className="flex flex-col gap-px bg-line dark:bg-white/10">
                 {[
                   { n: '01', label: 'Signal Architecture' },
                   { n: '02', label: 'Human Oversight Design' },
@@ -330,20 +330,20 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
                     key={pillar.n}
                     className={`flex items-center gap-6 px-6 py-5 ${
                       pillar.active
-                        ? 'bg-neutral-900 border-l-4 border-blue'
-                        : 'bg-neutral-950'
+                        ? 'bg-white dark:bg-neutral-900 border-l-4 border-blue'
+                        : 'bg-tan-100 dark:bg-neutral-950'
                     }`}
                   >
-                    <span className="text-xs font-semibold text-neutral-600 tracking-wider shrink-0 w-6">
+                    <span className="text-xs font-semibold text-muted dark:text-neutral-600 tracking-wider shrink-0 w-6">
                       {pillar.n}
                     </span>
-                    <span className={`text-sm font-medium ${pillar.active ? 'text-blue' : 'text-neutral-300'}`}>
+                    <span className={`text-sm font-medium ${pillar.active ? 'text-blue' : 'text-ink dark:text-neutral-300'}`}>
                       {pillar.label}
                     </span>
                   </div>
                 ))}
               </div>
-              <p className="mt-6 text-xs text-neutral-600 leading-relaxed">
+              <p className="mt-6 text-xs text-muted dark:text-neutral-600 leading-relaxed">
                 The full framework is not public. The thinking is.
               </p>
             </div>
