@@ -29,6 +29,13 @@ interface SolutionPattern {
   body: string;
 }
 
+interface SolutionSpotlight {
+  eyebrow: string;
+  heading: string;
+  body: string;
+  stats: { stat: string; label: string }[];
+}
+
 interface SolutionConfig {
   label: string;
   eyebrow: string;
@@ -44,6 +51,7 @@ interface SolutionConfig {
   ctaHeading: string;
   ctaBody: string;
   related: { id: string; eyebrow: string; label: string; description: string }[];
+  spotlight?: SolutionSpotlight;
 }
 
 const solutionConfig: Record<string, SolutionConfig> = {
@@ -128,7 +136,7 @@ const solutionConfig: Record<string, SolutionConfig> = {
       { label: 'Figma-to-code parity', body: "Components that match between design and engineering — same names, same props, same behavior. Handoff friction is a governance failure." },
       { label: 'Accessibility baseline', body: "Accessibility baked into every component spec: focus management, ARIA roles, keyboard patterns, and contrast ratios — not handled at the page level." },
       { label: 'Contribution model', body: "A documented path for teams to propose, prototype, and contribute new patterns — so the system grows from real usage rather than speculation." },
-      { label: 'Usage documentation', body: "Not just 'what is this component' but 'when to use it, when not to, and what to use instead.' Decision support embedded in the docs." },
+      { label: 'Interactive documentation', body: "Not just component specs — copy-to-use functionality lets teams drop any pattern into an agentic product without re-engineering from source. Adoption friction from weeks to minutes." },
     ],
     evidenceLabel: 'Design system experience',
     evidence: [
@@ -144,6 +152,17 @@ const solutionConfig: Record<string, SolutionConfig> = {
       { id: 'saas-product-design', eyebrow: 'Service', label: 'SaaS Product Design', description: 'End-to-end product design service.' },
       { id: 'solutions-product-modernization', eyebrow: 'Solution', label: 'Product Modernization', description: 'Upgrading legacy interfaces and systems.' },
     ],
+    spotlight: {
+      eyebrow: 'Featured Work',
+      heading: 'Agentic Design System, Built at Enterprise Scale',
+      body: "Led the end-to-end design of a full agentic design system for ZS — a Fortune 500 pharmaceutical SaaS company whose products run on AI agents. Every layer built from scratch: semantic token architecture for AI states, a component library for agentic UI patterns, an interaction pattern library for human-in-the-loop moments, and contribution governance for cross-team adoption.\n\nThe documentation site ships with live copy-to-use components — product teams can adopt any agentic pattern in one click without re-engineering from source. Led as solo Design Director, delegating execution across the team. The result is a design system that scales agentic product decisions across the entire organization.",
+      stats: [
+        { stat: 'Director', label: 'Solo lead, delegating across team' },
+        { stat: 'ZS', label: 'Fortune 500 pharmaceutical SaaS' },
+        { stat: 'End-to-end', label: 'Tokens → components → patterns → governance → docs' },
+        { stat: 'Copy-to-use', label: 'Interactive documentation with one-click component adoption' },
+      ],
+    },
   },
 
   'solutions-healthcare-ux': {
@@ -347,6 +366,34 @@ const SolutionDetail: React.FC<SolutionDetailProps> = ({ page, setCurrentPage })
           </div>
         </div>
       </section>
+
+      {/* Spotlight — optional featured work callout */}
+      {config.spotlight && (
+        <section className="bg-tan-100 dark:bg-neutral-950 py-24 border-t border-line dark:border-white/10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
+              <div>
+                <div className="w-6 h-[3px] bg-blue mb-6" />
+                <p className="text-xs font-semibold tracking-widest uppercase text-blue mb-4">{config.spotlight.eyebrow}</p>
+                <h2 className="text-2xl font-semibold text-ink dark:text-white mb-6 leading-snug">{config.spotlight.heading}</h2>
+                <div className="space-y-4">
+                  {config.spotlight.body.split('\n\n').map((para, i) => (
+                    <p key={i} className="text-base text-muted dark:text-neutral-400 leading-relaxed">{para}</p>
+                  ))}
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-px bg-line dark:bg-white/10">
+                {config.spotlight.stats.map((item) => (
+                  <div key={item.label} className="bg-white dark:bg-neutral-900 px-6 py-6">
+                    <p className="text-lg font-semibold text-ink dark:text-white mb-1">{item.stat}</p>
+                    <p className="text-xs text-muted dark:text-neutral-500 leading-snug">{item.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Related */}
       <RelatedContent
