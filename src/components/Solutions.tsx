@@ -73,6 +73,7 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
 
   const handleCaseStudyClick = (title: string) => {
     setSelectedCaseStudy(title);
+    setCurrentPage('solutions');
   };
 
   return (
