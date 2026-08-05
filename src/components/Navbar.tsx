@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Moon, Sun, ChevronDown, Bot, Globe, Box, Smartphone, Users, Building2, Palette, Heart, BarChart3, RefreshCcw, BookOpen, Workflow, PenLine, Mic2, Target } from 'lucide-react';
+import { Menu, X, Moon, Sun, ChevronDown, Bot, Globe, Box, Smartphone, Users, Building2, Palette, Heart, BarChart3, RefreshCcw, BookOpen, Workflow, PenLine, Mic2, Target, Briefcase } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
 interface NavbarProps {
   currentPage: string;
   setCurrentPage: (page: string) => void;
+  setSelectedCaseStudy?: (study: string | null) => void;
 }
 
 const servicePages = [
@@ -19,6 +20,7 @@ const servicePages = [
 ];
 
 const solutionPages = [
+  { id: 'case-studies', label: 'Case Studies', description: 'Work samples and results across industries.', icon: Briefcase },
   { id: 'solutions-enterprise-saas', label: 'Enterprise SaaS', description: 'Complex multi-tenant platform design.', icon: Building2 },
   { id: 'solutions-ai-native-products', label: 'AI-Native Products', description: 'Designing products where AI is foundational.', icon: Bot },
   { id: 'solutions-design-systems', label: 'Design Systems', description: 'Scalable component and pattern libraries.', icon: Palette },
@@ -35,9 +37,16 @@ const perspectivePages = [
   { id: 'perspectives-speaking', label: 'Speaking', description: 'Conference talks and panel appearances.', icon: Mic2 },
 ];
 
-type DropdownKey = 'services' | 'solutions' | 'perspectives' | null;
+const workWithMePages = [
+  { id: 'work-with-me-enterprise-consulting', label: 'Enterprise Consulting', description: 'Senior AI experience strategy for enterprise products.', icon: Building2 },
+  { id: 'work-with-me-fractional-leadership', label: 'Fractional Leadership', description: 'Senior design leadership on a flexible cadence.', icon: Users },
+  { id: 'work-with-me-strategy-sessions', label: 'Strategy Sessions', description: 'Focused advisory engagements with a senior design mind.', icon: Target },
+  { id: 'work-with-me-speaking-workshops', label: 'Speaking & Workshops', description: 'Talks and workshops for design teams and conferences.', icon: Mic2 },
+];
 
-const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
+type DropdownKey = 'services' | 'solutions' | 'perspectives' | 'work-with-me' | null;
+
+const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, setSelectedCaseStudy }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<DropdownKey>(null);
@@ -76,6 +85,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
 
   const navigate = (page: string) => {
     window.scrollTo(0, 0);
+    setSelectedCaseStudy?.(null);
     setCurrentPage(page);
     setActiveDropdown(null);
     setIsMenuOpen(false);
@@ -83,8 +93,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
   };
 
   const isServicePage = currentPage === 'services' || servicePages.some(s => s.id === currentPage);
-  const isSolutionPage = currentPage === 'solutions' || solutionPages.some(s => s.id === currentPage);
+  const isSolutionPage = currentPage === 'solutions' || currentPage === 'case-studies' || solutionPages.some(s => s.id === currentPage);
   const isPerspectivePage = currentPage === 'perspectives' || perspectivePages.some(s => s.id === currentPage);
+  const isWorkWithMePage = currentPage === 'work-with-me' || currentPage === 'contact' || workWithMePages.some(s => s.id === currentPage);
 
   const getNavLinkClasses = (active: boolean) =>
     `px-3 py-2 text-sm font-medium transition-colors relative inline-flex items-center gap-1 ${
@@ -206,20 +217,14 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
               <span className="text-xl font-semibold text-black dark:text-white">Timothy McGuire</span>
             </div>
 
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
               <div className="ml-8 flex items-baseline space-x-0">
 
-                <div
-                  className="relative"
-                  onMouseEnter={() => openDropdown('services')}
-                  onMouseLeave={scheduleClose}
-                >
-                  <button className={getNavLinkClasses(isServicePage)} onClick={() => navigate('services')}>
-                    Services
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'services' ? 'rotate-180' : ''}`} />
-                  </button>
-                  {renderDropdown('services', 'services', 'Services', servicePages)}
-                </div>
+                <button className={getNavLinkClasses(currentPage === 'home')} onClick={() => navigate('home')}>Home</button>
+
+                <button className={getNavLinkClasses(currentPage === 'ai-experience-architecture')} onClick={() => navigate('ai-experience-architecture')}>
+                  AI Experience Architecture™
+                </button>
 
                 <div
                   className="relative"
@@ -245,14 +250,24 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
                   {renderDropdown('perspectives', 'perspectives', 'Perspectives', perspectivePages)}
                 </div>
 
+                <div
+                  className="relative"
+                  onMouseEnter={() => openDropdown('work-with-me')}
+                  onMouseLeave={scheduleClose}
+                >
+                  <button className={getNavLinkClasses(isWorkWithMePage)} onClick={() => navigate('work-with-me')}>
+                    Work With Me
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'work-with-me' ? 'rotate-180' : ''}`} />
+                  </button>
+                  {renderDropdown('work-with-me', 'work-with-me', 'Work With Me', workWithMePages)}
+                </div>
+
                 <button className={getNavLinkClasses(currentPage === 'about')} onClick={() => navigate('about')}>About</button>
-                <button className={getNavLinkClasses(currentPage === 'resume')} onClick={() => navigate('resume')}>Resume</button>
-                <button className={getNavLinkClasses(currentPage === 'contact')} onClick={() => navigate('contact')}>Contact</button>
               </div>
             </div>
           </div>
 
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               className="p-2 rounded-none text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-white/[0.08] transition-colors"
@@ -264,7 +279,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
             </button>
           </div>
 
-          <div className="flex md:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-2">
             <button
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               className="p-2 rounded-none text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white"
@@ -282,14 +297,14 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <div className="px-2 pt-2 pb-4 space-y-1 bg-white dark:bg-neutral-950 border-t border-[#D9D9D9] dark:border-white/[0.1] max-h-screen overflow-y-auto">
-            {renderMobileSection('services', 'Services', 'services', servicePages)}
+            <button className="block w-full text-left px-4 py-3 text-sm font-medium text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-white/[0.04]" onClick={() => navigate('home')}>Home</button>
+            <button className="block w-full text-left px-4 py-3 text-sm font-medium text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-white/[0.04]" onClick={() => navigate('ai-experience-architecture')}>AI Experience Architecture™</button>
             {renderMobileSection('solutions', 'Solutions', 'solutions', solutionPages)}
             {renderMobileSection('perspectives', 'Perspectives', 'perspectives', perspectivePages)}
+            {renderMobileSection('work-with-me', 'Work With Me', 'work-with-me', workWithMePages)}
             <button className="block w-full text-left px-4 py-3 text-sm font-medium text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-white/[0.04]" onClick={() => navigate('about')}>About</button>
-            <button className="block w-full text-left px-4 py-3 text-sm font-medium text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-white/[0.04]" onClick={() => navigate('resume')}>Resume</button>
-            <button className="block w-full text-left px-4 py-3 text-sm font-medium text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-white/[0.04]" onClick={() => navigate('contact')}>Contact</button>
             <div className="px-4 pt-4">
               <button className="btn-primary w-full" onClick={() => navigate('contact')}>
                 Let's Talk

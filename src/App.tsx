@@ -31,6 +31,7 @@ import Resume from './components/Resume';
 import Analytics from './components/Analytics';
 import DesignLibrary from './components/DesignLibrary';
 import HomeEditorial from './components/HomeEditorial';
+import SolutionsLanding from './components/SolutionsLanding';
 import MyPhilosophy from './components/MyPhilosophy';
 import HowIWork from './components/HowIWork';
 import WritingHub from './components/WritingHub';
@@ -400,6 +401,8 @@ function App() {
         return <AIExperienceArchitecturePage setCurrentPage={setCurrentPage} />;
       case 'case-studies':
         return <Solutions setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
+      case 'solutions-landing':
+        return <SolutionsLanding setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
       case 'work-with-me-enterprise-consulting':
         return <EnterpriseUXConsulting setCurrentPage={setCurrentPage} />;
       case 'work-with-me-fractional-leadership':
@@ -416,7 +419,7 @@ function App() {
         } else if (selectedCaseStudy === 'Jim Beam - The Cocktail Project') {
           return <CaseStudyDetail3 setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
         } else {
-          return <Solutions setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
+          return <SolutionsLanding setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
         }
       default:
         return null;
@@ -426,7 +429,7 @@ function App() {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <div className="min-h-screen bg-tan-100 dark:bg-neutral-950">
-        <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+        <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />
         {renderPage()}
         <Footer currentPage={currentPage} setCurrentPage={setCurrentPage} />
       </div>
