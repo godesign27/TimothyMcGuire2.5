@@ -63,7 +63,7 @@ const CaseStudyDetail2: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setS
       {/* ── Hero image ───────────────────────────────────────────── */}
       <section className="bg-white dark:bg-neutral-950 border-b border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="overflow-hidden border border-line dark:border-white/10">
+          <div className="overflow-hidden">
             <ImageWithSkeleton
               src={`${base}onboarding-accenture-hero.png`}
               alt="Accenture Employee Onboarding Platform"
@@ -157,10 +157,10 @@ const CaseStudyDetail2: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setS
             </div>
           </div>
           <div className="grid lg:grid-cols-2 gap-6">
-            <div className="overflow-hidden border border-line dark:border-white/10">
+            <div className="overflow-hidden">
               <ImageWithSkeleton src={`${base}before-acc.png`} alt="Before — original onboarding experience" className="w-full object-cover" loading="lazy" decoding="async" />
             </div>
-            <div className="overflow-hidden border border-line dark:border-white/10">
+            <div className="overflow-hidden">
               <ImageWithSkeleton src={`${base}accenture-persona.png`} alt="Persona — new hire types" className="w-full object-cover" loading="lazy" decoding="async" />
             </div>
           </div>
@@ -189,10 +189,10 @@ const CaseStudyDetail2: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setS
             </div>
           </div>
           <div className="grid lg:grid-cols-2 gap-6">
-            <div className="overflow-hidden border border-line dark:border-white/10">
+            <div className="overflow-hidden">
               <ImageWithSkeleton src={`${base}empathy-map-acc.png`} alt="Empathy Map" className="w-full object-cover" loading="lazy" decoding="async" />
             </div>
-            <div className="overflow-hidden border border-line dark:border-white/10">
+            <div className="overflow-hidden">
               <ImageWithSkeleton src={`${base}photography.png`} alt="Photography system" className="w-full object-cover" loading="lazy" decoding="async" />
             </div>
           </div>
@@ -221,10 +221,10 @@ const CaseStudyDetail2: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setS
             </div>
           </div>
           <div className="grid lg:grid-cols-2 gap-6 mb-6">
-            <div className="overflow-hidden border border-line dark:border-white/10">
+            <div className="overflow-hidden">
               <ImageWithSkeleton src={`${base}wireframe-site.png`} alt="Wireframes" className="w-full object-cover" loading="lazy" decoding="async" />
             </div>
-            <div className="overflow-hidden border border-line dark:border-white/10">
+            <div className="overflow-hidden">
               <ImageWithSkeleton src={`${base}color-palette.png`} alt="Color palette" className="w-full object-cover" loading="lazy" decoding="async" />
             </div>
           </div>
@@ -248,7 +248,7 @@ const CaseStudyDetail2: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setS
                 ))}
               </div>
             </div>
-            <div className="overflow-hidden border border-line dark:border-white/10">
+            <div className="overflow-hidden">
               <ImageWithSkeleton src={`${base}task-cards3.png`} alt="Task card component system" className="w-full object-cover" loading="lazy" decoding="async" />
             </div>
           </div>

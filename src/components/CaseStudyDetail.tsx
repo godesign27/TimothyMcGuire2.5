@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import CoretechsPrototype from './coretechs-prototype/CoretechsPrototype';
 
 interface CaseStudyDetailProps {
   setCurrentPage: (page: string) => void;
@@ -61,7 +62,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
       {/* ── Hero image ───────────────────────────────────────────── */}
       <section className="bg-white dark:bg-neutral-950 border-b border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="overflow-hidden border border-line dark:border-white/10">
+          <div className="overflow-hidden">
             <img
               src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/core-hero.png"
               alt="CoreTechs Healthcare Dashboard"
@@ -152,7 +153,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
                   loading="lazy"
                 />
               </div>
-              <div className="p-8 border-t border-line dark:border-white/10">
+              <div className="p-8">
                 <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-2">Before</p>
                 <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
                   A developer-built interface optimized for engineers, not clinical administrators. Dense, hard to interpret, and requiring expert context to extract any value.
@@ -168,7 +169,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
                   loading="lazy"
                 />
               </div>
-              <div className="p-8 border-t border-line dark:border-white/10">
+              <div className="p-8">
                 <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-2">Target User</p>
                 <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
                   Healthcare administrators and clinical leaders managing population risk — not data scientists. The product needed to meet them where they were.
@@ -198,7 +199,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
                   loading="lazy"
                 />
               </div>
-              <div className="p-8 border-t border-line dark:border-white/10">
+              <div className="p-8">
                 <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-2">UX Strategy</p>
                 <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
                   Requirements mapping, user interviews, and competitive analysis to align business goals with clinical workflows before a single wireframe was drawn.
@@ -214,7 +215,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
                   loading="lazy"
                 />
               </div>
-              <div className="p-8 border-t border-line dark:border-white/10">
+              <div className="p-8">
                 <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-2">Information Architecture</p>
                 <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
                   A full site map and navigation model that organized six product modules around how clinical leaders actually think about their data — not how the database was structured.
@@ -244,7 +245,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
                   loading="lazy"
                 />
               </div>
-              <div className="p-8 border-t border-line dark:border-white/10">
+              <div className="p-8">
                 <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-2">Wireframes</p>
                 <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
                   Low-fidelity wireframes validated information hierarchy and navigation flow with clinical stakeholders before committing to visual design.
@@ -260,7 +261,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
                   loading="lazy"
                 />
               </div>
-              <div className="p-8 border-t border-line dark:border-white/10">
+              <div className="p-8">
                 <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-2">Color System</p>
                 <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
                   A healthcare-appropriate palette built for data-dense interfaces — high contrast for status indicators, calm neutrals for primary surfaces, accessible at every level.
@@ -268,7 +269,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
               </div>
             </div>
           </div>
-          <div className="bg-tan-100 dark:bg-neutral-900 border border-line dark:border-white/10 p-10">
+          <div className="bg-tan-100 dark:bg-neutral-900 p-10">
             <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-6">Color Palette</p>
             <img
               src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/colorpalette2.png"
@@ -296,7 +297,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
                 Every component was documented with states, variants, usage rules, and handoff specs — allowing engineers to build independently while maintaining visual integrity across six product modules.
               </p>
             </div>
-            <div className="bg-white dark:bg-neutral-950 border border-line dark:border-white/10 p-8">
+            <div className="bg-white dark:bg-neutral-950 p-8">
               <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-6">Button Component</p>
               <img
                 src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/button-component.png"
@@ -327,7 +328,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
               { src: 'https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Population%20Builder%20Landing%20Page.png', alt: 'Population Builder', caption: 'Population Builder — a configurable cohort tool allowing payors to segment and analyze member populations without engineering support.' },
             ].map(({ src, alt, caption }) => (
               <div key={alt} className="bg-white dark:bg-neutral-950">
-                <div className="overflow-hidden border-b border-line dark:border-white/10">
+                <div className="overflow-hidden">
                   <img src={src} alt={alt} className="w-full object-cover" loading="lazy" decoding="async" />
                 </div>
                 <div className="px-8 py-6">
@@ -336,6 +337,25 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Interactive Prototype ────────────────────────────────── */}
+      <section className="bg-tan-100 dark:bg-neutral-950 py-24 border-b border-line dark:border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 max-w-3xl">
+            <p className="text-xs font-semibold text-blue uppercase tracking-widest mb-3">Interactive Prototype</p>
+            <h2 className="text-2xl md:text-3xl font-semibold text-ink dark:text-white leading-snug mb-4">
+              Build a population — live.
+            </h2>
+            <p className="text-base text-muted dark:text-neutral-400 leading-relaxed">
+              A working rebuild of the Population Builder flow. Start on the dashboard, open <span className="font-medium text-ink dark:text-white">Population</span> from the left rail, toggle the elements that define a cohort, name it, and generate the member population — the same interaction payors used to segment members without engineering support.
+            </p>
+          </div>
+          <CoretechsPrototype className="shadow-xl" />
+          <p className="mt-4 text-xs text-muted dark:text-neutral-500">
+            Rebuilt in React from the original Sketch source · best viewed on a larger screen.
+          </p>
         </div>
       </section>
 

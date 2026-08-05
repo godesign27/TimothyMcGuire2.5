@@ -63,7 +63,7 @@ const CaseStudyDetail3: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setS
       {/* ── Hero image ───────────────────────────────────────────── */}
       <section className="bg-white dark:bg-neutral-950 border-b border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="overflow-hidden border border-line dark:border-white/10">
+          <div className="overflow-hidden">
             <ImageWithSkeleton
               src={`${base}TCP_desktop_homepage_.jpg`}
               alt="The Cocktail Project by Jim Beam — homepage"
@@ -158,10 +158,10 @@ const CaseStudyDetail3: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setS
             </div>
           </div>
           <div className="grid lg:grid-cols-2 gap-6">
-            <div className="overflow-hidden border border-line dark:border-white/10">
+            <div className="overflow-hidden">
               <ImageWithSkeleton src={`${base}strategy_b.png`} alt="UX strategy" className="w-full object-cover" loading="lazy" decoding="async" />
             </div>
-            <div className="overflow-hidden border border-line dark:border-white/10">
+            <div className="overflow-hidden">
               <ImageWithSkeleton src={`${base}persona2.png`} alt="Cocktail Lifestylist persona" className="w-full object-cover" loading="lazy" decoding="async" />
             </div>
           </div>
@@ -190,10 +190,10 @@ const CaseStudyDetail3: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setS
             </div>
           </div>
           <div className="grid lg:grid-cols-2 gap-6">
-            <div className="overflow-hidden border border-line dark:border-white/10">
+            <div className="overflow-hidden">
               <ImageWithSkeleton src={`${base}sitemap.png`} alt="Site map" className="w-full object-cover" loading="lazy" decoding="async" />
             </div>
-            <div className="overflow-hidden border border-line dark:border-white/10">
+            <div className="overflow-hidden">
               <ImageWithSkeleton src={`${base}04-TCP_desktop_wireframe2.png`} alt="Desktop wireframe" className="w-full object-cover" loading="lazy" decoding="async" />
             </div>
           </div>
