@@ -1,0 +1,48 @@
+---
+description: How to build, commit, and publish timothymcguire.com to the live site
+alwaysApply: true
+---
+
+# Deploying timothymcguire.com
+
+This site is a **Cloudflare Worker** named `timothymcguire27` — *not* Cloudflare Pages, and it is
+**not** connected to GitHub for auto-deploy. Pushing to GitHub does **not** update the live site.
+The Worker serves static assets from the local `./dist` directory, so you must build and deploy
+explicitly.
+
+Config lives in `wrangler.jsonc`. Auth is an existing wrangler OAuth login on this machine
+(`~/Library/Preferences/.wrangler/config/default.toml`) — no API token is needed, and one must
+never be added to the repo.
+
+## Publish changes
+
+```bash
+npm run build && git add -A && git commit -m "<message>" && git push && npx wrangler deploy
+```
+
+## Rules
+
+- **Always run `npm run build` before deploying.** The Worker ships whatever is in `dist/`, so a
+  stale build silently publishes old code. `dist/` is tracked in git — commit it alongside source.
+- **Run wrangler with full credential access.** If it errors with
+  `CLOUDFLARE_API_TOKEN is required in a non-interactive environment`, the process is sandboxed and
+  can't reach the stored login. Rerun it unsandboxed rather than creating a token. If the login has
+  genuinely expired, the fix is `npx wrangler login`.
+- **Never commit `docs/`.** The GitHub repo is **public** and that folder contains private brand and
+  IP documents, including the intellectual-property boundary doc and the future roadmap. It is
+  gitignored — do not force-add it.
+- **Consult `docs/` before writing public-facing copy.** `docs/11-intellectual-property.md` defines
+  what may and may not be disclosed about client work. The master rule: *if information teaches
+  implementation, replace it with a principle.*
+- **Verify after deploying.** Compare the asset hash from the build output against the live site:
+  ```bash
+  curl -s https://timothymcguire.com | grep -o 'assets/index-[A-Za-z0-9_-]*\.js'
+  ```
+  It should match the filename vite just emitted. The site is a React SPA, so page copy lives in the
+  JS bundle, not in the HTML — grepping the HTML for headline text will always come back empty.
+- **Deploy to production only when asked.**
+
+## Known issues
+
+- `www.timothymcguire.com` returns a 522 (the apex `timothymcguire.com` is fine). The `www` hostname
+  is not attached to the Worker.

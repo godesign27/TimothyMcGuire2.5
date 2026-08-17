@@ -1,2 +1,5 @@
 node_modules/
 .env
+
+# Private brand + IP documents. This repo is PUBLIC — never commit these.
+docs/
