@@ -3,7 +3,10 @@ import { ArrowLeft, ArrowRight, ExternalLink, Monitor, Smartphone } from 'lucide
 import CoretechsUxProcess from './CoretechsUxProcess';
 import CoretechsStartingPoint from './CoretechsStartingPoint';
 
-const LIVE_SRC = import.meta.env.VITE_CORETECHS_LIVE_URL || 'http://localhost:5175/v2';
+const CORETECHS_PROD_SRC = 'https://coretechs.timothymcguire.workers.dev/v2';
+const LIVE_SRC =
+  import.meta.env.VITE_CORETECHS_LIVE_URL ||
+  (import.meta.env.DEV ? 'http://localhost:5175/v2' : CORETECHS_PROD_SRC);
 const LIVE_DS_SRC = `${LIVE_SRC.replace(/\/$/, '')}/design-system`;
 
 type Viewport = 'desktop' | 'phone';
