@@ -1,7 +1,6 @@
-import React from 'react';
-import { Bot, Globe, Box, Smartphone, Users, Building2, Mic2, Target, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Bot, Globe, Box, Smartphone, Users, Building2, Mic2, Target, ArrowRight, Mail, Calendar, Clock } from 'lucide-react';
 import PageBreadcrumb from './PageBreadcrumb';
-import SectionCTA from './SectionCTA';
 
 interface WorkWithMeProps {
   setCurrentPage: (page: string) => void;
@@ -89,12 +88,39 @@ const whoIWorkWith = [
 ];
 
 const WorkWithMe: React.FC<WorkWithMeProps> = ({ setCurrentPage }) => {
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
   React.useEffect(() => { window.scrollTo(0, 0); }, []);
 
   const handleNav = (page: string) => {
     window.scrollTo(0, 0);
     setCurrentPage(page);
   };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormStatus('submitting');
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    try {
+      const response = await fetch('https://formspree.io/f/myznjdnq', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' },
+      });
+      if (response.ok) {
+        setFormStatus('success');
+        form.reset();
+        setTimeout(() => setFormStatus('idle'), 5000);
+      } else {
+        setFormStatus('error');
+      }
+    } catch {
+      setFormStatus('error');
+    }
+  };
+
+  const inputCls = 'w-full px-4 py-3 rounded-none border border-line dark:border-white/10 bg-white dark:bg-transparent text-ink dark:text-white focus:ring-1 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white transition-colors';
 
   return (
     <main className="min-h-screen bg-tan-100 dark:bg-neutral-950">
@@ -103,7 +129,7 @@ const WorkWithMe: React.FC<WorkWithMeProps> = ({ setCurrentPage }) => {
       <section className="bg-white dark:bg-neutral-950 py-24 border-b border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <PageBreadcrumb
-            items={[{ label: 'Services', pageId: 'services' }, { label: 'Work With Me' }]}
+            items={[{ label: 'Work With Me' }]}
             setCurrentPage={setCurrentPage}
           />
           <div className="grid lg:grid-cols-2 gap-16 items-end pt-8">
@@ -211,15 +237,111 @@ const WorkWithMe: React.FC<WorkWithMeProps> = ({ setCurrentPage }) => {
         </div>
       </section>
 
-      <SectionCTA
-        heading="Ready to get started?"
-        body="I work with a limited number of engagements at a time. Reach out with a brief description of what you're working on."
-        primaryLabel="Get in Touch"
-        primaryPage="contact"
-        secondaryLabel="See My Work"
-        secondaryPage="solutions"
-        setCurrentPage={setCurrentPage}
-      />
+      {/* Contact / Get Started */}
+      <section id="contact" className="bg-tan dark:bg-neutral-900 py-24 border-t border-line dark:border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-14">
+            <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">Get Started</p>
+            <h2 className="text-2xl md:text-3xl font-semibold text-ink dark:text-white leading-snug mb-4">
+              Ready to start a conversation?
+            </h2>
+            <p className="text-base text-muted dark:text-neutral-400 max-w-2xl leading-relaxed">
+              Send a brief description of your product and what you're trying to accomplish. I'll get back to you within 24 hours.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-16">
+            {/* Contact info */}
+            <div className="space-y-8">
+              <div className="flex items-start gap-4">
+                <Mail className="w-5 h-5 text-muted dark:text-neutral-400 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-sm font-medium text-ink dark:text-white mb-1">Email</p>
+                  <p className="text-sm text-muted dark:text-neutral-400">godesigngo@gmail.com</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <Clock className="w-5 h-5 text-muted dark:text-neutral-400 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-sm font-medium text-ink dark:text-white mb-1">Response time</p>
+                  <p className="text-sm text-muted dark:text-neutral-400">Within 24 hours, Mon–Fri</p>
+                </div>
+              </div>
+              <div className="pt-4 border-t border-line dark:border-white/10">
+                <a
+                  href="https://cal.com/timothy-mcguire-27"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 w-full bg-ink dark:bg-white text-white dark:text-ink px-6 py-3 font-medium text-sm hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors"
+                >
+                  <Calendar className="w-4 h-4" />
+                  Schedule a Call
+                </a>
+                <p className="mt-3 text-xs text-muted dark:text-neutral-500 text-center">Prefer to talk? Book a free 30-min call.</p>
+              </div>
+            </div>
+
+            {/* Form */}
+            <div className="md:col-span-2">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="wwm-name" className="block text-sm font-medium text-ink dark:text-white mb-2">Name *</label>
+                    <input type="text" id="wwm-name" name="name" required className={inputCls} placeholder="Your name" />
+                  </div>
+                  <div>
+                    <label htmlFor="wwm-email" className="block text-sm font-medium text-ink dark:text-white mb-2">Email *</label>
+                    <input type="email" id="wwm-email" name="email" required className={inputCls} placeholder="your@email.com" />
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="wwm-company" className="block text-sm font-medium text-ink dark:text-white mb-2">Company</label>
+                    <input type="text" id="wwm-company" name="company" className={inputCls} placeholder="Your company" />
+                  </div>
+                  <div>
+                    <label htmlFor="wwm-engagement" className="block text-sm font-medium text-ink dark:text-white mb-2">Engagement type</label>
+                    <select id="wwm-engagement" name="projectType" className={inputCls}>
+                      <option value="">Select a format</option>
+                      <option value="Enterprise Consulting">Enterprise Consulting</option>
+                      <option value="Fractional Leadership">Fractional Leadership</option>
+                      <option value="Strategy Session">Strategy Session</option>
+                      <option value="Speaking / Workshop">Speaking / Workshop</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="wwm-message" className="block text-sm font-medium text-ink dark:text-white mb-2">What are you working on? *</label>
+                  <textarea
+                    id="wwm-message"
+                    name="message"
+                    required
+                    rows={5}
+                    className={`${inputCls} resize-none`}
+                    placeholder="Tell me about your product, your challenge, and what you're trying to accomplish..."
+                  />
+                </div>
+
+                {formStatus === 'success' && (
+                  <div className="p-4 bg-white dark:bg-white/[0.05] border border-line dark:border-white/10">
+                    <p className="text-sm text-ink dark:text-white font-medium">Message sent. I'll be in touch within 24 hours.</p>
+                  </div>
+                )}
+                {formStatus === 'error' && (
+                  <div className="p-4 bg-white dark:bg-white/[0.05] border border-line dark:border-white/10">
+                    <p className="text-sm text-ink dark:text-white font-medium">Something went wrong. Email me directly at godesigngo@gmail.com</p>
+                  </div>
+                )}
+
+                <button type="submit" disabled={formStatus === 'submitting'} className="btn-primary w-full">
+                  {formStatus === 'submitting' ? 'Sending...' : 'Send Message'}
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };

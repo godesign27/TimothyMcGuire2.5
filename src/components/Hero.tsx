@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import DesignSystemIllustration from './DesignSystemIllustration';
+import AIArchitectureIllustration from './AIArchitectureIllustration';
 import Eyebrow from './Eyebrow';
 
 interface HeroProps {
@@ -31,14 +31,14 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
 
           {/* Left: Hero copy */}
           <div>
-            <Eyebrow className="mb-6">Experience Design</Eyebrow>
+            <Eyebrow className="mb-6">AI Experience Architecture™</Eyebrow>
 
             <h1 className="text-[3.5rem] md:text-[4.5rem] lg:text-[5rem] font-semibold text-ink dark:text-tan-500 tracking-tight leading-[1.05] mb-8">
-              Human-Centered Design, Built for Results.
+              Designing Intelligent Enterprise Systems.
             </h1>
 
             <p className="text-lg md:text-xl text-muted dark:text-neutral-400 max-w-xl leading-relaxed mb-10">
-              I specialize in experience design for enterprise SaaS, AI-native products, and complex digital platforms. Bringing human-centered thinking, creative problem-solving, and technology together.
+              I work at the intersection of AI systems, design strategy, and enterprise product — defining how intelligent systems should behave, what they communicate, and how the humans who depend on them maintain trust and oversight.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
@@ -53,14 +53,14 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
                 onClick={() => navigate('solutions')}
                 className="btn-secondary btn-lg"
               >
-                View Work
+                Explore My Work
               </button>
             </div>
           </div>
 
-          {/* Right: Design system illustration */}
+          {/* Right: AI Architecture illustration */}
           <div className="hidden lg:block w-full">
-            <DesignSystemIllustration />
+            <AIArchitectureIllustration />
           </div>
 
         </div>

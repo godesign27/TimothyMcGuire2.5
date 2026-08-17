@@ -44,9 +44,9 @@ const Footer: React.FC<FooterProps> = ({ currentPage: _currentPage, setCurrentPa
             </button>
           </div>
 
-          {/* Thinking */}
+          {/* Perspectives */}
           <div>
-            <h3 className={headingCls}>Thinking</h3>
+            <h3 className={headingCls}>Perspectives</h3>
             <ul className="space-y-2.5">
               {[
                 { id: 'perspectives-my-philosophy', label: 'My Philosophy' },
@@ -55,27 +55,6 @@ const Footer: React.FC<FooterProps> = ({ currentPage: _currentPage, setCurrentPa
                 { id: 'perspectives-writing', label: 'Writing' },
                 { id: 'perspectives-speaking', label: 'Speaking' },
                 { id: 'perspectives', label: 'All Perspectives' },
-              ].map((item) => (
-                <li key={item.id}>
-                  <button onClick={() => nav(item.id)} className={linkCls}>{item.label}</button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h3 className={headingCls}>Services</h3>
-            <ul className="space-y-2.5">
-              {[
-                { id: 'agentic-experience', label: 'Agentic Experience' },
-                { id: 'enterprise-ux-consulting', label: 'Enterprise UX' },
-                { id: 'saas-product-design', label: 'SaaS Product Design' },
-                { id: 'marketing-web-design', label: 'Marketing Web' },
-                { id: 'mobile-web-design', label: 'Mobile & Web' },
-                { id: 'fractional-saas-designer', label: 'Fractional Designer' },
-                { id: 'speaking-workshops', label: 'Speaking & Workshops' },
-                { id: 'strategy-sessions', label: 'Strategy Sessions' },
               ].map((item) => (
                 <li key={item.id}>
                   <button onClick={() => nav(item.id)} className={linkCls}>{item.label}</button>
@@ -95,6 +74,25 @@ const Footer: React.FC<FooterProps> = ({ currentPage: _currentPage, setCurrentPa
                 { id: 'solutions-healthcare-ux', label: 'Healthcare UX' },
                 { id: 'solutions-fintech-ux', label: 'Fintech UX' },
                 { id: 'solutions-product-modernization', label: 'Modernization' },
+                { id: 'case-studies', label: 'Case Studies' },
+              ].map((item) => (
+                <li key={item.id}>
+                  <button onClick={() => nav(item.id)} className={linkCls}>{item.label}</button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Work With Me */}
+          <div>
+            <h3 className={headingCls}>Work With Me</h3>
+            <ul className="space-y-2.5">
+              {[
+                { id: 'work-with-me-enterprise-consulting', label: 'Enterprise Consulting' },
+                { id: 'work-with-me-fractional-leadership', label: 'Fractional Leadership' },
+                { id: 'work-with-me-strategy-sessions', label: 'Strategy Sessions' },
+                { id: 'work-with-me-speaking-workshops', label: 'Speaking & Workshops' },
+                { id: 'work-with-me', label: 'Overview' },
               ].map((item) => (
                 <li key={item.id}>
                   <button onClick={() => nav(item.id)} className={linkCls}>{item.label}</button>
@@ -108,11 +106,10 @@ const Footer: React.FC<FooterProps> = ({ currentPage: _currentPage, setCurrentPa
             <h3 className={headingCls}>Company</h3>
             <ul className="space-y-2.5">
               {[
+                { id: 'ai-experience-architecture', label: 'AI Experience Architecture™' },
                 { id: 'about', label: 'About' },
                 { id: 'work-with-me', label: 'Work With Me' },
-                { id: 'solutions', label: 'Case Studies' },
                 { id: 'resume', label: 'Resume' },
-                { id: 'contact', label: 'Contact' },
               ].map((item) => (
                 <li key={item.id}>
                   <button onClick={() => nav(item.id)} className={linkCls}>{item.label}</button>
