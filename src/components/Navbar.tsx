@@ -93,7 +93,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, setSelecte
   };
 
   const isServicePage = currentPage === 'services' || servicePages.some(s => s.id === currentPage);
-  const isSolutionPage = currentPage === 'solutions' || currentPage === 'case-studies' || solutionPages.some(s => s.id === currentPage);
+  const isSolutionPage = currentPage === 'solutions' || currentPage === 'case-studies' || currentPage.startsWith('case-study-') || solutionPages.some(s => s.id === currentPage);
   const isPerspectivePage = currentPage === 'perspectives' || perspectivePages.some(s => s.id === currentPage);
   const isWorkWithMePage = currentPage === 'work-with-me' || currentPage === 'contact' || workWithMePages.some(s => s.id === currentPage);
 

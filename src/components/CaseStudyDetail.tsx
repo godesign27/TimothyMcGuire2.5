@@ -1,19 +1,133 @@
 import React from 'react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
-import CoretechsPrototype from './coretechs-prototype/CoretechsPrototype';
+import { ArrowLeft, ArrowRight, ExternalLink, Monitor, Smartphone } from 'lucide-react';
+import CoretechsUxProcess from './CoretechsUxProcess';
+import CoretechsStartingPoint from './CoretechsStartingPoint';
+
+const LIVE_SRC = import.meta.env.VITE_CORETECHS_LIVE_URL || 'http://localhost:5175/v2';
+const LIVE_DS_SRC = `${LIVE_SRC.replace(/\/$/, '')}/design-system`;
+
+type Viewport = 'desktop' | 'phone';
 
 interface CaseStudyDetailProps {
   setCurrentPage: (page: string) => void;
   setSelectedCaseStudy: (study: string | null) => void;
 }
 
+function ViewportToggle({
+  current,
+  value,
+  label,
+  icon,
+  onSelect,
+}: {
+  current: Viewport;
+  value: Viewport;
+  label: string;
+  icon: React.ReactNode;
+  onSelect: (next: Viewport) => void;
+}) {
+  const selected = current === value;
+  return (
+    <button
+      type="button"
+      aria-pressed={selected}
+      onClick={() => onSelect(value)}
+      className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors ${
+        selected
+          ? 'bg-blue text-white'
+          : 'text-muted dark:text-neutral-400 hover:text-ink dark:hover:text-white'
+      }`}
+    >
+      {icon}
+      {label}
+    </button>
+  );
+}
+
+function ViewportToolbar({
+  viewport,
+  onSelect,
+}: {
+  viewport: Viewport;
+  onSelect: (next: Viewport) => void;
+}) {
+  return (
+    <div className="flex items-center gap-1 border border-line dark:border-white/10 p-0.5 self-start sm:self-auto">
+      <ViewportToggle
+        current={viewport}
+        value="desktop"
+        label="Desktop"
+        icon={<Monitor className="w-3.5 h-3.5" strokeWidth={1.5} aria-hidden />}
+        onSelect={onSelect}
+      />
+      <ViewportToggle
+        current={viewport}
+        value="phone"
+        label="Phone"
+        icon={<Smartphone className="w-3.5 h-3.5" strokeWidth={1.5} aria-hidden />}
+        onSelect={onSelect}
+      />
+    </div>
+  );
+}
+
+function LiveViewport({
+  viewport,
+  src,
+  pathLabel,
+  title,
+}: {
+  viewport: Viewport;
+  src: string;
+  pathLabel: string;
+  title: string;
+}) {
+  let frameClass: string;
+  switch (viewport) {
+    case 'desktop':
+      frameClass = 'h-[min(80vh,860px)] min-h-[480px] w-full';
+      break;
+    case 'phone':
+      frameClass = 'mx-auto h-[min(80vh,760px)] min-h-[560px] w-full max-w-[390px]';
+      break;
+    default: {
+      const _exhaustive: never = viewport;
+      throw new Error(`Unhandled viewport: ${_exhaustive}`);
+    }
+  }
+
+  return (
+    <div className={viewport === 'phone' ? 'mx-auto w-full max-w-[390px]' : 'w-full'}>
+      <div className="overflow-hidden border border-line dark:border-white/10">
+        <div className="flex items-center gap-2 border-b border-line dark:border-white/10 bg-tan-100 dark:bg-neutral-900 px-3 py-2">
+          <span className="size-2.5 rounded-full bg-line dark:bg-white/20" aria-hidden />
+          <span className="size-2.5 rounded-full bg-line dark:bg-white/20" aria-hidden />
+          <span className="size-2.5 rounded-full bg-line dark:bg-white/20" aria-hidden />
+          <span className="ml-2 min-w-0 flex-1 truncate rounded-full bg-white dark:bg-neutral-950 px-3 py-1 text-xs text-muted dark:text-neutral-400">
+            {pathLabel}
+          </span>
+        </div>
+        <iframe
+          title={title}
+          src={src}
+          allow="fullscreen"
+          className={`block border-0 bg-white ${frameClass}`}
+        />
+      </div>
+    </div>
+  );
+}
+
 const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSelectedCaseStudy }) => {
+  const [viewport, setViewport] = React.useState<Viewport>('desktop');
+  const [dsViewport, setDsViewport] = React.useState<Viewport>('desktop');
+
   React.useEffect(() => { window.scrollTo(0, 0); }, []);
 
   const handleBack = () => {
     window.scrollTo(0, 0);
     setSelectedCaseStudy(null);
-    setCurrentPage('solutions');
+    setCurrentPage('case-studies');
   };
 
   return (
@@ -27,7 +141,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
             onClick={handleBack}
             className="inline-flex items-center gap-2 text-sm text-muted dark:text-neutral-400 hover:text-ink dark:hover:text-white transition-colors mb-12"
           >
-            <ArrowLeft className="w-4 h-4" strokeWidth={1.5} /> Back to Solutions
+            <ArrowLeft className="w-4 h-4" strokeWidth={1.5} /> Back to Case Studies
           </button>
 
           <div className="max-w-4xl mb-12">
@@ -35,7 +149,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
               Case Study · Healthcare SaaS · 2016 – 2022
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-ink dark:text-white leading-tight tracking-tight mb-6">
-              CoreTechs — Turning a developer tool into an enterprise product.
+              CoreTechs — Turning an initial POC into an enterprise product.
             </h1>
             <p className="text-lg text-muted dark:text-neutral-400 leading-relaxed max-w-2xl">
               Five years as Principal UX Designer and Director, transforming a raw analytics platform into a trusted SaaS product used by healthcare payors and providers.
@@ -59,18 +173,30 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
         </div>
       </section>
 
-      {/* ── Hero image ───────────────────────────────────────────── */}
+      {/* ── Live product ─────────────────────────────────────────── */}
       <section className="bg-white dark:bg-neutral-950 border-b border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="overflow-hidden">
-            <img
-              src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/core-hero.png"
-              alt="CoreTechs Healthcare Dashboard"
-              className="w-full object-cover"
-              loading="eager"
-              decoding="async"
-            />
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+            <p className="text-xs font-semibold text-blue uppercase tracking-widest">Live product</p>
+            <ViewportToolbar viewport={viewport} onSelect={setViewport} />
           </div>
+          <LiveViewport
+            viewport={viewport}
+            src={LIVE_SRC}
+            pathLabel="/v2"
+            title="CoreTechs V2 live product"
+          />
+          <p className="mt-4 text-xs text-muted dark:text-neutral-500">
+            Fully interactive — clicks, navigation, drawers, and theme all work. Phone shows the hamburger overlay.{' '}
+            <a
+              href={LIVE_SRC}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 font-medium text-blue hover:text-ink dark:hover:text-lavender transition-colors"
+            >
+              Open in new tab <ExternalLink className="w-3 h-3" strokeWidth={1.5} aria-hidden />
+            </a>
+          </p>
         </div>
       </section>
 
@@ -134,97 +260,9 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
         </div>
       </section>
 
-      {/* ── Before / After ───────────────────────────────────────── */}
-      <section className="bg-white dark:bg-neutral-950 py-24 border-b border-line dark:border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-14">
-            <p className="text-xs font-semibold text-blue uppercase tracking-widest mb-3">Starting Point</p>
-            <h2 className="text-2xl md:text-3xl font-semibold text-ink dark:text-white leading-snug">
-              Understanding what we inherited.
-            </h2>
-          </div>
-          <div className="grid lg:grid-cols-2 gap-px bg-line dark:bg-white/10">
-            <div className="bg-white dark:bg-neutral-950">
-              <div className="overflow-hidden">
-                <img
-                  src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/before.png"
-                  alt="Before state of CoreTechs"
-                  className="w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-8">
-                <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-2">Before</p>
-                <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
-                  A developer-built interface optimized for engineers, not clinical administrators. Dense, hard to interpret, and requiring expert context to extract any value.
-                </p>
-              </div>
-            </div>
-            <div className="bg-white dark:bg-neutral-950">
-              <div className="overflow-hidden">
-                <img
-                  src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/healthcare-user.png"
-                  alt="Target user persona"
-                  className="w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-8">
-                <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-2">Target User</p>
-                <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
-                  Healthcare administrators and clinical leaders managing population risk — not data scientists. The product needed to meet them where they were.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CoretechsStartingPoint />
 
-      {/* ── UX Process ───────────────────────────────────────────── */}
-      <section className="bg-tan-100 dark:bg-neutral-950 py-24 border-b border-line dark:border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-14">
-            <p className="text-xs font-semibold text-blue uppercase tracking-widest mb-3">UX Process</p>
-            <h2 className="text-2xl md:text-3xl font-semibold text-ink dark:text-white leading-snug">
-              From research to architecture.
-            </h2>
-          </div>
-          <div className="grid lg:grid-cols-2 gap-px bg-line dark:bg-white/10">
-            <div className="bg-white dark:bg-neutral-950">
-              <div className="overflow-hidden">
-                <img
-                  src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/requirements.png"
-                  alt="UX Strategy and Requirements"
-                  className="w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-8">
-                <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-2">UX Strategy</p>
-                <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
-                  Requirements mapping, user interviews, and competitive analysis to align business goals with clinical workflows before a single wireframe was drawn.
-                </p>
-              </div>
-            </div>
-            <div className="bg-white dark:bg-neutral-950">
-              <div className="overflow-hidden">
-                <img
-                  src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/site-map.png"
-                  alt="Information Architecture / Site Map"
-                  className="w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-8">
-                <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-2">Information Architecture</p>
-                <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
-                  A full site map and navigation model that organized six product modules around how clinical leaders actually think about their data — not how the database was structured.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CoretechsUxProcess />
 
       {/* ── Wireframe + UI Design ─────────────────────────────────── */}
       <section className="bg-white dark:bg-neutral-950 py-24 border-b border-line dark:border-white/10">
@@ -235,49 +273,49 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
               From wireframe to visual system.
             </h2>
           </div>
-          <div className="grid lg:grid-cols-2 gap-px bg-line dark:bg-white/10 mb-px">
-            <div className="bg-white dark:bg-neutral-950">
-              <div className="overflow-hidden">
-                <img
-                  src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/wireframe.png"
-                  alt="Wireframes"
-                  className="w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-8">
-                <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-2">Wireframes</p>
-                <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
-                  Low-fidelity wireframes validated information hierarchy and navigation flow with clinical stakeholders before committing to visual design.
-                </p>
-              </div>
+          <div className="bg-white dark:bg-neutral-950 mb-px">
+            <div className="overflow-hidden">
+              <img
+                src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/wireframe.png"
+                alt="Wireframes"
+                className="w-full object-cover"
+                loading="lazy"
+              />
             </div>
-            <div className="bg-white dark:bg-neutral-950">
-              <div className="overflow-hidden">
-                <img
-                  src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/color-harmony%20(1).png"
-                  alt="Color System"
-                  className="w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <div className="p-8">
-                <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-2">Color System</p>
-                <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
-                  A healthcare-appropriate palette built for data-dense interfaces — high contrast for status indicators, calm neutrals for primary surfaces, accessible at every level.
-                </p>
-              </div>
+            <div className="p-8">
+              <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-2">Wireframes</p>
+              <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
+                Low-fidelity wireframes validated information hierarchy and navigation flow with clinical stakeholders before committing to visual design.
+              </p>
             </div>
           </div>
-          <div className="bg-tan-100 dark:bg-neutral-900 p-10">
-            <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-6">Color Palette</p>
-            <img
-              src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/colorpalette2.png"
-              alt="Color Palette"
-              className="w-full object-contain"
-              loading="lazy"
-            />
+
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 mt-14">
+            <div className="max-w-2xl">
+              <p className="text-xs font-semibold text-blue uppercase tracking-widest mb-2">Color System</p>
+              <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">
+                A healthcare-appropriate palette built for data-dense interfaces — high contrast for status indicators, calm neutrals for primary surfaces, accessible at every level. Click through the live design system to explore tokens, components, and patterns.
+              </p>
+            </div>
+            <ViewportToolbar viewport={dsViewport} onSelect={setDsViewport} />
           </div>
+          <LiveViewport
+            viewport={dsViewport}
+            src={LIVE_DS_SRC}
+            pathLabel="/v2/design-system"
+            title="CoreTechs design system"
+          />
+          <p className="mt-4 text-xs text-muted dark:text-neutral-500">
+            Fully interactive — start on the design system overview and click into any category.{' '}
+            <a
+              href={LIVE_DS_SRC}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 font-medium text-blue hover:text-ink dark:hover:text-lavender transition-colors"
+            >
+              Open in new tab <ExternalLink className="w-3 h-3" strokeWidth={1.5} aria-hidden />
+            </a>
+          </p>
         </div>
       </section>
 
@@ -310,36 +348,6 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
         </div>
       </section>
 
-      {/* ── Final Designs ────────────────────────────────────────── */}
-      <section className="bg-white dark:bg-neutral-950 py-24 border-b border-line dark:border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-14">
-            <p className="text-xs font-semibold text-blue uppercase tracking-widest mb-3">Final Designs</p>
-            <h2 className="text-2xl md:text-3xl font-semibold text-ink dark:text-white leading-snug">
-              Six years of shipped product.
-            </h2>
-          </div>
-          <div className="space-y-px bg-line dark:bg-white/10">
-            {[
-              { src: 'https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Dashboard%20-%20Summary.png', alt: 'Dashboard Summary', caption: 'Population Dashboard — the primary view for clinical administrators managing risk across member populations.' },
-              { src: 'https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Measure-detail-overview.png', alt: 'Measure Detail Overview', caption: 'Measure Detail — drill-down view surfacing individual performance metrics against contract benchmarks.' },
-              { src: 'https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Measure-detailcard-practices.png', alt: 'Measure Detail Practices', caption: 'Practice-level performance cards — enabling administrators to identify and address outliers quickly.' },
-              { src: 'https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Members.detail.png', alt: 'Members Detail', caption: 'Member detail view — longitudinal risk tracking for individual patients across care episodes.' },
-              { src: 'https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Population%20Builder%20Landing%20Page.png', alt: 'Population Builder', caption: 'Population Builder — a configurable cohort tool allowing payors to segment and analyze member populations without engineering support.' },
-            ].map(({ src, alt, caption }) => (
-              <div key={alt} className="bg-white dark:bg-neutral-950">
-                <div className="overflow-hidden">
-                  <img src={src} alt={alt} className="w-full object-cover" loading="lazy" decoding="async" />
-                </div>
-                <div className="px-8 py-6">
-                  <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed max-w-3xl">{caption}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Interactive Prototype ────────────────────────────────── */}
       <section className="bg-tan-100 dark:bg-neutral-950 py-24 border-b border-line dark:border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -352,9 +360,16 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
               A working rebuild of the Population Builder flow. Start on the dashboard, open <span className="font-medium text-ink dark:text-white">Population</span> from the left rail, toggle the elements that define a cohort, name it, and generate the member population — the same interaction payors used to segment members without engineering support.
             </p>
           </div>
-          <CoretechsPrototype className="shadow-xl" />
+          <div className="overflow-hidden shadow-xl bg-white dark:bg-neutral-950">
+            <img
+              src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Population%20Builder%20Landing%20Page.png"
+              alt="CoreTechs Population Builder prototype"
+              className="w-full object-cover"
+              loading="lazy"
+            />
+          </div>
           <p className="mt-4 text-xs text-muted dark:text-neutral-500">
-            Rebuilt in React from the original Sketch source · best viewed on a larger screen.
+            Population Builder landing view from the original product · best viewed on a larger screen.
           </p>
         </div>
       </section>
@@ -403,7 +418,7 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
             </div>
             <div className="flex flex-wrap items-center gap-4 flex-shrink-0">
               <button
-                onClick={() => { window.scrollTo(0,0); setSelectedCaseStudy(null); setCurrentPage('solutions'); }}
+                onClick={() => { window.scrollTo(0,0); setSelectedCaseStudy(null); setCurrentPage('case-studies'); }}
                 className="inline-flex items-center gap-2 text-sm font-medium text-muted dark:text-neutral-400 hover:text-ink dark:hover:text-white transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" strokeWidth={1.5} /> All case studies

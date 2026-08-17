@@ -199,6 +199,21 @@ const pageSeo: Record<string, PageMeta> = {
     description: 'Case studies and strategic work across enterprise AI, healthcare SaaS, agentic design systems, and complex product design.',
     path: '/case-studies',
   },
+  'case-study-coretechs': {
+    title: `${SITE_NAME} | CoreTechs Healthcare SaaS Case Study`,
+    description: 'Five years as Principal UX Designer and Director, transforming CoreTechs from an initial POC into an enterprise healthcare analytics product.',
+    path: '/case-studies/coretechs',
+  },
+  'case-study-accenture': {
+    title: `${SITE_NAME} | Accenture Employee Onboarding Case Study`,
+    description: 'Reimagining a fragmented pre-boarding experience into a unified platform for 500,000+ Accenture employees.',
+    path: '/case-studies/accenture',
+  },
+  'case-study-jim-beam': {
+    title: `${SITE_NAME} | Jim Beam The Cocktail Project Case Study`,
+    description: 'A frictionless cocktail destination designed to move users from browse to pick to pour in just a few taps.',
+    path: '/case-studies/jim-beam',
+  },
   'work-with-me-enterprise-consulting': {
     title: `${SITE_NAME} | Enterprise AI Consulting`,
     description: 'Senior UX leadership and AI experience strategy for complex enterprise AI products.',
@@ -239,6 +254,9 @@ const pageToPath: Record<string, string> = {
   resume: '/resume',
   'ai-experience-architecture': '/ai-experience-architecture',
   'case-studies': '/case-studies',
+  'case-study-coretechs': '/case-studies/coretechs',
+  'case-study-accenture': '/case-studies/accenture',
+  'case-study-jim-beam': '/case-studies/jim-beam',
   'work-with-me-enterprise-consulting': '/work-with-me/enterprise-consulting',
   'work-with-me-fractional-leadership': '/work-with-me/fractional-leadership',
   'work-with-me-strategy-sessions': '/work-with-me/strategy-sessions',
@@ -267,7 +285,7 @@ const getPageFromPath = (pathname: string): string => {
 
 function App() {
   const [currentPage, setCurrentPage] = React.useState(() => getPageFromPath(window.location.pathname));
-  const [selectedCaseStudy, setSelectedCaseStudy] = React.useState<string | null>(null);
+  const [, setSelectedCaseStudy] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     const meta = pageSeo[currentPage] ?? pageSeo.home;
@@ -401,6 +419,12 @@ function App() {
         return <AIExperienceArchitecturePage setCurrentPage={setCurrentPage} />;
       case 'case-studies':
         return <Solutions setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
+      case 'case-study-coretechs':
+        return <CaseStudyDetail setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
+      case 'case-study-accenture':
+        return <CaseStudyDetail2 setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
+      case 'case-study-jim-beam':
+        return <CaseStudyDetail3 setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
       case 'solutions-landing':
         return <SolutionsLanding setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
       case 'work-with-me-enterprise-consulting':
@@ -412,15 +436,7 @@ function App() {
       case 'work-with-me-speaking-workshops':
         return <SpeakingWorkshops setCurrentPage={setCurrentPage} />;
       case 'solutions':
-        if (selectedCaseStudy === 'CoreTechs SaaS Healthcare Product') {
-          return <CaseStudyDetail setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
-        } else if (selectedCaseStudy === 'Accenture - Employee Onboarding') {
-          return <CaseStudyDetail2 setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
-        } else if (selectedCaseStudy === 'Jim Beam - The Cocktail Project') {
-          return <CaseStudyDetail3 setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
-        } else {
-          return <SolutionsLanding setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
-        }
+        return <SolutionsLanding setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
       default:
         return null;
     }

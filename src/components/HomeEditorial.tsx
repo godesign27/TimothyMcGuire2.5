@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Eye, Layers, Search, GitBranch, BarChart3 } from 'lucide-react';
+import { getCaseStudyRoute } from '../lib/caseStudies';
 
 interface HomeEditorialProps {
   setCurrentPage: (page: string) => void;
@@ -257,8 +258,9 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
 
   const handleCaseStudyClick = (study: string) => {
     window.scrollTo(0, 0);
+    const route = getCaseStudyRoute(study);
     if (setSelectedCaseStudy) setSelectedCaseStudy(study);
-    setCurrentPage('solutions');
+    setCurrentPage(route.page);
   };
 
   return (
@@ -628,7 +630,7 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
               </h2>
             </div>
             <button
-              onClick={() => navigate('solutions')}
+              onClick={() => navigate('case-studies')}
               className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-ink dark:text-white hover:text-blue dark:hover:text-lavender transition-colors"
             >
               All case studies <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
@@ -636,8 +638,13 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
           </div>
 
           <div className="grid lg:grid-cols-5 gap-px bg-line dark:bg-white/10 mb-px">
-            <button
-              onClick={() => handleCaseStudyClick('CoreTechs SaaS Healthcare Product')}
+            <a
+              href={getCaseStudyRoute('CoreTechs SaaS Healthcare Product').path}
+              onClick={(event) => {
+                if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+                event.preventDefault();
+                handleCaseStudyClick('CoreTechs SaaS Healthcare Product');
+              }}
               className="group lg:col-span-3 text-left bg-white dark:bg-neutral-950 hover:bg-tan-100 dark:hover:bg-white/[0.03] transition-colors overflow-hidden"
             >
               <div className="aspect-[16/9] overflow-hidden border-b border-line dark:border-white/10">
@@ -652,7 +659,7 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
                   Healthcare SaaS · 5-year engagement
                 </p>
                 <h3 className="text-xl md:text-2xl font-semibold text-ink dark:text-white mb-3 group-hover:text-blue dark:group-hover:text-lavender transition-colors leading-snug">
-                  CoreTechs — From developer tool to enterprise product
+                  CoreTechs — From an initial POC to an enterprise product
                 </h3>
                 <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed mb-6 max-w-lg">
                   Full-lifecycle UX/UI transformation spanning design system, user flows, and product strategy — turning a complex analytics platform into something payors and providers actually trust.
@@ -661,7 +668,7 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
                   View case study <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
                 </span>
               </div>
-            </button>
+            </a>
 
             <div className="lg:col-span-2 flex flex-col gap-px bg-line dark:bg-white/10">
               <button
@@ -703,7 +710,7 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
 
           <div className="flex md:hidden mt-8">
             <button
-              onClick={() => navigate('solutions')}
+              onClick={() => navigate('case-studies')}
               className="inline-flex items-center gap-2 text-sm font-medium text-ink dark:text-white hover:text-blue dark:hover:text-lavender transition-colors"
             >
               All case studies <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
