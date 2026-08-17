@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, Eye, Layers, Search, GitBranch, BarChart3 } from 'lucide-react';
-import { getCaseStudyRoute } from '../lib/caseStudies';
+import { CORETECHS_CARD_IMAGE, getCaseStudyRoute } from '../lib/caseStudies';
 
 interface HomeEditorialProps {
   setCurrentPage: (page: string) => void;
@@ -649,7 +649,7 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
             >
               <div className="aspect-[16/9] overflow-hidden border-b border-line dark:border-white/10">
                 <img
-                  src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Dashboard%20-%20Summary.png"
+                  src={CORETECHS_CARD_IMAGE}
                   alt="CoreTechs Dashboard"
                   className="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-500"
                 />

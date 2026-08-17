@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { CORETECHS_CARD_IMAGE } from '../lib/caseStudies';
 
 interface SuccessStoriesProps {
   setCurrentPage: (page: string) => void;
@@ -27,7 +28,7 @@ const SuccessStories: React.FC<SuccessStoriesProps> = ({ setCurrentPage, setSele
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="bg-white dark:bg-neutral-900 border border-line dark:border-white/10 p-2">
             <img
-              src="https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/Dashboard%20-%20Summary.png"
+              src={CORETECHS_CARD_IMAGE}
               alt="CoreTechs Dashboard"
               className="w-full h-72 object-cover object-top"
             />

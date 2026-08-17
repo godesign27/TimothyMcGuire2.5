@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, Building2, Bot, Palette, Heart, BarChart3, RefreshCcw, Briefcase } from 'lucide-react';
 import ImageWithSkeleton from './ui/ImageWithSkeleton';
-import { getCaseStudyRoute } from '../lib/caseStudies';
+import { CORETECHS_CARD_IMAGE, getCaseStudyRoute } from '../lib/caseStudies';
 
 interface SolutionsLandingProps {
   setCurrentPage: (page: string) => void;
@@ -13,7 +13,7 @@ const caseStudies = [
     title: 'CoreTechs SaaS Healthcare Product',
     eyebrow: 'Healthcare SaaS · 2016 – 2022',
     description: 'Five years as Principal UX Designer and Director, transforming a raw analytics platform into a trusted enterprise SaaS product for healthcare payors and providers.',
-    image: 'https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/core-hero.png',
+    image: CORETECHS_CARD_IMAGE,
     tags: ['Healthcare', 'UX/UI Design', 'Web App'],
   },
   {

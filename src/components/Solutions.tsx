@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import SectionCTA from './SectionCTA';
-import { getCaseStudyRoute } from '../lib/caseStudies';
+import { CORETECHS_CARD_IMAGE, getCaseStudyRoute } from '../lib/caseStudies';
 
 interface CaseStudyCardProps {
   title: string;
@@ -61,7 +61,7 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
     {
       title: 'CoreTechs SaaS Healthcare Product',
       description: 'Improving value-based healthcare patient management through an intuitive interface design.',
-      image: 'https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/core-hero.png',
+      image: CORETECHS_CARD_IMAGE,
       tags: ['Healthcare', 'UX/UI Design', 'Web App'],
     },
     {

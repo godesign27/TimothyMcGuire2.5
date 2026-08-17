@@ -1,3 +1,5 @@
+export const CORETECHS_CARD_IMAGE = '/coretechs-v2-dashboard.png';
+
 export const CASE_STUDY_ROUTES: Record<string, { page: string; path: string }> = {
   'CoreTechs SaaS Healthcare Product': {
     page: 'case-study-coretechs',
