@@ -7,7 +7,7 @@ const CORETECHS_PROD_SRC = 'https://coretechs.timothymcguire.workers.dev/v2';
 const LIVE_SRC =
   import.meta.env.VITE_CORETECHS_LIVE_URL ||
   (import.meta.env.DEV ? 'http://localhost:5175/v2' : CORETECHS_PROD_SRC);
-const LIVE_DS_SRC = `${LIVE_SRC.replace(/\/$/, '')}/design-system`;
+const LIVE_DS_SRC = `${LIVE_SRC.replace(/\/$/, '')}/design-system/tokens/color`;
 
 type Viewport = 'desktop' | 'phone';
 
@@ -305,11 +305,11 @@ const CaseStudyDetail: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSe
           <LiveViewport
             viewport={dsViewport}
             src={LIVE_DS_SRC}
-            pathLabel="/v2/design-system"
-            title="CoreTechs design system"
+            pathLabel="/v2/design-system/tokens/color"
+            title="CoreTechs color system"
           />
           <p className="mt-4 text-xs text-muted dark:text-neutral-500">
-            Fully interactive — start on the design system overview and click into any category.{' '}
+            Fully interactive — this opens on the color tokens. Browse any category from the sidebar.{' '}
             <a
               href={LIVE_DS_SRC}
               target="_blank"
