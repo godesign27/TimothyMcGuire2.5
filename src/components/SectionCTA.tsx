@@ -1,3 +1,4 @@
+import SiteLink from './SiteLink';
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
@@ -37,20 +38,20 @@ const SectionCTA: React.FC<SectionCTAProps> = ({
             {body}
           </p>
           <div className="flex flex-wrap gap-4">
-            <button
-              onClick={() => navigate(primaryPage)}
+            <SiteLink
+              page={primaryPage} navigate={navigate}
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-ink text-sm font-medium hover:bg-neutral-100 transition-colors"
             >
               {primaryLabel}
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </SiteLink>
             {secondaryLabel && secondaryPage && (
-              <button
-                onClick={() => navigate(secondaryPage)}
+              <SiteLink
+                page={secondaryPage} navigate={navigate}
                 className="inline-flex items-center gap-2 px-8 py-4 border border-white/20 text-white text-sm font-medium hover:bg-white/[0.06] transition-colors"
               >
                 {secondaryLabel}
-              </button>
+              </SiteLink>
             )}
           </div>
         </div>

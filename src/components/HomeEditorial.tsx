@@ -1,3 +1,4 @@
+import SiteLink from './SiteLink';
 import React from 'react';
 import { ArrowRight, Eye, Layers, Search, GitBranch, BarChart3 } from 'lucide-react';
 
@@ -305,12 +306,12 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
                   It is not a UI methodology. It is an architecture — the structural discipline that makes AI systems legible, trustworthy, and governable by the humans who depend on them.
                 </p>
               </blockquote>
-              <button
-                onClick={() => navigate('solutions-ai-native-products')}
+              <SiteLink
+                page={'solutions-ai-native-products'} navigate={navigate}
                 className="inline-flex items-center gap-2 px-6 py-3 border border-ink/30 dark:border-white/30 text-ink dark:text-white text-sm font-medium hover:border-ink dark:hover:border-white hover:bg-ink/5 dark:hover:bg-white/5 transition-colors"
               >
                 Explore the work <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-              </button>
+              </SiteLink>
             </div>
 
             {/* Right: Five Pillars */}
@@ -366,12 +367,12 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
               <p className="text-base text-muted dark:text-neutral-400 leading-relaxed mb-8 max-w-md">
                 The gap between capability and experience is the most expensive problem in enterprise AI. Products make decisions users don't understand. Controls are buried. Trust is assumed rather than designed. This is the problem I work on.
               </p>
-              <button
-                onClick={() => navigate('perspectives-ai-native-design')}
+              <SiteLink
+                page={'perspectives-ai-native-design'} navigate={navigate}
                 className="inline-flex items-center gap-2 px-6 py-3 bg-ink dark:bg-white text-white dark:text-ink text-sm font-medium hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors"
               >
                 Read the full perspective <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-              </button>
+              </SiteLink>
             </div>
             <div className="grid grid-cols-2 gap-px bg-line dark:bg-white/10">
               {[
@@ -461,12 +462,12 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
                 Eight steps from ambiguity to shipped.
               </h2>
             </div>
-            <button
-              onClick={() => navigate('perspectives-how-i-work')}
+            <SiteLink
+              page={'perspectives-how-i-work'} navigate={navigate}
               className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-ink dark:text-white hover:text-blue dark:hover:text-lavender transition-colors"
             >
               Full process <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-            </button>
+            </SiteLink>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-px bg-line dark:bg-white/10">
             {processSteps.map((step, i) => (
@@ -501,18 +502,18 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
                 How I think about design.
               </h2>
             </div>
-            <button
-              onClick={() => navigate('perspectives')}
+            <SiteLink
+              page={'perspectives'} navigate={navigate}
               className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-ink dark:text-white hover:text-blue dark:hover:text-lavender transition-colors"
             >
               All perspectives <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-            </button>
+            </SiteLink>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-px bg-line dark:bg-white/10">
             {perspectiveCards.map((item) => (
-              <button
+              <SiteLink
                 key={item.id}
-                onClick={() => navigate(item.id)}
+                page={item.id} navigate={navigate}
                 className="group text-left p-8 bg-white dark:bg-neutral-950 hover:bg-tan-100 dark:hover:bg-white/[0.03] transition-colors"
               >
                 <div className="text-ink dark:text-white opacity-60 group-hover:opacity-100 transition-opacity">
@@ -530,7 +531,7 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
                 <span className="inline-flex items-center gap-1.5 text-xs font-medium text-blue dark:text-lavender">
                   Read more <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
                 </span>
-              </button>
+              </SiteLink>
             ))}
           </div>
         </div>
@@ -548,18 +549,18 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
                 Long-form thinking, shared openly.
               </h2>
             </div>
-            <button
-              onClick={() => navigate('perspectives-writing')}
+            <SiteLink
+              page={'perspectives-writing'} navigate={navigate}
               className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-ink dark:text-white hover:text-blue dark:hover:text-lavender transition-colors"
             >
               All writing <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-            </button>
+            </SiteLink>
           </div>
           <div className="grid md:grid-cols-3 gap-px bg-line dark:bg-white/10">
             {writingCards.map((article, i) => (
-              <button
+              <SiteLink
                 key={article.title}
-                onClick={() => navigate('perspectives-writing')}
+                page={'perspectives-writing'} navigate={navigate}
                 className="group text-left p-8 bg-white dark:bg-neutral-950 hover:bg-tan-100 dark:hover:bg-white/[0.03] transition-colors"
               >
                 {/* Abstract SVG illustration */}
@@ -609,7 +610,7 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
                     Read <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
                   </span>
                 </div>
-              </button>
+              </SiteLink>
             ))}
           </div>
         </div>
@@ -627,12 +628,12 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
                 Problems worth solving.
               </h2>
             </div>
-            <button
-              onClick={() => navigate('solutions')}
+            <SiteLink
+              page={'solutions'} navigate={navigate}
               className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-ink dark:text-white hover:text-blue dark:hover:text-lavender transition-colors"
             >
               All case studies <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-            </button>
+            </SiteLink>
           </div>
 
           <div className="grid lg:grid-cols-5 gap-px bg-line dark:bg-white/10 mb-px">
@@ -664,8 +665,8 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
             </button>
 
             <div className="lg:col-span-2 flex flex-col gap-px bg-line dark:bg-white/10">
-              <button
-                onClick={() => navigate('solutions-design-systems')}
+              <SiteLink
+                page={'solutions-design-systems'} navigate={navigate}
                 className="group flex-1 text-left p-8 bg-white dark:bg-neutral-950 hover:bg-tan-100 dark:hover:bg-white/[0.03] transition-colors"
               >
                 <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">
@@ -680,9 +681,9 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
                 <span className="inline-flex items-center gap-1.5 text-xs font-medium text-blue dark:text-lavender">
                   Explore solutions <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
                 </span>
-              </button>
-              <button
-                onClick={() => navigate('solutions-ai-native-products')}
+              </SiteLink>
+              <SiteLink
+                page={'solutions-ai-native-products'} navigate={navigate}
                 className="group flex-1 text-left p-8 bg-white dark:bg-neutral-950 hover:bg-tan-100 dark:hover:bg-white/[0.03] transition-colors"
               >
                 <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">
@@ -697,17 +698,17 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
                 <span className="inline-flex items-center gap-1.5 text-xs font-medium text-blue dark:text-lavender">
                   Explore solutions <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
                 </span>
-              </button>
+              </SiteLink>
             </div>
           </div>
 
           <div className="flex md:hidden mt-8">
-            <button
-              onClick={() => navigate('solutions')}
+            <SiteLink
+              page={'solutions'} navigate={navigate}
               className="inline-flex items-center gap-2 text-sm font-medium text-ink dark:text-white hover:text-blue dark:hover:text-lavender transition-colors"
             >
               All case studies <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-            </button>
+            </SiteLink>
           </div>
         </div>
       </section>
@@ -725,9 +726,9 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-line dark:bg-white/10 mb-10">
             {collaborationModels.map((model, i) => (
-              <button
+              <SiteLink
                 key={model.label}
-                onClick={() => navigate(model.cta)}
+                page={model.cta} navigate={navigate}
                 className="group text-left p-8 bg-white dark:bg-neutral-950 hover:bg-tan-100 dark:hover:bg-white/[0.03] transition-colors"
               >
                 <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-4">
@@ -742,22 +743,22 @@ const HomeEditorial: React.FC<HomeEditorialProps> = ({ setCurrentPage, setSelect
                 <span className="inline-flex items-center gap-1.5 text-xs font-medium text-blue dark:text-lavender">
                   Learn more <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
                 </span>
-              </button>
+              </SiteLink>
             ))}
           </div>
           <div className="flex items-center gap-4">
-            <button
-              onClick={() => navigate('work-with-me')}
+            <SiteLink
+              page={'work-with-me'} navigate={navigate}
               className="inline-flex items-center gap-2 px-6 py-3 bg-ink dark:bg-white text-white dark:text-ink text-sm font-medium hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors"
             >
               See all options <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-            </button>
-            <button
-              onClick={() => navigate('contact')}
+            </SiteLink>
+            <SiteLink
+              page={'contact'} navigate={navigate}
               className="inline-flex items-center gap-2 text-sm font-medium text-ink dark:text-white hover:text-blue dark:hover:text-lavender transition-colors"
             >
               Or just say hello <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-            </button>
+            </SiteLink>
           </div>
         </div>
       </section>

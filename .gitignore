@@ -1,5 +1,8 @@
 node_modules/
+.wrangler/
 .env
+.env.*
+!.env.example
 
 # Private brand + IP documents. This repo is PUBLIC — never commit these.
 docs/

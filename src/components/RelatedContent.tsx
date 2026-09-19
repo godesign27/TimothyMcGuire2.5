@@ -1,3 +1,4 @@
+import SiteLink from './SiteLink';
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
@@ -32,9 +33,9 @@ const RelatedContent: React.FC<RelatedContentProps> = ({
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-line dark:bg-white/10">
           {items.map((item) => (
-            <button
+            <SiteLink
               key={item.id}
-              onClick={() => navigate(item.id)}
+              page={item.id} navigate={navigate}
               className="group text-left p-6 bg-white dark:bg-neutral-950 hover:bg-tan dark:hover:bg-white/[0.03] transition-colors"
             >
               {item.eyebrow && (
@@ -51,7 +52,7 @@ const RelatedContent: React.FC<RelatedContentProps> = ({
               <span className="inline-flex items-center gap-1.5 text-xs font-medium text-blue dark:text-lavender">
                 Read more <ArrowRight className="w-3 h-3" />
               </span>
-            </button>
+            </SiteLink>
           ))}
         </div>
       </div>

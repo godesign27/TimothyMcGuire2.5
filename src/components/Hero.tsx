@@ -1,3 +1,4 @@
+import SiteLink from './SiteLink';
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import AIArchitectureIllustration from './AIArchitectureIllustration';
@@ -42,19 +43,19 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
-              <button
-                onClick={() => navigate('contact')}
+              <SiteLink
+                page={'contact'} navigate={navigate}
                 className="btn-primary btn-lg inline-flex items-center gap-2"
               >
                 Let's Talk
                 <ArrowRight className="w-4 h-4" />
-              </button>
-              <button
-                onClick={() => navigate('solutions')}
+              </SiteLink>
+              <SiteLink
+                page={'solutions'} navigate={navigate}
                 className="btn-secondary btn-lg"
               >
                 Explore My Work
-              </button>
+              </SiteLink>
             </div>
           </div>
 

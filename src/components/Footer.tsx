@@ -1,3 +1,4 @@
+import SiteLink from './SiteLink';
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
@@ -24,7 +25,7 @@ const Footer: React.FC<FooterProps> = ({ currentPage: _currentPage, setCurrentPa
 
           {/* Brand */}
           <div className="col-span-2">
-            <button onClick={() => nav('home')} className="flex items-center gap-3 mb-4">
+            <SiteLink page={'home'} navigate={nav} className="flex items-center gap-3 mb-4">
               <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <rect width="32" height="32" className="fill-ink dark:fill-white" />
                 <rect x="7" y="9" width="18" height="3.5" className="fill-white dark:fill-ink" />
@@ -32,16 +33,16 @@ const Footer: React.FC<FooterProps> = ({ currentPage: _currentPage, setCurrentPa
                 <rect x="14.25" y="22" width="3.5" height="3" fill="#2563EB" />
               </svg>
               <span className="text-base font-semibold text-ink dark:text-white">Timothy McGuire</span>
-            </button>
+            </SiteLink>
             <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed mb-6 max-w-xs">
               I help organizations design intelligent products that people understand, trust, and enjoy using.
             </p>
-            <button
-              onClick={() => nav('contact')}
+            <SiteLink
+              page={'contact'} navigate={nav}
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-ink dark:bg-white text-white dark:text-ink text-sm font-medium hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors"
             >
               Let's Talk <ArrowRight className="w-3.5 h-3.5" />
-            </button>
+            </SiteLink>
           </div>
 
           {/* Perspectives */}
@@ -57,7 +58,7 @@ const Footer: React.FC<FooterProps> = ({ currentPage: _currentPage, setCurrentPa
                 { id: 'perspectives', label: 'All Perspectives' },
               ].map((item) => (
                 <li key={item.id}>
-                  <button onClick={() => nav(item.id)} className={linkCls}>{item.label}</button>
+                  <SiteLink page={item.id} navigate={nav} className={linkCls}>{item.label}</SiteLink>
                 </li>
               ))}
             </ul>
@@ -77,7 +78,7 @@ const Footer: React.FC<FooterProps> = ({ currentPage: _currentPage, setCurrentPa
                 { id: 'case-studies', label: 'Case Studies' },
               ].map((item) => (
                 <li key={item.id}>
-                  <button onClick={() => nav(item.id)} className={linkCls}>{item.label}</button>
+                  <SiteLink page={item.id} navigate={nav} className={linkCls}>{item.label}</SiteLink>
                 </li>
               ))}
             </ul>
@@ -88,6 +89,7 @@ const Footer: React.FC<FooterProps> = ({ currentPage: _currentPage, setCurrentPa
             <h3 className={headingCls}>Work With Me</h3>
             <ul className="space-y-2.5">
               {[
+                { id: 'service-offerings', label: 'Service Offerings' },
                 { id: 'work-with-me-enterprise-consulting', label: 'Enterprise Consulting' },
                 { id: 'work-with-me-fractional-leadership', label: 'Fractional Leadership' },
                 { id: 'work-with-me-strategy-sessions', label: 'Strategy Sessions' },
@@ -95,7 +97,7 @@ const Footer: React.FC<FooterProps> = ({ currentPage: _currentPage, setCurrentPa
                 { id: 'work-with-me', label: 'Overview' },
               ].map((item) => (
                 <li key={item.id}>
-                  <button onClick={() => nav(item.id)} className={linkCls}>{item.label}</button>
+                  <SiteLink page={item.id} navigate={nav} className={linkCls}>{item.label}</SiteLink>
                 </li>
               ))}
             </ul>
@@ -112,7 +114,7 @@ const Footer: React.FC<FooterProps> = ({ currentPage: _currentPage, setCurrentPa
                 { id: 'resume', label: 'Resume' },
               ].map((item) => (
                 <li key={item.id}>
-                  <button onClick={() => nav(item.id)} className={linkCls}>{item.label}</button>
+                  <SiteLink page={item.id} navigate={nav} className={linkCls}>{item.label}</SiteLink>
                 </li>
               ))}
             </ul>

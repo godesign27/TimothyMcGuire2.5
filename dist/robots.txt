@@ -1,6 +1,10 @@
 User-agent: *
 Allow: /
 
+# Search indexing is separate from model training.
+User-agent: OAI-SearchBot
+Allow: /
+
 # AI crawlers — explicitly permitted
 User-agent: GPTBot
 Allow: /

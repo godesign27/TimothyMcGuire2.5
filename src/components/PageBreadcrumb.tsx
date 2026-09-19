@@ -1,4 +1,5 @@
 import React from 'react';
+import SiteLink from './SiteLink';
 import { ChevronRight } from 'lucide-react';
 
 export interface BreadcrumbItem {
@@ -27,15 +28,16 @@ const PageBreadcrumb: React.FC<PageBreadcrumbProps> = ({ items, setCurrentPage }
               )}
               <li>
                 {!isLast && item.pageId && setCurrentPage ? (
-                  <button
-                    onClick={() => {
+                  <SiteLink
+                    page={item.pageId}
+                    navigate={() => {
                       window.scrollTo(0, 0);
                       setCurrentPage(item.pageId as string);
                     }}
                     className="text-xs font-medium text-muted dark:text-neutral-500 hover:text-ink dark:hover:text-white transition-colors uppercase tracking-wider"
                   >
                     {item.label}
-                  </button>
+                  </SiteLink>
                 ) : (
                   <span
                     className={`text-xs font-medium uppercase tracking-wider ${

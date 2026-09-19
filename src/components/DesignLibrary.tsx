@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { OfferingCard } from './ServiceOfferings';
+import OfferingIllustration from './illustrations/OfferingIllustration';
+import { serviceOfferings } from '../data/serviceOfferings';
 import {
   ArrowRight, ArrowLeft, ArrowUp, ArrowDown,
   Check, X, AlertCircle, Info,
@@ -1135,6 +1138,14 @@ const DesignLibrary: React.FC = () => {
         </Section>
 
         {/* Bottom note */}
+        <Section title="Service offering patterns · NEW">
+          <p className="text-sm text-muted dark:text-neutral-400 mb-8">New: OfferingCard and OfferingIllustration. Reuse for scoped consulting products, with visible price qualification, timing, and a real detail link. The static illustration communicates outcomes, not proprietary implementation, and needs no reduced-motion override.</p>
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="border border-line dark:border-white/10"><OfferingCard offering={serviceOfferings[0]} index={0} /></div>
+            <OfferingIllustration />
+          </div>
+          <p className="mt-6 text-sm text-muted dark:text-neutral-400">OfferingCard: offering, index, optional navigate. Accepts a packaged offering or an existing service product with explicit page and path destinations. Scoped proposals must not display invented prices. OfferingIllustration: three short labels and an active index (0 to 2). Light mode uses the existing tan, ink, and blue tokens; dark mode uses neutral surfaces, tan text, and lavender. Never present on-hold services as bookable.</p>
+        </Section>
         <div className="border-t border-line dark:border-white/10 py-10 mb-8">
           <p className="text-xs text-muted font-mono">
             Access: navigate to <code className="bg-neutral-100 dark:bg-white/10 px-1">/__design__</code> or set currentPage to '__design__' in App.tsx.

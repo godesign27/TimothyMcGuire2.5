@@ -1,0 +1,7 @@
+/analytics
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
+/__design__
+  X-Robots-Tag: noindex, nofollow
+/404
+  X-Robots-Tag: noindex, nofollow

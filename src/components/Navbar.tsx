@@ -1,3 +1,4 @@
+import SiteLink from './SiteLink';
 import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, Moon, Sun, ChevronDown, Bot, Globe, Box, Smartphone, Users, Building2, Palette, Heart, BarChart3, RefreshCcw, BookOpen, Workflow, PenLine, Mic2, Target, Briefcase } from 'lucide-react';
 import { useTheme } from 'next-themes';
@@ -38,6 +39,7 @@ const perspectivePages = [
 ];
 
 const workWithMePages = [
+  { id: 'service-offerings', label: 'Service Offerings', description: 'Compare scoped engagements for AI products and design systems.', icon: Box },
   { id: 'work-with-me-enterprise-consulting', label: 'Enterprise Consulting', description: 'Senior AI experience strategy for enterprise products.', icon: Building2 },
   { id: 'work-with-me-fractional-leadership', label: 'Fractional Leadership', description: 'Senior design leadership on a flexible cadence.', icon: Users },
   { id: 'work-with-me-strategy-sessions', label: 'Strategy Sessions', description: 'Focused advisory engagements with a senior design mind.', icon: Target },
@@ -95,7 +97,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, setSelecte
   const isServicePage = currentPage === 'services' || servicePages.some(s => s.id === currentPage);
   const isSolutionPage = currentPage === 'solutions' || currentPage === 'case-studies' || solutionPages.some(s => s.id === currentPage);
   const isPerspectivePage = currentPage === 'perspectives' || perspectivePages.some(s => s.id === currentPage);
-  const isWorkWithMePage = currentPage === 'work-with-me' || currentPage === 'contact' || workWithMePages.some(s => s.id === currentPage);
+  const isWorkWithMePage = currentPage === 'work-with-me' || currentPage === 'contact' || currentPage.startsWith('offering-') || workWithMePages.some(s => s.id === currentPage);
 
   const getNavLinkClasses = (active: boolean) =>
     `px-3 py-2 text-sm font-medium transition-colors relative inline-flex items-center gap-1 ${
@@ -107,9 +109,9 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, setSelecte
   const renderItem = (item: { id: string; label: string; description: string; icon: React.ElementType }) => {
     const Icon = item.icon;
     return (
-      <button
+      <SiteLink
         key={item.id}
-        onClick={() => navigate(item.id)}
+        page={item.id} navigate={navigate}
         className={`flex items-center gap-3 w-full text-left px-4 py-3 transition-colors ${
           currentPage === item.id
             ? 'bg-neutral-100 dark:bg-white/[0.06]'
@@ -127,7 +129,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, setSelecte
             {item.description}
           </div>
         </div>
-      </button>
+      </SiteLink>
     );
   };
 
@@ -146,12 +148,12 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, setSelecte
     >
       <div className="flex items-center justify-between px-5 pt-4 pb-2">
         <span className="text-xs font-semibold uppercase tracking-wider text-muted dark:text-neutral-500">{overviewLabel}</span>
-        <button
-          onClick={() => navigate(overviewPage)}
+        <SiteLink
+          page={overviewPage} navigate={navigate}
           className="text-xs font-medium text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors"
         >
           Overview
-        </button>
+        </SiteLink>
       </div>
       <div className="py-1 pb-3">
         {items.map(renderItem)}
@@ -176,19 +178,19 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, setSelecte
       <div className={`overflow-hidden transition-all duration-200 ${mobileExpanded === key ? 'max-h-[40rem] opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="flex items-center justify-between pl-6 pr-4 py-2">
           <span className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-wider">{label}</span>
-          <button
+          <SiteLink
             className="text-xs font-medium text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white"
-            onClick={() => navigate(overviewPage)}
+            page={overviewPage} navigate={navigate}
           >
             Overview
-          </button>
+          </SiteLink>
         </div>
         {items.map((item) => renderItem(item))}
       </div>
     </div>
   );
 
-  if (!mounted) return null;
+
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-sm border-b border-[#D9D9D9] dark:border-white/[0.1] dark:bg-neutral-950/95' : 'bg-transparent'}`}>
@@ -220,74 +222,74 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, setSelecte
             <div className="hidden lg:block">
               <div className="ml-8 flex items-baseline space-x-0">
 
-                <button className={getNavLinkClasses(currentPage === 'home')} onClick={() => navigate('home')}>Home</button>
+                <SiteLink className={getNavLinkClasses(currentPage === 'home')} page={'home'} navigate={navigate}>Home</SiteLink>
 
-                <button className={getNavLinkClasses(currentPage === 'ai-experience-architecture')} onClick={() => navigate('ai-experience-architecture')}>
+                <SiteLink className={getNavLinkClasses(currentPage === 'ai-experience-architecture')} page={'ai-experience-architecture'} navigate={navigate}>
                   AI Experience Architecture™
-                </button>
+                </SiteLink>
 
                 <div
                   className="relative"
-                  onMouseEnter={() => openDropdown('solutions')}
+                  onFocus={() => openDropdown('solutions')} onMouseEnter={() => openDropdown('solutions')}
                   onMouseLeave={scheduleClose}
                 >
-                  <button className={getNavLinkClasses(isSolutionPage)} onClick={() => navigate('solutions')}>
+                  <SiteLink className={getNavLinkClasses(isSolutionPage)} page={'solutions'} navigate={navigate}>
                     Solutions
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'solutions' ? 'rotate-180' : ''}`} />
-                  </button>
+                  </SiteLink>
                   {renderDropdown('solutions', 'solutions', 'Solutions', solutionPages)}
                 </div>
 
                 <div
                   className="relative"
-                  onMouseEnter={() => openDropdown('perspectives')}
+                  onFocus={() => openDropdown('perspectives')} onMouseEnter={() => openDropdown('perspectives')}
                   onMouseLeave={scheduleClose}
                 >
-                  <button className={getNavLinkClasses(isPerspectivePage)} onClick={() => navigate('perspectives')}>
+                  <SiteLink className={getNavLinkClasses(isPerspectivePage)} page={'perspectives'} navigate={navigate}>
                     Perspectives
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'perspectives' ? 'rotate-180' : ''}`} />
-                  </button>
+                  </SiteLink>
                   {renderDropdown('perspectives', 'perspectives', 'Perspectives', perspectivePages)}
                 </div>
 
                 <div
                   className="relative"
-                  onMouseEnter={() => openDropdown('work-with-me')}
+                  onFocus={() => openDropdown('work-with-me')} onMouseEnter={() => openDropdown('work-with-me')}
                   onMouseLeave={scheduleClose}
                 >
-                  <button className={getNavLinkClasses(isWorkWithMePage)} onClick={() => navigate('work-with-me')}>
+                  <SiteLink className={getNavLinkClasses(isWorkWithMePage)} page={'work-with-me'} navigate={navigate}>
                     Work With Me
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'work-with-me' ? 'rotate-180' : ''}`} />
-                  </button>
+                  </SiteLink>
                   {renderDropdown('work-with-me', 'work-with-me', 'Work With Me', workWithMePages)}
                 </div>
 
-                <button className={getNavLinkClasses(currentPage === 'about')} onClick={() => navigate('about')}>About</button>
+                <SiteLink className={getNavLinkClasses(currentPage === 'about')} page={'about'} navigate={navigate}>About</SiteLink>
               </div>
             </div>
           </div>
 
           <div className="hidden lg:flex items-center gap-4">
             <button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              aria-label="Toggle color theme" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               className="p-2 rounded-none text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-white/[0.08] transition-colors"
             >
-              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+              {mounted && theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
-            <button className="btn-primary btn-sm" onClick={() => navigate('contact')}>
+            <SiteLink className="btn-primary btn-sm" page={'contact'} navigate={navigate}>
               Let's Talk
-            </button>
+            </SiteLink>
           </div>
 
           <div className="flex lg:hidden items-center gap-2">
             <button
-              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              aria-label="Toggle color theme" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
               className="p-2 rounded-none text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white"
             >
-              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+              {mounted && theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle navigation" aria-expanded={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-none text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white"
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -299,16 +301,16 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, setSelecte
       {isMenuOpen && (
         <div className="lg:hidden">
           <div className="px-2 pt-2 pb-4 space-y-1 bg-white dark:bg-neutral-950 border-t border-[#D9D9D9] dark:border-white/[0.1] max-h-screen overflow-y-auto">
-            <button className="block w-full text-left px-4 py-3 text-sm font-medium text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-white/[0.04]" onClick={() => navigate('home')}>Home</button>
-            <button className="block w-full text-left px-4 py-3 text-sm font-medium text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-white/[0.04]" onClick={() => navigate('ai-experience-architecture')}>AI Experience Architecture™</button>
+            <SiteLink className="block w-full text-left px-4 py-3 text-sm font-medium text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-white/[0.04]" page={'home'} navigate={navigate}>Home</SiteLink>
+            <SiteLink className="block w-full text-left px-4 py-3 text-sm font-medium text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-white/[0.04]" page={'ai-experience-architecture'} navigate={navigate}>AI Experience Architecture™</SiteLink>
             {renderMobileSection('solutions', 'Solutions', 'solutions', solutionPages)}
             {renderMobileSection('perspectives', 'Perspectives', 'perspectives', perspectivePages)}
             {renderMobileSection('work-with-me', 'Work With Me', 'work-with-me', workWithMePages)}
-            <button className="block w-full text-left px-4 py-3 text-sm font-medium text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-white/[0.04]" onClick={() => navigate('about')}>About</button>
+            <SiteLink className="block w-full text-left px-4 py-3 text-sm font-medium text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-white/[0.04]" page={'about'} navigate={navigate}>About</SiteLink>
             <div className="px-4 pt-4">
-              <button className="btn-primary w-full" onClick={() => navigate('contact')}>
+              <SiteLink className="btn-primary w-full" page={'contact'} navigate={navigate}>
                 Let's Talk
-              </button>
+              </SiteLink>
             </div>
           </div>
         </div>

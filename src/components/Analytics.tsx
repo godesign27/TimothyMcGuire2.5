@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { BarChart3, Users, Eye, Clock, Globe, Monitor, ArrowUp, ArrowDown, Minus, RefreshCw } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { getPageFromPath } from '../lib/routes';
 
 interface PageView {
   id: number;
@@ -164,7 +165,7 @@ function TimelineChart({ views, range }: { views: PageView[]; range: DateRange }
           </div>
           <div
             className="w-full bg-teal-500 dark:bg-teal-400 rounded-none transition-all duration-500 min-h-[2px]"
-            style={{ height: `${(bucket.count / maxCount) * 100}%` }}
+            style={{ height: `${(bucket.count / maxCount) * 130}px` }}
           />
           <span className="text-[10px] text-gray-400 dark:text-neutral-500 truncate w-full text-center">
             {i % Math.max(1, Math.floor(buckets.length / 8)) === 0 ? bucket.label : ''}
@@ -180,38 +181,42 @@ const Analytics: React.FC = () => {
   const [previousViews, setPreviousViews] = useState<PageView[]>([]);
   const [range, setRange] = useState<DateRange>('7d');
   const [loading, setLoading] = useState(true);
-  const [lastRefresh, setLastRefresh] = useState(new Date());
+  const [lastRefresh, setLastRefresh] = useState<Date | null>(null);
+  const [error, setError] = useState('');
+  const requestId = React.useRef(0);
 
   const fetchData = async () => {
-    setLoading(true);
-    const rangeStart = getRangeStart(range);
-    const prevStart = getPreviousRangeStart(range);
-
-    let query = supabase.from('page_views').select('*').order('created_at', { ascending: false });
-    if (rangeStart) {
-      query = query.gte('created_at', rangeStart.toISOString());
-    }
-
-    const { data } = await query;
-    setViews(data ?? []);
-
-    if (rangeStart && prevStart) {
-      const { data: prev } = await supabase
-        .from('page_views')
-        .select('*')
-        .gte('created_at', prevStart.toISOString())
-        .lt('created_at', rangeStart.toISOString());
-      setPreviousViews(prev ?? []);
-    } else {
-      setPreviousViews([]);
-    }
-
-    setLoading(false);
-    setLastRefresh(new Date());
+    const request = ++requestId.current;
+    setLoading(true); setError('');
+    try {
+      const client = supabase;
+      if (!client) throw new Error('Analytics is not configured.');
+      const rangeStart = getRangeStart(range);
+      const prevStart = getPreviousRangeStart(range);
+      const now = new Date().toISOString();
+      const read = async (start: Date | null, end: string) => {
+        const rows: PageView[] = [];
+        for (let offset = 0; ; offset += 1000) {
+          let query = client.from('page_views').select('id,path,referrer,user_agent,screen_width,screen_height,language,session_id,created_at')
+            .order('created_at', { ascending: false }).order('id', { ascending: false }).lt('created_at', end).range(offset, offset + 999);
+          if (start) query = query.gte('created_at', start.toISOString());
+          const { data, error } = await query;
+          if (error) throw new Error('Unable to load analytics. Verify your account permissions and database connection.');
+          rows.push(...(data ?? []).map(row => ({ ...row, page: getPageFromPath(row.path) })));
+          if (!data || data.length < 1000) break;
+        }
+        return rows;
+      };
+      const [current, previous] = await Promise.all([read(rangeStart, now), rangeStart && prevStart ? read(prevStart, rangeStart.toISOString()) : Promise.resolve([])]);
+      if (request === requestId.current) { setViews(current); setPreviousViews(previous); setLastRefresh(new Date()); }
+    } catch (e) {
+      if (request === requestId.current) { setError(e instanceof Error ? e.message : 'Analytics is unavailable.'); setViews([]); setPreviousViews([]); }
+    } finally { if (request === requestId.current) setLoading(false); }
   };
 
   useEffect(() => {
-    fetchData();
+    void fetchData();
+    return () => { requestId.current++; };
   }, [range]);
 
   const stats = useMemo(() => {
@@ -307,9 +312,9 @@ const Analytics: React.FC = () => {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-tan-500">Site Analytics</h1>
+            <h1 className="text-3xl font-semibold text-ink dark:text-tan-500">Site Analytics</h1>
             <p className="text-sm text-gray-500 dark:text-neutral-500 mt-1">
-              Last updated {lastRefresh.toLocaleTimeString()}
+              {lastRefresh ? `Last updated ${lastRefresh.toLocaleTimeString()}` : 'Not yet loaded'}
             </p>
           </div>
           <div className="flex items-center gap-3">
@@ -338,6 +343,7 @@ const Analytics: React.FC = () => {
           </div>
         </div>
 
+        {error && <p role="alert" className="mb-6 border-l-4 border-blue p-4 bg-tan dark:bg-neutral-900">{error}</p>}
         {loading ? (
           <div className="flex items-center justify-center h-64">
             <div className="w-8 h-8 border-2 border-teal-500 border-t-transparent rounded-none animate-spin" />
@@ -517,7 +523,7 @@ const Analytics: React.FC = () => {
                     {views.length === 0 && (
                       <tr>
                         <td colSpan={5} className="px-6 py-12 text-center text-gray-400">
-                          No page views recorded yet. Visit some pages and check back.
+                          {error ? 'Reporting is unavailable. Resolve the error above and refresh.' : 'No page views recorded for this period.'}
                         </td>
                       </tr>
                     )}
