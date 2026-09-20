@@ -31,5 +31,13 @@ for (const file of ['analytics.html', '__design__.html', '404.html']) {
   assert(html.includes('noindex, nofollow'), `Missing noindex: ${file}`);
 }
 const analytics = await readFile(resolve(root, 'analytics.html'), 'utf8');
+const coretechs = await readFile(resolve(root, 'case-studies/coretechs.html'), 'utf8');
+assert(coretechs.includes('Turning an initial POC'), 'Revised CoreTechs narrative missing');
+assert(coretechs.includes('https://coretechs.timothymcguire.workers.dev/v2'), 'Live CoreTechs product missing');
+assert(coretechs.includes('/design-system/tokens/color'), 'CoreTechs design-system preview missing');
+assert(coretechs.includes('All roles'), 'Interactive CoreTechs research missing');
+for (const file of ['solutions.html', 'case-studies.html', 'index.html']) {
+  assert((await readFile(resolve(root, file), 'utf8')).includes('href="/case-studies/coretechs"'), `Missing CoreTechs link: ${file}`);
+}
 assert(!analytics.includes('Recent Page Views'), 'Private reporting prerendered');
 console.log(`SEO checks passed: ${urls.length} indexable URLs, unique titles, HTML content, canonical links, structured data, internal links, and private-page exclusions.`);

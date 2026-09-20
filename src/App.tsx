@@ -203,11 +203,14 @@ function App({ initialPath }: { initialPath?: string }) {
       case 'work-with-me-speaking-workshops':
         return <SpeakingWorkshops setCurrentPage={setCurrentPage} />;
       case 'solutions':
-        if (selectedCaseStudy === 'CoreTechs SaaS Healthcare Product') {
+      case 'case-study-coretechs':
+      case 'case-study-accenture':
+      case 'case-study-jim-beam':
+        if (currentPage === 'case-study-coretechs' || (currentPage === 'solutions' && selectedCaseStudy === 'CoreTechs SaaS Healthcare Product')) {
           return <CaseStudyDetail setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
-        } else if (selectedCaseStudy === 'Accenture - Employee Onboarding') {
+        } else if (currentPage === 'case-study-accenture' || (currentPage === 'solutions' && selectedCaseStudy === 'Accenture - Employee Onboarding')) {
           return <CaseStudyDetail2 setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
-        } else if (selectedCaseStudy === 'Jim Beam - The Cocktail Project') {
+        } else if (currentPage === 'case-study-jim-beam' || (currentPage === 'solutions' && selectedCaseStudy === 'Jim Beam - The Cocktail Project')) {
           return <CaseStudyDetail3 setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;
         } else {
           return <SolutionsLanding setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />;

@@ -1,12 +1,14 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import SectionCTA from './SectionCTA';
+import { CORETECHS_CARD_IMAGE, getCaseStudyRoute } from '../lib/caseStudies';
 
 interface CaseStudyCardProps {
   title: string;
   description: string;
   image: string;
   tags: string[];
+  href: string;
   onClick: () => void;
 }
 
@@ -15,10 +17,15 @@ interface SolutionsProps {
   setSelectedCaseStudy: (study: string) => void;
 }
 
-const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ title, description, image, tags, onClick }) => (
-  <div
-    className="group cursor-pointer bg-white dark:bg-neutral-950 border border-line dark:border-white/10 overflow-hidden transition-all hover:border-neutral-400 dark:hover:border-white/20"
-    onClick={onClick}
+const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ title, description, image, tags, href, onClick }) => (
+  <a
+    href={href}
+    className="group block bg-white dark:bg-neutral-950 border border-line dark:border-white/10 overflow-hidden transition-all hover:border-neutral-400 dark:hover:border-white/20"
+    onClick={(event) => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+      event.preventDefault();
+      onClick();
+    }}
   >
     <div className="aspect-[4/3] overflow-hidden border-b border-line dark:border-white/10">
       <img
@@ -44,7 +51,7 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ title, description, image
         View case study <ArrowRight className="w-3 h-3" />
       </span>
     </div>
-  </div>
+  </a>
 );
 
 const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseStudy }) => {
@@ -54,7 +61,7 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
     {
       title: 'CoreTechs SaaS Healthcare Product',
       description: 'Improving value-based healthcare patient management through an intuitive interface design.',
-      image: 'https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/core-hero.png',
+      image: CORETECHS_CARD_IMAGE,
       tags: ['Healthcare', 'UX/UI Design', 'Web App'],
     },
     {
@@ -72,8 +79,9 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
   ];
 
   const handleCaseStudyClick = (title: string) => {
+    const route = getCaseStudyRoute(title);
     setSelectedCaseStudy(title);
-    setCurrentPage('solutions');
+    setCurrentPage(route.page);
   };
 
   return (
@@ -120,6 +128,7 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
               <CaseStudyCard
                 key={index}
                 {...study}
+                href={getCaseStudyRoute(study.title).path}
                 onClick={() => handleCaseStudyClick(study.title)}
               />
             ))}

@@ -9,6 +9,9 @@ export interface PageMeta {
 const SITE_NAME = 'Timothy McGuire — Agentic AI Designer & Director';
 
 export const pageSeo: Record<string, PageMeta> = {
+  'case-study-coretechs': { title: 'CoreTechs Healthcare SaaS Case Study | Timothy McGuire', description: 'Explore the CoreTechs healthcare product transformation, UX research, and interactive product and design-system previews.', path: '/case-studies/coretechs' },
+  'case-study-accenture': { title: 'Accenture Employee Onboarding Case Study | Timothy McGuire', description: 'Explore the research and design behind the Accenture employee onboarding experience.', path: '/case-studies/accenture' },
+  'case-study-jim-beam': { title: 'Jim Beam Cocktail Project Case Study | Timothy McGuire', description: 'Explore the strategy and experience design behind The Cocktail Project for Jim Beam.', path: '/case-studies/jim-beam' },
   '__design__': { title: 'Design Library | Timothy McGuire', description: 'Internal design reference.', path: '/__design__' },
   'not-found': { title: 'Page not found | Timothy McGuire', description: 'This page could not be found.', path: '/404' },
   'service-offerings': {
@@ -194,6 +197,9 @@ export const pageSeo: Record<string, PageMeta> = {
 };
 
 export const pageToPath: Record<string, string> = {
+  'case-study-coretechs': '/case-studies/coretechs',
+  'case-study-accenture': '/case-studies/accenture',
+  'case-study-jim-beam': '/case-studies/jim-beam',
   'service-offerings': '/service-offerings',
   ...Object.fromEntries(serviceOfferings.map(offering => [offeringPageId(offering.slug), offeringPath(offering.slug)])),
   home: '/',

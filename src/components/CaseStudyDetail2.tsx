@@ -13,7 +13,7 @@ const CaseStudyDetail2: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setS
   const handleBack = () => {
     window.scrollTo(0, 0);
     setSelectedCaseStudy(null);
-    setCurrentPage('solutions');
+    setCurrentPage('case-studies');
   };
 
   const base = 'https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Accenture/';
@@ -341,7 +341,7 @@ const CaseStudyDetail2: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setS
               onClick={handleBack}
               className="inline-flex items-center gap-2 text-sm text-muted dark:text-neutral-400 hover:text-ink dark:hover:text-white transition-colors"
             >
-              <ArrowLeft className="w-4 h-4" strokeWidth={1.5} /> Back to Solutions
+              <ArrowLeft className="w-4 h-4" strokeWidth={1.5} /> Back to Case Studies
             </button>
             <button
               onClick={() => { window.scrollTo(0, 0); setCurrentPage('work-with-me'); }}

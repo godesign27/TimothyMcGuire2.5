@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Building2, Bot, Palette, Heart, BarChart3, RefreshCcw, Briefcase } from 'lucide-react';
 import ImageWithSkeleton from './ui/ImageWithSkeleton';
+import { CORETECHS_CARD_IMAGE, getCaseStudyRoute } from '../lib/caseStudies';
 
 interface SolutionsLandingProps {
   setCurrentPage: (page: string) => void;
@@ -12,7 +13,7 @@ const caseStudies = [
     title: 'CoreTechs SaaS Healthcare Product',
     eyebrow: 'Healthcare SaaS · 2016 – 2022',
     description: 'Five years as Principal UX Designer and Director, transforming a raw analytics platform into a trusted enterprise SaaS product for healthcare payors and providers.',
-    image: 'https://knddrhyoqawaccpztdiw.supabase.co/storage/v1/object/public/go-images/Coretechs/core-hero.png',
+    image: CORETECHS_CARD_IMAGE,
     tags: ['Healthcare', 'UX/UI Design', 'Web App'],
   },
   {
@@ -79,8 +80,9 @@ const SolutionsLanding: React.FC<SolutionsLandingProps> = ({ setCurrentPage, set
   };
 
   const handleCaseStudyClick = (title: string) => {
+    const route = getCaseStudyRoute(title);
     setSelectedCaseStudy(title);
-    setCurrentPage('solutions');
+    setCurrentPage(route.page);
   };
 
   return (
@@ -140,10 +142,17 @@ const SolutionsLanding: React.FC<SolutionsLandingProps> = ({ setCurrentPage, set
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-line dark:bg-white/10">
-            {caseStudies.map((study) => (
-              <button
+            {caseStudies.map((study) => {
+              const route = getCaseStudyRoute(study.title);
+              return (
+              <a
                 key={study.title}
-                onClick={() => handleCaseStudyClick(study.title)}
+                href={route.path}
+                onClick={(event) => {
+                  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+                  event.preventDefault();
+                  handleCaseStudyClick(study.title);
+                }}
                 className="group text-left bg-white dark:bg-neutral-950 flex flex-col hover:bg-tan-100 dark:hover:bg-white/[0.02] transition-colors"
               >
                 <div className="aspect-[4/3] overflow-hidden border-b border-line dark:border-white/10">
@@ -170,8 +179,9 @@ const SolutionsLanding: React.FC<SolutionsLandingProps> = ({ setCurrentPage, set
                     View case study <ArrowRight className="w-3 h-3" strokeWidth={1.5} />
                   </span>
                 </div>
-              </button>
-            ))}
+              </a>
+              );
+            })}
           </div>
 
           <div className="mt-8 flex sm:hidden">
