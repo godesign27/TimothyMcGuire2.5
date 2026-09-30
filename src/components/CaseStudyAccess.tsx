@@ -19,7 +19,7 @@ import { Lock } from 'lucide-react';
  * To change the passphrase, regenerate the digest:
  *   printf '%s' 'your-new-passphrase' | shasum -a 256
  */
-const PASSPHRASE_SHA256 = '3bd03aa27019af53471988cb0165989be2ca2b0e062b0f08d6298fa1d1e3e39d';
+const PASSPHRASE_SHA256 = '25da7e550f5ed0e084bce0a18c424126c71929e5ec161d05ba6624e007485370';
 
 const STORAGE_KEY = 'case-study-access';
 
