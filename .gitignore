@@ -6,3 +6,9 @@ node_modules/
 
 # Private brand + IP documents. This repo is PUBLIC — never commit these.
 docs/
+
+# Client screenshots pending a disclosure decision. This repo is PUBLIC, and the
+# passphrase gate does not protect files served from /public. See docs/11.
+# Both paths are required: the build copies public/ into the tracked dist/.
+public/case-studies/zs/
+dist/case-studies/zs/

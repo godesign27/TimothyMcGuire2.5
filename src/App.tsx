@@ -16,6 +16,8 @@ import Solutions from './components/Solutions';
 import CaseStudyDetail from './components/CaseStudyDetail';
 import CaseStudyDetail2 from './components/CaseStudyDetail2';
 import CaseStudyDetail3 from './components/CaseStudyDetail3';
+import CaseStudyZS from './components/CaseStudyZS';
+import CaseStudyAccess from './components/CaseStudyAccess';
 import MarketingWebDesign from './components/MarketingWebDesign';
 import SpecializedExpertise from './components/SpecializedExpertise';
 import SaasProductDesign from './components/SaasProductDesign';
@@ -202,6 +204,16 @@ function App({ initialPath }: { initialPath?: string }) {
         return <StrategySessions setCurrentPage={setCurrentPage} />;
       case 'work-with-me-speaking-workshops':
         return <SpeakingWorkshops setCurrentPage={setCurrentPage} />;
+      case 'case-study-zs':
+        return (
+          <CaseStudyAccess
+            id="zs"
+            title="ZS Associates"
+            description="This case study covers client work and is shared by request. Enter the passphrase to continue."
+          >
+            <CaseStudyZS setCurrentPage={setCurrentPage} setSelectedCaseStudy={setSelectedCaseStudy} />
+          </CaseStudyAccess>
+        );
       case 'solutions':
       case 'case-study-coretechs':
       case 'case-study-accenture':

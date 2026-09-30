@@ -13,6 +13,11 @@ export const CASE_STUDY_ROUTES: Record<string, { page: string; path: string }> =
     page: 'case-study-jim-beam',
     path: '/case-studies/jim-beam',
   },
+  // Passphrase-gated and unlisted — deliberately not shown in the public grid.
+  'ZS Associates - Agentic Design System': {
+    page: 'case-study-zs',
+    path: '/case-studies/zs',
+  },
 };
 
 export function getCaseStudyRoute(title: string): { page: string; path: string } {
