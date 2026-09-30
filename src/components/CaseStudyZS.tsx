@@ -38,6 +38,7 @@ const workExamples: WorkExample[] = [
       'Every size, mode, direction, and interaction state drawn and named',
       'Inverse variants designed for dark surfaces rather than recolored later',
       'Semantic intent encoded in the component, so meaning survives reuse',
+      'One set of names carrying more than one visual identity',
     ],
     assets: [
       {
@@ -58,6 +59,13 @@ const workExamples: WorkExample[] = [
         poster: `${BASE}/v1-poster.jpg`,
         label: 'Guided tour of the component library, moving through components, patterns, and design tokens.',
         caption: 'A guided tour of the library. Each component is shown with its variants, the properties that drive them, and the semantic variables underneath.',
+      },
+      {
+        kind: 'video',
+        src: `${BASE}/v4-theme-tokens.mp4`,
+        poster: `${BASE}/v4-poster.jpg`,
+        label: 'Walkthrough comparing two composable themes built on the same semantic token names, shown across components in both light and dark.',
+        caption: 'The payoff of naming things by meaning rather than appearance: one system carries two visual identities. A new personality costs a theme file, not a fork of the components, and it composes with light and dark instead of fighting them.',
       },
     ],
   },
