@@ -242,10 +242,11 @@ const VideoFigure: React.FC<{ src: string; poster?: string; label: string }> = (
         preload="metadata"
         aria-label={label}
         onPlay={() => setStarted(true)}
-        /* transform-gpu promotes the video to its own compositing layer. Without it,
-           an in-flow video this size renders as a black rect in some Chromium
-           compositors while still decoding normally. */
-        className="w-full bg-ink border border-line dark:border-white/10 transform-gpu"
+        /* An in-flow video this size intermittently renders as a black rect in some
+           Chromium compositors while still decoding normally. transform-gpu promotes
+           it to its own layer; will-change-transform keeps it promoted, since a
+           one-off transform alone let the layer get dropped again mid playback. */
+        className="w-full bg-ink border border-line dark:border-white/10 transform-gpu will-change-transform"
       />
 
       {!started && (
