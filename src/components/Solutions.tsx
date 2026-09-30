@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Lock } from 'lucide-react';
 import SectionCTA from './SectionCTA';
 import { CORETECHS_CARD_IMAGE, getCaseStudyRoute } from '../lib/caseStudies';
 
@@ -9,6 +9,8 @@ interface CaseStudyCardProps {
   image: string;
   tags: string[];
   href: string;
+  /** Sets expectations before the click: the detail page asks for a passphrase. */
+  locked?: boolean;
   onClick: () => void;
 }
 
@@ -17,7 +19,7 @@ interface SolutionsProps {
   setSelectedCaseStudy: (study: string) => void;
 }
 
-const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ title, description, image, tags, href, onClick }) => (
+const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ title, description, image, tags, href, locked, onClick }) => (
   <a
     href={href}
     className="group block bg-white dark:bg-neutral-950 border border-line dark:border-white/10 overflow-hidden transition-all hover:border-neutral-400 dark:hover:border-white/20"
@@ -27,14 +29,8 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ title, description, image
       onClick();
     }}
   >
-    <div className="aspect-[4/3] overflow-hidden border-b border-line dark:border-white/10">
-      <img
-        src={image}
-        alt={title}
-        className="w-full h-full object-cover transition-transform group-hover:scale-105"
-      />
-    </div>
-    <div className="p-6 space-y-4">
+    {/* Title block leads, image supports it. */}
+    <div className="p-8 space-y-4">
       <div className="flex flex-wrap gap-2">
         {tags.map((tag, index) => (
           <span
@@ -45,11 +41,25 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({ title, description, image
           </span>
         ))}
       </div>
-      <h3 className="text-lg font-semibold text-ink dark:text-white">{title}</h3>
+      <h3 className="text-2xl md:text-3xl font-semibold tracking-tight leading-tight text-ink dark:text-white">
+        {title}
+      </h3>
       <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">{description}</p>
       <span className="inline-flex items-center gap-1 text-xs font-medium text-blue dark:text-lavender">
-        View case study <ArrowRight className="w-3 h-3" />
+        {locked ? 'Enter passphrase to view' : 'View case study'} <ArrowRight className="w-3 h-3" />
       </span>
+    </div>
+    <div className="relative aspect-[4/3] overflow-hidden border-t border-line dark:border-white/10">
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-full object-cover transition-transform group-hover:scale-105"
+      />
+      {locked && (
+        <span className="absolute top-0 left-0 inline-flex items-center gap-1.5 bg-ink/90 text-white px-3 py-2 text-xs font-medium">
+          <Lock className="w-3 h-3" strokeWidth={2} /> Passphrase required
+        </span>
+      )}
     </div>
   </a>
 );
@@ -58,6 +68,13 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
   React.useEffect(() => { window.scrollTo(0, 0); }, []);
 
   const featuredCaseStudies = [
+    {
+      title: 'ZS Associates - Agentic Design System',
+      description: 'Nine years across one enterprise ecosystem: the workflows people depend on, the component library teams build from, and the governance layer that decides how AI is allowed to behave.',
+      image: '/case-studies/zs/10-zds-overview.webp',
+      tags: ['Pharmaceutical SaaS', 'Design Systems', 'Agentic AI'],
+      locked: true,
+    },
     {
       title: 'CoreTechs SaaS Healthcare Product',
       description: 'Improving value-based healthcare patient management through an intuitive interface design.',
@@ -97,12 +114,12 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
                 My Solutions in Action.
               </h1>
               <p className="text-xl text-muted dark:text-neutral-400 max-w-2xl">
-                Explore case studies to see how I've helped businesses across industries transform their digital presence — from enterprise SaaS to consumer web.
+                Explore case studies to see how I've helped businesses across industries transform their digital presence, from enterprise SaaS to consumer web.
               </p>
             </div>
             <div className="grid grid-cols-3 gap-px bg-line dark:bg-white/10">
               {[
-                { stat: '3', label: 'Featured case studies' },
+                { stat: '4', label: 'Featured case studies' },
                 { stat: '6+', label: 'Portfolio projects' },
                 { stat: '15+', label: 'Years of work' },
               ].map((item) => (
@@ -123,7 +140,7 @@ const Solutions: React.FC<SolutionsProps> = ({ setCurrentPage, setSelectedCaseSt
             <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-3">Case Studies</p>
             <h2 className="text-2xl font-semibold text-ink dark:text-white">Featured Case Studies</h2>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-line dark:bg-white/10">
+          <div className="grid md:grid-cols-2 gap-px bg-line dark:bg-white/10">
             {featuredCaseStudies.map((study, index) => (
               <CaseStudyCard
                 key={index}
