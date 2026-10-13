@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, ArrowRight, Play } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Play, Plus } from 'lucide-react';
 import ImageWithSkeleton from './ui/ImageWithSkeleton';
 
 interface CaseStudyDetailProps {
@@ -266,258 +266,89 @@ const VideoFigure: React.FC<{ src: string; poster?: string; label: string }> = (
   );
 };
 
-const CaseStudyZS: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSelectedCaseStudy }) => {
-  React.useEffect(() => { window.scrollTo(0, 0); }, []);
 
-  const handleBack = () => {
-    window.scrollTo(0, 0);
-    setSelectedCaseStudy(null);
-    setCurrentPage('case-studies');
-  };
-
-  return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950">
-
-      {/* Hero */}
-      <section className="bg-tan-100 dark:bg-neutral-950 pt-24 pb-0 border-b border-line dark:border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <button
-            onClick={handleBack}
-            className="inline-flex items-center gap-2 text-sm text-muted dark:text-neutral-400 hover:text-ink dark:hover:text-white transition-colors mb-12"
-          >
-            <ArrowLeft className="w-4 h-4" strokeWidth={1.5} /> Back to Solutions
-          </button>
-
-          <div className="max-w-4xl mb-12">
-            <p className="text-xs font-semibold text-blue dark:text-lavender tracking-widest uppercase mb-4">
-              Case Study · Pharmaceutical SaaS
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-ink dark:text-white leading-tight tracking-tight mb-6">
-              From enterprise workflows to a design system that governs AI.
-            </h1>
-            <p className="text-lg text-muted dark:text-neutral-400 leading-relaxed max-w-2xl">
-              Nine years inside one pharmaceutical SaaS ecosystem: designing the workflows people depend on, systematizing them into a component library teams could trust, and building the governance layer that decides how AI is allowed to behave.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-line dark:bg-white/10 border-t border-line dark:border-white/10">
-            {[
-              { label: 'Role', value: 'Principal Product Designer, UX Lead, Agentic Systems Designer' },
-              { label: 'Client', value: 'ZS Associates' },
-              { label: 'Industry', value: 'Pharmaceutical SaaS' },
-              { label: 'Duration', value: '2017 to Present' },
-            ].map(({ label, value }) => (
-              <div key={label} className="bg-tan-100 dark:bg-neutral-950 px-6 py-5">
-                <p className="text-xs font-semibold text-muted dark:text-neutral-500 uppercase tracking-widest mb-1">{label}</p>
-                <p className="text-sm font-medium text-ink dark:text-white leading-snug">{value}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Hero image */}
-      <section className="bg-white dark:bg-neutral-950 border-b border-line dark:border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <ImageWithSkeleton
-            src={`${BASE}/10-zds-overview.webp`}
-            alt="Agentic design system overview page with the headline Designing With AI Without Losing Control."
-            className="w-full object-cover border border-line dark:border-white/10"
-            loading="eager"
-            decoding="async"
-          />
-        </div>
-      </section>
-
-      {/* Overview */}
-      <section className="bg-white dark:bg-neutral-950 py-24 border-b border-line dark:border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-12">
-            {[
-              {
-                label: 'The Challenge',
-                body: 'A large product ecosystem, built by many teams over many years, drifting apart one reasonable local decision at a time. Then a second problem arrived on top of the first: generative tools that could produce interface faster than anyone could review it.',
-              },
-              {
-                label: 'The Approach',
-                body: 'Treat consistency as an outcome of infrastructure rather than diligence. Specify behavior, not just appearance. Make the source of truth something both a person and a machine can query, and say plainly where a human has to stay in the loop.',
-              },
-              {
-                label: 'The Outcome',
-                body: 'Teams ship from shared foundations instead of rebuilding them. Design and engineering argue less about intent because the intent is written down. AI generated interface has something specific to be held to.',
-              },
-            ].map(({ label, body }) => (
-              <div key={label}>
-                <div className="w-8 h-[3px] bg-blue dark:bg-lavender mb-8" />
-                <h2 className="text-base font-semibold text-ink dark:text-white mb-4">{label}</h2>
-                <p className="text-base text-muted dark:text-neutral-400 leading-relaxed">{body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Selected work intro */}
-      <section className="bg-tan-100 dark:bg-neutral-950 py-24 border-b border-line dark:border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <div className="w-8 h-[3px] bg-blue dark:bg-lavender mb-8" />
-            <p className="text-xs font-semibold text-blue dark:text-lavender tracking-widest uppercase mb-4">
-              Selected Work
-            </p>
-            <h2 className="text-3xl md:text-4xl font-semibold text-ink dark:text-white tracking-tight leading-tight mb-6">
-              Six pieces of the same argument.
-            </h2>
-            <p className="text-base text-muted dark:text-neutral-400 leading-relaxed">
-              Each example below solves a local problem. Together they describe one position: that trustworthy software comes from systems that state their own rules, and that the same discipline is what makes AI safe to put in front of people.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Work examples */}
-      {workExamples.map((example, index) => {
-        const onTan = index % 2 === 1;
-        const sectionBg = onTan ? 'bg-tan-100 dark:bg-neutral-950' : 'bg-white dark:bg-neutral-950';
-
-        return (
-          <section
-            key={example.id}
-            className={`${sectionBg} py-24 border-b border-line dark:border-white/10`}
-          >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-              <div className="grid lg:grid-cols-3 gap-12 mb-14">
-                <div className="lg:col-span-2">
-                  <div className="w-8 h-[3px] bg-blue dark:bg-lavender mb-8" />
-                  <p className="text-xs font-semibold text-muted dark:text-neutral-500 tracking-widest uppercase mb-4">
-                    {example.eyebrow}
-                  </p>
-                  <h2 className="text-2xl md:text-3xl font-semibold text-ink dark:text-white tracking-tight leading-tight mb-6">
-                    {example.title}
-                  </h2>
-                  <p className="text-base text-muted dark:text-neutral-400 leading-relaxed">
-                    {example.body}
-                  </p>
-                </div>
-
-                <ul className="divide-y divide-line dark:divide-white/10 border-t border-b border-line dark:border-white/10 self-start">
-                  {example.points.map((point) => (
-                    <li key={point} className="py-4 text-sm text-ink dark:text-white leading-relaxed">
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="space-y-12">
-                {example.assets.map((asset) => (
-                  <figure key={asset.src}>
-                    {asset.kind === 'video' ? (
-                      <VideoFigure src={asset.src} poster={asset.poster} label={asset.label} />
-                    ) : (
-                      <ImageWithSkeleton
-                        src={asset.src}
-                        alt={asset.alt}
-                        className="w-full object-contain border border-line dark:border-white/10"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    )}
-                    <figcaption className="mt-4 text-sm text-muted dark:text-neutral-500 leading-relaxed max-w-3xl">
-                      {asset.caption}
-                    </figcaption>
-                  </figure>
-                ))}
-              </div>
-
-            </div>
-          </section>
-        );
-      })}
-
-      {/* Outcomes */}
-      <section className="bg-ink dark:bg-neutral-900 py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-14">
-            <div className="w-8 h-[3px] bg-lavender mb-8" />
-            <p className="text-xs font-semibold text-lavender tracking-widest uppercase mb-4">
-              Outcomes
-            </p>
-            <h2 className="text-3xl md:text-4xl font-semibold text-white tracking-tight leading-tight">
-              What the work produced.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border-t border-b border-white/10">
-            {[
-              { value: '50%+', label: 'Increase in design system adoption' },
-              { value: '25 to 35%', label: 'Less friction between design and development' },
-              { value: '30 to 40%', label: 'Improvement in task efficiency across analytics heavy workflows' },
-            ].map(({ value, label }) => (
-              <div key={label} className="bg-ink dark:bg-neutral-900 px-6 py-10">
-                <p className="text-4xl font-semibold text-white tracking-tight mb-3">{value}</p>
-                <p className="text-sm text-neutral-400 leading-relaxed">{label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Scope of work */}
-      <section className="bg-white dark:bg-neutral-950 py-24 border-b border-line dark:border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mb-12">
-            <div className="w-8 h-[3px] bg-blue dark:bg-lavender mb-8" />
-            <p className="text-xs font-semibold text-blue dark:text-lavender tracking-widest uppercase mb-4">
-              Scope of Work
-            </p>
-            <h2 className="text-3xl md:text-4xl font-semibold text-ink dark:text-white tracking-tight leading-tight">
-              End to end, as the sole design lead.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-px bg-line dark:bg-white/10 border-t border-b border-line dark:border-white/10">
-            {['Tokens', 'Components', 'Patterns', 'Governance', 'Documentation'].map((item) => (
-              <div key={item} className="bg-white dark:bg-neutral-950 px-6 py-6">
-                <p className="text-sm font-medium text-ink dark:text-white">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-tan-100 dark:bg-neutral-950 py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <div className="w-8 h-[3px] bg-blue dark:bg-lavender mb-8" />
-            <h2 className="text-3xl md:text-4xl font-semibold text-ink dark:text-white tracking-tight leading-tight mb-6">
-              Working on something similar?
-            </h2>
-            <p className="text-base text-muted dark:text-neutral-400 leading-relaxed mb-10">
-              I help enterprise teams define how intelligent systems should behave, and how the people who depend on them keep oversight.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <button
-                onClick={() => { window.scrollTo(0, 0); setCurrentPage('work-with-me'); }}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-ink dark:bg-white text-white dark:text-ink text-sm font-medium hover:bg-neutral-800 dark:hover:bg-neutral-100 transition-colors"
-              >
-                Let's Talk <ArrowRight className="w-4 h-4" strokeWidth={1.5} />
-              </button>
-              <button
-                onClick={handleBack}
-                className="inline-flex items-center gap-2 px-8 py-4 border border-line dark:border-white/10 text-ink dark:text-white text-sm font-medium hover:bg-tan dark:hover:bg-white/5 transition-colors"
-              >
-                All Case Studies
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </div>
-  );
+const Diagram: React.FC<{ kind: 'system' | 'workflow' | 'mentorship' }> = ({ kind }) => {
+  const items = kind === 'system'
+    ? [['01', 'Product experience', 'Clarity · judgment · oversight'], ['02', 'Agentic workflows', 'Explore · prototype · refine'], ['03', 'Design system', 'Components · behavior · documentation'], ['04', 'Governance', 'Consistency · trust · human control']]
+    : kind === 'workflow'
+    ? [['01', 'Research & frame', 'Human judgment sets the direction'], ['02', 'Explore with AI', 'Expand and compare possibilities'], ['03', 'Prototype & refine', 'Make ideas tangible and reviewable'], ['04', 'Review & align', 'People assess quality and intent']]
+    : [['01', 'Demonstrate', 'Make emerging methods tangible'], ['02', 'Practice', 'Explore patterns through hands-on work'], ['03', 'Share', 'Build a common language'], ['04', 'Apply', 'Carry the learning into product work']];
+  return <figure className="border border-line dark:border-white/15 bg-tan-100 dark:bg-neutral-900 p-6 sm:p-10">
+    <div className="flex justify-between gap-4 text-xs uppercase tracking-widest text-blue dark:text-lavender mb-8"><span>{kind === 'system' ? 'One connected transformation' : kind === 'workflow' ? 'AI-assisted design' : 'Leadership through craft'}</span><span>Conceptual model</span></div>
+    <div className="grid sm:grid-cols-2 gap-px bg-line dark:bg-white/15 border border-line dark:border-white/15">{items.map(([n, title, body]) => <div key={n} className="bg-white dark:bg-neutral-950 p-6 sm:p-8"><span className="text-blue dark:text-lavender font-mono text-xs">{n} /</span><h3 className="text-xl font-semibold mt-6 mb-3 text-ink dark:text-white">{title}</h3><p className="text-sm text-muted dark:text-neutral-400">{body}</p></div>)}</div>
+    <div className="mt-8 flex items-center gap-4 text-sm text-ink dark:text-white"><span className="w-3 h-3 bg-blue dark:bg-lavender shrink-0" /><span>{kind === 'system' ? 'Human judgment connects every layer.' : kind === 'workflow' ? 'Human review remains part of the process throughout.' : 'Scale the capability through shared practice.'}</span><div className="h-px bg-blue/30 flex-1" /><ArrowRight className="w-4 h-4" /></div>
+    <figcaption className="mt-6 text-xs text-muted dark:text-neutral-400">Conceptual illustration of the approach.</figcaption>
+  </figure>;
 };
 
+const artifactTitles: Record<string, string> = {
+  '01-tooltip-library.png': 'Tooltip variants & states',
+  '02-tag-library.png': 'Semantic tags & interaction states',
+  'v1-component-library.mp4': 'Inside the component library',
+  '03-action-menu-spec.webp': 'Action menu behavior specification',
+  'v2-alignment-flow.mp4': 'Territory alignment prototype',
+  '05-report-columns-annotated.png': 'Report configuration & column controls',
+  '06-report-autolayout-a.png': 'Responsive panel structure',
+  '07-report-autolayout-b.png': 'Panel sizing & layout rules',
+  'v3-report-templates.mp4': 'Reusable report templates',
+  '08-user-story-flows.webp': 'User stories & versioned journeys',
+  '09-prototype-flow-board.webp': 'Interaction branches & recovery paths',
+  '10-zds-overview.webp': 'Agentic design system overview',
+  '13-zds-repo-truth.webp': 'Repository as source of truth',
+};
+
+const AssetFigure: React.FC<{ asset: Asset; caption?: string }> = ({ asset, caption }) => <figure>
+  {asset.kind === 'video' ? <VideoFigure src={asset.src} poster={asset.poster} label={asset.label} /> : <ImageWithSkeleton src={asset.src} alt={asset.alt} className="w-full object-contain border border-line dark:border-white/10" loading="lazy" decoding="async" />}
+  <figcaption className="mt-4 text-sm text-muted dark:text-neutral-400 leading-relaxed max-w-3xl">{caption || asset.caption}</figcaption>
+</figure>;
+
+const CaseStudyZS: React.FC<CaseStudyDetailProps> = ({ setCurrentPage, setSelectedCaseStudy }) => {
+  React.useEffect(() => { window.scrollTo(0, 0); }, []);
+  const go = (page: string) => { setSelectedCaseStudy(null); setCurrentPage(page); window.scrollTo(0, 0); };
+  const used = new Set(['04-map-align-success.webp', '12-zds-ai-dialog.webp', '11-zds-pattern-library.webp', 'v4-theme-tokens.mp4']);
+  const archive = workExamples.flatMap(example => example.assets.filter(asset => !used.has(asset.src.split('/').pop()!)).map(asset => ({ asset, category: example.title })));
+  const section = 'py-16 sm:py-24 border-b border-line dark:border-white/10';
+  const wrap = 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8';
+  const eyebrow = 'text-xs font-semibold uppercase tracking-widest text-blue dark:text-lavender mb-4';
+  const heading = 'text-3xl md:text-4xl font-semibold tracking-tight leading-tight text-ink dark:text-white mb-6';
+  const body = 'text-base leading-relaxed text-muted dark:text-neutral-400';
+  return <div className="min-h-screen bg-white dark:bg-neutral-950">
+    <section className={`${section} bg-tan-100 dark:bg-neutral-950 pt-24`}>
+      <div className={wrap}>
+        <button onClick={() => go('case-studies')} className="inline-flex items-center gap-2 min-h-11 text-sm text-muted dark:text-neutral-400 mb-10"><ArrowLeft className="w-4 h-4" /> All Case Studies</button>
+        <p className={eyebrow}>ZS Associates / Zaidyn · 2017–Present</p>
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight text-ink dark:text-white max-w-5xl mb-8">From Enterprise UX to AI-Native Experience Architecture.</h1>
+        <p className="text-lg leading-relaxed text-muted dark:text-neutral-400 max-w-3xl">Modernizing a healthcare SaaS ecosystem spanning more than 20 product modules through AI-powered product experiences, agentic design workflows, and a next-generation design system.</p>
+        <a href="/contact" className="inline-flex items-center gap-3 bg-ink dark:bg-white text-white dark:text-ink px-6 py-4 mt-8 text-sm font-medium">Discuss your AI experience strategy <ArrowRight className="w-4 h-4" /></a>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 border-t border-line dark:border-white/15 mt-12">{[['Role', 'Principal Product Designer / Strategic UX Lead'], ['Scale', '20+ healthcare SaaS modules'], ['AI experience', 'Contributions to production AI experiences'], ['Current initiative', 'Design system redesign · ongoing']].map(([label,value]) => <div key={label} className="py-6 pr-8"><p className="uppercase tracking-widest text-xs text-muted dark:text-neutral-400 mb-2">{label}</p><p className="text-sm font-medium text-ink dark:text-white">{value}</p></div>)}</div>
+        <Diagram kind="system" />
+      </div>
+    </section>
+    <section className={section}><div className={`${wrap} grid lg:grid-cols-2 gap-12`}>
+      <div><p className={eyebrow}>The challenge</p><h2 className={heading}>Evolving a platform.<br />Evolving how we design it.</h2><p className={body}>Large enterprise platforms support complex workflows, different user needs, and many products. As AI capabilities expanded, the challenge extended beyond individual screens: coherent AI interactions, human oversight, and trustworthy outcomes needed a foundation that could scale.</p><p className={`${body} mt-6`}>At ZS, my work evolved from enterprise product UX leadership into a broader transformation: helping teams design AI-native experiences, modernize the design process, and create a scalable foundation for future products.</p></div>
+      <figure className="bg-tan-100 dark:bg-neutral-900 p-8 border border-line dark:border-white/10"><p className={eyebrow}>Platform scale</p><p className="text-6xl font-semibold text-ink dark:text-white mb-4">20+</p><p className={body}>Product modules. A shared experience challenge.</p><div className="grid grid-cols-5 gap-3 mt-8" aria-hidden="true">{Array.from({length:20},(_,i) => <div key={i} className={`aspect-square border ${i % 4 === 0 ? 'border-blue bg-blue/10' : 'border-line dark:border-white/20'} flex items-center justify-center`}><span className="w-2 h-2 bg-blue dark:bg-lavender" /></div>)}</div><figcaption className="text-xs text-muted dark:text-neutral-400 mt-6">Conceptual ecosystem illustration; module names and relationships are intentionally abstracted.</figcaption></figure>
+    </div></section>
+    <section id="product-experience" className={section}><div className={wrap}>
+      <div className="grid lg:grid-cols-3 gap-10 mb-12"><div className="lg:col-span-2"><p className={eyebrow}>01 / AI-native product experiences</p><h2 className={heading}>Make intelligence understandable.<br />Keep people in control.</h2><p className={body}>I contributed to production AI experiences and advocated for patterns that account for human judgment, explainability, and clarity. The focus was making emerging capabilities usable within complex enterprise workflows.</p></div><div className="border-t border-line dark:border-white/15 pt-6"><p className="font-semibold text-ink dark:text-white mb-3">The enterprise UX foundation</p><p className={body}>Consequential changes need a way back. Clear feedback, explicit review, and deliberate confirmation are foundations for trustworthy interaction.</p></div></div>
+      <div className="grid lg:grid-cols-2 gap-10 items-start"><AssetFigure asset={workExamples[5].assets[3]} caption="AI interaction documentation — exploring autonomy, confidence, and component states within the evolving design system." /><AssetFigure asset={workExamples[2].assets[0]} caption="Enterprise UX foundation — the alignment workflow makes a change visible and gives the person a review step before submission. Synthetic data." /></div>
+    </div></section>
+    <section className={`${section} bg-tan-100 dark:bg-neutral-950`}><div className={wrap}><div className="max-w-3xl mb-12"><p className={eyebrow}>02 / Agentic design workflows</p><h2 className={heading}>Transform the process<br />alongside the product.</h2><p className={body}>I introduced agentic AI approaches to rethink how design work moves from research and exploration through prototyping and execution. The goal was to help the team explore options, work across artifacts, and deliver consistent experiences.</p><p className={`${body} mt-6`}>The designer still frames the problem, evaluates the options, and owns the decisions. AI expands what can be explored and made tangible along the way.</p></div><Diagram kind="workflow" /></div></section>
+    <section className={section}><div className={wrap}><div className="grid lg:grid-cols-3 gap-10 mb-12"><div className="lg:col-span-2"><p className={eyebrow}>03 / Next-generation design system</p><h2 className={heading}>Turn promising components<br />into lasting infrastructure.</h2><p className={body}>New AI-oriented components received strongly positive feedback from product managers. Their preference for the emerging approach over the legacy system helped build momentum for a broader redesign. I am currently leading that transformation, with an emphasis on reusable components, governance, documentation, and alignment between design and implementation.</p></div><div className="border-t border-line dark:border-white/15 pt-6"><span className="inline-block bg-blue/10 text-blue dark:text-lavender px-3 py-2 text-xs uppercase tracking-widest mb-4">Ongoing redesign</span><p className={body}>Specifying behavior, not just pixels: the system considers interaction states and human oversight alongside visual consistency.</p></div></div>
+      <AssetFigure asset={workExamples[5].assets[2]} caption="Existing pattern-library artifact — a foundation for the ongoing redesign, rather than a claim of platform-wide rollout." />
+      <div className="mt-12"><AssetFigure asset={workExamples[0].assets[3]} caption="Existing theme and token exploration — shared semantic foundations supporting different visual identities. The broader design system transformation remains in progress." /></div>
+    </div></section>
+    <section className={`${section} bg-tan-100 dark:bg-neutral-950`}><div className={`${wrap} grid lg:grid-cols-2 gap-12 items-center`}><div><p className={eyebrow}>Mentorship & influence</p><h2 className={heading}>Scale through shared practice.</h2><p className={body}>Alongside hands-on product work, I mentor the design team in emerging AI-assisted methods, experience patterns, and scalable design system practices. My leadership combines strategic direction with craft: making approaches tangible and helping others apply them in their own work.</p><p className={`${body} mt-6`}>The aim is to make emerging methods usable beyond my own projects, giving designers a shared foundation they can build on.</p></div><Diagram kind="mentorship" /></div></section>
+    <section className={section}><div className={wrap}><p className={eyebrow}>The decisions behind the design</p><h2 className={heading}>Where judgment shaped the work.</h2><div className="grid md:grid-cols-2 gap-x-12">{[
+      ['01', 'Recognize needs before they become requests.', 'I recommended capabilities approximately a year before similar needs surfaced in customer and client requests. Initially deprioritized, those recommendations reinforced the value of preserving research rationale and revisiting assumptions as evidence changes.'],
+      ['02', 'Demonstrate the emerging experience.', 'Concrete AI-oriented components gave product managers something to evaluate. Their positive response helped build momentum for the ongoing design system redesign.'],
+      ['03', 'Treat the system as product infrastructure.', 'The redesign considers interaction behavior, tokens, governance, documentation, and repository-based sources of truth. The ambition extends beyond visual consistency.'],
+      ['04', 'Scale through mentorship.', 'Hands-on exploration and shared design practices help the broader team build capability with AI-assisted methods and contemporary design systems.'],
+    ].map(([n,title,text]) => <article key={n} className="py-8 border-t border-line dark:border-white/15"><p className="font-mono text-xs text-blue dark:text-lavender mb-5">{n}</p><h3 className="text-xl font-semibold text-ink dark:text-white mb-4">{title}</h3><p className={body}>{text}</p></article>)}</div></div></section>
+    <section className="bg-ink dark:bg-neutral-900 py-16 sm:py-24 text-white"><div className={wrap}><p className="text-xs uppercase tracking-widest text-lavender mb-4">Impact & signals of change</p><h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-10">Product direction. Team capability. Platform evolution.</h2><div className="grid md:grid-cols-3 gap-8">{[['Product direction', 'Strong product-manager preference for new AI-oriented components helped create momentum for the redesign.'], ['Team capability', 'Ongoing mentorship and adoption of agentic design practices support a new way of working.'], ['Platform evolution', 'Strategic UX leadership and hands-on design connect the needs of a large, multi-product healthcare ecosystem.']].map(([title,text]) => <div key={title} className="border-t border-white/20 pt-6"><h3 className="text-lg font-semibold mb-4">{title}</h3><p className="text-neutral-300 text-sm leading-relaxed">{text}</p></div>)}</div><div className="border-t border-white/20 mt-12 pt-8 max-w-3xl"><p className="text-xs uppercase tracking-widest text-lavender mb-4">Business context</p><p className="text-4xl sm:text-5xl font-semibold mb-4">$35M → $150M</p><p className="text-sm text-neutral-300 leading-relaxed">Product growth reported in an SME presentation during my tenure. The metric definition and reporting period are not specified here. This is business context, not a measure of design attribution.</p></div><div className="border-t border-white/20 mt-10 pt-8"><h3 className="text-lg font-semibold mb-3">How success should be evaluated</h3><p className="text-sm text-neutral-300 leading-relaxed max-w-3xl">Component adoption, workflow quality, prototype-to-implementation friction, user task success, and trust in AI interactions. These are recommended evaluation measures, not claimed measured results.</p></div></div></section>
+    <section className={section} id="other-sources"><div className={wrap}><div className="flex flex-wrap justify-between items-end gap-6 mb-12"><div className="max-w-2xl"><p className={eyebrow}>Other Sources / Supporting artifacts</p><h2 className={heading}>A closer look at the craft.</h2><p className={body}>Component studies, interaction specifications, flow boards, and prototype walkthroughs from the existing collection. Explore the details behind the broader narrative.</p></div><span className="font-mono text-xs text-muted dark:text-neutral-400">{String(archive.length).padStart(2,'0')} ARTIFACTS · SYNTHETIC DATA</span></div>
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 items-start">{archive.map(({asset,category},i) => <details key={asset.src} className="group border border-line dark:border-white/15 bg-tan-100 dark:bg-neutral-900"><summary className="list-none cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue"><div className="aspect-[16/10] bg-white dark:bg-neutral-950 overflow-hidden relative"><img src={asset.kind === 'image' ? asset.src : asset.poster} alt="" loading="lazy" className="w-full h-full object-contain p-3 transition-transform duration-300 group-hover:scale-[1.02]" />{asset.kind === 'video' && <span className="absolute top-3 right-3 bg-ink text-white p-2"><Play className="w-4 h-4" /></span>}</div><div className="p-5"><div className="flex justify-between text-xs uppercase tracking-widest text-blue dark:text-lavender mb-3"><span>{String(i+1).padStart(2,'0')} / {asset.kind === 'video' ? 'Walkthrough' : 'Reference'}</span><Plus className="w-4 h-4 group-open:rotate-45 transition-transform" /></div><h3 className="text-base font-semibold text-ink dark:text-white leading-snug">{artifactTitles[asset.src.split('/').pop()!] || category}</h3><p className="text-xs text-muted dark:text-neutral-400 mt-3">Open artifact & notes</p></div></summary><div className="border-t border-line dark:border-white/15 p-5"><AssetFigure asset={asset} />{asset.kind === 'image' && <a href={asset.src} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm text-blue dark:text-lavender mt-5 min-h-11">View full-size reference <ArrowRight className="w-4 h-4" /></a>}</div></details>)}</div>
+    </div></section>
+    <section className="bg-tan-100 dark:bg-neutral-950 py-16 sm:py-24"><div className={wrap}><p className={eyebrow}>Work with me</p><h2 className={`${heading} max-w-3xl`}>Building an AI-native product<br />or modernizing a design system?</h2><p className={`${body} max-w-2xl`}>I help enterprise teams design understandable AI experiences, establish scalable design system foundations, and evolve how product teams work with AI.</p><div className="flex flex-wrap gap-4 mt-8"><a href="/contact" className="inline-flex items-center gap-3 px-6 py-4 bg-ink dark:bg-white text-white dark:text-ink text-sm font-medium">Let's discuss your product <ArrowRight className="w-4 h-4" /></a><a href="/ai-experience-architecture" className="inline-flex items-center gap-3 px-6 py-4 border border-line dark:border-white/15 text-ink dark:text-white text-sm">AI Experience Architecture™ <ArrowRight className="w-4 h-4" /></a></div></div></section>
+  </div>;
+};
 export default CaseStudyZS;
