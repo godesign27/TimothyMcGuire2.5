@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Sparkles, X, ArrowUp, RotateCcw, ArrowRight } from 'lucide-react';
 import { getPageFromPath } from '../lib/routes';
 
@@ -59,7 +60,16 @@ function renderInline(text: string, navigate: (page: string) => void): React.Rea
       );
     }
     const bold = /^\*\*([^*\n]+)\*\*$/.exec(part);
-    if (bold) return <strong key={index} className="font-semibold">{bold[1]}</strong>;
+    // Recursed because the model often bolds a linked name, as in
+    // **[AI Enterprise Agents](/services/...)**, which would otherwise print
+    // the raw markdown inside the <strong>.
+    if (bold) {
+      return (
+        <strong key={index} className="font-semibold">
+          {renderInline(bold[1], navigate)}
+        </strong>
+      );
+    }
     return <span key={index}>{part}</span>;
   });
 }
@@ -122,9 +132,13 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const abortRef = useRef<AbortController | null>(null);
+  /* A ref, not isStreaming: state read from this closure is stale, so two
+     clicks in the same tick both saw false and fired concurrent requests. */
+  const inFlightRef = useRef(false);
 
   const close = useCallback(() => {
     abortRef.current?.abort();
+    inFlightRef.current = false;
     setIsStreaming(false);
     setIsOpen(false);
     triggerRef.current?.focus();
@@ -187,7 +201,12 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
 
   const send = useCallback(async (text: string) => {
     const question = text.trim();
-    if (!question || isStreaming) return;
+    if (!question || inFlightRef.current) return;
+    inFlightRef.current = true;
+
+    // Any earlier request is abandoned rather than left to write into the
+    // transcript behind this one.
+    abortRef.current?.abort();
 
     setError(null);
     setDraft('');
@@ -216,11 +235,13 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
       setMessages(current => [...current, { role: 'assistant', content: '' }]);
       const reader = response.body.getReader();
       const decoder = new TextDecoder();
+      let answer = '';
       for (;;) {
         const { done, value } = await reader.read();
         if (done) break;
         const chunk = decoder.decode(value, { stream: true });
         if (!chunk) continue;
+        answer += chunk;
         setMessages(current => {
           const next = [...current];
           next[next.length - 1] = {
@@ -230,21 +251,23 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
           return next;
         });
       }
-      setMessages(current => {
-        const last = current[current.length - 1];
-        if (last?.role === 'assistant' && !last.content.trim()) {
-          setError('The assistant returned an empty reply. Please try again.');
-          return current.slice(0, -1);
-        }
-        // Navigate the page behind the open panel rather than closing it, so
+      /* Decided from the locally accumulated answer, not inside a setMessages
+         updater. Updaters must be pure, and React may run them more than once,
+         which would have navigated twice. */
+      if (!answer.trim()) {
+        setError('The assistant returned an empty reply. Please try again.');
+        setMessages(current =>
+          current[current.length - 1]?.role === 'assistant' ? current.slice(0, -1) : current,
+        );
+      } else {
+        // Move the page behind the open panel rather than closing it, so
         // nothing is pulled away mid-read and the answer stays on screen.
-        const found = last?.role === 'assistant' ? primarySource(last.content) : null;
+        const found = primarySource(answer);
         if (found) {
           setSource(found);
           navigate(getPageFromPath(found.href));
         }
-        return current;
-      });
+      }
     } catch (caught) {
       if ((caught as Error).name === 'AbortError') return;
       setError((caught as Error).message);
@@ -271,7 +294,13 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
         <Sparkles size={18} className="text-blue transition-transform group-hover:scale-110" />
       </button>
 
-      {isOpen && (
+      {/* Portalled to <body>: this component lives inside <nav>, which gains a
+          backdrop-filter once the page is scrolled, and backdrop-filter makes
+          an ancestor a containing block for fixed descendants. Left in place,
+          the panel's inset-y-0 resolved against the 64px navbar instead of the
+          viewport, so it collapsed as soon as the visitor scrolled. The portal
+          only runs when open, which is never during prerender. */}
+      {isOpen && createPortal(
         <>
           {!isPush && (
             <div
@@ -299,7 +328,7 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
                 {messages.length > 0 && (
                   <button
                     type="button"
-                    onClick={() => { abortRef.current?.abort(); setMessages([]); setError(null); setSource(null); setDraft(''); inputRef.current?.focus(); }}
+                    onClick={() => { abortRef.current?.abort(); inFlightRef.current = false; setMessages([]); setError(null); setSource(null); setDraft(''); inputRef.current?.focus(); }}
                     aria-label="Start a new conversation"
                     className="p-2 text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-white/[0.08] transition-colors"
                   >
@@ -429,7 +458,8 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
               </p>
             </form>
           </div>
-        </>
+        </>,
+        document.body,
       )}
     </>
   );

@@ -53,46 +53,51 @@ function parseMessages(input: unknown): ChatMessage[] | null {
 }
 
 /**
- * Reads Anthropic's SSE stream and re-emits just the assistant's text as a
- * plain UTF-8 stream. The client then needs no SSE parser, and no upstream
- * metadata (usage, model, stop reasons) is exposed to the page.
+ * Rewrites Anthropic's SSE stream as plain UTF-8 text, so the client needs no
+ * SSE parser and no upstream metadata (usage, model, stop reasons) reaches the
+ * page.
+ *
+ * A TransformStream rather than a hand-pumped ReadableStream: the runtime then
+ * owns backpressure and the stream's lifetime, instead of a read loop running
+ * inside start() for the whole response.
  */
-function textStreamFrom(upstream: ReadableStream<Uint8Array>): ReadableStream<Uint8Array> {
+function sseToText(): TransformStream<Uint8Array, Uint8Array> {
   const decoder = new TextDecoder();
   const encoder = new TextEncoder();
   let buffer = '';
 
-  return new ReadableStream({
-    async start(controller) {
-      const reader = upstream.getReader();
-      try {
-        for (;;) {
-          const { done, value } = await reader.read();
-          if (done) break;
-          buffer += decoder.decode(value, { stream: true });
-          const lines = buffer.split('\n');
-          buffer = lines.pop() ?? '';
-          for (const line of lines) {
-            if (!line.startsWith('data:')) continue;
-            const payload = line.slice(5).trim();
-            if (!payload || payload === '[DONE]') continue;
-            try {
-              const event = JSON.parse(payload);
-              if (event.type === 'content_block_delta' && event.delta?.type === 'text_delta') {
-                controller.enqueue(encoder.encode(event.delta.text));
-              }
-            } catch {
-              // A partial or non-JSON frame: skip it rather than failing the stream.
-            }
-          }
-        }
-      } catch (error) {
-        controller.error(error);
-        return;
-      } finally {
-        reader.releaseLock();
-      }
-      controller.close();
+  const handleLine = (line: string, controller: TransformStreamDefaultController<Uint8Array>) => {
+    if (!line.startsWith('data:')) return;
+    const payload = line.slice(5).trim();
+    if (!payload || payload === '[DONE]') return;
+    let event: { type?: string; delta?: { type?: string; text?: string }; error?: unknown };
+    try {
+      event = JSON.parse(payload);
+    } catch {
+      return; // A partial or non-JSON frame: skip it rather than failing the stream.
+    }
+    if (event.type === 'content_block_delta' && event.delta?.type === 'text_delta') {
+      controller.enqueue(encoder.encode(event.delta.text ?? ''));
+      return;
+    }
+    // Errors arrive as ordinary stream events after the 200 is committed. The
+    // response cannot become an error now, so the visitor gets a short reply or
+    // an empty one; log it so that is diagnosable rather than silent.
+    if (event.type === 'error') {
+      console.error('Anthropic stream error event', JSON.stringify(event.error));
+    }
+  };
+
+  return new TransformStream({
+    transform(chunk, controller) {
+      buffer += decoder.decode(chunk, { stream: true });
+      const lines = buffer.split('\n');
+      buffer = lines.pop() ?? '';
+      for (const line of lines) handleLine(line, controller);
+    },
+    flush(controller) {
+      buffer += decoder.decode();
+      if (buffer.trim()) handleLine(buffer, controller);
     },
   });
 }
@@ -166,7 +171,7 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
     return json({ error: 'The assistant could not answer just now. Please try again.' }, 502);
   }
 
-  return new Response(textStreamFrom(upstream.body), {
+  return new Response(upstream.body.pipeThrough(sseToText()), {
     headers: {
       'content-type': 'text/plain; charset=utf-8',
       'cache-control': 'no-store',
