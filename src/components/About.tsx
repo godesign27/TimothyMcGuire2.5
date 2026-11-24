@@ -1,25 +1,32 @@
 import React from 'react';
 import { Brain, Users, Lightbulb, Sparkles, Heart, Award, TrendingUp, MessageSquare } from 'lucide-react';
 import SectionCTA from './SectionCTA';
+import {
+  aboutHeadline,
+  aboutIntro,
+  backgroundTitle,
+  background,
+  beliefs,
+  values as aboutValues,
+  career,
+  type AboutValue,
+} from '../data/about';
 
 interface AboutProps {
   setCurrentPage: (page: string) => void;
 }
 
-const values = [
-  { icon: Brain, title: 'Human-Centered', description: 'Design starts with understanding the people using the product — their goals, their mental models, their frustrations. Aesthetics come after.' },
-  { icon: Users, title: 'Collaboration', description: 'The best design decisions are made with product and engineering in the room, not delivered to them as final artifacts.' },
-  { icon: Lightbulb, title: 'Impact', description: 'Good design is measured by outcomes: tasks completed, errors reduced, decisions supported. Not by how the comp looks in a portfolio.' },
-  { icon: Sparkles, title: 'Simplicity', description: 'Complexity in the system, clarity in the interface. Users should not have to think about how the product works — only about what they are trying to do.' },
-  { icon: Heart, title: 'Accessibility', description: 'Design should work for everyone. Accessibility is not a compliance checkbox — it is a quality standard that benefits all users.' },
-];
+/* Icons live here, not in the data module, which stays React free so the
+   services assistant's Worker bundle can import it. */
+const VALUE_ICONS: Record<AboutValue['key'], typeof Brain> = {
+  'human-centered': Brain,
+  collaboration: Users,
+  impact: Lightbulb,
+  simplicity: Sparkles,
+  accessibility: Heart,
+};
 
-const career = [
-  { company: 'ZS Associates', role: 'Principal UX Designer', tenure: '8 years', detail: 'Led experience design for enterprise SaaS deployment platform used by life sciences clients globally. Built design system, drove AI UX strategy, and owned end-to-end product design across multiple product lines.' },
-  { company: 'Bank of America', role: 'Senior UX Designer', tenure: 'Multi-year', detail: 'Designed high-stakes financial interfaces for consumer and business banking. Accessibility compliance, complex data visualization, and regulated-environment UX.' },
-  { company: 'TransUnion', role: 'UX Design Lead', tenure: 'Multi-year', detail: 'Led product design for fintech data products. Trust-centered UX for credit and identity data surfaces used by millions of consumers and enterprise buyers.' },
-  { company: 'Accenture', role: 'UX Designer', tenure: 'Multi-year', detail: 'Enterprise consulting engagements across industries. Employee experience redesign, process digitization, and large-scale organizational change UX.' },
-];
+const values = aboutValues.map(value => ({ ...value, icon: VALUE_ICONS[value.key] }));
 
 const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
   React.useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -39,10 +46,10 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
             <div>
               <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-4">About</p>
               <h1 className="text-4xl sm:text-5xl font-semibold text-ink dark:text-tan-500 tracking-tight leading-tight mb-6">
-                I help organizations design intelligent products that people understand, trust, and enjoy using.
+                {aboutHeadline}
               </h1>
               <p className="text-base text-muted dark:text-neutral-400 leading-relaxed mb-8">
-                I'm Timothy McGuire, an Experience Designer with 15+ years of experience helping businesses solve complex challenges through thoughtful, user-centered design. I specialize in enterprise SaaS, AI-native products, and the design systems that make both possible at scale.
+                {aboutIntro}
               </p>
               <div className="flex gap-4">
                 <button
@@ -76,21 +83,15 @@ const About: React.FC<AboutProps> = ({ setCurrentPage }) => {
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
               <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-6">Background</p>
-              <h2 className="text-2xl font-semibold text-ink dark:text-white mb-6 leading-snug">Fifteen years building products people use at work.</h2>
+              <h2 className="text-2xl font-semibold text-ink dark:text-white mb-6 leading-snug">{backgroundTitle}</h2>
               <div className="space-y-4 text-base text-muted dark:text-neutral-400 leading-relaxed">
-                <p>My career has run through some of the more demanding design environments in enterprise software: pharmaceutical sales operations at ZS Associates, financial products at Bank of America and TransUnion, and large-scale digital transformation at Accenture.</p>
-                <p>The through-line is complexity — products with multiple user roles, high-stakes decisions, dense information, and real consequences for getting the design wrong. I learned early that enterprise UX is a fundamentally different discipline from consumer design, and I have spent 15 years developing the patterns and judgment to do it well.</p>
-                <p>In the last three years, AI has become the most interesting design problem in enterprise software. I have spent that time building frameworks for trust, explainability, and human oversight that I now bring to clients as a core offering.</p>
+                {background.map(paragraph => <p key={paragraph.slice(0, 32)}>{paragraph}</p>)}
               </div>
             </div>
             <div>
               <p className="text-xs font-semibold text-blue dark:text-lavender uppercase tracking-widest mb-6">What I believe</p>
               <div className="space-y-px bg-line dark:bg-white/10">
-                {[
-                  { label: 'Design is a translation act', body: 'Between what a system can do and what a user can understand. Between what a business needs and what a user will accept. Getting the translation right is the work.' },
-                  { label: 'Complexity lives in the system, not the interface', body: 'The job is to absorb complexity into the architecture so users never have to confront it. A product that feels simple is usually the result of enormous design effort behind the scenes.' },
-                  { label: 'Trust is designed', body: "Users don't trust a product because it's technically accurate. They trust it because the design tells them — through every microcopy label, every state, every error message — exactly what is happening and why." },
-                ].map((item) => (
+                {beliefs.map((item) => (
                   <div key={item.label} className="bg-white dark:bg-neutral-950 p-6">
                     <p className="text-sm font-semibold text-ink dark:text-white mb-2">{item.label}</p>
                     <p className="text-sm text-muted dark:text-neutral-400 leading-relaxed">{item.body}</p>
