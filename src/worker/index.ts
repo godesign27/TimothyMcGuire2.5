@@ -101,7 +101,10 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
   if (request.method !== 'POST') {
     return json({ error: 'Use POST.' }, 405);
   }
-  if (!env.ANTHROPIC_API_KEY) {
+  // Trimmed because a key pasted with stray whitespace is transmitted as-is
+  // and comes back as a bare 401, which looks identical to a wrong key.
+  const apiKey = env.ANTHROPIC_API_KEY?.trim();
+  if (!apiKey) {
     return json({ error: 'The assistant is not configured yet.' }, 503);
   }
 
@@ -124,29 +127,37 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
     return json({ error: 'Expected a non-empty list of messages ending with a user turn.' }, 400);
   }
 
-  const upstream = await fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-      'x-api-key': env.ANTHROPIC_API_KEY,
-      'anthropic-version': '2023-06-01',
-    },
-    body: JSON.stringify({
-      model: MODEL,
-      max_tokens: MAX_TOKENS,
-      stream: true,
-      // Cached because the services reference is large and identical on every
-      // request, which is most of the prompt cost on a site like this.
-      system: [
-        {
-          type: 'text',
-          text: SYSTEM_PROMPT,
-          cache_control: { type: 'ephemeral' },
-        },
-      ],
-      messages,
-    }),
-  });
+  let upstream: Response;
+  try {
+    upstream = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify({
+        model: MODEL,
+        max_tokens: MAX_TOKENS,
+        stream: true,
+        // Cached because the services reference is large and identical on every
+        // request, which is most of the prompt cost on a site like this.
+        system: [
+          {
+            type: 'text',
+            text: SYSTEM_PROMPT,
+            cache_control: { type: 'ephemeral' },
+          },
+        ],
+        messages,
+      }),
+    });
+  } catch (caught) {
+    // A key containing a newline or control character makes fetch throw on the
+    // header rather than return a response, which would otherwise 500.
+    console.error('Anthropic request threw', (caught as Error).message);
+    return json({ error: 'The assistant could not answer just now. Please try again.' }, 502);
+  }
 
   if (!upstream.ok || !upstream.body) {
     // Log for Workers observability, but never return the upstream body: it can
