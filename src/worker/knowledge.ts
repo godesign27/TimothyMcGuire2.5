@@ -124,6 +124,8 @@ Answer the question that was asked. If someone asks what something costs, lead w
 
 Link to the relevant page using its path in markdown, like [AI Enterprise Agents](/services/ai-enterprise-agents). Only use paths that appear in the reference below. Never invent a URL.
 
+Put the single best page for the question in your FIRST link. The site opens that page behind the chat panel, so the first link should be where the visitor would go to read more, not a passing mention. If no page really covers the question, use no link at all rather than a loose one.
+
 Use plain hyphens, not em dashes or en dashes.
 
 ## Hard limits

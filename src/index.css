@@ -38,6 +38,28 @@
   .btn-icon {
     @apply px-0 py-0 h-[38px] w-[38px] flex-shrink-0;
   }
+}
+
+/* Wide screens only: the assistant drawer squeezes the page instead of
+   covering it. The class is set on <html> by AIAssistant while it is open.
+   The fixed navbar is sized off the viewport, not the body, so it needs the
+   same allowance or it would run under the panel. */
+@layer components {
+  .assistant-push body {
+    margin-right: 28rem;
+  }
+
+  .assistant-push nav {
+    width: calc(100% - 28rem);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .assistant-push body,
+    .assistant-push nav {
+      transition: margin-right 220ms cubic-bezier(0.16, 1, 0.3, 1),
+                  width 220ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  }
 
   .btn-lg {
     @apply px-8 py-4 text-base;

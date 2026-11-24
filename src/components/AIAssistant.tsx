@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Sparkles, X, ArrowUp, RotateCcw } from 'lucide-react';
+import { Sparkles, X, ArrowUp, RotateCcw, ArrowRight } from 'lucide-react';
 import { getPageFromPath } from '../lib/routes';
 
 /**
@@ -16,6 +16,12 @@ interface Message {
   role: 'user' | 'assistant';
   content: string;
 }
+
+/**
+ * Above this width the page has room to be squeezed, so the drawer pushes the
+ * content aside instead of covering it. At or below it, the drawer overlays.
+ */
+const PUSH_QUERY = '(min-width: 1441px)';
 
 const SUGGESTIONS = [
   'What do you offer, and what does it cost?',
@@ -85,6 +91,15 @@ function renderMessage(content: string, navigate: (page: string) => void): React
   return <div className="space-y-3">{blocks}</div>;
 }
 
+/**
+ * The first same-site link in an answer is treated as where that answer came
+ * from, which is why the prompt asks for the most relevant page first.
+ */
+function primarySource(content: string): { label: string; href: string } | null {
+  const match = /\[([^\]\n]+)\]\((\/[^)\s]*)\)/.exec(content);
+  return match ? { label: match[1], href: match[2] } : null;
+}
+
 interface AIAssistantProps {
   navigate: (page: string) => void;
   /** Rendered as the navbar trigger, so the drawer owns its own open state. */
@@ -97,6 +112,10 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
   const [draft, setDraft] = useState('');
   const [isStreaming, setIsStreaming] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  /** The page moved into view behind the panel, so closing lands on the answer. */
+  const [source, setSource] = useState<{ label: string; href: string } | null>(null);
+  /** True on wide screens, where the drawer pushes the page rather than covering it. */
+  const [isPush, setIsPush] = useState(false);
 
   const triggerRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -109,6 +128,15 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
     setIsStreaming(false);
     setIsOpen(false);
     triggerRef.current?.focus();
+  }, []);
+
+  /* Kept live so resizing across the breakpoint swaps modes mid-session. */
+  useEffect(() => {
+    const query = window.matchMedia(PUSH_QUERY);
+    const sync = () => setIsPush(query.matches);
+    sync();
+    query.addEventListener('change', sync);
+    return () => query.removeEventListener('change', sync);
   }, []);
 
   /* Escape closes, and focus is kept inside the panel while it is open. */
@@ -130,23 +158,30 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
     return () => document.removeEventListener('keydown', onKeyDown);
   }, [isOpen, close]);
 
-  /* The page behind the drawer should not scroll. */
+  /* Overlay mode freezes the page behind the drawer. Push mode instead makes
+     room for the panel and leaves the page scrollable, since it stays visible. */
   useEffect(() => {
     if (!isOpen) return;
+    const root = document.documentElement;
     const previous = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+    if (isPush) {
+      root.classList.add('assistant-push');
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
     const timer = window.setTimeout(() => inputRef.current?.focus(), 120);
     return () => {
+      root.classList.remove('assistant-push');
       document.body.style.overflow = previous;
       window.clearTimeout(timer);
     };
-  }, [isOpen]);
+  }, [isOpen, isPush]);
 
   /* Follow the newest text as it streams in. */
   useEffect(() => {
     const node = scrollRef.current;
     if (node) node.scrollTop = node.scrollHeight;
-  }, [messages, isStreaming]);
+  }, [messages, isStreaming, navigate]);
 
   useEffect(() => () => abortRef.current?.abort(), []);
 
@@ -156,6 +191,7 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
 
     setError(null);
     setDraft('');
+    setSource(null);
     const history: Message[] = [...messages, { role: 'user', content: question }];
     setMessages(history);
     setIsStreaming(true);
@@ -200,6 +236,13 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
           setError('The assistant returned an empty reply. Please try again.');
           return current.slice(0, -1);
         }
+        // Navigate the page behind the open panel rather than closing it, so
+        // nothing is pulled away mid-read and the answer stays on screen.
+        const found = last?.role === 'assistant' ? primarySource(last.content) : null;
+        if (found) {
+          setSource(found);
+          navigate(getPageFromPath(found.href));
+        }
         return current;
       });
     } catch (caught) {
@@ -230,17 +273,19 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
 
       {isOpen && (
         <>
-          <div
-            className="fixed inset-0 z-[60] bg-ink/40 dark:bg-black/60 motion-safe:animate-[fadeIn_150ms_ease-out]"
-            onClick={close}
-            aria-hidden="true"
-          />
+          {!isPush && (
+            <div
+              className="fixed inset-0 z-[60] bg-ink/40 dark:bg-black/60 motion-safe:animate-[fadeIn_150ms_ease-out]"
+              onClick={close}
+              aria-hidden="true"
+            />
+          )}
           <div
             ref={panelRef}
             role="dialog"
             aria-modal="true"
             aria-label="Services assistant"
-            className="fixed inset-y-0 right-0 z-[61] flex w-full max-w-md flex-col border-l border-line dark:border-white/10 bg-white dark:bg-neutral-950 shadow-2xl motion-safe:animate-[slideIn_220ms_cubic-bezier(0.16,1,0.3,1)]"
+            className={`fixed inset-y-0 right-0 z-[61] flex w-full max-w-md flex-col border-l border-line dark:border-white/10 bg-white dark:bg-neutral-950 motion-safe:animate-[slideIn_220ms_cubic-bezier(0.16,1,0.3,1)] ${isPush ? '' : 'shadow-2xl'}`}
           >
             <header className="flex items-center justify-between gap-3 border-b border-line dark:border-white/10 px-5 py-4">
               <div className="flex items-center gap-2.5 min-w-0">
@@ -254,7 +299,7 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
                 {messages.length > 0 && (
                   <button
                     type="button"
-                    onClick={() => { abortRef.current?.abort(); setMessages([]); setError(null); setDraft(''); inputRef.current?.focus(); }}
+                    onClick={() => { abortRef.current?.abort(); setMessages([]); setError(null); setSource(null); setDraft(''); inputRef.current?.focus(); }}
                     aria-label="Start a new conversation"
                     className="p-2 text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-white/[0.08] transition-colors"
                   >
@@ -326,6 +371,23 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
                 </p>
               )}
             </div>
+
+            {source && !isStreaming && (
+              <div className="border-t border-line dark:border-white/10 bg-tan dark:bg-neutral-900 px-5 py-3 flex items-center justify-between gap-3">
+                <p className="text-xs text-muted dark:text-neutral-400 min-w-0">
+                  Opened behind this panel:{' '}
+                  <span className="text-ink dark:text-neutral-200 font-medium">{source.label}</span>
+                </p>
+                <button
+                  type="button"
+                  onClick={close}
+                  className="flex-shrink-0 inline-flex items-center gap-1.5 text-xs font-medium text-blue hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
+                >
+                  View page
+                  <ArrowRight size={13} aria-hidden="true" />
+                </button>
+              </div>
+            )}
 
             <form
               onSubmit={event => { event.preventDefault(); send(draft); }}
