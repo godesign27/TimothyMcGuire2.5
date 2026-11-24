@@ -14,7 +14,9 @@ interface Env {
 }
 
 const MODEL = 'claude-haiku-5-5';
-const MAX_TOKENS = 700;
+/* Headroom so a normal answer cannot be truncated mid sentence. Length is set
+   by the prompt, not by this ceiling. */
+const MAX_TOKENS = 1500;
 /** Turns kept from the client's history. Caps both cost and prompt-stuffing. */
 const MAX_TURNS = 12;
 const MAX_CHARS_PER_MESSAGE = 2000;
@@ -65,20 +67,34 @@ function sseToText(): TransformStream<Uint8Array, Uint8Array> {
   const decoder = new TextDecoder();
   const encoder = new TextEncoder();
   let buffer = '';
+  /* Diagnostics for the no-text case: a stream that yields nothing still
+     returns 200, because the status is committed before any event arrives. */
+  let emitted = 0;
+  let stopReason: string | undefined;
+  const seen: string[] = [];
 
   const handleLine = (line: string, controller: TransformStreamDefaultController<Uint8Array>) => {
     if (!line.startsWith('data:')) return;
     const payload = line.slice(5).trim();
     if (!payload || payload === '[DONE]') return;
-    let event: { type?: string; delta?: { type?: string; text?: string }; error?: unknown };
+    let event: {
+      type?: string;
+      delta?: { type?: string; text?: string; stop_reason?: string };
+      error?: unknown;
+    };
     try {
       event = JSON.parse(payload);
     } catch {
       return; // A partial or non-JSON frame: skip it rather than failing the stream.
     }
+    if (event.type) seen.push(event.type);
     if (event.type === 'content_block_delta' && event.delta?.type === 'text_delta') {
+      emitted += 1;
       controller.enqueue(encoder.encode(event.delta.text ?? ''));
       return;
+    }
+    if (event.type === 'message_delta' && event.delta?.stop_reason) {
+      stopReason = event.delta.stop_reason;
     }
     // Errors arrive as ordinary stream events after the 200 is committed. The
     // response cannot become an error now, so the visitor gets a short reply or
@@ -98,6 +114,12 @@ function sseToText(): TransformStream<Uint8Array, Uint8Array> {
     flush(controller) {
       buffer += decoder.decode();
       if (buffer.trim()) handleLine(buffer, controller);
+      if (emitted === 0) {
+        console.error(
+          'Anthropic stream produced no text',
+          JSON.stringify({ stopReason, events: seen.slice(0, 20), eventCount: seen.length }),
+        );
+      }
     },
   });
 }
@@ -145,6 +167,13 @@ async function handleChat(request: Request, env: Env): Promise<Response> {
         model: MODEL,
         max_tokens: MAX_TOKENS,
         stream: true,
+        /* Haiku 5.5 runs adaptive thinking by default. On some questions the
+           reasoning consumed the whole budget, so the turn ended on max_tokens
+           having emitted thinking deltas but no text, and the visitor got an
+           empty answer. This assistant reads prepared copy rather than
+           reasoning, so thinking is off. Accepted on this model at effort high
+           or below, and the effort default here is medium. */
+        thinking: { type: 'disabled' },
         // Cached because the services reference is large and identical on every
         // request, which is most of the prompt cost on a site like this.
         system: [

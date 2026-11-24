@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Sparkles, X, ArrowUp, RotateCcw, ArrowRight } from 'lucide-react';
+import { Sparkles, X, ArrowUp, RotateCcw } from 'lucide-react';
 import { getPageFromPath } from '../lib/routes';
 
 /**
@@ -103,7 +103,8 @@ function renderMessage(content: string, navigate: (page: string) => void): React
 
 /**
  * The first same-site link in an answer is treated as where that answer came
- * from, which is why the prompt asks for the most relevant page first.
+ * from, and the page behind the panel is moved there, which is why the prompt
+ * asks for the most relevant page first.
  */
 function primarySource(content: string): { label: string; href: string } | null {
   const match = /\[([^\]\n]+)\]\((\/[^)\s]*)\)/.exec(content);
@@ -122,8 +123,6 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
   const [draft, setDraft] = useState('');
   const [isStreaming, setIsStreaming] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  /** The page moved into view behind the panel, so closing lands on the answer. */
-  const [source, setSource] = useState<{ label: string; href: string } | null>(null);
   /** True on wide screens, where the drawer pushes the page rather than covering it. */
   const [isPush, setIsPush] = useState(false);
 
@@ -141,6 +140,11 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
     inFlightRef.current = false;
     setIsStreaming(false);
     setIsOpen(false);
+    /* Reset so reopening starts at the default view rather than resuming a
+       conversation whose answers refer to a page the visitor has since left. */
+    setMessages([]);
+    setError(null);
+    setDraft('');
     triggerRef.current?.focus();
   }, []);
 
@@ -210,7 +214,6 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
 
     setError(null);
     setDraft('');
-    setSource(null);
     const history: Message[] = [...messages, { role: 'user', content: question }];
     setMessages(history);
     setIsStreaming(true);
@@ -263,10 +266,7 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
         // Move the page behind the open panel rather than closing it, so
         // nothing is pulled away mid-read and the answer stays on screen.
         const found = primarySource(answer);
-        if (found) {
-          setSource(found);
-          navigate(getPageFromPath(found.href));
-        }
+        if (found) navigate(getPageFromPath(found.href));
       }
     } catch (caught) {
       if ((caught as Error).name === 'AbortError') return;
@@ -328,7 +328,7 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
                 {messages.length > 0 && (
                   <button
                     type="button"
-                    onClick={() => { abortRef.current?.abort(); inFlightRef.current = false; setMessages([]); setError(null); setSource(null); setDraft(''); inputRef.current?.focus(); }}
+                    onClick={() => { abortRef.current?.abort(); inFlightRef.current = false; setMessages([]); setError(null); setDraft(''); inputRef.current?.focus(); }}
                     aria-label="Start a new conversation"
                     className="p-2 text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-white/[0.08] transition-colors"
                   >
@@ -400,23 +400,6 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
                 </p>
               )}
             </div>
-
-            {source && !isStreaming && (
-              <div className="border-t border-line dark:border-white/10 bg-tan dark:bg-neutral-900 px-5 py-3 flex items-center justify-between gap-3">
-                <p className="text-xs text-muted dark:text-neutral-400 min-w-0">
-                  Opened behind this panel:{' '}
-                  <span className="text-ink dark:text-neutral-200 font-medium">{source.label}</span>
-                </p>
-                <button
-                  type="button"
-                  onClick={close}
-                  className="flex-shrink-0 inline-flex items-center gap-1.5 text-xs font-medium text-blue hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
-                >
-                  View page
-                  <ArrowRight size={13} aria-hidden="true" />
-                </button>
-              </div>
-            )}
 
             <form
               onSubmit={event => { event.preventDefault(); send(draft); }}
