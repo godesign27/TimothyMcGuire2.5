@@ -12,3 +12,6 @@ docs/
 # Both paths are required: the build copies public/ into the tracked dist/.
 public/case-studies/zs/
 dist/case-studies/zs/
+
+# Local Worker secrets
+.dev.vars

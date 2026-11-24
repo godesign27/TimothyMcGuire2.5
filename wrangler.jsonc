@@ -1,10 +1,30 @@
 {
+  "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "timothymcguire27",
-  "compatibility_date": "2025-01-01",
+  "main": "src/worker/index.ts",
+  "compatibility_date": "2026-11-01",
   "account_id": "765c97c427b70f00f54f8d488dc74386",
+  "observability": {
+    "enabled": true
+  },
+  // The prerendered build. Assets are matched before the Worker runs, so the
+  // Worker only executes for /api/chat and for paths with no matching file.
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
     "html_handling": "drop-trailing-slash",
     "not_found_handling": "404-page"
-  }
+  },
+  // Per-IP cap on the chat endpoint. Without this, a public endpoint that calls
+  // a paid API is an open invoice. Period must be 10 or 60.
+  "ratelimits": [
+    {
+      "name": "CHAT_RATE_LIMITER",
+      "namespace_id": "1001",
+      "simple": {
+        "limit": 12,
+        "period": 60
+      }
+    }
+  ]
 }

@@ -1,7 +1,7 @@
 import SiteLink from './SiteLink';
+import AIAssistant from './AIAssistant';
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Moon, Sun, ChevronDown, Bot, Box, Users, Building2, Palette, Heart, BarChart3, RefreshCcw, BookOpen, Workflow, PenLine, Mic2, Target, Briefcase } from 'lucide-react';
-import { useTheme } from 'next-themes';
+import { Menu, X, ChevronDown, Bot, Box, Users, Building2, Palette, Heart, BarChart3, RefreshCcw, BookOpen, Workflow, PenLine, Mic2, Target, Briefcase } from 'lucide-react';
 
 interface NavbarProps {
   currentPage: string;
@@ -50,12 +50,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, setSelecte
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<DropdownKey>(null);
   const [mobileExpanded, setMobileExpanded] = useState<DropdownKey>(null);
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
-
-  useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -272,24 +268,14 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, setSelecte
           </div>
 
           <div className="hidden lg:flex items-center gap-4">
-            <button
-              aria-label="Toggle color theme" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2 rounded-none text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-white/[0.08] transition-colors"
-            >
-              {mounted && theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
+            <AIAssistant navigate={navigate} />
             <SiteLink className="btn-primary btn-sm" page={'contact'} navigate={navigate}>
               Let's Talk
             </SiteLink>
           </div>
 
           <div className="flex lg:hidden items-center gap-2">
-            <button
-              aria-label="Toggle color theme" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              className="p-2 rounded-none text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white"
-            >
-              {mounted && theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
+            <AIAssistant navigate={navigate} />
             <button
               aria-label="Toggle navigation" aria-expanded={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-none text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white"

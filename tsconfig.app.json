@@ -20,5 +20,8 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  /* src/worker is checked by tsconfig.worker.json instead: it runs on the
+     Workers runtime, not in the browser. */
+  "include": ["src"],
+  "exclude": ["src/worker"]
 }

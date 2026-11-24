@@ -1,0 +1,20 @@
+{
+  /* The Worker is checked separately from the app: Workers and DOM globals
+     define some of the same names, so mixing their lib types in one program
+     produces conflicts. */
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "types": ["@cloudflare/workers-types"],
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  },
+  "include": ["src/worker", "src/data"]
+}

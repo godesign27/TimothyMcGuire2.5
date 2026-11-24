@@ -44,6 +44,18 @@ export default {
       borderRadius: {
         'card': '0px',
       },
+      /* Used by the assistant drawer. Both are applied under motion-safe:, so
+         a reduced-motion preference gets the panel with no entrance. */
+      keyframes: {
+        fadeIn: {
+          from: { opacity: '0' },
+          to: { opacity: '1' },
+        },
+        slideIn: {
+          from: { transform: 'translateX(100%)' },
+          to: { transform: 'translateX(0)' },
+        },
+      },
     },
   },
   plugins: [],

@@ -1,6 +1,7 @@
 import SiteLink from './SiteLink';
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { ArrowRight, Moon, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
 
 interface FooterProps {
   currentPage: string;
@@ -8,6 +9,14 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ currentPage: _currentPage, setCurrentPage }) => {
+  /* resolvedTheme, not theme: until someone picks a mode, theme is "system",
+     so comparing it would offer "switch to dark" on an already dark page. */
+  const { resolvedTheme, setTheme } = useTheme();
+  /* The prerendered markup cannot know the visitor's theme, so the icon is
+     only chosen after mount to avoid a hydration mismatch. */
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
+
   const nav = (page: string) => {
     window.scrollTo(0, 0);
     setCurrentPage(page);
@@ -131,6 +140,14 @@ const Footer: React.FC<FooterProps> = ({ currentPage: _currentPage, setCurrentPa
           <div className="flex items-center gap-6 text-xs text-muted dark:text-neutral-500">
             <span>Editorial. Minimal. Explainable.</span>
             <div className="w-5 h-[2px] bg-blue" />
+            <button
+              type="button"
+              aria-label={mounted && resolvedTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+              className="p-2 -mr-2 rounded-none text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-white/[0.08] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
+            >
+              {mounted && resolvedTheme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+            </button>
           </div>
         </div>
       </div>

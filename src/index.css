@@ -32,6 +32,13 @@
     @apply px-4 py-2 text-sm;
   }
 
+  /* Square variant for icon-only buttons, so they keep the button border and
+     hover treatment instead of reading as a bare glyph. Pair with a variant:
+     `btn-secondary btn-icon`. Sized to match btn-sm's height. */
+  .btn-icon {
+    @apply px-0 py-0 h-[38px] w-[38px] flex-shrink-0;
+  }
+
   .btn-lg {
     @apply px-8 py-4 text-base;
   }
