@@ -1,6 +1,9 @@
 import React from 'react';
 import ServiceOfferings from './components/ServiceOfferings';
 import { serviceOfferings, offeringPageId } from './data/serviceOfferings';
+import { products, productPageId } from './data/products';
+import ProductDetail from './components/ProductDetail';
+import HomeProducts from './components/HomeProducts';
 import { ThemeProvider } from 'next-themes';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -27,7 +30,6 @@ import AgenticExperience from './components/AgenticExperience';
 import EnterpriseUXConsulting from './components/EnterpriseUXConsulting';
 import SpeakingWorkshops from './components/SpeakingWorkshops';
 import StrategySessions from './components/StrategySessions';
-import WorkWithMe from './components/WorkWithMe';
 import Perspectives from './components/Perspectives';
 import PerspectiveDetail from './components/PerspectiveDetail';
 import SolutionDetail from './components/SolutionDetail';
@@ -127,7 +129,12 @@ function App({ initialPath }: { initialPath?: string }) {
   ]);
 
   const renderPage = () => {
-    if (currentPage === 'service-offerings' || serviceOfferings.some(offering => offeringPageId(offering.slug) === currentPage)) {
+    const product = products.find(item => productPageId(item.slug) === currentPage);
+    if (product) {
+      return <ProductDetail product={product} setCurrentPage={setCurrentPage} />;
+    }
+    // "Work With Me" is the renamed Service Offerings index; /service-offerings is kept as an alias.
+    if (currentPage === 'service-offerings' || currentPage === 'work-with-me' || serviceOfferings.some(offering => offeringPageId(offering.slug) === currentPage)) {
       return <ServiceOfferings slug={serviceOfferings.find(offering => offeringPageId(offering.slug) === currentPage)?.slug} setCurrentPage={setCurrentPage} />;
     }
     if (perspectiveDetailPages.has(currentPage)) {
@@ -147,6 +154,7 @@ function App({ initialPath }: { initialPath?: string }) {
             <ValueProposition />
             <SpecializedExpertise setCurrentPage={setCurrentPage} />
             <Testimonials />
+            <HomeProducts setCurrentPage={setCurrentPage} />
             <CTA setCurrentPage={setCurrentPage} />
           </>
         );
@@ -180,8 +188,6 @@ function App({ initialPath }: { initialPath?: string }) {
         return <SpeakingWorkshops setCurrentPage={setCurrentPage} />;
       case 'strategy-sessions':
         return <StrategySessions setCurrentPage={setCurrentPage} />;
-      case 'work-with-me':
-        return <WorkWithMe setCurrentPage={setCurrentPage} />;
       case 'perspectives':
         return <Perspectives setCurrentPage={setCurrentPage} />;
       case 'resume':

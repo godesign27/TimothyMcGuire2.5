@@ -3,6 +3,8 @@ import { ArrowRight, ArrowUpRight, Check, Minus } from 'lucide-react';
 import Eyebrow from './Eyebrow';
 import OfferingIllustration from './illustrations/OfferingIllustration';
 import { serviceOfferings, existingServiceProducts, offeringPageId, offeringPath, ServiceOffering, ExistingServiceProduct, PRICING_DISCLAIMER } from '../data/serviceOfferings';
+import { products, productPageId, productPath } from '../data/products';
+import ServicesContactForm from './ServicesContactForm';
 
 const container = 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8';
 const body = 'text-muted dark:text-neutral-400 leading-relaxed';
@@ -98,7 +100,31 @@ const ServiceOfferings: React.FC<{ slug?: string; setCurrentPage: (page: string)
           <p className={`${body} text-sm mt-6`}>{PRICING_DISCLAIMER} Fractional leadership is scoped to reserved capacity, not an assumed calendar month.</p>
         </div>
       </section>
-      <section id="more-services" className="py-16 sm:py-24 border-t border-line dark:border-white/10 bg-tan dark:bg-neutral-900">
+      <section id="products" className="py-16 sm:py-24 border-t border-line dark:border-white/10 bg-tan dark:bg-neutral-900">
+        <div className={container}>
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            <div><Eyebrow>Productized offerings</Eyebrow><h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">Packaged, with set prices.</h2></div>
+            <p className={`${body} lg:pt-8`}>Three products with fixed scope and published pricing. Licence the library, have a system installed, or have an agent designed and built.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-px bg-line dark:bg-white/10 border border-line dark:border-white/10">
+            {products.map(product => (
+              <article key={product.slug} className="flex flex-col bg-white dark:bg-neutral-950 p-6 sm:p-8">
+                <span className="text-xs font-semibold text-blue dark:text-lavender tracking-widest uppercase mb-8">Product</span>
+                <h3 className="text-2xl font-semibold leading-tight text-ink dark:text-tan-500 mb-4">{product.navLabel}</h3>
+                <p className={`${body} mb-8`}>{product.headline}</p>
+                <div className="mt-auto">
+                  <p className="text-lg font-semibold text-ink dark:text-white">From {product.tiers[0].price}</p>
+                  <p className="text-sm text-muted dark:text-neutral-400 mt-2">{product.tiers.length} packages · USD</p>
+                  <PageLink to={productPath(product.slug)} page={productPageId(product.slug)} navigate={navigate} label={`View details: ${product.name}`} className={`mt-6 pt-5 border-t border-line dark:border-white/10 flex min-h-12 items-center justify-between text-sm font-semibold text-blue dark:text-lavender hover:underline ${focus}`}>
+                    View details <ArrowUpRight size={18} strokeWidth={1.5} aria-hidden="true" />
+                  </PageLink>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section id="more-services" className="py-16 sm:py-24 border-t border-line dark:border-white/10 bg-white dark:bg-neutral-950">
         <div className={container}>
           <div className="grid lg:grid-cols-2 gap-8 mb-12">
             <div><Eyebrow>The wider practice</Eyebrow><h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">More ways to work together.</h2></div>
@@ -125,7 +151,9 @@ const ServiceOfferings: React.FC<{ slug?: string; setCurrentPage: (page: string)
         {offering.slug === 'agentic-design-system-build' && <p className={`${body} mt-8`}>For broader context, <PageLink to="/case-studies" page="case-studies" navigate={navigate} className={`underline text-blue dark:text-lavender ${focus}`}>explore the published portfolio</PageLink>. New build-specific case studies will be linked when available.</p>}
       </div></section>
     </>}
-    <Inquiry offering={offering} navigate={navigate} />
+    {/* Restricted offerings keep the status-aware note; every page gets the inline form. */}
+    {offering && offering.status !== 'Review' && <Inquiry offering={offering} navigate={navigate} />}
+    <ServicesContactForm background="white" />
     <PreviewNote />
   </main>;
 };

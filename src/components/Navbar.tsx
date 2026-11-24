@@ -1,6 +1,6 @@
 import SiteLink from './SiteLink';
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, Moon, Sun, ChevronDown, Bot, Globe, Box, Smartphone, Users, Building2, Palette, Heart, BarChart3, RefreshCcw, BookOpen, Workflow, PenLine, Mic2, Target, Briefcase } from 'lucide-react';
+import { Menu, X, Moon, Sun, ChevronDown, Bot, Box, Users, Building2, Palette, Heart, BarChart3, RefreshCcw, BookOpen, Workflow, PenLine, Mic2, Target, Briefcase } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
 interface NavbarProps {
@@ -9,16 +9,6 @@ interface NavbarProps {
   setSelectedCaseStudy?: (study: string | null) => void;
 }
 
-const servicePages = [
-  { id: 'agentic-experience', label: 'Agentic Experience', description: 'AI-native product design and UX leadership.', icon: Bot },
-  { id: 'enterprise-ux-consulting', label: 'Enterprise UX Consulting', description: 'Senior UX expertise for complex enterprise products.', icon: Building2 },
-  { id: 'saas-product-design', label: 'SaaS Product Design', description: 'Scalable interfaces for software products.', icon: Box },
-  { id: 'marketing-web-design', label: 'Marketing Web Design', description: 'Conversion-focused websites that tell your story.', icon: Globe },
-  { id: 'mobile-web-design', label: 'Mobile & Web Design', description: 'Responsive experiences that shine on every device.', icon: Smartphone },
-  { id: 'fractional-saas-designer', label: 'Fractional SaaS Designer', description: 'Senior design leadership on a flexible cadence.', icon: Users },
-  { id: 'speaking-workshops', label: 'Speaking & Workshops', description: 'Talks and facilitated workshops for design teams.', icon: Mic2 },
-  { id: 'strategy-sessions', label: 'Strategy Sessions', description: 'Focused time with a senior design mind.', icon: Target },
-];
 
 const solutionPages = [
   { id: 'case-studies', label: 'Case Studies', description: 'Work samples and results across industries.', icon: Briefcase },
@@ -38,12 +28,19 @@ const perspectivePages = [
   { id: 'perspectives-speaking', label: 'Speaking', description: 'Conference talks and panel appearances.', icon: Mic2 },
 ];
 
-const workWithMePages = [
-  { id: 'service-offerings', label: 'Service Offerings', description: 'Compare scoped engagements for AI products and design systems.', icon: Box },
-  { id: 'work-with-me-enterprise-consulting', label: 'Enterprise Consulting', description: 'Senior AI experience strategy for enterprise products.', icon: Building2 },
-  { id: 'work-with-me-fractional-leadership', label: 'Fractional Leadership', description: 'Senior design leadership on a flexible cadence.', icon: Users },
-  { id: 'work-with-me-strategy-sessions', label: 'Strategy Sessions', description: 'Focused advisory engagements with a senior design mind.', icon: Target },
-  { id: 'work-with-me-speaking-workshops', label: 'Speaking & Workshops', description: 'Talks and workshops for design teams and conferences.', icon: Mic2 },
+/**
+ * Services menu. Labels carry "AI" for search and answer engines, except
+ * "Work With Me", which is the overview and is named deliberately.
+ */
+const servicesPages = [
+  { id: 'work-with-me', label: 'Work With Me', description: 'Compare every scoped AI engagement in one place.', icon: Briefcase },
+  { id: 'product-ai-enterprise-agents', label: 'AI Enterprise Agents', description: 'Specialized AI agents designed and built for enterprise products.', icon: Bot },
+  { id: 'product-ai-design-system-in-a-box', label: 'AI Design System in a Box', description: 'A fixed scope, agent readable design system your AI tools can follow.', icon: Box },
+  { id: 'product-ai-component-library', label: 'AI Component Library', description: 'A token driven library of AI and agentic UI components.', icon: Palette },
+  { id: 'work-with-me-enterprise-consulting', label: 'Enterprise AI Consulting', description: 'Senior AI experience strategy for enterprise products.', icon: Building2 },
+  { id: 'work-with-me-fractional-leadership', label: 'Fractional AI Leadership', description: 'Senior AI design leadership on a flexible cadence.', icon: Users },
+  { id: 'work-with-me-strategy-sessions', label: 'AI Strategy Sessions', description: 'Focused AI advisory engagements with a senior design mind.', icon: Target },
+  { id: 'work-with-me-speaking-workshops', label: 'AI Speaking & Workshops', description: 'AI talks and workshops for design teams and conferences.', icon: Mic2 },
 ];
 
 type DropdownKey = 'services' | 'solutions' | 'perspectives' | 'work-with-me' | null;
@@ -94,10 +91,11 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, setSelecte
     setMobileExpanded(null);
   };
 
-  const isServicePage = currentPage === 'services' || servicePages.some(s => s.id === currentPage);
   const isSolutionPage = currentPage === 'solutions' || currentPage === 'case-studies' || solutionPages.some(s => s.id === currentPage);
   const isPerspectivePage = currentPage === 'perspectives' || perspectivePages.some(s => s.id === currentPage);
-  const isWorkWithMePage = currentPage === 'work-with-me' || currentPage === 'contact' || currentPage.startsWith('offering-') || workWithMePages.some(s => s.id === currentPage);
+  const isServicesPage = currentPage === 'work-with-me' || currentPage === 'service-offerings' || currentPage === 'contact'
+    || currentPage.startsWith('offering-') || currentPage.startsWith('product-')
+    || servicesPages.some(s => s.id === currentPage);
 
   const getNavLinkClasses = (active: boolean) =>
     `px-3 py-2 text-sm font-medium transition-colors relative inline-flex items-center gap-1 ${
@@ -138,6 +136,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, setSelecte
     overviewPage: string,
     overviewLabel: string,
     items: { id: string; label: string; description: string; icon: React.ElementType }[],
+    /** Services lists its overview as a named item, so the corner link is omitted there. */
+    showOverviewLink = true,
   ) => (
     <div
       className={`absolute top-full left-0 mt-2 w-80 bg-white dark:bg-neutral-950 border border-[#D9D9D9] dark:border-white/[0.1] rounded-none transition-all duration-200 origin-top ${
@@ -148,12 +148,14 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, setSelecte
     >
       <div className="flex items-center justify-between px-5 pt-4 pb-2">
         <span className="text-xs font-semibold uppercase tracking-wider text-muted dark:text-neutral-500">{overviewLabel}</span>
-        <SiteLink
-          page={overviewPage} navigate={navigate}
-          className="text-xs font-medium text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors"
-        >
-          Overview
-        </SiteLink>
+        {showOverviewLink && (
+          <SiteLink
+            page={overviewPage} navigate={navigate}
+            className="text-xs font-medium text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors"
+          >
+            Overview
+          </SiteLink>
+        )}
       </div>
       <div className="py-1 pb-3">
         {items.map(renderItem)}
@@ -257,11 +259,11 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, setSelecte
                   onFocus={() => openDropdown('work-with-me')} onMouseEnter={() => openDropdown('work-with-me')}
                   onMouseLeave={scheduleClose}
                 >
-                  <SiteLink className={getNavLinkClasses(isWorkWithMePage)} page={'work-with-me'} navigate={navigate}>
-                    Work With Me
+                  <SiteLink className={getNavLinkClasses(isServicesPage)} page={'work-with-me'} navigate={navigate}>
+                    Services
                     <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === 'work-with-me' ? 'rotate-180' : ''}`} />
                   </SiteLink>
-                  {renderDropdown('work-with-me', 'work-with-me', 'Work With Me', workWithMePages)}
+                  {renderDropdown('work-with-me', 'work-with-me', 'Services', servicesPages, false)}
                 </div>
 
                 <SiteLink className={getNavLinkClasses(currentPage === 'about')} page={'about'} navigate={navigate}>About</SiteLink>
@@ -305,7 +307,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, setSelecte
             <SiteLink className="block w-full text-left px-4 py-3 text-sm font-medium text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-white/[0.04]" page={'ai-experience-architecture'} navigate={navigate}>AI Experience Architecture™</SiteLink>
             {renderMobileSection('solutions', 'Solutions', 'solutions', solutionPages)}
             {renderMobileSection('perspectives', 'Perspectives', 'perspectives', perspectivePages)}
-            {renderMobileSection('work-with-me', 'Work With Me', 'work-with-me', workWithMePages)}
+            {renderMobileSection('work-with-me', 'Services', 'work-with-me', servicesPages)}
             <SiteLink className="block w-full text-left px-4 py-3 text-sm font-medium text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-white/[0.04]" page={'about'} navigate={navigate}>About</SiteLink>
             <div className="px-4 pt-4">
               <SiteLink className="btn-primary w-full" page={'contact'} navigate={navigate}>

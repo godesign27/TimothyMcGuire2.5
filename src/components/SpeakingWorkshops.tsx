@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import PageBreadcrumb from './PageBreadcrumb';
 import RelatedContent from './RelatedContent';
 import SectionCTA from './SectionCTA';
+import ServicesContactForm from './ServicesContactForm';
 
 interface SpeakingWorkshopsProps {
   setCurrentPage: (page: string) => void;
@@ -148,6 +149,7 @@ const SpeakingWorkshops: React.FC<SpeakingWorkshopsProps> = ({ setCurrentPage })
         ]}
       />
 
+      <ServicesContactForm background="tan" />
       <SectionCTA
         heading="Book a talk or workshop."
         body="Tell me about your event, team size, and what you want the audience to walk away with. I'll respond within 48 hours."

@@ -5,6 +5,7 @@ import Eyebrow from './Eyebrow';
 import PageBreadcrumb from './PageBreadcrumb';
 import RelatedContent from './RelatedContent';
 import SectionCTA from './SectionCTA';
+import ServicesContactForm from './ServicesContactForm';
 
 interface FractionalSaasDesignerProps {
   setCurrentPage: (page: string) => void;
@@ -633,6 +634,7 @@ const FractionalSaasDesigner: React.FC<FractionalSaasDesignerProps> = ({ setCurr
         ]}
       />
 
+      <ServicesContactForm background="tan" />
       <SectionCTA
         heading="Small improvements, consistently applied."
         body="For SaaS teams where the product is strong but UX and systems need to catch up — this embedded, incremental approach provides a clear path forward. Let's talk."

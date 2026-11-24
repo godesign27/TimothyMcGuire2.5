@@ -1,4 +1,5 @@
 import { serviceOfferings, offeringPageId, offeringPath } from '../data/serviceOfferings';
+import { products, productPageId, productPath } from '../data/products';
 
 export interface PageMeta {
   title: string;
@@ -24,6 +25,11 @@ export const pageSeo: Record<string, PageMeta> = {
     title: `${offering.name} | Timothy McGuire`,
     description: `${offering.promise} Explore scope, timing, and pricing with Timothy McGuire.`,
     path: offeringPath(offering.slug),
+  }])),
+  ...Object.fromEntries(products.map(product => [productPageId(product.slug), {
+    title: `${product.name} | Timothy McGuire`,
+    description: product.metaDescription,
+    path: productPath(product.slug),
   }])),
   home: {
     title: SITE_NAME,
@@ -86,8 +92,8 @@ export const pageSeo: Record<string, PageMeta> = {
     path: '/services/strategy-sessions',
   },
   'work-with-me': {
-    title: `${SITE_NAME} | Work With Me`,
-    description: 'Find the right engagement format — from full-scale redesign to fractional leadership, workshops, and focused strategy sessions.',
+    title: 'AI Services: Agents, Design Systems & Consulting | Timothy McGuire',
+    description: 'Compare AI services: AI Enterprise Agents, AI Design System in a Box, AI Component Library, plus AI consulting, fractional leadership, strategy sessions and workshops. Scope and pricing stated up front.',
     path: '/work-with-me',
   },
   resume: {
@@ -204,6 +210,7 @@ export const pageToPath: Record<string, string> = {
   'case-study-zs': '/case-studies/zs',
   'service-offerings': '/service-offerings',
   ...Object.fromEntries(serviceOfferings.map(offering => [offeringPageId(offering.slug), offeringPath(offering.slug)])),
+  ...Object.fromEntries(products.map(product => [productPageId(product.slug), productPath(product.slug)])),
   home: '/',
   about: '/about',
   contact: '/contact',
@@ -250,6 +257,8 @@ export const getPageFromPath = (pathname: string): string => {
 export const SITE_URL = 'https://timothymcguire.com';
 export const isPrivatePage = (page: string) => ['analytics', '__design__', 'not-found', 'case-study-zs'].includes(page);
 export const canonicalPage: Record<string, string> = {
+  // "Service Offerings" was renamed "Work With Me" and merged onto /work-with-me.
+  'service-offerings': 'work-with-me',
   'enterprise-ux-consulting': 'work-with-me-enterprise-consulting',
   'fractional-saas-designer': 'work-with-me-fractional-leadership',
   'strategy-sessions': 'work-with-me-strategy-sessions',

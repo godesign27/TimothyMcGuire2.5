@@ -4,6 +4,7 @@ import PageBreadcrumb from './PageBreadcrumb';
 import RelatedContent from './RelatedContent';
 import SectionCTA from './SectionCTA';
 import StrategySessionIllustration from './illustrations/StrategySessionIllustration';
+import ServicesContactForm from './ServicesContactForm';
 
 interface StrategySessionsProps {
   setCurrentPage: (page: string) => void;
@@ -144,6 +145,7 @@ const StrategySessions: React.FC<StrategySessionsProps> = ({ setCurrentPage }) =
         ]}
       />
 
+      <ServicesContactForm background="tan" />
       <SectionCTA
         heading="Book a session."
         body="Reach out with a brief description of your challenge and your preferred session type. I'll respond within 24 hours."
