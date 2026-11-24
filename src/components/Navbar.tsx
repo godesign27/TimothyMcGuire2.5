@@ -268,14 +268,14 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage, setSelecte
           </div>
 
           <div className="hidden lg:flex items-center gap-4">
-            <AIAssistant navigate={navigate} />
+            <AIAssistant navigate={navigate} currentPage={currentPage} />
             <SiteLink className="btn-primary btn-sm" page={'contact'} navigate={navigate}>
               Let's Talk
             </SiteLink>
           </div>
 
           <div className="flex lg:hidden items-center gap-2">
-            <AIAssistant navigate={navigate} />
+            <AIAssistant navigate={navigate} currentPage={currentPage} />
             <button
               aria-label="Toggle navigation" aria-expanded={isMenuOpen} onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-none text-muted dark:text-neutral-400 hover:text-black dark:hover:text-white"

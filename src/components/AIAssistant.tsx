@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Sparkles, X, ArrowUp, RotateCcw } from 'lucide-react';
 import { getPageFromPath } from '../lib/routes';
+import { assistantSuggestions } from '../lib/assistantSuggestions';
 
 /**
  * The services assistant: a navbar icon that opens a right side drawer.
@@ -23,12 +24,6 @@ interface Message {
  * content aside instead of covering it. At or below it, the drawer overlays.
  */
 const PUSH_QUERY = '(min-width: 1441px)';
-
-const SUGGESTIONS = [
-  'What do you offer, and what does it cost?',
-  'We need AI features in an enterprise app. Where do we start?',
-  'What is an AI design system in a box?',
-];
 
 const GREETING =
   'Ask me about Timothy\'s services, what each package includes, or what fits the problem you are working on. For anything specific to your situation, I will point you to the contact form.';
@@ -113,11 +108,13 @@ function primarySource(content: string): { label: string; href: string } | null 
 
 interface AIAssistantProps {
   navigate: (page: string) => void;
+  /** Drives the starter questions, so they match the page being read. */
+  currentPage: string;
   /** Rendered as the navbar trigger, so the drawer owns its own open state. */
   triggerClassName?: string;
 }
 
-const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = '' }) => {
+const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, currentPage, triggerClassName = '' }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [draft, setDraft] = useState('');
@@ -354,7 +351,7 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ navigate, triggerClassName = 
                     <p className="text-[11px] font-semibold uppercase tracking-[0.1em] text-muted dark:text-neutral-500">
                       Try asking
                     </p>
-                    {SUGGESTIONS.map(suggestion => (
+                    {assistantSuggestions(currentPage).map(suggestion => (
                       <button
                         key={suggestion}
                         type="button"
